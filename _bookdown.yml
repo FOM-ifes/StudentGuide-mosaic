@@ -7,5 +7,6 @@ language:
 rmd_files: [
   "index.Rmd",
   "01-Einleitung.Rmd",
+  "02-RStudio.Rmd",
   "17-Hinweise.Rmd"
 ]

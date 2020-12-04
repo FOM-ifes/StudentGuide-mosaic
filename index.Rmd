@@ -16,6 +16,13 @@ colorlinks: yes
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 ---
 
+```{r packages, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+library(mosaic)
+library(kableExtra)
+```
+
+
 # Vorwort {-}
 
 
