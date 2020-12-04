@@ -1,0 +1,117 @@
+# Los geht's mit RStudio {#RStudio}
+
+`RStudio` ist eine integrierte Entwicklerumgebung (*integrated development environment* (IDE)) für `R`, die eine alternative Schnittstelle zu `R` bietet und mehrere Vorteile gegenüber den Standard-`R`-Schnittstellen bietet:
+
+::: {.hinweis data-latex=""}
+Eine Reihe Einführungsvideos ist verfügbar unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
+:::
+
+- `RStudio` läuft auf Mac-, PC-, und Linux-Rechnern und bietet eine vereinfachte Schnittstelle, die 
+auf allen ähnlich von Aussehen und in der Handhabung ist. Die Standardschnittstellen für `R` sind ziemlich unterschiedlich auf den verschiedenen Platformen. Das kann den Studierenden verwirren oder ablenken und führt zu höherem Unterstützungsaufwand für den Dozenten.
+- `RStudio` kann in einem Webbrowser laufen.  Zusätzlich zu eigenständigen Desktop Versionen oder in `RStudio.cloud`, kann  `RStudio` als eine Server-Anwendung installiert werden, auf die über das Internet zugreifbar ist.  Die Web-Schnittstelle ist fast identisch zu der Desktopversion.
+::: {.achtung data-latex=""}
+Die Desktop und Server versionen von `RStudio` sind so ähnlich, dass Sie besonders aufpassen müssen, wenn Sie beide gleichzeitig nutzen, um sicher zu gehen, dass Sie in der richtigen Version arbeiten.
+:::
+Wie bei anderen Web-Services auch, melden Nutzer sich an, um Zugriff zu ihrem Konto zu erlangen.
+Wenn Studierende sich abmelden und später wieder anmelden, wird ihre Session wiederhergestellt und sie können an der Stelle mit ihrer Analyse weiter machen, wo sie verblieben waren, auch wenn sie sich auf einer anderen Maschine anmelden. Mit einer etwas fortgeschrittenen Einrichtung können Dozenten die Historie der Nutzung von `R` in ihrem Klassenraum speichern und Studierenden können diese Historie-Datei in ihre eigene Umgebung laden.
+
+::: {.note data-latex=""}
+Die Verwendung von `RStudio` in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Anwender sich wieder anmelden, wird die vorherige Session wiederhergestellt und sie weiter machen, wo sie zuletzt aufgehört haben. Nutzer können sich von jedem Gerät mit Internetzugriff anmelden.
+:::
+
+- `RStudio` unterstützt reproduzierbare Forschung.  `RStudio` macht es einfach Text, statistische Analysen (`R`-Code und `R`-Output) und graphische Abbildungen zusammen im gleichen Dokument einzuschließen. Das RMarkdown System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen.  Das knitr/LaTeX-System versetzt Nutzer in die Lage auch `R` und LaTeX in dasselbe Dokument zu integrieren.  Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output Formates. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
+
+::: {.hinweis data-latex=""}
+Um Markdown oder knitr/LaTeX zu verwenden, muss das `knitr` Paket auf dem System installiert sein.
+:::
+
+- `RStudio` bietet eine integrierte Unterstützung für das Bearbeiten und Ausführen von `R`-Code und Dokumenten.
+- `RStudio` bietet einige nützliche Funktionalitäten über eine grafische Nutzeroberfläche (Graphical User Interface oder GUI).  `RStudio` ist nicht ein GUI für `R`, aber es bietet ein GUI das Themen wie die Installation und Verwaltung von Paketen; die Steuereung, Speicherung und das Laden von Umgebungen; das Importieren und Exportieren von Daten sowie den Zugriff auf und Export von Abbildungen, Dateien und Dokumentationen vereinfacht.
+- `RStudio` bietet Zugriff auf das `manipulate` Paket.  Das `manipulate` Paket bietet eine Möglichkeit, einfach und schnell interaktive grafische Anwendungen zu erstellen.
+
+Obwohl man sicherlich `R` ohne die Verwendung von `RStudio` nutzen kann, vereinfacht `RStudio` viele Dinge und wir empfehlen den Einsatz von `RStudio` stark.  Außerdem erwarten wir noch weitere nützliche Funktionalitäten in der Zukunft, weil `RStudio` stetig weiterentwickelt wird.
+
+Wir verwenden in erster Linie eine online Version von `Rstudio.`  `Rstudio` ist eine innovative und leistungsstarke Schnittstelle zu `R`, die in einem Webbrowser oder auf Ihrer lokalen Maschine läuft.
+Die Anwendung über den Browser hat den Vorteil, dass Sie nichts installieren oder konfigurieren müssen. Einfach anmelden und Sie können loslegen. Außerdem "merkt" `Rstudio` sich, was Sie machen und Sie können da weitermachen, wo Sie aufgehört haben, jedesmal wenn Sie sich anmelden (auch auf einer anderen Maschine). Das ist "`R` in the cloud" und funktioniert ähnlich wie GoogleDocs oder Facebook für `R.`
+
+::: {.hinweis data-latex=""}
+`R` kann von [http://cran.r-project.org/](http://cran.r-project.org/) runtergeladen und lokal installiert werden. Das Runterladen und die Installation sind i. A. unkompliziert für Mac-, PC-, oder Linux-Systeme. `RStudio` ist über [http://www.rstudio.org/](http://www.rstudio.org/) verfügbar.
+:::
+
+## Mit einem RStudio-Server verbinden
+`RStudio` Server wurden an Hochschulen eingerichtet, um cloud-basierte Berechnungen zu ermöglichen. 
+
+::: {.note data-latex=""}
+`RStudio` Server wurden schon an vielen Institutionen installiert. Nähere Informationen zu (gebührenfreien) akademischen Lizenzen für `RStudio` Server Pro und Installationsanweisungen sind über [http://www.rstudio.com/resources/faqs](http://www.rstudio.com/resources/faqs) unter dem `Academic` Reiter verfügbar.
+Der `RStudio` Server funktioniert mit dem Internet Explorer allerdings nicht sehr zuverlässig.
+:::
+
+Sobald Sie mit dem Server verbunden sind, sollten Sie ein Anmeldefenster sehen:
+
+```{r, echo=FALSE, fig.align='center', out.width = '60%'}
+include_graphics("images/rstudio-login.png")
+```
+
+\newpage
+Wenn Sie sich authentiziert haben, sollten Sie die `RStudio` Schnittstelle sehen:
+
+```{r, echo=FALSE, fig.align='center', out.width = '100%'}
+include_graphics("images/rstudio-cloud-interface.png")
+```
+
+Sie können feststellen, dass `Rstudio` seine Welt in vier *Panel* aufteilt. Verschiedende *Panel* sind weiter unterteilt in mehrere Reiter. Welche Reiter in welchem *Panel* auftauchen kann vom Nutzer konfiguriert werden.
+
+`R` kann vieles mehr als ein einfacher Taschenrechner und wir werden zu gegebener Zeit zusätzliche Eigenschaften vorstellen.  Aber, das Durchführen von einfachen Berechnungen in `R` ist eine
+gute Vorgehensweise, um die Eigenschaften von `RStudio` kennenzulernen.
+
+Befehle, die in dem Reiter `Console` eingetragen werden, werden direkt ausgeführt von `R`.
+Ein guter Start, sich mit der Konsole vertraut zu machen, ist einfache Berechnungen ähnlich wie mit einem Taschenrechner auszuführen. Das meiste funktioniert analog zum typischen Taschenrechner. 
+
+Versuchen Sie folgende Befehle in der Konsole einzugeben:
+```{r}
+5 + 3
+15.3 * 23.4
+sqrt(16)    # Quadratwurzel
+```
+
+Dieses letzte Beispiel zeigt, wie Funktionen in `R` aufgerufen werden und wie Kommentare verwendet werden. Das `#`-Zeichen muss einem Kommentar vorhergehen. Kommentare können sehr nützlich sein bei Skripten mit mehreren Befehlen oder um Code für Ihre Studierenden zu kommentieren.
+
+Werte können zur späteren Weiterverarbeitung in benannte Variablen abgespeichert werden.
+
+::: {.note data-latex=""}
+Es ist wahrscheinlich am sinnvollsten, sich auf eine Vorgehensweise zwischen rechts-nach-links Zuweisung oder umgekehrt festzulegen, statt hin und her zu wechseln. Wir bevorzugen den Pfeiloperator, weil es visuell darstellt, was in einer Zuweisung passiert und weil es eine klare Unterscheidung zum Zuweisungsoperator darstellt, die Verwendung von `=` weist Variablen Werte zu und die Verwendung von `==` testet auf Gleichheit von Werten.
+:::
+
+```{r}
+product = 15.3 * 23.4       # Speicher Ergebnis
+product                     # Zeige das Ergebnis an
+product <- 15.3 * 23.4      # <- kann verwendet werden statt =
+product  
+```
+
+Sobald Variablen definiert sind, können sie in anderen Operationen und Funktionen verwendet werden.
+
+```{r}
+0.5 * product               # Die Hälfte von product
+log(product)                # (natürlichen) Logarithmus von product
+log10(product)              # Logarithmus zur Basis 10 von product
+log2(product)               # Logarithmus zur Basis 2 von product
+log(product, base = 2)      # Logarithmus zur Basis 2 von product, anders
+```
+
+Das Semikolon kann verwendet werden, um mehrere Befehle in einer Zeile zu schreiben.  
+Eine übliche Anwendung davon ist es, das Zuweisen eines Ergebnisses und Anzeigen desselben auf einmal zu machen:
+
+```{r}
+product <- 15.3 * 23.4; product    # Speicher Ergebnis und zeige es an
+```
+
+
+### Versionsinformation
+
+Manchmal kann es nützlich sein zu prüfen, welche Versionen das `mosaic` Pakets, von `R` und
+`RStudio` Sie verwenden. Die Eingabe von `sessionInfo()` zeigt Informationen über die Version von R und die geladenen Pakete an, während  `RStudio.Version()` die Version von `RStudio` ausgibt.
+
+```{r}
+sessionInfo()
+```
