@@ -1,0 +1,44 @@
+# Einleitung
+
+Dieses Referenzbuch beinhaltet einen Überblick über die Befehle und Funktionen, die benötigt werden, um Daten von Statistikkursen für Einsteiger und Fortgeschrittene zu bearbeiten. Ziel ist es, eine Ergänzung zu den Büchern *Start Teaching with R* [@TeachingR] und *Start Modeling with R* [@ModelingR] zur Verfügung zu stellen.
+
+In den meisten der hier verwendeten Beispielen werden Daten der HELP-Studie (Health Evaluation and Linkage to Primary Care) verwenden: ein randomisiertes klinisches Experiment mit einer neuen Vorgehensweise, die Risikopatienten mit Primärversorgern verbinden soll. Ausführlichere Informationen zu dem Datensatz sind in Kapitel ... enthalten.
+
+Da die Auswahl und Reihenfolge der Themen von Lehrbuch zu Lehrbuch sehr unterschiedlich gestaltet sein kann, ist die Gliederung dieses Artikels anhand der Art der Daten, die analysiert werden sollen, vorgenommen worden. Das soll das Nachschlagen und Auffinden benötigter Informationen vereinfachen. Gewisse Fähigkeiten im Bereich des Datenmanagements ist für Studierende essentiell [@ChanceInClass].
+
+In Kapitel ... ist zu den wichtigsten Kernbegriffen eine Einführung gegeben.
+
+Dieses Werk baut auf die Initiativen des MOSAIC Projektes [http://www.mosaic-web.org](http://www.mosaic-web.org) auf: Ein durch die amerikanische National Science Foundation (NSF) gefördertes Programm, um den Unterricht von Statistik, Mathematik, Naturwissenschaften und Informatik im Bachelor Studium zu fördern. In erster Linie werden wir das `mosaic` Paket, das erstellt wurde, um den Einsatz von R in statistischen Kursen zu vereinfachen, und das `mosaicData` Paket, welches eine Reihe von Datensätzen enthält, einsetzen. Das `ggformula` Paket bietet hierbei unter Benutzung der `mosaic`-Syntax Unterstützung für qualitätsvolle Grafiken. Ein Paper über die MOSAIC Vorgehensweise für die Lehre von Statistik und Datenwissenschaft ist verfügbar über [https://journal.r-project.org/archive/2017/RJ-2017-024](https://journal.r-project.org/archive/2017/RJ-2017-024). Eine kurze Zusammenfassung der `R` Befehle, die für die Lehre einführender Statistik essentiell ist, steht in der `vignette` des `mosaic` Pakets zur Verfügung:
+[https://cran.r-project.org/web/packages/mosaic](https://cran.r-project.org/web/packages/mosaic).
+
+Auch weitere verwandte Ressourcen des MOSAIC Projektes können ebenfalls nützlich sein, zum Beispiel eine kommentierte Sammlung von Beispielen aus verschiedenen Lehrbüchern (vgl. [https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html](https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html)).
+
+Um ein Paket in R nutzen zu können, muss es zuerst (einmalig) installiert werden und in jeder neuen Session geladen werden. Das `mosaic` Paket kann mit folgendem Befehl installiert werden:
+
+```{r, eval=FALSE}
+install.packages("mosaic")        # Beachten Sie die Anführungszeichen
+```
+
+::: {.note data-latex=""}
+Rstudio bietet u. a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
+:::
+
+Das `#` Zeichen stellt einen Kommentar in R dar und klammert den restlichen Text bis zum Ende der Zeile aus. 
+
+Nachdem das Pakte einmalig installiert wurde, kann es zur Verwendung der enthaltenen Funktionen über folgenden Befehl geladen werden:
+
+```{r, eval=FALSE}
+library(mosaic)
+```
+
+Das RMarkdown System bietet eine einfache markup Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es Studierenden, ihre Analysen mit einem Workflow zu versehen, der Reproduzierbarkeit sicherstellt und Kopierfehler vermeidet.
+
+::: {.infobox data-latex=""}
+Das knitr/LATEX System erlaubt dem erfahrenen Nutzer R und LATEX im selben Dokument zu verknüpfen. Die Belohnung dafür dieses kompliziertere System zu erlernen ist eine viel feinere Kontrolle über das Ausgabeformat. RMarkdown ist jedoch viel einfacher zu lernen und ist auch für fachliche Arbeiten geeignet.
+:::
+
+::: {.hinweis data-latex=""}
+Um Markdown oder knitr/LATEX nutzen zu können, muss das `markdown` Paket installiert sein.
+:::
+
+Die Studierenden werden typischerweise zu Beginn in RMarkdown eingeführt mit der Aufforderung diese für Seminar- und Hausarbeiten etc. zu nutzen [@baumer2014r].

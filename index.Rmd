@@ -1,0 +1,32 @@
+--- 
+title: "Mosaic-Handbuch"
+subtitle: "Übersetzung des englischen Originals"
+author: "FOM"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+version: "v0.0.1"
+site: bookdown::bookdown_site
+documentclass: scrbook
+bibliography: [bib/book.bib, bib/packages.bib, bib/article.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Dies ist die Übersetzung des 'Student's Guide to R' von Nicholas J. Horton, Randall Pruim und Daniel T. Kaplan aus dem Project Mosaic."
+
+lang: de-De
+colorlinks: yes
+geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
+---
+
+# Vorwort {-}
+
+
+TEST!
+
+
+Das ist das (noch zu schreibende) Vorwort für die deutsche Version des mosaic-Handbuchs.
+
+
+Test für Umlaute: äöüß
+
+
+
+Dieses Buch baut technnisch auf *knitr* [@xie2015], *rmarkdown* [@R-rmarkdown], R [@R-base] und vielen weiteren Open-Source-Anwendungen. Details sind im Kapitel \@ref(hinweise) hinterlegt. Lorem Ipsum.

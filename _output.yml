@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  css: [style.css, font-awesome.min.css]
+  includes:
+    before_body: HTMLheader.Rhtml
+  config:
+    toc:
+      before: |
+        <li><a href="./">Mosaic-Handbuch</a></li>
+    download: ["pdf", "epub"]
+
+
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

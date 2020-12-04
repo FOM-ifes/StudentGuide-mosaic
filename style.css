@@ -1,0 +1,150 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.infobox {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px #00998a;
+  border-radius: 10px;
+  background: #fcfcfc 5px center/3em no-repeat;
+}
+
+.infobox:after {
+  content: "\f0eb";
+  font-family: FontAwesome;
+  left:10px;
+  position:absolute;
+  top:0px;
+  font-size: 45px;
+  color: #00998a;
+  font-weight: bold;
+}
+.infobox:before{
+  content: "Info";
+  padding: 2px;
+  position: relative;
+  text-align: center;
+  color: #00998a;
+  font-weight: bold;
+}
+
+
+.tiefereinsteigen {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px #00998a;
+  border-radius: 10px;
+  background: #fcfcfc 5px center/3em no-repeat;
+}
+.tiefereinsteigen:after {
+  content: "\f002";
+  font-family: FontAwesome;
+  left:10px;
+  position:absolute;
+  top:0px;
+  font-size: 45px;
+  color: #00998a;
+  font-weight: bold;
+}
+.tiefereinsteigen:before{
+  content: "Tiefer einsteigen";
+  position: relative;
+  text-align: center;
+  color: #00998a;
+  font-weight: bold;
+}
+
+.hinweis {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px #00998a;
+  border-radius: 10px;
+  border-color: #00998a;
+  background: #fcfcfc 5px center/3em no-repeat;
+}
+.hinweis:after {
+  content: "\f0a4";
+  font-family: FontAwesome;
+  left:10px;
+  position:absolute;
+  top:0px;
+  font-size: 45px;
+  color: #00998a;
+  font-weight: bold;
+}
+.hinweis:before{
+  content: "Hinweis";
+  position: relative;
+  text-align: center;
+  color: #00998a;
+  font-weight: bold;
+}
+
+.achtung {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px #00998a;
+  border-radius: 10px;
+  background: #fcfcfc 5px center/3em no-repeat;
+}
+.achtung:after {
+  content: "\f12a";
+  font-family: FontAwesome;
+  left:20px;
+  position:absolute;
+  top:2px;
+  font-size: 45px;
+  color: #00998a;
+  font-weight: bold;
+}
+.achtung:before {
+  content: "Achtung!";
+  position: relative;
+  color: #00998a;
+  font-weight: bold;
+}
+
+.note {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px #00998a;
+  border-radius: 10px;
+  background: #fcfcfc 5px center/3em no-repeat;
+}
+.note:after {
+  content: "\f14b";
+  font-family: FontAwesome;
+  left:10px;
+  position:absolute;
+  top:2px;
+  font-size: 45px;
+  color: #00998a;
+  font-weight: bold;
+}
+
+.caution {
+  background-image: url("images/note.png");
+  background-position: left;
+}
+
+.textcol {
+  color: #00998a;
+  font-weight: bold;
+}

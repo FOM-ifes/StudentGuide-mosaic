@@ -1,0 +1,155 @@
+\usepackage{booktabs}
+\usepackage{fontawesome}
+\usepackage{xcolor}
+
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{framed}
+\setlength{\fboxsep}{.7em}
+
+\usepackage{amsthm}
+\usepackage{csquotes}  % ses 2018-01-04
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{FOMTitle}
+\usepackage{setspace}
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=4pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+
+\definecolor{dark-fom-green}{HTML}{00998a}
+\definecolor{fom-green}{HTML}{4cb7ad}
+\definecolor{FOMSubTitelColor}{HTML}{32373D}
+\definecolor{light-grey}{HTML}{fdfdfd}
+
+\newtcolorbox{blackbox}{
+  colback=light-grey,
+  colframe=dark-fom-green,
+  coltext=black,
+  boxsep=1pt,
+  arc=4pt}
+
+\newenvironment{infobox}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{0.8\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=7em,keepaspectratio}
+        {\Huge \textcolor{dark-fom-green}\faLightbulbO}}
+        }
+  }
+  %\setlength{\fboxsep}{1em}
+  \begin{blackbox}
+        % \medskip
+        \bgroup\color{dark-fom-green}
+          {\textbf{Info}}
+        \egroup
+        % \medskip
+  \item
+  }
+  {
+  \end{blackbox}
+  \end{itemize}
+  }
+  
+\newenvironment{tiefereinsteigen}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{0.8\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=7em,keepaspectratio}
+        {\Huge \textcolor{dark-fom-green}\faSearch}}
+        }
+  }
+  %\setlength{\fboxsep}{1em}
+  \begin{blackbox}
+        %\medskip
+         \bgroup\color{dark-fom-green}
+          {\textbf{Tiefer einsteigen}}
+        \egroup
+        %\medskip
+  \item
+  }
+  {
+  \end{blackbox}
+  \end{itemize}
+  }
+  
+\newenvironment{hinweis}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{0.8\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=7em,keepaspectratio}
+        {\Huge \textcolor{dark-fom-green}\faHandORight}}
+        }
+  }
+  %\setlength{\fboxsep}{1em}
+  \begin{blackbox}
+        %\medskip
+        \bgroup\color{dark-fom-green}
+          {\textbf{Hinweis}}
+        \egroup
+        %\medskip
+  \item
+  }
+  {
+  \end{blackbox}
+  \end{itemize}
+  }
+
+\newenvironment{achtung}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{0.8\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=7em,keepaspectratio}
+        {\Huge \textcolor{dark-fom-green}\faExclamationCircle}}
+        }
+  }
+  %\setlength{\fboxsep}{1em}
+  \begin{blackbox}
+        %\medskip
+        \bgroup\color{dark-fom-green}
+          {\textbf{Achtung!}}
+        \egroup
+        %\medskip
+  \item
+  }
+  {
+  \end{blackbox}
+  \end{itemize}
+  }
+  
+\newenvironment{note}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.01\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=7em,keepaspectratio}
+        {\Huge \textcolor{dark-fom-green}\faPencilSquareO}}
+        }
+  }
+  %\setlength{\fboxsep}{1em}
+  \begin{blackbox}
+   \item
+    }
+    {
+  \end{blackbox}
+  \end{itemize}
+  }
+
+
+% \newenvironment{textcol}{
+%   \medskip
+%     \bgroup\color{dark-fom-green}
+%     {\textbf{ }}
+% }{
+% \egroup
+%   \medskip
+% }

@@ -1,0 +1,81 @@
+%
+%
+% Copyright note: (C) by Norman Markgraf in 2018
+\ProvidesPackage{FOMTitle}[2018/12/19 Version 1.0 FOM CD Title]
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+
+\definecolor{FOMTitelColorLight}{HTML}{00998A}  % FOMTitelColor
+\definecolor{FOMTitelColor}{HTML}{128977} % FOMFrametitelColor
+\definecolor{FOMSubTitelColor}{HTML}{32373D}
+
+%\usepackage[automark,headsepline,plainheadsepline]{scrlayer-scrpage}
+\KOMAoptions{twoside=false}  % Einseitig!
+
+\usepackage[
+    autooneside,
+    headsepline,    % Trennlinie oben
+    plainheadsepline, % wieso auch immer
+    plainfootsepline,
+    footsepline     % Trennlinie unten
+  ]{scrlayer-scrpage}
+  
+\automark[section]{chapter}
+%\renewcommand*{\partmark}[1]{}
+\setkomafont{pageheadfoot}{\normalcolor\normalsize}
+\setkomafont{pagenumber}{\normalfont\normalsize}
+
+\setheadsepline{1pt} 
+\setkomafont{headsepline}{\color{FOMTitelColor}}
+\setfootsepline{1pt} 
+\setkomafont{footsepline}{\color{FOMTitelColor}}
+
+\renewcommand*{\chapterpagestyle}{scrheadings} 
+
+\clearpairofpagestyles
+\ohead{\headmark}
+%\ohead*{\pagemark}
+%\ifoot*{\authorname}
+\ofoot[]{\normalfont\normalsize\@title\xspace | \color{FOMTitelColor}\pagemark}
+%\ModifyLayer[addvoffset=-.6ex]{scrheadings.foot.above.line}% Linie verschieben
+
+
+%
+% ---------------------------------------------------------------------------
+%
+\def\and{%                  % \begin{tabular}
+  \end{tabular}%
+  \hskip 0.25em \@plus.17fil%
+  \begin{tabular}[t]{p{8.5cm}}
+  \color{FOMTitelColor}\bfseries}%   % \end{tabular}
+%
+% ---------------------------------------------------------------------------
+%
+\renewcommand*{\maketitle}{
+\begin{titlepage}
+\begin{center}
+  \includegraphics[width=7.5cm]{images/FOM-ifes-logo.pdf}
+\end{center}
+\vspace{5cm}
+\vskip 1em
+{\titlefont\huge\color{FOMTitelColor} \@title\par}
+{\ifx\@subtitle\@empty\else\usekomafont{subtitle}\LARGE\color{FOMSubTitelColor}\@subtitle\par\fi}
+\vspace{8cm}
+\vfill
+\begin{raggedleft}
+  \vskip 1.5em
+  {\Large \lineskip 0.10em
+    \begin{tabular}[t]{p{8.5cm}}
+      \color{FOMTitelColor}\bfseries\@author
+    \end{tabular}\par
+  }
+  \vskip 0.75em
+  {\titlefont\Large\color{FOMTitelColor}Stand \@date \par}%
+  \vfill
+\end{raggedleft}\par
+\end{titlepage}
+}
+\endinput
+%
+% ---------------------------------------------------------------------------
+%
