@@ -22,6 +22,17 @@ library(mosaic)
 library(kableExtra)
 ```
 
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = '', prompt=TRUE, out.width='80%'
+)
+```
+
+```{r data}
+data(HELPrct)
+```
+
+
 
 # Vorwort {-}
 

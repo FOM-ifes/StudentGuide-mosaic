@@ -8,5 +8,16 @@ rmd_files: [
   "index.Rmd",
   "01-Einleitung.Rmd",
   "02-RStudio.Rmd",
+  "03-eine-metr-Var.Rmd",
+  "04-eine-kategoriale-Var.Rmd",
+  "05-zwei-metr-Vars.Rmd",
+  "06-zwei-kategoriale-Var.Rmd",
+  "07-metr-AV-kategoriale-UV.Rmd",
+  "08-kategoriale-AV-metr-UV.Rmd",
+  "09-Ueberlebenszeitanalysen.Rmd",
+  "10-mehr-als-zwei-Variablen.Rmd",
+  "11-Wskt-Zufallsvar.Rmd",
+  "12-Powerberechnung.Rmd",
+  "13-Datenjudo.Rmd",
   "17-Hinweise.Rmd"
 ]

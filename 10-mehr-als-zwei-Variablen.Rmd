@@ -1,0 +1,129 @@
+# Mehr als zwei Variablen
+
+## Zwei (oder mehr) faktorielle ANOVA
+
+Wir können ein zwei- (oder mehr-)faktorielles ANOVA Modell, mit oder ohne Interaktion, auf Basis der gleichen Modellsyntax erstellen
+
+```{r}
+HELPrct <- mutate(HELPrct, subgrp = factor(substance,
+ levels = c("alcohol", "cocaine","heroine"),
+ labels = c("A", "C", "H")))
+median(cesd ~ substance | sex, data = HELPrct)
+gf_boxplot(cesd ~ subgrp | sex, data = HELPrct)
+summary(aov(cesd ~ substance + sex, data=HELPrct))
+summary(aov(cesd ~ substance * sex, data=HELPrct))
+```
+
+Es deutet wenig auf eine Interaktion hin, obwohl signifikante Haupteffekte für die option `Substanzgruppen` und option `sex` bestehen.
+
+```{r}
+mod <- lm(cesd ~ substance + sex + substance * sex, data = HELPrct)
+plotModel(mod)
+```
+
+## Multiple Regression
+
+:::{.note data-latex=""}
+Wir neigen dazu, multiple lineare Regression zeitig in unseren Kurse einzuführen, als ein reine deskriptive Methode und dann immer wieder zurückzukehren. Die Beweggründe werden ausführlich im Begleitband *Start Modeling with R* beschrieben
+:::
+
+Multiple Regression ist eine logische Erweiterung der vorangehenden Befehle, sobald zusätzliche Prädiktoren hinzukommen. Dies ermöglicht den Studierenden der Versuch, multivariate Beziehungen zu entflechten.
+
+Hier betrachten wir ein Modell (Parallelsteigungen) für die depressive Symptomatik als eine Funktion aus der Mentalkomponentenpunktzahl (MCS), Alter (in Jahren) und dem Geschlecht der Person.
+
+```{r}
+lmnointeract <- lm(cesd~mcs+age+sex,data=HELPrct)
+msummary(lmnointeract)
+```
+
+Wir können ebenso ein Modell erstellen, das eine Interaktion zwischen MCS und sex einschließt.
+
+```{r}
+lminteract <- lm(cesd ~ mcs + age + sex + mcs:sex, data= HELPrct)
+msummary(lminteract)
+
+anova(lminteract)
+
+anova(lmnointeract, lminteract)
+```
+
+Es deutet wenig auf einen Interaktionseffekt hin, wir können somit dies aus dem Modell entfernen.
+
+
+### Visualisierung der Regressionsergebnisse
+
+Die `makeFun()` und `plotFun()` Funktionen aus dem Paket mosaic können zur Abbildung der vorhergesagten Werte des Regressionsmodells verwendet werden. Für dieses Beispiel können wir die vorhergesagten CESD Werte für einen MCS Wertebereich (mental component score) ausgeben, die ein hypothetisch 36jähriger Mann und Frau in einem Modell mit parallelen Steigungen (keine Interaktion) haben könnte.
+
+```{r}
+lmfunction <- makeFun(lmnointeract)
+```
+
+Wir können nun die vorhergesagten Werte, getrennt nach männlichen und weiblichen Personen, für einen MCS Wertebereich (mental component score), zusammen mit den beobachteten Werten aller 36jähriger darstellen
+
+```{r}
+gf_point(cesd ~ mcs, color = ~ sex,
+         data = filter(HELPrct, age == 36),
+         ylab = "vorhergesagte CESD") %>%
+gf_fun(lmfunction(mcs, age=36, sex = "male") ~ mcs,
+       xlim = c(0,60), size = 1.5) %>%
+gf_fun(lmfunction(mcs, age=36, sex = "female") ~ mcs,
+       xlim = c(0,60), linetype = 2, size = 2)
+```
+
+
+### Koeffizientenanzeige
+
+Manchmal ist es nützlich eine Darstellung der Koeffizienten eines multiplen Regressionsmodells (zusammen mit mit den entsprechenden Konfidenzintervallen) zu erstellen.
+
+:::{.note data-latex=""}
+Dunklere Punkte weisen auf Regressionskoeffizienten hin, bei denen das 95%-Konfidenzinterval nicht den Wert Null der Nullhypothese beinhaltet
+:::
+
+:::{.hinweis data-latex=""}
+Die `mplot()` Funktion kann ebenfalls zur Erstellung dieses Graphen verwendet werden
+:::
+
+:::{.note data-latex=""}
+Hier fügen wir zwei neue Variabelen zu einem bestehenden Datensatz hinzu. Es ist gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben
+:::
+
+:::{.achtung data-latex=""}
+Vorsicht bei der Generierung eines Regressionsmodell, bei dem Werte fehlen (siehe Absatz 13.11)
+:::
+
+```{r}
+mplot(lmnointeract, rows = -1, which = 7)
+```
+
+
+### Auswertung der Residuen
+
+Es ist recht einfach die Residuen des Modells auszuwerten. Wir beginnen damit, die angepassten Werte und die Residuen den Daten hinzuzufügen.
+
+```{r}
+HELPrct <- mutate(HELPrct, 
+  residuals = resid(lmnointeract), 
+  pred = fitted(lmnointeract))
+
+gf_dhistogram(~ residuals, data= HELPrct) %>%
+  gf_fitdistr(dist = "dnorm")
+```
+Wir können den Teil der Beobachtungen mit extrem hohen Residuen bestimmen.
+
+```{r}
+filter(HELPrct, abs(residuals)>25)
+
+
+gf_point(residuals ~ pred, cex = .3, xlab = "Vorhergesagte Werte",
+         title = "Vorhergesagte vs. Residuen", data = HELPrct) %>%
+  gf_smooth(se = FALSE) %>%
+  gf_hline(yintercept = 0)
+
+gf_point(residuals ~ mcs, cex = .3, xlab = "Mentalitätskomponentenwert",
+         title = "Vorhergesagte vs. Residuen", data = HELPrct) %>%
+  gf_smooth(se = FALSE) %>%
+  gf_hline(yintercept = 0)
+```
+
+Die Annahme der Normalverteilungs-, Linearitäts-, und Heteroskedazitätsvoraussetzung erscheint hier vernünftig.
+

@@ -1,0 +1,164 @@
+# Metrische AV, kategoriale UV
+
+## Eine binäre Variable als Prädiktor: nummerische und graphische Zusammenfassung
+
+Hier werden wir die Verteilung der CESD-Scores nach Geschlecht vergleichen. 
+Der Befehl `mean()` kann verwendet werden, um den durchschnittlichen CESD-Score separat für Männer und Frauen zu berechnen.
+
+```{r}
+mean(cesd ~ sex, data = HELPrct)
+```
+
+Der Befehl `favstats()` liefert weitere statistische Kennzahlen pro Gruppe.
+
+```{r}
+favstats(cesd ~ sex, data = HELPrct)
+```
+
+Boxplots sind besonders hilfreiche graphische Darstellungen, um Verteilungen zu vergleichen.
+Mit dem Befehl `gf_boxplot()` können die Boxplots für die CESD-Scores getrennt nach Geschlecht angezeigt werden. Sowohl aus den numerischen als auch aus den graphischen Zusammenfassungen geht hervor, dass Frauen in der Regel etwas höhere CESD-Werte haben als Männer.
+
+:::{.hinweis data-latex=""}
+Obwohl wir normalerweise die erklärenden Variablen entlang der horizontalen Achse darstellen, so ist die umgedrehte  Darstellung für diese Art von Graphen in einigen Fällen vorzuziehen.
+:::
+
+```{r}
+gf_boxplot(cesd ~ sex, data = HELPrct) %>% 
+gf_refine(coord_flip())
+```
+
+Bei nur kleiner Stichprobengröße, gibt es keine Notwendigkeit, diese ausschließlich mittels Boxplot darstellen zu müssen. Der Befehl `gf_point()` kann kategoriale Prädiktoren ebenfalls darstellen. Auch 10--20 Beobachtungen pro Gruppe, sind mittels Streudiagramm gut darzustellen. Beobachtungen, die einen gleichen Wert aufweisen, können über die Anpassung des Transparenzlevels (alpha-level) einzeln dargestellt werden.
+
+:::{.hinweis data-latex=""}
+Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. Mit dem Gedanken ein großer Erfolg sei errungen worden, fragte er naiv wie viele Beobachtungen in jeder Gruppe enthalten seien. "Vier," antwortete der Biologe.
+:::
+
+```{r}
+gf_point(sex ~ length, alpha = .6, cex = 1.4, 
+         data = KidsFeet)
+```
+
+
+## Ein dichotomer Prädiktor: Zwei-Stichproben-t-Test
+
+Der Student's Zweistichproben t-Test kann ohne (Voreinstellung = default) oder mit der Annahme der gleichen Varianz durchgeführt werden.
+
+```{r}
+t.test(cesd ~ sex, var.equal = FALSE, data = HELPrct)
+```
+
+Hier sehen wir, dass eine statistische Signifikanz zwischen den beiden Gruppen vorliegt.
+
+Wir können den Test mit der Annahme der gleichen Varianz wiederholen.
+
+```{r}
+t.test(cesd ~ sex, var.equal = TRUE, data = HELPrct)
+```
+
+Die Gruppen können ebenso mit dem Befehl `lm()` (ebenfalls unter der Annahme gleicher Varianz) verglichen werden. Der mosaic-Befehl  `msummary()` gibt eine etwas schlankere Ausgabe im Vergleich zur klassischen Ausgabe des Befehls `summary()` aus.
+
+```{r}
+msummary(lm(cesd ~ sex, data = HELPrct))
+```
+
+:::{.hinweis data-latex=""}
+Der Befehl `lm` ist Teil eines sehr viel flexibleren Modellierungs-Frameworks, indesse `t.test` im Wesentlichen eine nicht anpassungsfähige Sackgasse ist. `lm` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch, *Start Modeling in R* für weitere Details.
+:::
+
+
+## Nicht-parametrische Zweistichprobentests
+Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-Rang-Summe) gezogen.
+
+```{r}
+wilcox.test(cesd ~ sex, data = HELPrct)
+```
+
+
+## Permutationstest
+Hier erweitern wir die in Abschnitt \@ref(bootstrap) eingeführten Methoden, um einen zweiseitigen Test, mit dem das Alter zu Beginn nach Geschlecht verglichen wird.Zuerst berechnen wir die beobachtete Differenz der Mittelwerte:
+
+```{r}
+mean(age ~ sex, data = HELPrct)
+test.stat <- diffmean(age ~ sex, data = HELPrct)
+test.stat
+```
+
+Wir können nun die gleiche Statistik erneut berechnen, nachdem wir die Gruppenbezeichnungen gemischt (permutiert) haben:
+
+```{r}
+do(1) * diffmean(age ~ shuffle(sex), data = HELPrct)
+do(1) * diffmean(age ~ shuffle(sex), data = HELPrct)
+do(3) * diffmean(age ~ shuffle(sex), data = HELPrct)
+```
+
+:::{.tiefereinsteigen data-latex=""}
+Weitere Details und Beispiele finden Sie im Paket `mosaic` Resampling Vignette finden.
+
+```{r}
+rtest.stats <- do(500) * diffmean(age ~ shuffle(sex), 
+  data = HELPrct)
+rtest.stats <- mutate(rtest.stats, 
+                      diffmeantest = 
+                        ifelse(diffmean >= test.stat, TRUE, FALSE))
+head(rtest.stats, 3)
+favstats(~ diffmean, data = rtest.stats)
+gf_histogram(~ diffmean, n = 40, xlim = c(-6, 6),
+  fill = ~ diffmeantest, pch = 16, cex = .8, 
+  data = rtest.stats) %>%
+  gf_vline(xintercept = ~ test.stat, color = "red", lwd = 3)
+```
+
+Mit der vorliegenden Permutation erhalten wir keine ausreichenden Beweise, um der Nullhypothese dass Männer und Frauen das gleiche Durchschnittsalter in der Population haben zu widersprechen.
+
+
+## One-way ANOVA
+Frühere Vergleiche wurden zwischen zwei Gruppen durchgeführt. Wir können ebenso die Unterschiede zwischen drei oder mehr Gruppen mit einer einfachen ANOVA testen. Hier vergleichen wir den CESD-Score auf Basis des Substanzmittelmissbrauchs (Heroin, Kokain oder Alkohol), der Median wird hier nun mittels einer Linie und nicht mit einem Punkt dargestellt.
+
+```{r}
+gf_boxplot(cesd ~ substance, data = HELPrct)
+
+mean(cesd ~ substance, data = HELPrct)
+
+anovamod <- aov(cesd ~ substance, data = HELPrct)
+summary(anovamod)
+```
+
+Obwohl die Werte immer noch hoch sind (Werte von 16 oder mehr werden im Allgemeinen als "schwere" Symptome eingeordnet), weist die von Kokain betroffene Gruppe tendenziell niedrigere Werte auf, als diejenigen, deren Missbrauchssubstanz Alkohol oder Heroin sind.
+
+```{r}
+modintercept <- lm(cesd ~ 1, data = HELPrct)
+modsubstance <- lm(cesd ~ substance, data = HELPrct)
+```
+
+Der `anova()`-Befehl kann mehrere Modelle zusammenfassen.
+
+```{r}
+anova(modsubstance)
+```
+
+In der vorliegenden ANOVA sind die Ergebnisse identisch (da es nur einen Prädiktor mit 2 df gibt).
+
+Der Befehl `anova()` kann auch zum formalen Vergleich zweier (verschachtelter) Modelle verwendet werden.
+
+```{r}
+anova(modintercept, modsubstance)
+```
+
+
+## Tukey's Honest Significant Differences
+Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines ANOVA-Modells verwendet werden können.  Einer davon sind Tukey's Honest Significant Differences (HSD).  Weitere Optionen sind innerhalb des `multcomp` Pakets aufgeführt.
+
+```{r}
+favstats(cesd ~ substance, data = HELPrct)
+
+HELPrct <- mutate(HELPrct, subgrp = factor(substance, 
+  levels = c("alcohol", "cocaine", "heroin"),
+  labels = c("A", "C", "H")))
+mod <- lm(cesd ~ subgrp, data = HELPrct)
+HELPHSD <- TukeyHSD(mod, "subgrp")
+HELPHSD
+
+mplot(HELPHSD)
+```
+
+Auch hier zeigt sich, dass die Kokaingruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.

@@ -14,7 +14,7 @@ pre code {
 }
 
 .infobox {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 1em 2em;
   margin-bottom: 10px;
   position: relative;
   border: 2px #00998a;
@@ -28,7 +28,7 @@ pre code {
   left:10px;
   position:absolute;
   top:0px;
-  font-size: 45px;
+  font-size: 35px;
   color: #00998a;
   font-weight: bold;
 }
@@ -43,7 +43,7 @@ pre code {
 
 
 .tiefereinsteigen {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 1em 2em;
   margin-bottom: 10px;
   position: relative;
   border: 2px #00998a;
@@ -56,7 +56,7 @@ pre code {
   left:10px;
   position:absolute;
   top:0px;
-  font-size: 45px;
+  font-size: 35px;
   color: #00998a;
   font-weight: bold;
 }
@@ -69,7 +69,7 @@ pre code {
 }
 
 .hinweis {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 1em 2em;
   margin-bottom: 10px;
   position: relative;
   border: 2px #00998a;
@@ -83,7 +83,7 @@ pre code {
   left:10px;
   position:absolute;
   top:0px;
-  font-size: 45px;
+  font-size: 35px;
   color: #00998a;
   font-weight: bold;
 }
@@ -96,7 +96,7 @@ pre code {
 }
 
 .achtung {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 1em 2em;
   margin-bottom: 10px;
   position: relative;
   border: 2px #00998a;
@@ -109,7 +109,7 @@ pre code {
   left:20px;
   position:absolute;
   top:2px;
-  font-size: 45px;
+  font-size: 35px;
   color: #00998a;
   font-weight: bold;
 }
@@ -121,7 +121,7 @@ pre code {
 }
 
 .note {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 1em 2em;
   margin-bottom: 10px;
   position: relative;
   border: 2px #00998a;
@@ -134,7 +134,7 @@ pre code {
   left:10px;
   position:absolute;
   top:2px;
-  font-size: 45px;
+  font-size: 35px;
   color: #00998a;
   font-weight: bold;
 }
@@ -142,6 +142,31 @@ pre code {
 .caution {
   background-image: url("images/note.png");
   background-position: left;
+}
+
+.aufgabe {
+  padding: 1em 1em 1em 2em;
+  margin-bottom: 10px;
+  position: relative;
+  border: 2px #00998a;
+  border-radius: 10px;
+  background: #fcfcfc 5px center/3em no-repeat;
+}
+.aufgabe:after {
+  content: "\f1c9";
+  font-family: FontAwesome;
+  left:10px;
+  position:absolute;
+  top:2px;
+  font-size: 35px;
+  color: #00998a;
+  font-weight: bold;
+}
+.aufgabe:before {
+  content: "Aufgabe!";
+  position: relative;
+  color: #00998a;
+  font-weight: bold;
 }
 
 .textcol {

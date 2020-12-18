@@ -1,0 +1,116 @@
+```{r}
+# ---------------------------------------------------------------------------
+#% maintainer:
+#%   - Bianca Krol
+#%
+# ---------------------------------------------------------------------------
+```
+
+# Zwei kategoriale Variablen
+
+## Kreuztabellen
+
+Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Wohnstatus (wohnungslos in einer oder mehr als einer Nacht in den letzten sechs Monaten oder nicht wohnungslos) und das Geschlecht. 
+
+```{r, echo=TRUE}
+tally(~ homeless + sex, margins = FALSE, 
+      data = HELPrct)
+```
+
+Wir können auch Spaltenprozente erzeugen.
+
+```{r, echo=TRUE}
+tally(~ sex | homeless, margins = TRUE, 
+      format = "percent", data = HELPrct)
+```
+
+Wir können auch die Odds Ratio (Chancenverhältnis) direkt aus der Tabelle berechnen.
+
+```{r, echo=TRUE}
+OR <- (40/169)/(67/177)
+OR
+```
+
+Das `mosaic`-Paket hat eine Funktion, um die Odds Ratios zu berechnen.
+
+```{r, echo=TRUE}
+oddsRatio(tally(~ (homeless == "housed") + sex,
+                margins = FALSE, data = HELPrct))
+```
+
+Die `CrossTable()`-Funktion im Paket `gmodels` kann ebenfalls eine Kreuztabelle erzeugen.
+
+```{r, echo=TRUE}
+library(gmodels)
+with(HELPrct, CrossTable(homeless, sex, 
+                              prop.r = FALSE, 
+                              prop.chisq = FALSE, 
+                              prop.t = FALSE))
+
+```
+
+
+Graphische Zusammenfassungen von Kreuztabellen können ebenfalls nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Wohnungslosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Wohnungslose görßer ist als für Nicht-Wohnungslose.)
+
+:::{.achtung data-latex=""}
+Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
+ihrem geringen Daten-Tinten-Verhältnis. Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen.
+:::
+
+```{r, echo=TRUE}
+mosaicplot(sex ~ homeless, data = HELPrct)
+```
+
+```{r, echo=TRUE}
+# farbiges Beispiel 
+mosaicplot(substance ~ homeless, data = HELPrct,
+           color=c("LightBlue", "LightCoral")) 
+```
+
+## Tabellen erstellen
+
+Tabellen können auch aus dem Datensatz selbst erstellt werden. Dazu wird die Funktion `do()` verwendet.
+
+```{r, echo=TRUE}
+HELPtable <- rbind(
+  do(40)  * data.frame(sex = "female", homeless = "homeless"),
+  do(169) * data.frame(sex = "male", homeless = "homeless"),
+  do(67)  * data.frame(sex = "female", homeless = "housed"),
+  do(177) * data.frame(sex = "male", homeless = "housed")
+)
+
+tally(~ homeless + sex, data = HELPtable)
+```
+
+## Chi-Quadrat-Test
+
+```{r, echo=TRUE}
+chisq.test(tally(~ homeless + sex, 
+                 margins = FALSE,
+                 data = HELPrct), 
+           correct = FALSE)
+```
+
+Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir ein so starken Zusammenhang finden, wenn der Wohnungsstatus und das Geschlecht in der Population unabhängig voneinander wären. 
+
+Wenn Studierende signifikante Zusammenhänge finden, ist es wichtig, dass sie die diesen im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` kann weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen) liefern, die hierzu hilfreich sein können.
+
+```{r, echo=TRUE}
+xchisq.test(tally(~ homeless + sex, 
+                  margins = FALSE, 
+                  data = HELPrct), 
+            correct = FALSE)
+```
+
+## Fisher's exakter Test
+Es kann auch ein exakter Test berechnet werden. Für 2x2-Kontingenztafeln ist dies unkompliziert. Optionen um die Größe des Problems bei größeren Tabellen zu beschränken existieren (siehe `?fisher.test()`).
+
+```{r}
+fisher.test(tally(~ homeless + sex, margins = FALSE,
+data = HELPrct))
+```
+
+:::{.tiefereinsteigen data-latex=""}
+Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt 6.1. Die `fisher.test()`-Funktion verwerndet einen anderen Schätzer (und anderes Intervall basierend auf dem Profil der Likelihodd).
+:::
+

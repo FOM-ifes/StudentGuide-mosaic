@@ -1,0 +1,169 @@
+
+# Zwei metrische Variablen
+
+## Scatterplots
+
+Wir empfehlen den Studierenden immer, jede Analyse durch eine grafische Darstellung ihrer Daten zu starten. Hier ergänzen wir ein Streuungsdiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS Linie (locally weighted scatterplot smoother).
+Wir verwenden Kreise für die Daten und eine fette Linie für den Filter.
+
+:::{.note data-latex=""}
+Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte (unter Verwendung von 'p') und ein LOWESS Filter definiert werden.
+:::
+
+```{r}
+Female <- filter(HELPrct, female == 1)
+gf_point(cesd ~ mcs, data = Female, shape = 1) %>%
+  gf_smooth(se = FALSE, size = 2)
+```
+
+:::{.tiefereinsteigen data-latex=""}
+Wenn man mit der Ausdrucksweise des statistischen Modelierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R** entsprechende Hilfe. 
+Auch in *Start Teaching with R* sind nützliche Tipps für den Einstieg zu finden.
+:::
+
+Es ist ganz einfach, etwas anderes als ein Symbol im Scatterplot zu verwenden. Im folgenden Beispiel wird der Zusammenhang zwischen der Zahl der Überfälle und der Zahl der Morde mit Hilfe der Namen der entsprechenden Bundesstaaten dargestellt. 
+
+```{r}
+gf_text(Murder ~ Assault, 
+  label = ~ rownames(USArrests), 
+  data = USArrests)
+```
+
+
+## Korrelation
+Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet werden.
+
+```{r}
+cor(cesd ~ mcs, data = Female)
+smallHELP <- select(Female, cesd, mcs, pcs)
+cor(smallHELP)
+```
+
+Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z. B. Spearman) können mit der Option "method" gewählt werden.
+
+```{r}
+cor(cesd ~ mcs, method = "spearman", data = Female)
+```
+
+
+## Paarweise Plots
+Ein paarweiser Plot (Scatterplot Matrix) kann für jedes Paar eines Variablensets erstellt werden.
+
+:::{.hinweis data-latex=""}
+Das Paket `GGally` unterstützt komplexere Formen von paarweisen Plots.
+:::
+
+```{r}
+library(GGally)
+ggpairs(smallHELP)
+```
+
+
+## Einfache lineare Regression
+
+:::{.note data-latex=""}
+Normalerweise führen wir die einfache lineare Regression als deskriptive Methode zu einem sehr frühen Zeitpunkt einer Lehrveranstaltung ein.
+:::
+
+Lineare Regressionsmodelle werden ausführlich in *Start Modeling with R* beschrieben.
+Dabei werden die gleichen Befehle für die Spezifizierung von Output und Prädiktoren verwendet, die bereits an früherer Stelle für graphische und numerische Übersichten eingeführt wurden. 
+
+Im folgenden betrachten wir das Modell `cesd ~ mcs`.
+
+```{r}
+cesdmodel <- lm(cesd ~ mcs, data = Female)
+coef(cesdmodel)
+```
+
+:::{.note data-latex=""}
+Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobjekte zu finden. Hier wird der Output von `lm` als `cesdmodel` gespeichert.
+Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
+:::
+
+Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifikanzsternchen ausgibt, ab.
+
+```{r}
+options(show.signif.stars = FALSE)
+coef(cesdmodel)
+msummary(cesdmodel)
+coef(summary(cesdmodel))
+confint(cesdmodel)
+rsquared(cesdmodel)
+class(cesdmodel)
+```
+
+Die Ausgabe von `lm()` ist ein Lineares Modell.
+Ähnlich wie bei `coef()` kann eine Reihe von Operationen auf dieses Objekt zugreifen.  
+Die Funktion `residuals()` gibt den Residuenvektor aus.
+
+:::{.hinweis data-latex=""}
+Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden. Eine andere wichtige Funktion ist `fitted()`, die einen Vektor aus geschätzten Werten erzeugt.
+:::
+
+```{r}
+gf_histogram(~ residuals(cesdmodel), density = TRUE)
+```
+
+```{r}
+gf_qq(~ resid(cesdmodel))
+```
+
+```{r}
+gf_point(resid(cesdmodel) ~ fitted(cesdmodel), 
+         alpha = 0.5, cex = 0.3, pch = 20) %>%
+  gf_smooth(se = FALSE) %>%
+  gf_hline(yintercept = 0)
+```
+
+Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt.
+
+```{r}
+mplot(cesdmodel, which = 1)
+```
+
+Mit `which = 2` kann ein Quantil-Quantil-Diagramm der Normalverteilung erzeugt werden.
+
+```{r}
+mplot(cesdmodel, which = 2)
+```
+
+scale vs. location,
+
+```{r}
+mplot(cesdmodel, which = 3)
+```
+
+Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer
+
+```{r}
+mplot(cesdmodel, which = 4)
+```
+
+Residuen vs. Hebelwirkung,
+
+```{r}
+mplot(cesdmodel, which = 5)
+```
+
+und Cook's Abstandsmaß vs. Hebelwirkung.
+
+```{r}
+mplot(cesdmodel, which = 6)
+```
+
+Vorhersageintervalle können mit Hilfe der Option `interval` in die Funktion `gf_lm()` eingefügt werden.
+
+```{r}
+gf_point(cesd ~ mcs, data = HELPrct) %>%
+  gf_lm(interval = "confidence", fill = "red") %>%
+  gf_lm(interval = "prediction", fill = "navy")
+```
+
+
+:::{.aufgabe data-latex=""}
+Mit Hilfe des Datensatzes `HELPrct` soll eine einfache lineare Regression geschätzt werden, die den Zusammenhang zwischen der am Tag getrunkenen Menge und dem MCS (mental component score) beschreibt. 
+
+Dieses Model kann mit Hilfe des Modells `i1 ~ mcs` spezifiziert werden.  
+
+Interpretieren Sie die Verteilung der Residuen.
+:::

@@ -1,0 +1,16 @@
+# Fallstudie Gesundheitsevalution (HELP-Studie)
+
+Viele Beispiele in diesem Buch greifen auf Daten der HELP-Studie zurück. Bei dieser Studie handelt es sich um eine randomisierte klinische Interventionsstudie mit Patienten aus einer einer stationären Drogenentzugsstation. Patienten ohne laufende allgemeinmedizinische Versorgung wurden entweder einer Gruppe zugelost, in der eine multidisziplinäre Untersuchung und eine kurze Motivationsintervention vorgesehen war oder einer Gruppe mit Standardbehandlung.^[Die HELP-Studie wurde finanziert durch das *National Institute on Alcohol Abuse and Alcoholism* (R01-AA10870, Samet PI) sowie das *National Institute on Drug Abuse* (R01-DA10019, Samet PI).] Die Ergebnisse der Studie wurde zusammen mit einer Reihe von zusätzlichen Analysen veröffentlicht [@samet_linking_2003; @liebschutz_relationship_2002; @kertesz_slowing_2003].
+
+Teilnehmer an der Studie mussten erwachsen sein, Spanisch oder Englisch sprechen und Alkohol, Heroin oder Kokain als ihre Hauptdrehorten angeben. Außerdem mussten sie in der Nähe in der Klinik wohnen, in der sie behandelt werden sollten oder obdachlos sein. Selektionskriterien waren: a) laufende Versorgung und Absicht, diese weiterzuführen, b) fortgeschrittene Demenz, c) konkreten Pläne die Gegend um Boston zu verlassen, so dass sie nicht an einer Behandlung teilnehmen könnten, d) keine Angabe von Kontaktinformationen oder e) Schwangerschaft.
+
+Die Teilnehmer wurden wurden bei der Aufnahme zum Entzugsaufenthalt befragt; alle sechs Monate für die Dauer von zwei Jahren wurden die Teilnehmer erneut befragt. Dabei wurde eine Anzahl von metrisch-, absolut-^[Häufigkeitsdaten] und nominal-skalierten sowie Daten für Ereigniszeitanalysen^[Survival Time Analysis] zu jeder der fünf Zeitpunkte erhoben. Die Ethikkommission des  Medizinischen Zentrums der Universität Boston überprüfte das Studienkonzept, insbesondere die Erstellung eines anonymisierten Datensatzes. Das Zertifikat für Datenschutz, ausgestellt durch das *Department of Health and Human Services*, bescheinigt weitere Datenschutzmaßnahmen. 
+
+Das R-Paket `mosaicData` enthält mehrere Varianten des anonymisierten  HELP-Datensatzes. Für die vorliegende Fallstudie konzentrieren wir uns auf `HELPrct`, der 27 Variablen für 453 Personen enthält, wobei  vergleichsweise wenig Daten fehlen, besonders zum ersten Messzeitpunkt. Tabelle `\@ref(tab:tabhelp)`. Weitere Informationen finden sich online unter [http://www.amherst.edu/~nhorton/r2](http://www.amherst.edu/~nhorton/r2). Die Messinstrumente sind hier aufgeführt: [http://www.amherst.edu/~nhorton/help](http://www.amherst.edu/~nhorton/help).
+
+
+```{r tabhelp}
+knitr::kable("data/help.csv", booktabs = TRUE, caption = "Variablen des Datensatzes zur HELP-Studie")
+```
+
+
