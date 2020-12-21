@@ -7,7 +7,7 @@
 ```
 
 
-# Datenmanagement
+# Datenmanagement {#datenmanagement}
 
 Datenmanagement ist eine Schlüsselfunktion, die es Studierenden (und Dozenten) ermöglicht, "mit Daten zu arbeiten" oder wie Diane Lambert von Google sagte, "mit Daten zu denken". Wir neigen dazu, das Datenmanagement der Studierenden während des ersten Teils eines einführenden Statistikkurses auf ein Minimum zu beschränken und bei Bedarf schrittweise Themen einzuführen. Für Kurse, in denen die Studierenden inhaltliche Projekte durchführen, ist das Datenmanagement wichtiger. In diesem Kapitel werden einige wichtige Aufgaben des Datenmanagements beschrieben.
 

@@ -1,7 +1,7 @@
 # Eine metrische Variable
 ## Numerische Zusammenfassungen
 
-R beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartil-Range (IQR) sowie  frei wählbare Quantile. Wir werden diese am CESD- (Center for Epidemiologic Studies-Depression) Maß für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
+R beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartilsabstand (IQR) sowie frei wählbare Quantile. Wir werden diese am CESD- (*Center for Epidemiologic Studies-Depression*) Maß für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
 Um die Lesbarkeit der Ausgabe zu verbessern, werden wir die Zahl der ausgegebenen Ziffern begrenzen (s. `?options()` für weitere Konfigurationsmöglichkeiten).
 
 ```{r}
@@ -10,12 +10,13 @@ options(digits = 3)
 mean(~cesd, data = HELPrct)
 ```
 
-Beachten Sie, dass die `mean()` Funktion im `mosaic` package ein Formel Interface beinhaltet, das `lattice` graphics und linearen Modellen (z.B. `lm()` ) ähnlich ist. Das `mosaic` package stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
-Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wir werden die MOSAIC Versionen verwenden, wann immer möglich):
+Beachten Sie, dass die `mean()` Funktion im `mosaic` Paket eine Formel-Schnittstelle beinhaltet, das `lattice` Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das `mosaic` Paket stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
 
 ::: {.tiefereinsteigen data-latex=""}
-Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch „Start Teaching with R“ eine detaillierte Präsentation. „Start Modeling with R“, ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
+Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch *Start Teaching with R* [@TeachingR] eine detaillierte Präsentation. *Start Modeling with R* [@ModelingR], ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
 :::
+
+Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wir werden die MOSAIC Versionen verwenden, wann immer möglich):
 
 ```{r}
 with(HELPrct, mean(cesd))

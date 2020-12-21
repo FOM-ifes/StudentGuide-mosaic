@@ -1,22 +1,21 @@
 # Los geht's mit RStudio {#RStudio}
 
-`RStudio` ist eine integrierte Entwicklerumgebung (*integrated development environment* (IDE)) für `R`, die eine alternative Schnittstelle zu `R` bietet und mehrere Vorteile gegenüber den Standard-`R`-Schnittstellen bietet:
+`RStudio` ist eine integrierte Entwicklerumgebung (*integrated development environment* - IDE) für `R`, die eine alternative Schnittstelle zu `R` bietet und mehrere Vorteile gegenüber den Standard `R`-Schnittstellen bietet:
 
 ::: {.hinweis data-latex=""}
-Eine Reihe Einführungsvideos ist verfügbar unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
+Eine Reihe an Einführungsvideos ist verfügbar unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
 :::
 
 - `RStudio` läuft auf Mac-, PC-, und Linux-Rechnern und bietet eine vereinfachte Schnittstelle, die 
-auf allen ähnlich von Aussehen und in der Handhabung ist. Die Standardschnittstellen für `R` sind ziemlich unterschiedlich auf den verschiedenen Platformen. Das kann den Studierenden verwirren oder ablenken und führt zu höherem Unterstützungsaufwand für den Dozenten.
-- `RStudio` kann in einem Webbrowser laufen.  Zusätzlich zu eigenständigen Desktop Versionen oder in `RStudio.cloud`, kann  `RStudio` als eine Server-Anwendung installiert werden, auf die über das Internet zugreifbar ist.  Die Web-Schnittstelle ist fast identisch zu der Desktopversion.
+vom Aussehen und in der Handhabung auf allen ähnlich ist. Die Standardschnittstellen für `R` sind ziemlich unterschiedlich auf den verschiedenen Platformen. Das kann den Studierenden verwirren oder ablenken und führt zu höherem Unterstützungsaufwand für den Dozenten.
+- `RStudio` kann in einem Webbrowser laufen.  Zusätzlich zu eigenständigen Desktop-Versionen oder `RStudio.cloud`, kann  `RStudio` als eine Server-Anwendung installiert werden, auf die über das Internet zugreifbar ist. Die Web-Schnittstelle ist fast identisch zu der Desktopversion. Wie bei anderen Web-Services auch, melden Nutzer sich an, um Zugriff zu ihrem Konto zu erlangen. Wenn Studierende sich abmelden und später wieder anmelden, wird ihre Session wiederhergestellt und sie können an der Stelle mit ihrer Analyse weiter machen, wo sie verblieben waren, auch wenn sie sich auf einer anderen Maschine anmelden. Mit einer etwas fortgeschrittenen Einrichtung können Dozenten die Historie der Nutzung von `R` in ihrem Klassenraum speichern und Studierende können diese Historie-Datei in ihre eigene Umgebung laden.
+
 ::: {.achtung data-latex=""}
 Die Desktop und Server versionen von `RStudio` sind so ähnlich, dass Sie besonders aufpassen müssen, wenn Sie beide gleichzeitig nutzen, um sicher zu gehen, dass Sie in der richtigen Version arbeiten.
 :::
-Wie bei anderen Web-Services auch, melden Nutzer sich an, um Zugriff zu ihrem Konto zu erlangen.
-Wenn Studierende sich abmelden und später wieder anmelden, wird ihre Session wiederhergestellt und sie können an der Stelle mit ihrer Analyse weiter machen, wo sie verblieben waren, auch wenn sie sich auf einer anderen Maschine anmelden. Mit einer etwas fortgeschrittenen Einrichtung können Dozenten die Historie der Nutzung von `R` in ihrem Klassenraum speichern und Studierenden können diese Historie-Datei in ihre eigene Umgebung laden.
 
 ::: {.note data-latex=""}
-Die Verwendung von `RStudio` in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Anwender sich wieder anmelden, wird die vorherige Session wiederhergestellt und sie weiter machen, wo sie zuletzt aufgehört haben. Nutzer können sich von jedem Gerät mit Internetzugriff anmelden.
+Die Verwendung von `RStudio` in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Anwender sich erneut anmelden, wird die vorherige Session wiederhergestellt und sie können weiter machen, wo sie zuletzt aufgehört haben. Nutzer können sich von jedem Gerät mit Internetzugriff anmelden.
 :::
 
 - `RStudio` unterstützt reproduzierbare Forschung.  `RStudio` macht es einfach Text, statistische Analysen (`R`-Code und `R`-Output) und graphische Abbildungen zusammen im gleichen Dokument einzuschließen. Das RMarkdown System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen.  Das knitr/LaTeX-System versetzt Nutzer in die Lage auch `R` und LaTeX in dasselbe Dokument zu integrieren.  Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output Formates. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
@@ -26,10 +25,10 @@ Um Markdown oder knitr/LaTeX zu verwenden, muss das `knitr` Paket auf dem System
 :::
 
 - `RStudio` bietet eine integrierte Unterstützung für das Bearbeiten und Ausführen von `R`-Code und Dokumenten.
-- `RStudio` bietet einige nützliche Funktionalitäten über eine grafische Nutzeroberfläche (Graphical User Interface oder GUI).  `RStudio` ist nicht ein GUI für `R`, aber es bietet ein GUI das Themen wie die Installation und Verwaltung von Paketen; die Steuereung, Speicherung und das Laden von Umgebungen; das Importieren und Exportieren von Daten sowie den Zugriff auf und Export von Abbildungen, Dateien und Dokumentationen vereinfacht.
+- `RStudio` bietet einige nützliche Funktionalitäten über eine grafische Nutzeroberfläche (Graphical User Interface oder GUI).  `RStudio` ist nicht ein GUI für `R`, aber es bietet ein GUI das Themen wie die Installation und Verwaltung von Paketen, die Steuerung, Speicherung und das Laden von Umgebungen, das Importieren und Exportieren von Daten sowie den Zugriff auf und Export von Abbildungen, Dateien und Dokumentationen vereinfacht.
 - `RStudio` bietet Zugriff auf das `manipulate` Paket.  Das `manipulate` Paket bietet eine Möglichkeit, einfach und schnell interaktive grafische Anwendungen zu erstellen.
 
-Obwohl man sicherlich `R` ohne die Verwendung von `RStudio` nutzen kann, vereinfacht `RStudio` viele Dinge und wir empfehlen den Einsatz von `RStudio` stark.  Außerdem erwarten wir noch weitere nützliche Funktionalitäten in der Zukunft, weil `RStudio` stetig weiterentwickelt wird.
+Obwohl man sicherlich `R` ohne die Verwendung von `RStudio` nutzen kann, vereinfacht `RStudio` viele Dinge und wir empfehlen den Einsatz von `RStudio` stark.  Außerdem erwarten wir in der Zukunft noch weitere nützliche Funktionalitäten, da `RStudio` stetig weiterentwickelt wird.
 
 Wir verwenden in erster Linie eine online Version von `Rstudio.`  `Rstudio` ist eine innovative und leistungsstarke Schnittstelle zu `R`, die in einem Webbrowser oder auf Ihrer lokalen Maschine läuft.
 Die Anwendung über den Browser hat den Vorteil, dass Sie nichts installieren oder konfigurieren müssen. Einfach anmelden und Sie können loslegen. Außerdem "merkt" `Rstudio` sich, was Sie machen und Sie können da weitermachen, wo Sie aufgehört haben, jedesmal wenn Sie sich anmelden (auch auf einer anderen Maschine). Das ist "`R` in the cloud" und funktioniert ähnlich wie GoogleDocs oder Facebook für `R.`
@@ -109,7 +108,7 @@ product <- 15.3 * 23.4; product    # Speicher Ergebnis und zeige es an
 
 ### Versionsinformation
 
-Manchmal kann es nützlich sein zu prüfen, welche Versionen das `mosaic` Pakets, von `R` und
+Manchmal kann es nützlich sein zu prüfen, welche Versionen des `mosaic` Pakets, von `R` und
 `RStudio` Sie verwenden. Die Eingabe von `sessionInfo()` zeigt Informationen über die Version von R und die geladenen Pakete an, während  `RStudio.Version()` die Version von `RStudio` ausgibt.
 
 ```{r}
@@ -165,7 +164,7 @@ Wenn Befehle in der Konsole eingetragen werden, dann erscheinen Sie in dem `Hist
 `RStudio` bietet verschiedene Möglichkeiten, um `R`-Code zwischen Reitern auszutauschen. Das Klicken der `Run`-Schaltfläche im Editor-Fenster für ein `R`-Skript oder RMarkdown- oder andere Datei kopiert Zeilen mit Code in die Konsole und führt sie aus.
 
 ### Der Datei-Reiter
-Der `Files`-Reiter bietet eine einfache Dateiverwaltung an. Sie kann auf übliche Weise bedient und genutzt werden, um Dateien zu öffnen, verschieben, umbenennen oder zu löschen. In der Browser-Version von `RStudio` bietet der `Files`-Reiter auch die Möglichkeit, Dateien hochzuladen, um Dateien von der lokalen Maschine auf den Server zu verschieben. In RMarkdown und `knitr`-Dateien kann der Code auch in einem bestimmten Abschnitt (`chunk`) oder in allen ausgeführt werden. Jede dieser Eigenschaften ermöglicht es Code "live" zu auszuprobieren und gleichzeitig ein Dokument zu erstellen, das eine Aufzeichnung des verwerndeten Codes enthält.
+Der `Files`-Reiter bietet eine einfache Dateiverwaltung an. Sie kann auf übliche Weise bedient und genutzt werden, um Dateien zu öffnen, zu verschieben, umzubenennen oder zu löschen. In der Browser-Version von `RStudio` bietet der `Files`-Reiter auch die Möglichkeit, Dateien hochzuladen, um Dateien von der lokalen Maschine auf den Server zu verschieben. In RMarkdown und `knitr`-Dateien kann der Code auch in einem bestimmten Abschnitt (`chunk`) oder in allen ausgeführt werden. Jede dieser Eigenschaften ermöglicht es Code "live" auszuprobieren und gleichzeitig ein Dokument zu erstellen, das eine Aufzeichnung des verwendeten Codes enthält.
 Umgekehrt kann Code aus der `History` zurück in die Konsole kopiert werden, um die Befehle nochmals auszuführen (ggf. nach Bearbeitung) oder in eine der Dateiverwaltungs-Reiter, um in einer Datei eingefügt zu werden.
   
   
@@ -192,4 +191,4 @@ gf_point(births ~ day_of_year, data = Births78)
 Innerhalb des Grafik-Reiters haben Sie Zugriff auf vorherige Plots und Sie können diese, nach interaktiver Größenanpassung, in verschiedenen Formaten exportieren.
 
 ### Der Paket-Reiter
-Ein großer Teil der `R`-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive R Archive Network) verfügbar sind.  Der `Packages`-Reiter vereinfacht die Installation und das Laden der Pakete. Er ermöglicht es auch Pakete zu finden, die seit ihre Installation ein Update bekommen haben.
+Ein großer Teil der `R`-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive R Archive Network) verfügbar sind.  Der `Packages`-Reiter vereinfacht die Installation und das Laden der Pakete. Er ermöglicht es auch Pakete zu finden, die seit ihrer Installation ein Update bekommen haben.

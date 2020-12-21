@@ -1,4 +1,4 @@
-# Fallstudie Gesundheitsevalution (HELP-Studie)
+# Fallstudie Gesundheitsevalution {#HELPstudie}
 
 Viele Beispiele in diesem Buch greifen auf Daten der HELP-Studie zurück. Bei dieser Studie handelt es sich um eine randomisierte klinische Interventionsstudie mit Patienten aus einer einer stationären Drogenentzugsstation. Patienten ohne laufende allgemeinmedizinische Versorgung wurden entweder einer Gruppe zugelost, in der eine multidisziplinäre Untersuchung und eine kurze Motivationsintervention vorgesehen war oder einer Gruppe mit Standardbehandlung.^[Die HELP-Studie wurde finanziert durch das *National Institute on Alcohol Abuse and Alcoholism* (R01-AA10870, Samet PI) sowie das *National Institute on Drug Abuse* (R01-DA10019, Samet PI).] Die Ergebnisse der Studie wurde zusammen mit einer Reihe von zusätzlichen Analysen veröffentlicht [@samet_linking_2003; @liebschutz_relationship_2002; @kertesz_slowing_2003].
 

@@ -28,7 +28,7 @@ pre code {
   left:10px;
   position:absolute;
   top:0px;
-  font-size: 35px;
+  font-size: 20px;
   color: #00998a;
   font-weight: bold;
 }
@@ -56,7 +56,7 @@ pre code {
   left:10px;
   position:absolute;
   top:0px;
-  font-size: 35px;
+  font-size: 20px;
   color: #00998a;
   font-weight: bold;
 }
@@ -83,7 +83,7 @@ pre code {
   left:10px;
   position:absolute;
   top:0px;
-  font-size: 35px;
+  font-size: 20px;
   color: #00998a;
   font-weight: bold;
 }
@@ -100,7 +100,7 @@ pre code {
   margin-bottom: 10px;
   position: relative;
   border: 2px #00998a;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .achtung:after {
@@ -109,7 +109,7 @@ pre code {
   left:20px;
   position:absolute;
   top:2px;
-  font-size: 35px;
+  font-size: 20px;
   color: #00998a;
   font-weight: bold;
 }
@@ -122,21 +122,20 @@ pre code {
 
 .note {
   padding: 1em 1em 1em 2em;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   position: relative;
   border: 2px #00998a;
   border-radius: 10px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .note:after {
-  content: "\f14b";
+  content: "\f292";
   font-family: FontAwesome;
   left:10px;
   position:absolute;
   top:2px;
-  font-size: 35px;
+  font-size: 15px;
   color: #00998a;
-  font-weight: bold;
 }
 
 .caution {
@@ -158,7 +157,7 @@ pre code {
   left:10px;
   position:absolute;
   top:2px;
-  font-size: 35px;
+  font-size: 20px;
   color: #00998a;
   font-weight: bold;
 }
