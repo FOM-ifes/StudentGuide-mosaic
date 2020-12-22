@@ -1,4 +1,4 @@
-```{r}
+```{r, echo=FALSE, eval=FALSE, include=FALSE}
 # ---------------------------------------------------------------------------
 #% maintainer:
 #%   - Bianca Krol

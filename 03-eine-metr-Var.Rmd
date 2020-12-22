@@ -1,22 +1,22 @@
 # Eine metrische Variable
 ## Numerische Zusammenfassungen
 
-R beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartilsabstand (IQR) sowie frei wählbare Quantile. Wir werden diese am CESD- (*Center for Epidemiologic Studies-Depression*) Maß für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
+\textsf{R} beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartilsabstand (IQR) sowie frei wählbare Quantile. Wir werden diese am CESD- (*Center for Epidemiologic Studies-Depression*) Maß für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
 Um die Lesbarkeit der Ausgabe zu verbessern, werden wir die Zahl der ausgegebenen Ziffern begrenzen (s. `?options()` für weitere Konfigurationsmöglichkeiten).
 
 ```{r}
 library(mosaic)
-options(digits = 3)
+options(digits = 4)
 mean(~cesd, data = HELPrct)
 ```
 
-Beachten Sie, dass die `mean()` Funktion im `mosaic` Paket eine Formel-Schnittstelle beinhaltet, das `lattice` Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das `mosaic` Paket stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
+Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittstelle beinhaltet, das `lattice`-Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das Paket `mosaic` stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
 
 ::: {.tiefereinsteigen data-latex=""}
 Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch *Start Teaching with R* [@TeachingR] eine detaillierte Präsentation. *Start Modeling with R* [@ModelingR], ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
 :::
 
-Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wir werden die MOSAIC Versionen verwenden, wann immer möglich):
+Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wir werden die MOSAIC-Versionen verwenden, wann immer möglich):
 
 ```{r}
 with(HELPrct, mean(cesd))
@@ -37,7 +37,7 @@ Nach dem gleichen Muster lassen sich auch Quantile der Verteilung berechnen:
 median(~ cesd, data=HELPrct)
 ```
 
-Standardmäßig stellt die `quantile()` Funktion die Quartile dar, aber ihr kann ein Vektor der gewünschten Quantile übergeben werden:  
+Standardmäßig stellt die Funktion `quantile()` die Quartile dar, aber ihr kann auch ein Vektor der gewünschten Quantile übergeben werden:  
 
 ```{r}
 with(HELPrct, quantile(cesd))
@@ -48,14 +48,14 @@ with(HELPrct, quantile(cesd, c(.025, .975)))
 Nicht alle Befehle wurden schon für die Nutzung des Formel-Interfaces überarbeitet. Für diese Funktionen muss für den Zugriff auf Variablen innerhalb eines Datensatzes `with()` oder das \$-Zeichen genutzt werden.
 :::
 
-Schließlich stellt die `favstats()` Funktion (für favorite Stats) im `mosaic` Paket eine prägnante Zusammenfassung einiger nützlicher Kennzahlen.  
+Schließlich stellt die Funktion `favstats()` (für favorite stats) im Paket `mosaic` eine prägnante Zusammenfassung einiger nützlicher Kennzahlen.  
 
 ```{r}
 favstats(~cesd, data = HELPrct)
 ```
 
 ## Grafische Zusammenfassungen
-Die `histogram()` Funktion wird genutzt, um ein Histogramm zu erzeugen. Hier nutzen wir das Formel-Interface (wie im Buch *Start Modeling with R*) um ein Histogramm der CESD-Werte zu erzeugen.  
+Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nutzen wir das Formel-Interface (wie im Buch *Start Modeling with R* [@TeachingR]) um ein Histogramm der CESD-Werte zu erzeugen.  
 
 ```{r}
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5.9)
@@ -67,14 +67,14 @@ Wir können die Optionen `width()` und `center()` nutzen, um die Lage der Säule
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5, center = 2.5)
 ```
 
-Im `HELPrct` Datensatz ist etwa ein Viertel der Probanden weiblich.
+Im Datensatz `HELPrct` ist etwa ein Viertel der Probanden weiblich.
 
 ```{r}
 tally( ~ sex, data = HELPrct)
 tally( ~ sex, format = "percent", data = HELPrct)
 ```
 
-In einem ersten Schritt wollen wir unsere Analysen auf nur die weiblichen Probanden zu konzentrieren. Wenn wir viele Analysen mit einer Teilgruppe unserer Daten durchführen wollen, könnte es am leichtesten sein, einen neuen Datensatz zu erzeugen, der nur die Fälle enthält, die uns interessieren. Die `filter()` Funktion im `dplyr` package kann genutzt werden, um einen solchen Datensatz zu erzeugen, der nur die Frauen oder nur die die Männer enthält (s. auch Kapitel 13.5 --> **Referenz einfügen**). Nachdem dieser erzeugt ist, wird die `stem()` Funktion genutzt, um ein Stamm-Blatt-Diagramm (*stem and leaf plot*) zu erzeugen.  
+Es ist unkompliziert die Analyse nur auf die weiblichen Probanden zu beschränken. Wenn wir viele Analysen mit einer Teilgruppe unserer Daten durchführen wollen, könnte es am leichtesten sein, einen neuen Datensatz zu erzeugen, der nur die Fälle enthält, die uns interessieren. Die Funktion `filter()` im Paket `dplyr` kann genutzt werden, um einen solchen Datensatz zu erzeugen, der nur die Frauen oder nur die Männer enthält (s. auch Kapitel \@ref(subdaten)). Nachdem dieser erzeugt ist, wird die Funktion `stem()` genutzt, um ein Stamm-Blatt-Diagramm (*stem and leaf plot*) zu erzeugen.  
 
 ```{r, eval=FALSE}
 Female <- filter(HELPrct, sex == 'female')
@@ -106,7 +106,7 @@ Male <- filter(HELPrct, sex == 'male')
 :::{.achtung data-latex=""}
 Die Tests auf Gleichheit nutzen 2 Gleichheitszeichen!
 :::
-    
+
 Teilgruppen können auch innerhalb eines Befehls erzeugt werden (dieses Mal mit einer überlagerten Normalverteilung):
 
 ```{r}
@@ -141,7 +141,7 @@ Auch die Breite der Säulen kann vorgegeben werden.
 gf_dhistogram(~ cesd, binwidth = 2, data = Female)
 ```
 
-Die `dotplot()` Funktion wird genutzt, um einen *dotplot* für eine kleinere Teilgruppe zu erzeugen (obdachlose Frauen). Wir zeigen auch, wie die Beschriftung der x-Achse geändert werden kann.
+Die Funktion `dotplot()` wird genutzt, um einen *dotplot* für eine kleinere Teilgruppe zu erzeugen (obdachlose Frauen). Wir zeigen auch, wie die Beschriftung der x-Achse geändert werden kann.
 
 ```{r}
 gf_dotplot(~ cesd, binwidth = 3,
@@ -151,26 +151,25 @@ gf_labs(x = "CESD score")
 
 
 ## Dichtekurven
+Ein Nachteil von Histogrammen besteht darin, dass sie abhängig von der gewählten Anzahl von Säulen sind. Eine andere Darstellung ist die Dichtekurve.
 
 :::{.note data-latex=""}
-Dichteplots sind auch abhängig von diversen Optionen. Wenn Ihr Dichteplot zu zerklüftet oder zu glatt ist, versuchen Sie, das „adjust“-Argument zu variieren: größer als 1 für glattere Plots, kleiner als 1 für gezacktere Plots.
+Dichteplots sind ebenfalls abhängig von diversen Optionen. Wenn Ihr Dichteplot zu zerklüftet oder zu glatt ist, versuchen Sie, das `adjust`-Argument zu variieren: größer als 1 für glattere Plots, kleiner als 1 für gezacktere Plots.
 :::
 
 :::{.tiefereinsteigen data-latex=""}
-Die `plotFun()` Funktion kann für Anmerkungen an Plots genutzt werden (s. Kapitel 10.2.1 --> \textbf{Referenz einfügen}).
+Die Funktion `plotFun()` kann für Anmerkungen an Plots genutzt werden (s. Kapitel \@ref(VisReg)).
 :::
 
-Ein Nachteil von Histogrammen besteht darin, dass sie abhängig von der gewählten Anzahl von Säulen sind. Eine andere Darstellung ist die Dichtekurve
-
-Hier verzieren wir einen DichtePlot mit einigen Zusätzen, um zu zeigen, wie man eine Grafik für didaktische Ziele aufbaut. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
+Hier verzieren wir einen Dichteplot mit einigen Zusätzen, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
 
 ```{r, fig.keep='last'}
-gf_dens(~ cesd, data = Female) %>%
-gf_refine(annotate(geom = "text", x = 10, y = .025,
-label = "only females")) %>%
-gf_fitdistr(dist = "dnorm") %>%
-gf_vline(xintercept = 60) +
-xlim(0, 80)
+gf_dens(~ cesd, data = Female) %>% 
+    gf_refine(annotate(geom = "text", x = 10, y = .025, 
+                       label = "only females")) %>% 
+    gf_fitdistr(dist = "dnorm") %>% 
+    gf_vline(xintercept = 60) + 
+    xlim(0, 80)
 ```
 
 
@@ -185,47 +184,49 @@ gf_freqpoly(~ cesd, data = Female, binwidth = 3.8)
 ## Normalverteilungen
 Die berühmteste Dichtekurve ist die Normalverteilung.
 
-:::{.hinweis data-latex=""}
-x steht für eXtra (außerhalb).
-:::
-
-Die `xpnorm()` Funktion erzeugt die Wahrscheinlichkeit, dass eine Zufallsvariable kleiner als das erste Argument ist, bei einer Normalverteilung mit dem Mittelwert als zweiten und der Standardabweichung als drittem Argument. Mehr Informationen über Normalverteilungen ist in Kapitel 11 --> **Referenz einfügen** zu finden.
+Die Funktion `xpnorm()` erzeugt die Wahrscheinlichkeit, dass eine Zufallsvariable kleiner als das erste Argument ist, bei einer Normalverteilung mit dem Mittelwert als zweitem und der Standardabweichung als drittem Argument. Mehr Informationen über Normalverteilungen sind in Kapitel \@ref(powerberechnung) zu finden.
 
 ```{r}
 xpnorm(1.96, mean = 0, sd = 1)
 ```
 
+:::{.hinweis data-latex=""}
+x steht für eXtra (außerhalb).
+:::
 
 ## Inferenz einer einzelnen Stichprobe {#bootstrap}
-Das 95%-Konfidenzintervall für den Mittelwert des CESD-Wertes der Frauen kann mit einem t-Test berechnet werden.
+Das 95%-Konfidenzintervall für den Mittelwert des CESD-Wertes der Frauen kann mit einem t-Test berechnet werden:
 
 ```{r}
 t.test( ~ cesd, data = Female)
 confint(t.test( ~ cesd, data = Female))
 ```
 
-Aber es ist genauso zielführend, es mit der Bootstrab-Methode zu berechnen. Die Statistik, die wir resamplen wollen, ist der Mittelwert.
+Aber es ist genauso zielführend, es mit der Bootstrap-Methode zu berechnen. Die Statistik, die wir resampeln wollen, ist der Mittelwert.
 
 :::{.tiefereinsteigen data-latex=""}
-Mehr Details und Beispiele finden sich in der Vignette zum Resampling im `mosaic` Paket.
+Mehr Details und Beispiele finden sich in der Vignette zum Resampling im Paket `mosaic`.
 :::
 
 ```{r}
 mean( ~ cesd, data = Female)
 ```
 
-Ein erstes Resamplen führt zu diesem Ergebnis
+Ein erstes Resampeln führt zu diesem Ergebnis
 
 ```{r}
 mean( ~ cesd, data = resample(Female))
 ```
 
 :::{.hinweis data-latex=""}
-Hier resamplen wir durch Ersetzen des Original-Datensatzes, indem wir einen Resample-Datensatz mit der gleichen Anzahl von Zeilen erzeugen.\\
-Auch wenn eine einzige Probe von geringem Nutzen ist, so ist es doch sinnvoll, die Studierenden die Berechnung durchführen zu lassen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne resampling.
+Hier resampeln wir durch Ersetzen des Original-Datensatzes, indem wir einen Pseudo-Zufalls-Datensatz mit der gleichen Anzahl von Zeilen erzeugen.
 :::
 
-Ein weiteres Mal wird zu einem anderen Ergebnis führen:
+:::{.note data-latex=""}
+Auch wenn eine einzige Probe von geringem Nutzen ist, so ist es doch sinnvoll, die Studierenden die Berechnung durchführen zu lassen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
+:::
+
+Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
 
 ```{r}
 mean( ~ cesd, data = resample(Female))

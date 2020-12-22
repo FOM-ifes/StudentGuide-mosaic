@@ -8,19 +8,19 @@ Da die Auswahl und Reihenfolge der Themen von Lehrbuch zu Lehrbuch sehr untersch
 
 In Kapitel \@ref(datenmanagement) ist zu den wichtigsten Kernbegriffen eine Einführung gegeben.
 
-Dieses Werk baut auf die Initiativen des MOSAIC Projektes [http://www.mosaic-web.org](http://www.mosaic-web.org) auf: Ein durch die amerikanische National Science Foundation (NSF) gefördertes Programm, um den Unterricht von Statistik, Mathematik, Naturwissenschaften und Informatik im Bachelor Studium zu fördern. In erster Linie werden wir das `mosaic` Paket, das erstellt wurde, um den Einsatz von R in statistischen Kursen zu vereinfachen, und das `mosaicData` Paket, welches eine Reihe von Datensätzen enthält, einsetzen. Das `ggformula` Paket bietet hierbei unter Benutzung der `mosaic`-Syntax Unterstützung für qualitätsvolle Grafiken. Ein Paper über die MOSAIC Vorgehensweise für die Lehre von Statistik und Datenwissenschaft ist verfügbar über [https://journal.r-project.org/archive/2017/RJ-2017-024](https://journal.r-project.org/archive/2017/RJ-2017-024). Eine kurze Zusammenfassung der `R` Befehle, die für die Lehre einführender Statistik essentiell ist, steht in der `vignette` des `mosaic` Pakets zur Verfügung:
+Dieses Werk baut auf die Initiativen des MOSAIC Projektes [http://www.mosaic-web.org](http://www.mosaic-web.org) auf: Ein durch die amerikanische National Science Foundation (NSF) gefördertes Programm, um den Unterricht von Statistik, Mathematik, Naturwissenschaften und Informatik im Bachelor Studium zu fördern. In erster Linie werden wir das Paket `mosaic`, das erstellt wurde, um den Einsatz von \textsf{R} in statistischen Kursen zu vereinfachen, und das Paket `mosaicData`, welches eine Reihe von Datensätzen enthält, einsetzen. Das Paket `ggformula` bietet hierbei unter Benutzung der `mosaic`-Syntax Unterstützung für qualitätsvolle Grafiken. Ein Paper über die MOSAIC Vorgehensweise für die Lehre von Statistik und Datenwissenschaft ist verfügbar über [https://journal.r-project.org/archive/2017/RJ-2017-024](https://journal.r-project.org/archive/2017/RJ-2017-024). Eine kurze Zusammenfassung der \textsf{R} Befehle, die für die Lehre einführender Statistik essentiell ist, steht in der `vignette` des Paketes `mosaic` zur Verfügung:
 [https://cran.r-project.org/web/packages/mosaic](https://cran.r-project.org/web/packages/mosaic).
 
 Auch weitere verwandte Ressourcen des MOSAIC Projektes können nützlich sein, zum Beispiel eine kommentierte Sammlung von Beispielen aus verschiedenen Lehrbüchern (vgl. [https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html](https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html)).
 
-Um ein Paket in R nutzen zu können, muss es zuerst (einmalig) installiert werden und in jeder neuen Session geladen werden. Das `mosaic` Paket kann mit folgendem Befehl installiert werden:
+Um ein Paket in \textsf{R} nutzen zu können, muss es zuerst (einmalig) installiert werden und in jeder neuen Session geladen werden. Das Paket `mosaic` kann mit folgendem Befehl installiert werden:
 
 ```{r, eval=FALSE}
 install.packages("mosaic")        # Beachten Sie die Anführungszeichen
 ```
 
 ::: {.note data-latex=""}
-Rstudio bietet u. a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
+\textsf{RStudio} bietet u. a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
 :::
 
 Das `#` Zeichen stellt einen Kommentar in R dar und klammert den restlichen Text bis zum Ende der Zeile aus. 
@@ -34,11 +34,11 @@ library(mosaic)
 Das RMarkdown System bietet eine einfache markup Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es Studierenden, ihre Analysen mit einem Workflow zu versehen, der Reproduzierbarkeit sicherstellt und Kopierfehler vermeidet.
 
 ::: {.infobox data-latex=""}
-Das knitr/LATEX System erlaubt dem erfahrenen Nutzer R und LATEX im selben Dokument zu verknüpfen. Die Belohnung dafür dieses kompliziertere System zu erlernen ist eine viel feinere Kontrolle über das Ausgabeformat. RMarkdown ist jedoch viel einfacher zu lernen und ist auch für fachliche Arbeiten geeignet.
+Das \textsf{knitr/LATEX} System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsf{LaTeX} im selben Dokument zu verknüpfen. Die Belohnung dafür dieses kompliziertere System zu erlernen ist eine viel feinere Kontrolle über das Ausgabeformat. RMarkdown ist jedoch viel einfacher zu lernen und ist auch für fachliche Arbeiten geeignet.
 :::
 
 ::: {.hinweis data-latex=""}
-Um Markdown oder knitr/LATEX nutzen zu können, muss das `markdown` Paket installiert sein.
+Um Markdown oder \textsf{knitr/LATEX} nutzen zu können, muss das Paket `markdown` installiert sein.
 :::
 
 Die Studierenden werden typischerweise zu Beginn in RMarkdown eingeführt mit der Aufforderung diese für Seminar- und Hausarbeiten etc. zu nutzen [@baumer2014r].

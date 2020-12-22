@@ -1,4 +1,4 @@
-# Power-Berechnungen
+# Power-Berechnungen {#powerberechnung}
 Obwohl dieses Thema i. d. R. kein Hauptpunkt in einführenden Statistik-Kursen ist, helfen die Power-Berechnung (= Bestimmung der Trennschärfe eines Tests) und die Bestimmung des notwendigen Stichprobenumfangs, zentrale Konzepte in der Statistik zu vertiefen. In diesem Kapitel werden wir herausfinden, wie R genutzt werden kann, Power-Berechnungen über analytische Ansätze vorzunehmen. Als Beispiel nehmen wir ein einfaches Problem mit zwei Tests (t-Test und Vorzeichen-Test), die hier gerichtet bzw. einseitig angewendet werden.
 Wir werden die Power des Vorzeichen-Tests und die Power eines Tests basierend auf der Normalverteilungsannahme (einseitiger Ein-Stichproben-t-Test) vergleichen unter der Annahme, dass die Varianz σ der Population bekannt sei. `X1, …, X25` seien u. i. v. `N(0.3, 1)` (das ist die Zufallsfolge, für die wir die Power berechnen wollen). Wir testen die die Nullhypothese `H_0:μ=0` versus `H_A:μ>0` zum Signifikanzniveau `α = 0.05`. 
 

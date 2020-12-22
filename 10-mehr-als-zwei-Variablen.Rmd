@@ -50,7 +50,7 @@ anova(lmnointeract, lminteract)
 Es deutet wenig auf einen Interaktionseffekt hin, wir können somit dies aus dem Modell entfernen.
 
 
-### Visualisierung der Regressionsergebnisse
+### Visualisierung der Regressionsergebnisse {#VisReg}
 
 Die `makeFun()` und `plotFun()` Funktionen aus dem Paket mosaic können zur Abbildung der vorhergesagten Werte des Regressionsmodells verwendet werden. Für dieses Beispiel können wir die vorhergesagten CESD Werte für einen MCS Wertebereich (mental component score) ausgeben, die ein hypothetisch 36jähriger Mann und Frau in einem Modell mit parallelen Steigungen (keine Interaktion) haben könnte.
 

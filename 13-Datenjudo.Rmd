@@ -150,7 +150,7 @@ head(faithful, 3)
 ```
 
 
-## Erstellen von Teilmengen von Beobachtungen
+## Erstellen von Teilmengen von Beobachtungen {#subdaten}
 
 Wir können auch `filter()` verwenden, um die Größe eines Dataframes zu reduzieren, indem nur bestimmte Zeilen ausgewählt werden.
 
