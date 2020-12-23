@@ -1,21 +1,21 @@
 # Überlebenszeitanalysen
 
-Umfangreiche Hilfsmittel für Überlebenszeitanalysen (Zeitraum bis Ereignis) sind aus dem Paket survival verfügbar.
+Umfangreiche Hilfsmittel für Überlebenszeitanalysen (Zeitraum bis Ereignis) sind aus dem Paket `survival` verfügbar.
 
 ## Kaplan-Meier Kurve
 
 ```{r}
 library(survival)
 library(broom)
-fit <- survfit(Surv(dayslink, linkstatus) ~ treat,
- data = HELPrct)
+fit <- survfit(Surv(dayslink, linkstatus) ~ treat, 
+               data = HELPrct)
 fit <- broom::tidy(fit)
 gf_step(fit, estimate ~ time, linetype = ~ strata,
         title = "Produkt-Limit Überlebensschätzer (Zeitraum bis Anbindung)",
-        xlab = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")
+        xlab  = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")
 ```
 
-Wir sehen dass die Personen der Behandlungsgruppe  (Health Evaluation and Linkage to Primary Care clinic) signifikant wahrscheinlicher an eine Erstversorgung angebunden werden (weniger wahrscheinlich zu "überleben") als die der Kontrollgruppe (Grundversorgung)
+Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant wahrscheinlicher an einen Primärversorger angebunden werden (weniger wahrscheinlich zu "überleben") als die der Kontrollgruppe (Grundversorgung).
 
 
 ## Cox Modell mit proportionalem Ausfallrisiko
@@ -23,6 +23,7 @@ Wir sehen dass die Personen der Behandlungsgruppe  (Health Evaluation and Linkag
 ```{r}
 library(survival)
 summary(coxph(Surv(dayslink, linkstatus) ~ age + substance, 
- data = HELPrct))
+              data = HELPrct))
 ```
-Weder Alter noch Substanzgruppe hatten signifikanten Einfluss auf eine Anbindung an (Überführung in den Bereich) Erstversorgung.
+
+Weder Alter noch Substanzgruppe hatten signifikanten Einfluss auf eine Anbindung an Primärversorgung.

@@ -1,9 +1,9 @@
 # Power-Berechnungen {#powerberechnung}
-Obwohl dieses Thema i. d. R. kein Hauptpunkt in einführenden Statistik-Kursen ist, helfen die Power-Berechnung (= Bestimmung der Trennschärfe eines Tests) und die Bestimmung des notwendigen Stichprobenumfangs, zentrale Konzepte in der Statistik zu vertiefen. In diesem Kapitel werden wir herausfinden, wie R genutzt werden kann, Power-Berechnungen über analytische Ansätze vorzunehmen. Als Beispiel nehmen wir ein einfaches Problem mit zwei Tests (t-Test und Vorzeichen-Test), die hier gerichtet bzw. einseitig angewendet werden.
-Wir werden die Power des Vorzeichen-Tests und die Power eines Tests basierend auf der Normalverteilungsannahme (einseitiger Ein-Stichproben-t-Test) vergleichen unter der Annahme, dass die Varianz σ der Population bekannt sei. `X1, …, X25` seien u. i. v. `N(0.3, 1)` (das ist die Zufallsfolge, für die wir die Power berechnen wollen). Wir testen die die Nullhypothese `H_0:μ=0` versus `H_A:μ>0` zum Signifikanzniveau `α = 0.05`. 
+Obwohl dieses Thema i. d. R. kein Hauptpunkt in einführenden Statistik-Kursen ist, helfen die Power-Berechnung (= Bestimmung der Trennschärfe eines Tests) und die Bestimmung des notwendigen Stichprobenumfangs, zentrale Konzepte in der Statistik zu vertiefen. In diesem Kapitel werden wir herausfinden, wie \textsf{R} genutzt werden kann, Power-Berechnungen über analytische Ansätze vorzunehmen. Als Beispiel nehmen wir ein einfaches Problem mit zwei Tests (t-Test und Vorzeichen-Test), die hier gerichtet bzw. einseitig angewendet werden.
+Wir werden die Power des Vorzeichen-Tests und die Power eines Tests basierend auf der Normalverteilungsannahme (einseitiger Einstichproben-t-Test) vergleichen unter der Annahme, dass die Varianz $\sigma$ der Population bekannt sei. $X1, ... , X25$ seien u.i.v. $N(0.3, 1)$ (das ist die Zufallsfolge, für die wir die Power berechnen wollen). Wir testen die die Nullhypothese $H_0: \mu = 0$ versus $H_A: \mu > 0$ zum Signifikanzniveau $\alpha = 0.05$. 
 
 ## Vorzeichen-Test
-Wir starten mit der Berechnung des Alpha-Fehlers (Fehler 1. Art) für den Vorzeichen-Test. Wir verwerfen die Nullhypothese, wenn die Anzahl der positiven Werte groß ist. Unter der Nullhypothese ist das eine binomialverteilte Zufallsvariable mit `n = 25` Versuchen und `p = 0.5` Wahrscheinlichkeit für einen positiven Wert. Lassen Sie uns Werte zwischen 15 und 19 nutzen.
+Wir starten mit der Berechnung des Alpha-Fehlers (Fehler 1. Art) für den Vorzeichen-Test. Wir verwerfen die Nullhypothese, wenn die Anzahl der positiven Werte groß ist. Unter der Nullhypothese ist das eine binomialverteilte Zufallsvariable mit $n = 25$ Versuchen und $p = 0.5$ Wahrscheinlichkeit für einen positiven Wert. Lassen Sie uns Werte zwischen 15 und 19 nutzen.
 
 ```{r}
 xvals <- 15:19
@@ -12,8 +12,8 @@ cbind(xvals, probs)
 qbinom(.95, size = 25, prob = 0.5)
 ```
 
-Wenn wir entscheiden die Nullhypothese zu verwerfen, sobald die Anzahl der positiven Werte 17 oder größer ist, sehen wir, dass wir ein `α`-Niveau von `0.054` erreichen (Wert von `pbinom()` bei 16), der Nahe am nominellen Wert der Fragestellung liegt.
-Wir berechnen die Power des Vorzeichen-Tests wie folgt: Die Wahrscheinlichkeit, dass `Xi > 0` gegeben `H_A` trifft zu, ergibt sich wie folgt:
+Wenn wir entscheiden die Nullhypothese zu verwerfen, sobald die Anzahl der positiven Werte 17 oder größer ist, sehen wir, dass wir ein $\alpha$-Niveau von $0.054$ erreichen (Wert von `pbinom()` bei 16), der Nahe am nominellen Wert der Fragestellung liegt.
+Wir berechnen die Power des Vorzeichen-Tests wie folgt: Die Wahrscheinlichkeit, dass $Xi > 0$, gegeben $H_A$, zutrifft, ergibt sich wie folgt:
 
 ```{r}
 1 - pnorm(0, mean = 0.3, sd = 1)
@@ -25,16 +25,16 @@ Wir können das mit folgendem Befehl auch grafisch betrachten:
 xpnorm(0, mean = 0.3, sd = 1, lower.tail = FALSE)
 ```
 
-Die Power unter der Alternativhypothese ist gleich der Wahrscheinlichkeit, 17 oder mehr positive Werte zu ziehen gegeben `p = 0.6179`:
+Die Power unter der Alternativhypothese ist gleich der Wahrscheinlichkeit, 17 oder mehr positive Werte zu ziehen, gegeben $p = 0.6179$:
 
 ```{r}
 1 - pbinom(16, size = 25, prob = 0.6179)
 ```
 
-Die Power ist bestenfalls bescheiden.
+Die Power ist hier bestenfalls bescheiden.
 
 ## t-Test
-Als nächstes berechnen wir die Power für den Test, der auf der Normalverteilungsannahme basiert. Um den Vergleich fair zu gestalten, werden wir unser `α`-Niveau auf `0.05388` setzen.
+Als nächstes berechnen wir die Power für den Test, der auf der Normalverteilungsannahme basiert. Um den Vergleich fair zu gestalten, werden wir unser $\alpha$-Niveau auf $0.05388$ setzen.
 
 ```{r}
 alpha <- 1 - pbinom(16, size = 25, prob = 0.5)
@@ -55,7 +55,7 @@ crit <- zstar * stderr
 crit
 ```
 
-Daher verwerfen wir die Nullhypothese für beobachtete Mittelwert größer als `0.322`.
+Daher verwerfen wir die Nullhypothese für beobachtete Mittelwerte größer als $0.322$.
 Um die Power dieses einseitigen Tests zu berechnen, bestimmen wir die Wahrscheinlichkeit unter der Annahme der Alternativhypothese, rechts von dieser Obergrenze zu sein.
 
 ```{r}
@@ -63,14 +63,14 @@ power <- 1 - pnorm(crit, mean = 0.3, sd = stderr)
 power
 ```
 
-Die Power des Tests basierend auf der Normalverteilungsannahme ist `0.457`. Zur Überprüfung (oder für zukünftige ähnliche Berechnungen) können wir die `power-t.test()`-Funktion nutzen.
+Die Power des Tests basierend auf der Normalverteilungsannahme ist $0.457$. Zur Überprüfung (oder für zukünftige ähnliche Berechnungen) können wir die Funktion `power-t.test()` nutzen.
 
 ```{r}
 power.t.test(n = 25, delta = .3, sd = 1, sig.level = alpha, 
              alternative = "one.sided", type = "one.sample")$power
 ```
 
-Der analytische (formelbasierte) Ansatz ergibt eine ähnliche Schätzung wie die direkte Berechnung über `power-t-test()`.
+Der analytische (formelbasierte) Ansatz ergibt eine ähnliche Schätzung wie die direkte Berechnung über `power.t.test()`.
 Insgesamt sehen wir, dass der t-Test eine größere Power als der Vorzeichen-Test hat, wenn die zugrundeliegenden Daten tatsächlich normalverteilt sind.
 
 :::{.note data-latex=""}

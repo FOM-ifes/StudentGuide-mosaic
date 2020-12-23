@@ -1,16 +1,7 @@
-```{r, echo=FALSE, eval=FALSE, include=FALSE}
-# ---------------------------------------------------------------------------
-#% maintainer:
-#%   - Bianca Krol
-#%
-# ---------------------------------------------------------------------------
-```
-
 # Zwei kategoriale Variablen
+## Kreuztabellen {#kreuztab}
 
-## Kreuztabellen
-
-Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Wohnstatus (wohnungslos in einer oder mehr als einer Nacht in den letzten sechs Monaten oder nicht wohnungslos) und das Geschlecht. 
+Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Obdachlosenstatus (obdachlos in einer oder mehr als einer Nacht in den letzten sechs Monaten oder nicht obdachlos) und das Geschlecht. 
 
 ```{r, echo=TRUE}
 tally(~ homeless + sex, margins = FALSE, 
@@ -24,37 +15,37 @@ tally(~ sex | homeless, margins = TRUE,
       format = "percent", data = HELPrct)
 ```
 
-Wir können auch die Odds Ratio (Chancenverhältnis) direkt aus der Tabelle berechnen.
+Die Odds Ratios (Chancenverhältnis) können direkt aus der Tabelle berechnet werden.
 
 ```{r, echo=TRUE}
 OR <- (40/169)/(67/177)
 OR
 ```
 
-Das `mosaic`-Paket hat eine Funktion, um die Odds Ratios zu berechnen.
+Das Paket `mosaic` hat eine Funktion, um die Odds Ratios zu berechnen.
 
 ```{r, echo=TRUE}
 oddsRatio(tally(~ (homeless == "housed") + sex,
-                margins = FALSE, data = HELPrct))
+                   margins = FALSE, data = HELPrct))
 ```
 
-Die `CrossTable()`-Funktion im Paket `gmodels` kann ebenfalls eine Kreuztabelle erzeugen.
+Die Funktion `CrossTable()` im Paket `gmodels` kann ebenfalls eine Kreuztabelle erzeugen.
 
 ```{r, echo=TRUE}
 library(gmodels)
 with(HELPrct, CrossTable(homeless, sex, 
-                              prop.r = FALSE, 
-                              prop.chisq = FALSE, 
-                              prop.t = FALSE))
+                         prop.r = FALSE, 
+                         prop.chisq = FALSE, 
+                         prop.t = FALSE))
 
 ```
 
 
-Graphische Zusammenfassungen von Kreuztabellen können ebenfalls nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Wohnungslosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Wohnungslose görßer ist als für Nicht-Wohnungslose.)
+Grafische Zusammenfassungen von Kreuztabellen können ebenfalls nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Obdachlosen größer ist als für Nicht-Obdachlosen).
 
 :::{.achtung data-latex=""}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
-ihrem geringen Daten-Tinten-Verhältnis. Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen.
+ihrem geringen Daten-Tinten-Verhältnis. Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen [@tufte2001].
 :::
 
 ```{r, echo=TRUE}
@@ -78,7 +69,6 @@ HELPtable <- rbind(
   do(67)  * data.frame(sex = "female", homeless = "housed"),
   do(177) * data.frame(sex = "male", homeless = "housed")
 )
-
 tally(~ homeless + sex, data = HELPtable)
 ```
 
@@ -86,31 +76,33 @@ tally(~ homeless + sex, data = HELPtable)
 
 ```{r, echo=TRUE}
 chisq.test(tally(~ homeless + sex, 
-                 margins = FALSE,
-                 data = HELPrct), 
-           correct = FALSE)
+                    margins = FALSE,
+                    data = HELPrct), 
+                    correct = FALSE)
 ```
 
-Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir ein so starken Zusammenhang finden, wenn der Wohnungsstatus und das Geschlecht in der Population unabhängig voneinander wären. 
+Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir einen so starken Zusammenhang finden, wenn der Obdachlosenstatus und das Geschlecht in der Population unabhängig voneinander wären. 
 
-Wenn Studierende signifikante Zusammenhänge finden, ist es wichtig, dass sie die diesen im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` kann weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen) liefern, die hierzu hilfreich sein können.
+Wenn Studierende signifikante Zusammenhänge finden, ist es wichtig, dass sie diese im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` liefert weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen), die hierzu hilfreich sein können.
 
 ```{r, echo=TRUE}
 xchisq.test(tally(~ homeless + sex, 
-                  margins = FALSE, 
-                  data = HELPrct), 
-            correct = FALSE)
+                     margins = FALSE, 
+                     data = HELPrct), 
+                     correct = FALSE)
 ```
+
+Wir beobachten, dass es weniger obdachlose Frauen und mehr obdachlose Männer als erwartet gibt. 
 
 ## Fisher's exakter Test
 Es kann auch ein exakter Test berechnet werden. Für 2x2-Kontingenztafeln ist dies unkompliziert. Optionen um die Größe des Problems bei größeren Tabellen zu beschränken existieren (siehe `?fisher.test()`).
 
 ```{r}
-fisher.test(tally(~ homeless + sex, margins = FALSE,
-data = HELPrct))
+fisher.test(tally(~ homeless + sex, margins = FALSE, 
+                     data = HELPrct))
 ```
 
 :::{.tiefereinsteigen data-latex=""}
-Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt 6.1. Die `fisher.test()`-Funktion verwerndet einen anderen Schätzer (und anderes Intervall basierend auf dem Profil der Likelihodd).
+Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt \@ref(kreuztab). Die Funktion `fisher.test()` verwendet einen anderen Schätzer (und anderes Intervall, basierend auf dem Profil der Likelihood).
 :::
 

@@ -1,10 +1,10 @@
-# Kategoriale AV, metrische UV
+# Kategoriale Antwortvariable, metrischer Prädiktor
 
-## Logistic regression
-Die logistische Regression ist mit folgendem Befehl `glm()` zu verwenden, dieser unterstützt eine Vielzahl von Verknüpfungsfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich logistischer Regression.
+## Logistische Regression
+Die logistische Regression ist mit dem Befehl `glm()` durchführbar, dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich logistischer Regression.
 
 :::{.hinweis data-latex=""}
-Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option angegeben werden kann `link`.  Der `logit` Link bereits die Voreinstellung für "binomial family", so dass wir es hier nicht angeben müssen. Die ausführlichere Verwendung wäre  `family=binomial(link=logit)`
+Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit` Link ist bereits die Voreinstellung für die Binoialverteilung, so dass wir es hier nicht angeben müssen. Die ausführlichere Angabe wäre `family=binomial(link=logit)`.
 :::
 
 ```{r}
@@ -15,20 +15,20 @@ exp(coef(logitmod))
 exp(confint(logitmod))
 ```
 
-Wir können zwei Modelle vergleichen (für Tests mit mehreren Freiheitsgraden).  Beispielsweise könnte uns der Zusammenhang von Obdachlosenstatus, dem Alter und die drei Substanzgruppen.
+Wir können zwei Modelle vergleichen (für Tests mit mehreren Freiheitsgraden). Beispielsweise könnte uns der Zusammenhang von Obdachlosenstatus und dem Alter je Gruppe des Drogenkonsums interessieren.
 
 ```{r}
 mymodsubage <- glm((homeless == "homeless") ~ age + substance, 
-  family = binomial, data = HELPrct)
+                     family = binomial, data = HELPrct)
 mymodage <- glm((homeless == "homeless") ~ age, family = binomial, 
-  data = HELPrct)
+                  data = HELPrct)
 msummary(mymodsubage)
 exp(coef(mymodsubage))
 anova(mymodage, mymodsubage, test = "Chisq")
 ```
 
-Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain- und Heroin-Gruppe signifikant seltener obdachlos sind als die Personen, die der Alkoholgruppe zugehörig sind.
-(Ein ähnliches Ergebnis zeigt sich, wenn man nur den Obdachlosenstatus und die Substanz der Obdachlosen betrachtet.)
+Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain- und Heroin-Gruppen signifikant seltener obdachlos sind als die Personen, die der Alkoholgruppe zugehörig sind.
+(Ein ähnliches Ergebnis zeigt sich, wenn nur der Obdachlosenstatus und die Substanz betrachtet werden).
 
 ```{r}
 tally(~ homeless | substance, format = "percent", 

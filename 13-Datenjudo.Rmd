@@ -1,26 +1,19 @@
-```{r}
-# ---------------------------------------------------------------------------
-#% maintainer:
-#%   - Bianca Krol
-#%
-# ---------------------------------------------------------------------------
-```
-
-
 # Datenmanagement {#datenmanagement}
 
-Datenmanagement ist eine Schlüsselfunktion, die es Studierenden (und Dozenten) ermöglicht, "mit Daten zu arbeiten" oder wie Diane Lambert von Google sagte, "mit Daten zu denken". Wir neigen dazu, das Datenmanagement der Studierenden während des ersten Teils eines einführenden Statistikkurses auf ein Minimum zu beschränken und bei Bedarf schrittweise Themen einzuführen. Für Kurse, in denen die Studierenden inhaltliche Projekte durchführen, ist das Datenmanagement wichtiger. In diesem Kapitel werden einige wichtige Aufgaben des Datenmanagements beschrieben.
+Datenmanagement ist eine Schlüsselfunktion, die es Studierenden (und Dozenten) ermöglicht, "mit Daten zu arbeiten" oder wie Diane Lambert von Google sagte "mit Daten zu denken". Wir neigen dazu, das Datenmanagement der Studierenden während des ersten Teils eines einführenden Statistikkurses auf ein Minimum zu beschränken und bei Bedarf schrittweise Themen einzuführen. Für Kurse, in denen die Studierenden inhaltliche Projekte durchführen, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Aufgaben des Datenmanagements beschrieben.
 
 
 ## Überprüfung von Dataframes
 
-:::{.tiefereinsteigen data-latex=""}
-Das Buch *Start Teaching with R* enthält einen umfangreichen Abschnitt über die Datenverwaltung, einschließlich der Verwendung der Funktion `read.file()` zum Laden von Daten in R und RStudio. 
-
-Die Pakete dplyr und tidyr bieten einen eleganten Ansatz für das Datenmanagement und erleichtern den Studierenden die Möglichkeit, mit Daten zu arbeiten. Hadley Wickham, Autor der Pakete, schlägt vor, dass es sechs Schlüsselwörter (oder Verben) gibt, die in diesen Paketen implementiert sind, die es ermöglichen, eine große Anzahl von Aufgaben zu erfüllen: Filtern (Zeilenabgleichskriterien beibehalten), Auswählen (Spalten nach Namen auswählen), Anordnen (Zeilen neu ordnen), Mutieren (neue Variablen hinzufügen), Zusammenfassen (Variablen auf Werte reduzieren) und Gruppieren nach (Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
+:::{.note data-latex=""}
+Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Abschnitt über die Datenverwaltung, einschließlich der Verwendung der Funktion `read.file()` zum Laden von Daten in \textsf{R} und \textsf{RStudio}. 
 :::
 
-Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in R) hilfreich sein.
+:::{.tiefereinsteigen data-latex=""}
+Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern den Studierenden die Möglichkeit, mit Daten zu arbeiten. Hadley Wickham, Autor der Pakete, schlägt vor, dass es sechs Schlüsselwörter (oder Verben) gibt, die in diesen Paketen implementiert sind, die es ermöglichen, eine große Anzahl von Aufgaben zu erfüllen: Filtern (`filter`- Zeilenabgleichskriterien beibehalten), Auswählen (`select` - Spalten nach Namen auswählen), Anordnen (`arrange` - Zeilen neu ordnen), Mutieren (`mutate` - neue Variablen hinzufügen), Zusammenfassen (`summarise` - Variablen auf Werte reduzieren) und Gruppieren nach (`group by` - Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
+:::
+
+Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in \textsf{R}) hilfreich sein.
 
 
 ```{r}
@@ -28,12 +21,12 @@ inspect(iris)
 ```
 
 
-Der Iris-Dataframe enthält eine kategoriale und vier quantitative Variablen.
+Der `iris`-Datensatz enthält eine kategoriale und vier quantitative Variablen.
 
 
 ## Hinzufügen neuer Variablen zu einem Dataframe
 
-Wir können zusätzliche Variablen zu einem bestehenden Datenframe mit `mutate()` hinzufügen. Aber zuerst erstellen wir eine kleinere Version des Iris-Dataframes.
+Wir können zusätzliche Variablen zu einem bestehenden Dataframe mit `mutate()` hinzufügen. Aber zuerst erstellen wir eine kleinere Version des `iris`-Datensatzes.
 
 ```{r}
 irisSmall <- select(iris, Species, Sepal.Length)
@@ -47,7 +40,7 @@ irisSmall <- mutate(irisSmall, Length = cut(Sepal.Length, breaks=4:8))
 ```
 
 
-Mehrere Befehle können mit dem Operator %>% (Pfeife) miteinander verknüpft werden:
+Mehrere Befehle können mit dem %>% (\textsc{Pfeife}-) Operator miteinander verknüpft werden:
 
 ```{r}
 irisSmall <- iris %>%
@@ -56,17 +49,17 @@ irisSmall <- iris %>%
 ```
 
 
-Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen Pfeife erbt).
+Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pfeife} erbt).
 
 ```{r}
 head(irisSmall)
 ```
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.hinweis data-latex=""}
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
 
-Der CPS85-Datenrahmen enthält Daten aus einer aktuellen Bevölkerungserhebung (aktuell also 1985). Zwei der Variablen in diesem Dataframe sind Alter und Bildung. Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre älter ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Datenrahmen mit `mutate()` hinzufügen. 
+Der \textsc{CPS85}-Datensatz enthält Daten aus einer aktuellen Bevölkerungserhebung (aktuell also 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
 
 
 ```{r}
@@ -74,17 +67,16 @@ CPS85 <- mutate(CPS85, workforce.years = age - 6 - educ)
 favstats(~ workforce.years, data=CPS85)
 ```
 
-
-Tatsächlich wurde dies für alle Fälle bis auf einen getan, um die bereits in den CPS85-Daten enthaltene Variable exper zu erstellen.
+Tatsächlich wurde dies für alle bis auf einen Fall getan, um die bereits in den \textsc{CPS85}-Daten enthaltene Variable `exper` zu generieren.
 
 ```{r}
-tally(~ (exper - workforce.years), data=CPS85)
+tally(~ (exper - workforce.years), data = CPS85)
 ```
 
 
 ## Variablen löschen
 
-Da wir die exper-Variable bereits haben, gibt es keinen Grund, unsere neue Variable zu behalten. Lassen wir das Ganze. Beachten Sie die geschickte Verwendung des Minuszeichens.
+Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Variable zu behalten. Eliminieren wir diese also wieder. Beachten Sie die geschickte Verwendung des Minuszeichens.
 
 ```{r}
 names(CPS85)
@@ -105,20 +97,20 @@ CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 
 ## Variablen umbenennen
 
-Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` im dplyr-Paket geändert werden.
+Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` im Paket `dplyr` geändert werden.
 
 ```{r}
 names(CPS85)
 ```
 
 ```{r}
-CPSnew <- rename(CPS85, workforce=workforce.years)
+CPSnew <- rename(CPS85, workforce = workforce.years)
 names(CPSnew)
 ```
 
-Die Zeilennamen eines Datenframes können durch einfache Zuweisung mittels `row.names()` geändert werden.
+Die Zeilennamen eines Dataframes können durch einfache Zuweisung mittels `row.names()` geändert werden.
 
-Der faithful-Datensatz (im Datensatzpaket, welches immer verfügbar ist) hat sehr unglückliche Namen.
+Der `faithful`-Datensatz (im Paket `datasets`, welches immer verfügbar ist) hat sehr unglückliche Namen.
 
 ```{r}
 names(faithful)
@@ -133,16 +125,16 @@ Die Messungen sind die Dauer einer Eruption und die Zeit bis zur folgenden Erupt
 ```{r}
 faithful <- rename(faithful,
                      duration = eruptions,
-                     time.til.next=waiting)
+                     time.til.next = waiting)
 names(faithful)
 ```
 
 ```{r}
 library(mosaic)
-gf_point(time.til.next ~ duration, alpha=0.5, data=faithful)
+gf_point(time.til.next ~ duration, alpha = 0.5, data = faithful)
 ```
 
-Wenn die Variable, die einen Datenrahmen enthält, modifiziert oder verwendet wird, um ein anderes Objekt zu speichern, können die Originaldaten aus dem Paket mittels `data()` wiederhergestellt werden. 
+Wenn eine Variable, die einen Datensatz enthält, modifiziert oder verwendet wird, um ein anderes Objekt zu speichern, können die Originaldaten aus dem entsprechenden Paket mittels `data()` wiederhergestellt werden. 
 
 ```{r}
 data(faithful)
@@ -157,9 +149,10 @@ Wir können auch `filter()` verwenden, um die Größe eines Dataframes zu reduzi
 ```{r}
 data(faithful)
 names(faithful) <- c('duration', 'time.til.next')
+
 # zur Erstellung von Teilmengen kann jede Logik verwendet werden
 faithfulLong <- filter(faithful, duration > 3)
-gf_point( time.til.next ~ duration, data=faithfulLong )
+gf_point( time.til.next ~ duration, data = faithfulLong)
 ```
 
 ## Sortieren von Dataframes
@@ -171,20 +164,17 @@ head(faithful, 3)
 ```
 
 :::{.achtung data-latex=""}
-Vorsicht!
 Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu modifizieren.
 :::
 
 
 ## Zusammenführen von Datensätzen
 
-Der fusion1-Datenrahmen im fastR-Paket enthält Genotypinformationen für einen SNP (single nucleotide polymorphism) im Gen TCF7L2. Der Datenrahmen enthält Phänotypen (einschließlich Typ-2-Diabetes-Fall/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
+Der `fusion1`-Datensatz im Paket `fastR` enthält Genotyp-Informationen für einen \textsc{SNP} (single nucleotide polymorphism) im Gen \textsc{TCF7L2}. Der Dataframe enthält Phänotypen (einschließlich Typ-2-Diabetes Fall-/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
 
 
 ```{r}
 library(fastR2)
-library(dplyr)
-data(FUSION1)
 fusion1 <- arrange(FUSION1, id)
 head(fusion1, 3)
 ```
@@ -203,18 +193,18 @@ head(fusion1m, 3)
 Jetzt sind wir bereit, mit der Analyse zu beginnen.
 
 ```{r}
-tally(~t2d + genotype, data=fusion1m)
+tally(~t2d + genotype, data = fusion1m)
 ```
 
 
 ## Schneiden und Würfeln
 
-Das tidyr-Paket bietet eine flexible Möglichkeit, die Anordnung der Daten zu ändern. Es wurde für die Konvertierung zwischen langen und breiten Versionen von Zeitreihendaten entwickelt und seine Argumente sind in diesem Sinne benannt.
+Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu ändern. Es wurde für die Konvertierung zwischen langen und breiten Versionen von Zeitreihendaten entwickelt und seine Argumente sind in diesem Sinne benannt.
 
-Eine häufige Situation ist, wenn wir von einer breiten Form in eine lange Form konvertieren wollen, weil wir die Perspektive darüber, was eine Beobachtungseinheit ist, ändern wollen. Zum Beispiel ist im Verkehrs-Dataframe jede Zeile ein Jahr, und es werden Daten für mehrere Zustände bereitgestellt.
+Eine häufige Situation ist, wenn wir von einer breiten Form in eine lange Form konvertieren wollen, weil wir die Perspektive darüber, was eine Beobachtungseinheit ist, ändern wollen. Zum Beispiel ist im `traffic`-Dataframe jede Zeile ein Jahr, und es werden Daten für mehrere Staaten bereitgestellt.
 
-:::{.tiefereinsteigen data-latex=""}
-Die Vignetten, die die tidyr und dplyr Pakete begleiten bieten eine Reihe nützlicher Beispiele für gängige Datenmanipulationen.
+:::{.note data-latex=""}
+Die Vignetten, die in den Paketen `tidyr` und `dplyr` enthalten sind, bieten eine Reihe nützlicher Beispiele für gängige Datenmanipulationen.
 :::
 
 ```{r}
@@ -222,7 +212,7 @@ data(traffic)
 Traffic
 ```
 
-Wir können dies so umformen, dass jede Zeile eine Messung für einen einzelnen Zustand in einem Jahr enthält.
+Wir können dies so umformen, dass jede Zeile eine Messung für einen einzelnen Staat in einem Jahr enthält.
 
 ```{r}
 longTraffic <- Traffic %>%
@@ -231,7 +221,7 @@ head(longTraffic)
 ```
 
 
-Wir können auch in die andere Reichung umformen, diesmal mit allen Daten für einen bestimmten Zustand in einer Zeile im Dataframe.
+Wir können auch in die andere Reichung umformen, diesmal mit allen Daten für einen bestimmten Staat in einer Zeile im Dataframe.
 
 ```{r}
 stateTraffic <- longTraffic %>% 
@@ -246,7 +236,7 @@ stateTraffic
 Eine Reihe von Funktionen erleichtern die Erstellung oder Neucodierung von Variablen.
 
 
-### Kategorische Variable aus einer quantitativen Variable erstellen
+### Kategoriale aus einer quantitativen Variable erstellen
 
 Als nächstes zeigen wir, wie man eine dreistufige kategoriale Variable mit Trennung bei 20 und 40 für die CESD-Skala (die von 0 bis 60 Punkten reicht) erstellt.
 
@@ -255,21 +245,23 @@ favstats(~ cesd, data=HELPrct)
 ```
 
 ```{r}
-HELPrct <- mutate(HELPrct, cesdcut = cut(cesd,
-breaks=c(0, 20, 40, 60), include.lowest=TRUE))
+HELPrct <- mutate(HELPrct, 
+                  cesdcut = cut(cesd, 
+                                breaks=c(0, 20, 40, 60), include.lowest=TRUE))
 gf_boxplot(cesd ~ cesdcut, data=HELPrct)
 ```
 
-Es bietet sich an, die Lables besser zu bezeichnen.
+Es bietet sich an, die Labels besser zu bezeichnen.
 
 :::{.hinweis data-latex=""}
 Die Funktion `ntiles()` kann verwendet werden, um die Erstellung von Gruppen auf diese Weise zu automatisieren.
 :::
 
 ```{r}
-HELPrct <- mutate(HELPrct, cesdcut = cut(cesd,
-labels=c("low", "medium", "high"),
-breaks=c(0, 20, 40, 60), include.lowest=TRUE))
+HELPrct <- mutate(HELPrct, 
+                  cesdcut = cut(cesd, 
+                                labels=c("low", "medium", "high"), 
+                                breaks=c(0, 20, 40, 60), include.lowest=TRUE))
 gf_boxplot(cesd ~ cesdcut, pch="|", data=HELPrct)
 ```
 
@@ -286,28 +278,27 @@ HELPrct <- mutate(HELPrct,
 
 ### Faktoren neu ordnen
 
-Standardmäßig verwendet R die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
+Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
 
 ```{r}
- tally(~ substance, data=HELPrct)
+ tally(~ substance, data = HELPrct)
 ```
 
 ```{r}
- coef(lm(cesd ~ substance, data=HELPrct))
+ coef(lm(cesd ~ substance, data = HELPrct))
 ```
 
 ```{r}
-HELPrct <- mutate(HELPrct, subnew = relevel(substance,
-ref="heroin"))
+HELPrct <- mutate(HELPrct, subnew = relevel(substance, ref="heroin"))
 coef(lm(cesd ~ subnew, data=HELPrct))
 ```
 
 ## Gruppenstatistiken
 
-Es kann oft sinnvoll sein, zusammenfassende Statistiken nach Gruppen zu berechnen und diese in ein Dataset einzufügen. Die Funktion `group_by()` im dplyr-Paket erleichtert diesen Prozess. Hier zeigen wir, wie man eine Variable hinzufügt, die das mittlere Alter der Probanden nach Stoffgruppen enthält.
+Es kann oft sinnvoll sein, zusammenfassende Statistiken nach Gruppen zu berechnen und diese in ein Dataframe einzufügen. Die Funktion `group_by()` im Paket `dplyr` erleichtert diesen Prozess. Hier zeigen wir, wie man eine Variable hinzufügt, die das mittlere Alter der Probanden je Drogenmittel enthält.
 
 ```{r}
-favstats(age ~ substance, data=HELPrct)
+favstats(age ~ substance, data = HELPrct)
 ```
 
 ```{r}
@@ -326,21 +317,20 @@ ageGroup
 ```
 
 ```{r}
-HELPmerged <- left_join(ageGroup, HELPrct, by="substance")
-favstats(agebygroup ~ substance, data=HELPmerged)
+HELPmerged <- left_join(ageGroup, HELPrct, by = "substance")
+favstats(agebygroup ~ substance, data = HELPmerged)
 ```
 
 ```{r}
 nrow(HELPmerged)
 ```
 
-## Behandlung fehlender Werte
+## Behandlung fehlender Werte {#missings}
 
-Fehlende Werte entstehen in fast allen Untersuchungen der realen Welt. R verwendet das NA-Zeichen als Indikator für fehlende Werte. Der HELPmiss-Dataframe innerhalb des mosaicData-Pakets umfasst alle n = 470 Probanden, die zu Studienbeginn eingeschrieben sind (einschließlich der n = 17 Probanden mit einigen fehlenden Werten, die nicht in HELPrct enthalten waren).
+Fehlende Werte entstehen in fast allen Untersuchungen der realen Welt. \textsf{R} verwendet das `NA`-Zeichen als Indikator für fehlende Werte. Der `HELPmiss`-Datensatz innerhalb des Paketes `mosaicData` umfasst alle $n = 470$ Probanden, die zu Studienbeginn eingeschrieben sind (einschließlich der $n = 17$ Probanden mit einigen fehlenden Werten, die nicht in `HELPrct` enthalten waren).
 
 ```{r}
-smaller <- select(HELPmiss, cesd, drugrisk, indtot, mcs, pcs,
-substance)
+smaller <- select(HELPmiss, cesd, drugrisk, indtot, mcs, pcs, substance)
 dim(smaller)
 ```
 
@@ -348,10 +338,10 @@ dim(smaller)
 summary(smaller)
 ```
 
-Von den 470 Probanden in den 6 Variablen des Dataframess haben nur die Variablen drugrisk, indtot, mcs, und pcs fehlende Werte
+Von den 470 Probanden in den 6 Variablen des Dataframess haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte
 
 ```{r}
-favstats(~ mcs, data=smaller)
+favstats(~ mcs, data = smaller)
 ```
 
 ```{r}
@@ -372,14 +362,14 @@ ncol(nomiss)
 ```
 
 ```{r}
-favstats(~ mcs, data=nomiss)
+favstats(~ mcs, data = nomiss)
 ```
 
 Alternativ könnten wir den gleichen Datenbestand mit Hilfe von logischen Bedingungen erzeugen.
 
 ```{r}
-nomiss <- filter(smaller,
-(!is.na(mcs) & !is.na(indtot) & !is.na(drugrisk)))
+nomiss <- filter(smaller, 
+                 (!is.na(mcs) & !is.na(indtot) & !is.na(drugrisk)))
 dim(nomiss)
 ```
 

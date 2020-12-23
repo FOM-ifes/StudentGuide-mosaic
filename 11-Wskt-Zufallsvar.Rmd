@@ -1,6 +1,6 @@
-# Wahrscheinlichkeitverteilungen und Zufallsvariablen
+# Wahrscheinlichkeitverteilungen und Zufallsvariablen {#WkeitZuf}
 
-R kann Werte für zahlreiche Verteilungsfunktionen berechnen. Es ist leicht, mit diesen Verteilungsfunktionen Zufallsdaten zu generieren, die dann für Simulation und Untersuchung genutzt werden können.
+\textsf{R} kann Werte für zahlreiche Verteilungsfunktionen berechnen. Es ist leicht, aus diesen Verteilungsfunktionen Zufallsdaten zu generieren, die dann für Simulationen und explorative Untersuchungen genutzt werden können.
 
 ```{r}
 xpnorm(1.96, mean = 0, sd = 1) # P(Z < 1.96)
@@ -15,10 +15,10 @@ Eine vergleichbare Ausgabe gibt es für die F-Verteilung.
 xpf(3, df1 = 4, df2 = 20)
 ```
 
-Die folgende Tabelle zeigt die Basisnamen für die Verteilungen, die in R zur Verfügung stehen. Die Vorsilbe `d` erzeugt die Dichtefunktion für die jeweilige Verteilung, `p` die kumulierte Dichtefunktion, bzw. Verteilungsfunktion, mit `q` erhalten Sie die Quantile und r erzeugt Zufallswerte. Um beispielsweise die Dichtefunktion der Exponentialverteilung zu finden, nutzen Sie das Kommando `dexp()`. Die `qDIST()`-Funktion ist die inverse Funktion zu der `pDIST()`-Funktion (für eine Basisnamen DIST).
+Die folgende Tabelle zeigt die Basisnamen für die Verteilungen, die in \textsf{R} zur Verfügung stehen. Die Vorsilbe `d` erzeugt die Dichtefunktion für die jeweilige Verteilung, `p` die kumulierte Dichte- bzw. Verteilungsfunktion, mit `q` erhalten Sie die Quantile und `r` erzeugt Zufallsziehungen. Um beispielsweise die Dichtefunktion der Exponentialverteilung zu finden, nutzen Sie das Kommando `dexp()`. Die Funktion `qDIST()` ist die inverse Funktion zu `pDIST()` (für einen Basisnamen `DIST`).
 
 ```{r, echo=FALSE}
-Verteilung <- c("Beta", "binomial", "Cauchy", "chi-square", "exponential", "F", "gamma", "geometric", "hypergeometric", "logistic", "lognormal", "negative binomial", "normal", "Poisson", "Student’s t", "Uniform", "Weibull")
+Verteilung <- c("Beta", "Binomial", "Cauchy", "Chi-Quadrat", "Exponential", "F", "Gamma", "Geometrische", "Hypergeometrische", "Logistische", "Lognormal", "Negative Binomial", "Normal", "Poisson", "Students t", "Gleich", "Weibull")
  
 Basisname <- c("beta", "binom", "cauchy", "chisq", "exp", "f", "gamma", "geom", "hyper", "logis", "lnorm", "nbinom", "norm", "pois", "t", "unif", "weibull")
 
@@ -32,34 +32,34 @@ kable(RVerteilungen, format = "latex", booktabs=T) %>%
                 font_size     = 10)
 ```
 
-Die `gf_dist()`-Funktion kann genutzt werden, um Verteilungen in unterschiedlichen Weisen darzustellen.
+:::{.tiefereinsteigen data-latex=""}
+Die Funktion `gf_fitdistr()` erleichtert das Schätzen von Parametern für viele Verteilungen.
+:::
+
+Die Funktion `gf_dist()` kann genutzt werden, um Verteilungen in unterschiedlichen Weisen darzustellen.
 
 ```{r}
 gf_dist('norm', mean = 100, sd = 10, kind = 'cdf')
 gf_dist('exp', kind = 'histogram', xlab = "x")
 ```
 
-:::{.tiefereinsteigen data-latex=""}
-Die `gf_fitdistr()`-Funktion erleichtert das Schätzen von Parametern für viele Verteilungen.
-:::
-
-So wird der rate-Parameter standardmäßig auf 1 gesetzt und ist damit gleichbedeutend zu folgendem Befehl.
+So wird der Parameter `rate` standardmäßig auf 1 gesetzt und ist damit gleichbedeutend zu folgendem Befehl:
 
 ```{r}
 gf_dist('exp', rate = 1, kind = 'histogram', xlab = "x")
 gf_dist('binom', size = 25, prob = 0.25, xlim = c(-1, 26))
 ```
 
-Mehrere Verteilungen können in einer Grafik angezeigt werden.
+Mehrere Verteilungen können in einer Grafik angezeigt werden:
 
 ```{r}
-gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7),
-fill = ~ cut(x, c(-Inf, 15 - 3, 15 + 3, Inf)), geom = "area") %>%
+gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7), 
+        fill = ~ cut(x, c(-Inf, 15 - 3, 15 + 3, Inf)), geom = "area") %>%
   gf_dist("binom", size = 50, prob = .3, col = "black", pch = 16) %>%
   gf_labs(fill = "Intervals")
 ```
 
-Die `gf_fun()`-Funktion kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
+Die Funktion `gf_fun()` kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
 
 ```{r}
 f <- makeFun(2 * exp(-2 * x) ~ x) # exponential with rate parameter 2

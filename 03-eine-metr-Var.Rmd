@@ -1,4 +1,4 @@
-# Eine metrische Variable
+# Eine metrische Variable {#metrVar}
 ## Numerische Zusammenfassungen
 
 \textsf{R} beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartilsabstand (IQR) sowie frei wählbare Quantile. Wir werden diese am CESD- (*Center for Epidemiologic Studies-Depression*) Maß für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
