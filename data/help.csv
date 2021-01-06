@@ -1,30 +1,27 @@
-Variable, Beschreibung (Werte), Hinweis
-`alter`, Alter zu Messzeitpunkte 1 (in Jahren) (Spannweite 19-60),
-`anysub`, Einnahme von Drogen nach Beginn der Intervention, vgl. `daysanysub``
-`cesd`, Depressionswert (Spannweite 0-60, hÃ¶here Werte zeigen schwerere despressive Symptome an), 
-`d1`, Anzahl der Einlieferungen aufgrund medizinischer Probleme (Spannweite 0-100), 
-`daysanysub`, Zeit (in Tagen) bis zur ersten Einnahme von Drogen nach Beginn der Intervention, vgl. `anysubstatus`
-`dayslink`, Zeit (in Tagen) bis zur Vermittlung einer allgemeinmedizinischer Versorgung (Spannweite 0-456), vgl. `linkstatus`
-`drugrisk`, Risiko-Assessment-Testbatterie (RAB) zum Drogenrisiko (Spannweite 0-21), vgl. `sexrisk``
-`e2b`, Anzahl der Teilnahmen an einem Drogenentzugsprogramm in den letzten sechs Monaten (Spannweite 0-21), 
-`female`, Geschlecht des Teilnehmers (0: Mann, 1: Frau), 
-`g1b`, Vorhandensein von Suizidgedanken (in den letzten 30 Tagen, Werte 0: nein, 1: ja), 
-`homeless`, Eine oder mehr NÃ¤chte auf der StraÃŸe oder in einer Notunterkunft in den letzten sechs Monaten (0: nein, 1: ja), 
-`i1`, Mittlere Anzahl alkoholischer GetrÃ¤nke (in Standardeinheiten) pro Tag (in den letzten 30 Tagen; Spannweite 0-142), 
-`i2`, Maximale Anzahl alkoholischer GetrÃ¤nke (in Standardeinheiten) pro Tag (in den letzten 30 Tagen; Spannweite 0-184), 
-`id`, zufÃ¤llige Personennummer (Spannweite 1-470)
-`indtot`, Gesamtwert fÃ¼r das Drogenfolgeninventar (Inventory of Drug Use Consequences (InDUC) total score) (Spannweite 4â€“45), 
-`linkstatus`, Erfolgreiche Vermittlung einer allgemeinmedizinischen Versorgung nach der Entzugsintervention (0: nein, 1: ja), vgl. `dayslink`
-`mcs`, Wert fÃ¼r die Skala Psychisches Wohlbefinden (Mental Component Score) des Short Form Gesundheitsfragebogen (SF-36; Spannweite 7-62), vgl. `pcs`
-`pcs`, Wert fÃ¼r die Skala KÃ¶rperliche FunktionsfÃ¤higkeit (Physical Component Score) des Short Form Gesundheitsfragebogen (SF-36; Spannweite 7-62), vgl. `mcs`
-`pss_fr`, Wahrgenommene sozialer RÃ¼ckhalt (durch Freunde, Spannweite 0-14), 
-`racegrp`, Rasse/Ethnie (Schwarz, WeiÃŸ, Latino, sonstiges), 
-`satreeat`, laufende Behandlung durch staatliches Hilfsprogramm fÃ¼r DrogenabhÃ¤ngige zu Beginn der Studie (0: nein, 1: ja), 
-`sex`, Geschlecht (mÃ¤nnlich oder weiblich), 
-`sexrisks`, Wert zum Risiko sexuell Ã¼bertragbarer Krankheiten (Risk-Assessment Battery (RAB) sex risk score; Spannweite 0-21), 
-`substance`,  PrimÃ¤r genutzte Droge (Alkohol, Kokain, Heroin)
-`treat`,  Interventionsgruppe in der Studie (Experimentalgruppe, d.h. HELP-Klinik: ja; Standardbehandlung: no), 
-
-Hinweis: Die (empirische) Spannweite ist fÃ¼r metrische Variablen angegeben (zum Zeitpunkt des Studienbeginns).
-
-
+Variable, Beschreibung (Werte), Hinweis,;
+`alter`, Alter zu Messzeitpunkte 1 (in Jahren) (Spannweite 19-60),,;
+`anysub`, Einnahme von Drogen nach Beginn der Intervention, vgl. `daysanysub`,;
+`cesd`, Depressionswert (Spannweite 0-60 -- höhere Werte zeigen schwerere despressive Symptome an),,;
+`d1`, Anzahl der Einlieferungen aufgrund medizinischer Probleme (Spannweite 0-100),,;
+`daysanysub`, Zeit (in Tagen) bis zur ersten Einnahme von Drogen nach Beginn der Intervention, vgl. `anysubstatus`,;
+`dayslink`, Zeit (in Tagen) bis zur Vermittlung einer allgemeinmedizinischer Versorgung (Spannweite 0-456), vgl. `linkstatus`,;
+`drugrisk`, Risiko-Assessment-Testbatterie (RAB) zum Drogenrisiko (Spannweite 0-21), vgl. `sexrisk`,;
+`e2b`, Anzahl der Teilnahmen an einem Drogenentzugsprogramm in den letzten sechs Monaten (Spannweite 0-21),,;
+`female`, Geschlecht des Teilnehmers (0: Mann - 1: Frau),,;
+`g1b`, Vorhandensein von Suizidgedanken (in den letzten 30 Tagen / Werte 0: nein - 1: ja),,;
+`homeless`, Eine oder mehr Nächte auf der Straße oder in einer Notunterkunft in den letzten sechs Monaten (0: nein - 1: ja),,;
+`i1`, Mittlere Anzahl alkoholischer Getränke (in Standardeinheiten) pro Tag (in den letzten 30 Tagen) /  Spannweite 0-142),,;
+`i2`, Maximale Anzahl alkoholischer Getränke (in Standardeinheiten) pro Tag (in den letzten 30 Tagen) -- (Spannweite 0-184),,;
+`id`, zufällige Personennummer (Spannweite 1-470),,;
+`indtot`, Gesamtwert für das Drogenfolgeninventar (Inventory of Drug Use Consequences (InDUC) total score) (Spannweite 4-45),,;
+`linkstatus`, Erfolgreiche Vermittlung einer allgemeinmedizinischen Versorgung nach der Entzugsintervention (0: nein - 1: ja), vgl. `dayslink`,;
+`mcs`, Wert für die Skala Psychisches Wohlbefinden (Mental Component Score) des Short Form Gesundheitsfragebogen (SF-36 -- Spannweite 7-62), vgl. `pcs`,; 
+`pcs`, Wert für die Skala Körperliche Funktionsfähigkeit (Physical Component Score) des Short Form Gesundheitsfragebogen (SF-36 -- Spannweite 7-62), vgl. `mcs`,;
+`pss_fr`, Wahrgenommene sozialer Rückhalt (durch Freunde -- Spannweite 0-14),,;
+`racegrp`, Rasse/Ethnie (Schwarz/Weiß/Latino/Sonstige),,;
+`satreeat`, laufende Behandlung durch staatliches Hilfsprogramm für Drogenabhängige zu Beginn der Studie (0: nein - 1: ja),,;
+`sex`, Geschlecht (männlich oder weiblich),,;
+`sexrisks`, Wert zum Risiko sexuell übertragbarer Krankheiten (Risk-Assessment Battery (RAB) sex risk score -- Spannweite 0-21),,;
+`substance`,  Primär genutzte Droge (Alkohol/Kokain/Heroin),,;
+`treat`,  Interventionsgruppe in der Studie (Experimentalgruppe -- d.h. HELP-Klinik: ja - Standardbehandlung: no),,;
+,,Die (empirische) Spannweite ist für metrische Variablen angegeben (zum Zeitpunkt des Studienbeginns).;
