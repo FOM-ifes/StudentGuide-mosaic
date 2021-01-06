@@ -8,9 +8,16 @@ Die Teilnehmer wurden wurden bei der Aufnahme zum Entzugsaufenthalt befragt; all
 
 Das \textsf{R}-Paket `mosaicData` enthält mehrere Varianten des anonymisierten  \textsc{HELP}-Datensatzes. Für die vorliegende Fallstudie konzentrieren wir uns auf `HELPrct`, der 27 Variablen zu 453 Personen enthält, wobei vergleichsweise wenig Daten fehlen, besonders zum ersten Messzeitpunkt. Tabelle \@ref(tab:tabhelp). Weitere Informationen finden sich online unter [http://www.amherst.edu/~nhorton/r2](http://www.amherst.edu/~nhorton/r2). Die Messinstrumente sind hier aufgeführt: [http://www.amherst.edu/~nhorton/help](http://www.amherst.edu/~nhorton/help).
 
+\newpage
+\thispagestyle{empty}
+```{r tabhelp, echo=FALSE}
+HELPdat <- read.csv("data/help.csv")
+HELPdat <- HELPdat[, 1:3]
 
-```{r tabhelp}
-knitr::kable(read.csv2("data/help.csv"), booktabs = TRUE, caption = "Variablen des Datensatzes zur HELP-Studie")
+knitr::kable(HELPdat[-26, ], booktabs = TRUE, 
+             col.names = c("Variable", "Beschreibung", "Hinweis"),
+             caption = "Variablen des Datensatzes zur HELP-Studie") %>% 
+  landscape(margin = "1.5cm") %>%
+  kable_styling(latex_options = "scale_down") %>% 
+  footnote(general = HELPdat[26,3])
 ```
-
-

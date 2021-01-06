@@ -5,9 +5,10 @@
 Wir können ein zwei- (oder mehr-) faktorielles ANOVA Modell, mit oder ohne Interaktion, auf Basis der gleichen Modellsyntax erstellen.
 
 ```{r}
-HELPrct <- mutate(HELPrct, subgrp = factor(substance,
-                                            levels = c("alcohol", "cocaine","heroine"),
-                                            labels = c("A", "C", "H"))
+HELPrct <- mutate(HELPrct, 
+                  subgrp = factor(substance,
+                                  levels = c("alcohol", "cocaine","heroine"),
+                                  labels = c("A", "C", "H"))
                   )
 median(cesd ~ substance | sex, data = HELPrct)
 gf_boxplot(cesd ~ subgrp | sex, data = HELPrct)
@@ -107,9 +108,10 @@ HELPrct <- mutate(HELPrct,
 gf_dhistogram(~ residuals, data= HELPrct) %>%
   gf_fitdistr(dist = "dnorm")
 ```
+
 Wir können den Teil der Beobachtungen mit extrem hohen Residuen bestimmen.
 
-```{r}
+```{r, tidy=FALSE}
 filter(HELPrct, abs(residuals)>25)
 
 gf_point(residuals ~ pred, cex = .3, xlab = "Vorhergesagte Werte",

@@ -247,7 +247,8 @@ favstats(~ cesd, data=HELPrct)
 ```{r}
 HELPrct <- mutate(HELPrct, 
                   cesdcut = cut(cesd, 
-                                breaks=c(0, 20, 40, 60), include.lowest=TRUE))
+                                breaks=c(0, 20, 40, 60), 
+                                include.lowest=TRUE))
 gf_boxplot(cesd ~ cesdcut, data=HELPrct)
 ```
 
@@ -261,7 +262,8 @@ Die Funktion `ntiles()` kann verwendet werden, um die Erstellung von Gruppen auf
 HELPrct <- mutate(HELPrct, 
                   cesdcut = cut(cesd, 
                                 labels=c("low", "medium", "high"), 
-                                breaks=c(0, 20, 40, 60), include.lowest=TRUE))
+                                breaks=c(0, 20, 40, 60), 
+                                include.lowest=TRUE))
 gf_boxplot(cesd ~ cesdcut, pch="|", data=HELPrct)
 ```
 

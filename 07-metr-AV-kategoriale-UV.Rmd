@@ -152,9 +152,10 @@ Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines
 ```{r}
 favstats(cesd ~ substance, data = HELPrct)
 
-HELPrct <- mutate(HELPrct, subgrp = factor(substance, 
-                                             levels = c("alcohol", "cocaine", "heroin"), 
-                                             labels = c("A", "C", "H"))
+HELPrct <- mutate(HELPrct, 
+                  subgrp = factor(substance, 
+                                  levels = c("alcohol", "cocaine", "heroin"), 
+                                  labels = c("A", "C", "H"))
                   )
 mod <- lm(cesd ~ subgrp, data = HELPrct)
 HELPHSD <- TukeyHSD(mod, "subgrp")
