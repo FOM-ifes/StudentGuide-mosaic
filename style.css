@@ -14,40 +14,37 @@ pre code {
 }
 
 .infobox {
-  padding: 1em 1em 1em 2em;
+  padding: 0em 0em 0em 2.5em;
   margin-bottom: 10px;
   position: relative;
-  border: 2px #00998a;
-  border-radius: 10px;
+  border: 2px solid #00998a; 
+  border-radius: 5px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
-
 .infobox:after {
   content: "\f0eb";
   font-family: FontAwesome;
   left:10px;
   position:absolute;
-  top:0px;
+  top:0.5px;
   font-size: 20px;
   color: #00998a;
   font-weight: bold;
 }
 .infobox:before{
   content: "Info";
-  padding: 2px;
   position: relative;
   text-align: center;
   color: #00998a;
   font-weight: bold;
 }
 
-
 .tiefereinsteigen {
-  padding: 1em 1em 1em 2em;
+  padding: 0em 0em 0em 2.5em;
   margin-bottom: 10px;
   position: relative;
-  border: 2px #00998a;
-  border-radius: 10px;
+  border: 2px solid #00998a;
+  border-radius: 5px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .tiefereinsteigen:after {
@@ -55,7 +52,7 @@ pre code {
   font-family: FontAwesome;
   left:10px;
   position:absolute;
-  top:0px;
+  top:0.5px;
   font-size: 20px;
   color: #00998a;
   font-weight: bold;
@@ -69,11 +66,11 @@ pre code {
 }
 
 .hinweis {
-  padding: 1em 1em 1em 2em;
+  padding: 0em 0em 0em 2.5em;
   margin-bottom: 10px;
   position: relative;
-  border: 2px #00998a;
-  border-radius: 10px;
+  border: 2px solid #00998a;
+  border-radius: 5px;
   border-color: #00998a;
   background: #fcfcfc 5px center/3em no-repeat;
 }
@@ -82,7 +79,7 @@ pre code {
   font-family: FontAwesome;
   left:10px;
   position:absolute;
-  top:0px;
+  top:0.5px;
   font-size: 20px;
   color: #00998a;
   font-weight: bold;
@@ -96,10 +93,10 @@ pre code {
 }
 
 .achtung {
-  padding: 1em 1em 1em 2em;
+  padding: 0em 0em 0em 2.5em;
   margin-bottom: 10px;
   position: relative;
-  border: 2px #00998a;
+  border: 2px solid #00998a;
   border-radius: 5px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
@@ -108,7 +105,7 @@ pre code {
   font-family: FontAwesome;
   left:20px;
   position:absolute;
-  top:2px;
+  top:.5px;
   font-size: 20px;
   color: #00998a;
   font-weight: bold;
@@ -121,11 +118,11 @@ pre code {
 }
 
 .note {
-  padding: 1em 1em 1em 2em;
+  padding: 0em 0em 0em 2.5em;
   margin-bottom: 5px;
   position: relative;
-  border: 2px #00998a;
-  border-radius: 10px;
+  border: 2px solid #00998a;
+  border-radius: 5px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .note:after {
@@ -133,7 +130,7 @@ pre code {
   font-family: FontAwesome;
   left:10px;
   position:absolute;
-  top:2px;
+  top:.5px;
   font-size: 15px;
   color: #00998a;
 }
@@ -144,11 +141,11 @@ pre code {
 }
 
 .aufgabe {
-  padding: 1em 1em 1em 2em;
+  padding: 0em 0em 0em 2.5em;
   margin-bottom: 10px;
   position: relative;
-  border: 2px #00998a;
-  border-radius: 10px;
+  border: 2px solid #00998a;
+  border-radius: 5px;
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .aufgabe:after {
@@ -156,7 +153,7 @@ pre code {
   font-family: FontAwesome;
   left:10px;
   position:absolute;
-  top:2px;
+  top:.5px;
   font-size: 20px;
   color: #00998a;
   font-weight: bold;

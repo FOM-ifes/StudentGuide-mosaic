@@ -47,14 +47,14 @@ Der \textsf{RStudio} Server funktioniert mit dem Internet Explorer allerdings ni
 
 Sobald Sie mit dem Server verbunden sind, sollten Sie ein Anmeldefenster sehen:
 
-```{r, echo=FALSE, fig.align='center', out.width = '60%'}
+```{r, echo=FALSE, fig.align='center', out.width="50%"}
 include_graphics("images/rstudio-login.png")
 ```
 
 \newpage
 Wenn Sie sich authentiziert haben, sollten Sie die `RStudio` Schnittstelle sehen:
 
-```{r, echo=FALSE, fig.align='center', out.width = '100%'}
+```{r, echo=FALSE, fig.align='center', out.width='\\textwidth'}
 include_graphics("images/rstudio-cloud-interface.png")
 ```
 
@@ -124,25 +124,25 @@ Um eine Datei zu erstellen, gehen Sie in der Menüleiste auf \textsc{File}, dann
 ### Arbeiten mit RMarkdown und knitr/LaTeX
 Eine dritte Alternative ist es \textsf{RStudio}'s Unterstützung für reproduzierbare Forschung zu nutzen. Wenn Sie \textsf{{LaTeX} schon kennen, werden Sie die Funktionialitäten vom integrierten \textsf{knitr/LaTeX} erforschen wollen. Wenn Sie \textsf{LaTeX} noch nicht kennen, dann bietet das einfachere RMarkdown System eine gute Einführung in die Welt der reproduzierbaren Forschung.  Es bietet auch eine gute Möglichkeit für Studierende, ihre Hausarbeiten und Berichte zu erstellen, die Text, \textsf{R}-Code, \textsf{R}-Output sowie Abbildungen enthalten. Um eine neue \textsf{RMarkdown}-Datei zu erstellen, wählen Sie \textsc{File}, dann \textsc{New File}, dann \textsf{RMarkdown}. Die Datei wird mit einer Kurzvorlage geöffnet, welche die Markup-Sprache skizziert.
 
-```{r, echo=FALSE, fig.align='center', out.width = '100%'}
+```{r, echo=FALSE, fig.align='center', out.width="40%"}
 include_graphics("images/rmarkdown1.png")
 ```
 
 Das Paket `mosaic` enthält zwei nützliche RMarkdown Vorlagen für den Einstieg: `fancy` enthält bereits etwas Schnickschnack (und hat zum Ziel, eine Übersicht der Möglichkeiten zu bieten), während `plain` nur ein Grundgerüst enthält und nützlich als Startpunkt für eine neue Analyse ist. Auf diese Vorlagen wird mittels der \textsc{Template}`-Option bei Erstellung einer neuen RMarkdown-Datei zugegriffen:
 
-```{r, echo=FALSE, fig.align='center', out.width = '100%'}
+```{r, echo=FALSE, fig.align='center', out.width="50%"}
 include_graphics("images/rmarkdown2.png")
 ```
 
 Klicken Sie auf die \textsc{Knit}-Schaltfläche, um die Markdown-Datei in eine HTML-, PDF-, oder Word-Datei zu konvertieren:
   
-```{r, echo=FALSE, fig.align='center', out.width = '100%'}
+```{r, echo=FALSE, fig.align='center', out.width="50%"}
 include_graphics("images/rmarkdown3.png")
 ```
   
 Das erzeugt eine formatierte Version des Dokumentes:
   
-```{r, echo=FALSE, fig.align='center', out.width = '100%'}
+```{r, echo=FALSE, fig.align='center', out.width='0.9\\textwidth'}
 include_graphics("images/rmarkdown4.png")
 ```
 

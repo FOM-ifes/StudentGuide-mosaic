@@ -55,7 +55,7 @@ fm <- lm(volume ~  weekday + avgtemp + cloudcover + weekday:avgtemp, data = Rail
 ```
 
 
-```{r}
+```{r, tidy=FALSE}
 coef(fm)
 ```
 
