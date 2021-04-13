@@ -87,7 +87,7 @@ prop.test(209, 209 + 244, correct = FALSE)
 ```
 
 ::: {.infobox data-latex=""}
-Weiter Infos: Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil wir betrachten möchten. Wir hätten auch `homeless == "housed"` auswählen können.
+Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil wir betrachten möchten. Wir hätten auch `homeless == "housed"` auswählen können.
 
 `prop.test()` berechnet die Chi-Quadrat-Statistik. Die meisten einführenden Statistikbücher nutzen die Z-Statistik. Sie sind mathematisch äquivalent in Bezug auf inferentielle Aussagen.
 :::

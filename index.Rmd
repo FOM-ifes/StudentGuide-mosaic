@@ -36,15 +36,7 @@ data(HELPrct)
 
 # Vorwort {-}
 
-
-TEST!
-
-
 Das ist das (noch zu schreibende) Vorwort für die deutsche Version des mosaic-Handbuchs.
-
-
-Test für Umlaute: äöüß
-
 
 
 Dieses Buch baut technnisch auf *knitr* [@xie2015], *rmarkdown* [@R-rmarkdown], R [@R-base] und vielen weiteren Open-Source-Anwendungen. Details sind im Kapitel \@ref(hinweise) hinterlegt. Lorem Ipsum.
