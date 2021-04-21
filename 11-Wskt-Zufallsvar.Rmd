@@ -4,7 +4,7 @@
 
 ```{r}
 xpnorm(1.96, mean = 0, sd = 1) # P(Z < 1.96)
-# value which satisfies P(Z < z) = 0.975
+# Wert, der P(Z < z) = 0.975 erfüllt
 qnorm(.975, mean = 0, sd = 1)
 integrate(dnorm, -Inf, 0) # P(Z < 0)
 ```
@@ -43,12 +43,16 @@ gf_dist('norm', mean = 100, sd = 10, kind = 'cdf')
 gf_dist('exp', kind = 'histogram', xlab = "x")
 ```
 
-So wird der Parameter `rate` standardmäßig auf 1 gesetzt und ist damit gleichbedeutend zu folgendem Befehl:
+So wird der Parameter `rate` für die Skalierung der Verteilung standardmäßig auf 1 gesetzt und ist damit gleichbedeutend zu folgendem Befehl:
+
+```{r, eval = FALSE}
+gf_dist('exp', rate = 1, kind = 'histogram', xlab = "x")
+```
 
 ```{r}
-gf_dist('exp', rate = 1, kind = 'histogram', xlab = "x")
 gf_dist('binom', size = 25, prob = 0.25, xlim = c(-1, 26))
 ```
+
 
 Mehrere Verteilungen können in einer Grafik angezeigt werden:
 

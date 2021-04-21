@@ -1,5 +1,5 @@
 # Power-Berechnungen {#powerberechnung}
-Obwohl dieses Thema i. d. R. kein Hauptpunkt in einführenden Statistik-Kursen ist, helfen die Power-Berechnung (= Bestimmung der Trennschärfe eines Tests) und die Bestimmung des notwendigen Stichprobenumfangs, zentrale Konzepte in der Statistik zu vertiefen. In diesem Kapitel werden wir herausfinden, wie \textsf{R} genutzt werden kann, Power-Berechnungen über analytische Ansätze vorzunehmen. Als Beispiel nehmen wir ein einfaches Problem mit zwei Tests (t-Test und Vorzeichen-Test), die hier gerichtet bzw. einseitig angewendet werden.
+Obwohl dieses Thema i.\ d.\ R. kein Hauptpunkt in einführenden Statistik-Kursen ist, helfen die Power-Berechnung (= Bestimmung der Trennschärfe eines Tests) und die Bestimmung des notwendigen Stichprobenumfangs, zentrale Konzepte in der Statistik zu vertiefen. In diesem Kapitel werden wir herausfinden, wie \textsf{R} genutzt werden kann, Power-Berechnungen über analytische Ansätze vorzunehmen. Als Beispiel nehmen wir ein einfaches Problem mit zwei Tests (t-Test und Vorzeichen-Test), die hier gerichtet bzw. einseitig angewendet werden.
 Wir werden die Power des Vorzeichen-Tests und die Power eines Tests basierend auf der Normalverteilungsannahme (einseitiger Einstichproben-t-Test) vergleichen unter der Annahme, dass die Varianz $\sigma$ der Population bekannt sei. $X1, ... , X25$ seien u.i.v. $N(0.3, 1)$ (das ist die Zufallsfolge, für die wir die Power berechnen wollen). Wir testen die die Nullhypothese $H_0: \mu = 0$ versus $H_A: \mu > 0$ zum Signifikanzniveau $\alpha = 0.05$. 
 
 ## Vorzeichen-Test
@@ -12,7 +12,7 @@ cbind(xvals, probs)
 qbinom(.95, size = 25, prob = 0.5)
 ```
 
-Wenn wir entscheiden die Nullhypothese zu verwerfen, sobald die Anzahl der positiven Werte 17 oder größer ist, sehen wir, dass wir ein $\alpha$-Niveau von $0.054$ erreichen (Wert von `pbinom()` bei 16), der Nahe am nominellen Wert der Fragestellung liegt.
+Wenn wir entscheiden die Nullhypothese zu verwerfen, sobald die Anzahl der positiven Werte 17 oder größer ist, sehen wir, dass wir ein $\alpha$-Niveau von $0.054$ erreichen (Wert von `pbinom()` bei 16), der nahe am nominellen Wert der Fragestellung liegt.
 Wir berechnen die Power des Vorzeichen-Tests wie folgt: Die Wahrscheinlichkeit, dass $Xi > 0$, gegeben $H_A$, zutrifft, ergibt sich wie folgt:
 
 ```{r}

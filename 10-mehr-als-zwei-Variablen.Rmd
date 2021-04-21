@@ -2,7 +2,7 @@
 
 ## Zwei- (oder mehr-) faktorielle ANOVA
 
-Wir können ein zwei- (oder mehr-) faktorielles ANOVA Modell, mit oder ohne Interaktion, auf Basis der gleichen Modellsyntax erstellen.
+Wir können ein zwei- (oder mehr-) faktorielles ANOVA-Modell, mit oder ohne Interaktion, auf Basis der vereinheitlichten `mosaic`-Syntax erstellen.
 
 ```{r}
 HELPrct <- mutate(HELPrct, 
@@ -81,7 +81,7 @@ mplot(lmnointeract, rows = -1, which = 7)
 ```
 
 :::{.note data-latex=""}
-Dunklere Punkte weisen auf Regressionskoeffizienten hin, bei denen das 95%-Konfidenzinterval nicht den Wert Null der Nullhypothese beinhaltet.
+Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, bei denen das 95%-Konfidenzinterval nicht den Wert Null der Nullhypothese beinhaltet.
 :::
 
 :::{.achtung data-latex=""}
@@ -98,7 +98,7 @@ Die Funktion `mplot()` kann ebenfalls zur Erstellung dieser Grafiken verwendet w
 :::
 
 :::{.note data-latex=""}
-Hier fügen wir zwei neue Variabelen zu einem bestehenden Datensatz hinzu. Es ist gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben.
+Hier fügen wir zwei neue Variabelen zu einem bestehenden Datensatz hinzu. Es ist häufig eine gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben. Für dieses Dokument behalten wir den Namen allerdings der Einfachheit halber bei.
 :::
 
 ```{r}
@@ -125,5 +125,5 @@ gf_point(residuals ~ mcs, cex = .3, xlab = "Mentalitätskomponentenwert",
   gf_hline(yintercept = 0)
 ```
 
-Die Annahme der Normalverteilungs-, Linearitäts-, und Heteroskedazitätsvoraussetzung erscheint hier vernünftig.
+Die Annahme der Normalverteilungs- (s. Histogramm), Linearitäts-, und Heteroskedazitätsvoraussetzung (s. Residuenplots - jeweils eine horizontale Linie ohne Muster oder Trends in der Punktewolke) erscheint hier vernünftig.
 

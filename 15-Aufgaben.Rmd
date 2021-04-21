@@ -8,9 +8,9 @@ Die *erste* Nummer zu Beginn einer Aufgabe bezieht sich auf das Kapitel, zu der 
 \@ref(metrVar).1 Erstellen Sie ein facettiertes Histogramm der Depressivitätswerte (CESD-Scores), wobei die Drogenart die zu gruppierende Variable (d. h. die facettierte Variable) darstellt. Beschränken Sie Analyse auf die Männer und überlagern Sie das Histogramm mit einer Dichtekurve der Normalverteilung. Der Datensatz heißt `HELPrct`.
 
 
-\@ref(zweiMetrVar).1 Berechnen Sie eine einfache lineare Regression, um die Anzahl alkoholischer Getränke vorherzusagen als Funktion des Psychisches Wohlbefindens (Datensatz `HELPrct`). Das Modell kann mit dieser Formelschreibweise spezifiziert werden: `i1 ~ mcs`. Untersuchen Sie die Verteilung der Residuen für dieses Modell. 
+\@ref(zweiMetrVar).1 Berechnen Sie eine einfache lineare Regression, um die Anzahl alkoholischer Getränke als Funktion des psychischen Wohlbefindens vorherzusagen (Datensatz `HELPrct`). Das Modell kann mit dieser Formelschreibweise spezifiziert werden: `i1 ~ mcs`. Untersuchen Sie die Verteilung der Residuen für dieses Modell. 
 
-\@ref(mehrVars).1 Der Datensatz `RailTrail` (Teil des Paketes `mosaic`) beinhaltet eine Häufigkeitsauswertung zum Schienenverkehr für eine Trasse in Northampton, Massachusetts, während eines Zeitraums von 90 Tagen in 2005. Die Stadtverwaltung möchte die Auslastung des Schienennetzes wissen und verstehen, wie sie sich als Funktion von Temperatur und Wochentag ändert. Beschreiben Sie die Verteilung der Variablen `avgtemp` hinsichtlich ihres Mittelwerts, Streuung und Form.
+\@ref(mehrVars).1 Der Datensatz `RailTrail` (Teil des Paketes `mosaic`) beinhaltet eine Häufigkeitsauswertung zum Schienenverkehr für eine Trasse in Northampton, Massachusetts, während eines Zeitraums von 90 Tagen in 2005. Die Stadtverwaltung möchte die Auslastung des Schienennetzes wissen und verstehen, wie sie sich als Funktion von Temperatur und Wochentag ändert. Beschreiben Sie die Verteilung der Variablen `avgtemp` hinsichtlich ihres Mittelwerts, ihrer Streuung und Form.
 
 
 ```{r}
@@ -40,7 +40,7 @@ gf_dens(~ avgtemp, xlab = "Mittlere Temperatur (F)", data = RailTrail)
 \@ref(mehrVars).5 Verwenden Sie gruppierte Boxplots, um die Verteilung von `volume` nach `weekday` zu untersuchen (Datensatz `RailTrail`). Was lässt sich ablesen? ^[Hinweis: Sie müssen die numerische Variable `weekday` in eine Faktorvariable (`as.factor()`) umwandeln, oder nutzen Sie die Option `horizontal = FALSE`.]
 
 
-\@ref(mehrVars).6 Erstellen Sie ein Dichtediagramm, das für beide Arten von Wochentagen jeweils ein Dichtediagramm zeigt. Die beiden Diagramme sollen überlappen. Tipp: Nutzen Sie das Argument `fill`.
+\@ref(mehrVars).6 Erstellen Sie ein Dichtediagramm, das für beide Arten von Wochentagen jeweils ein Dichtediagramm zeigt. Die beiden Diagramme sollen sich überlappen. Tipp: Nutzen Sie das Argument `fill`.
 
 
 \@ref(mehrVars).7 Erstellen Sie ein Streudiagramm für das Verkehrsaufkommen (`volume`) als Funktion der Temperatur (Datensatz `RailTrail`). Fügen Sie sowohl eine Regressionsgerade als auch einen geglätteten Mittelwert (Lowess-Kurve) hinzu. Was können Sie über den Zusammenhang schließen? 
@@ -55,7 +55,7 @@ fm <- lm(volume ~  weekday + avgtemp + cloudcover + weekday:avgtemp, data = Rail
 ```
 
 
-```{r, tidy=FALSE}
+```{r, tidy=TRUE}
 coef(fm)
 ```
 
