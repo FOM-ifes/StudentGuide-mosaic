@@ -1,7 +1,7 @@
 # Eine metrische Variable {#metrVar}
 ## Numerische Zusammenfassungen
 
-\textsf{R} beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartilsabstand (IQR) sowie frei wählbare Quantile. Wir werden diese am CESD- (*Center for Epidemiologic Studies-Depression*) Maß für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
+\textsf{R} beinhaltet eine Reihe von Befehlen, um numerische Variablen zusammenzufassen. Diese beinhalten das Berechnen von Mittelwert, Standardabweichung, Varianz, Median,  Interquartilsabstand (IQR) sowie frei wählbare Quantile. Wir werden diese am CESD-Maß (*Center for Epidemiologic Studies-Depression*) für depressive Symptome demonstrieren (diese Werte liegen zwischen $0$ und $60$; höhere Werte stehen für mehr depressive Symptome).
 Um die Lesbarkeit der Ausgabe zu verbessern, werden wir die Zahl der ausgegebenen Ziffern begrenzen (s. `?options()` für weitere Konfigurationsmöglichkeiten).
 
 ```{r}
@@ -10,7 +10,7 @@ options(digits = 4)
 mean(~cesd, data = HELPrct)
 ```
 
-Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittstelle beinhaltet, das `lattice`-Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das Paket `mosaic` stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
+Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittstelle beinhaltet, die `lattice`-Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das Paket `mosaic` stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
 
 ::: {.tiefereinsteigen data-latex=""}
 Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch *Start Teaching with R* [@TeachingR] eine detaillierte Präsentation. *Start Modeling with R* [@ModelingR], ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
@@ -31,11 +31,10 @@ sd(~ cesd, data=HELPrct)^2
 var(~ cesd, data=HELPrct)
 ```
 
-Nach dem gleichen Muster lassen sich auch Quantile der Verteilung berechnen:  
-
 ```{r}
 median(~ cesd, data=HELPrct)
 ```
+Nach dem gleichen Muster lassen sich auch Quantile der Verteilung berechnen:  
 
 Standardmäßig stellt die Funktion `quantile()` die Quartile dar, aber ihr kann auch ein Vektor der gewünschten Quantile übergeben werden:  
 
@@ -61,7 +60,7 @@ Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nut
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5.9)
 ```
 
-Wir können die Optionen `width()` und `center()` nutzen, um die Lage der Säulen zu steuern.
+Wir können die Optionen `binwidth()` und `center()` nutzen, um die Lage der Säulen zu steuern.
 
 ```{r}
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5, center = 2.5)
@@ -87,7 +86,7 @@ Female <- filter(HELPrct, sex == 'female')
 Male <- filter(HELPrct, sex == 'male')
 ```
 
-    Der Dezimalpunkt ist eine Ziffer rechts von |
+    The decimal point is 1 digit(s) to the right of the |
     
     0 | 3
     0 | 567
@@ -104,7 +103,7 @@ Male <- filter(HELPrct, sex == 'male')
     6 | 0
 
 :::{.achtung data-latex=""}
-Die Tests auf Gleichheit nutzen 2 Gleichheitszeichen!
+Um Gleichheit von Ausprägungen zu überprüfen wird ein doppeltes Gleichheitszeichen genutzt!
 :::
 
 Teilgruppen können auch innerhalb eines Befehls erzeugt werden (dieses Mal mit einer überlagerten Normalverteilung):
@@ -223,7 +222,7 @@ Hier resampeln wir durch Ersetzen des Original-Datensatzes, indem wir einen Pseu
 :::
 
 :::{.note data-latex=""}
-Auch wenn eine einzige Probe von geringem Nutzen ist, so ist es doch sinnvoll, die Studierenden die Berechnung durchführen zu lassen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
+Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvoll, die Studierenden die Berechnung durchführen zu lassen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
 :::
 
 Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
@@ -232,7 +231,7 @@ Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
 mean( ~ cesd, data = resample(Female))
 ```
 
-Jetzt resampeln wir 1000 Proben und speichern das Ergebnis in einem Objekt namens `trials`:
+Jetzt resampeln wir 1000 Stichproben und speichern das Ergebnis in einem Objekt namens `trials`:
 
 ```{r}
 trials <- do(1000) * mean( ~ cesd, data = resample(Female))

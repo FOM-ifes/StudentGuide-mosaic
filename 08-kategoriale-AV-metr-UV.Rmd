@@ -4,7 +4,7 @@
 Die logistische Regression ist mit dem Befehl `glm()` durchführbar, dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich logistischer Regression.
 
 :::{.hinweis data-latex=""}
-Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit` Link ist bereits die Voreinstellung für die Binoialverteilung, so dass wir es hier nicht angeben müssen. Die ausführlichere Angabe wäre `family=binomial(link=logit)`.
+Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit`-Link ist bereits die Voreinstellung für die Binomialverteilung, so dass wir es hier nicht angeben müssen. Die ausführlichere Angabe wäre `family=binomial(link=logit)`.
 :::
 
 ```{r}

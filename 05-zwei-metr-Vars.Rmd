@@ -4,7 +4,7 @@
 Wir empfehlen den Studierenden immer, jede Analyse durch eine grafische Darstellung ihrer Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS-Linie mit einer etwas dickeren Linie dargestellt.
 
 :::{.note data-latex=""}
-Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte (unter Verwendung von 'p') und ein LOWESS Filter definiert werden.
+Die LOWESS-Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS Filter definiert werden.
 :::
 
 ```{r}
@@ -14,11 +14,11 @@ gf_point(cesd ~ mcs, data = Female, shape = 1) %>%
 ```
 
 :::{.tiefereinsteigen data-latex=""}
-Wenn man mit der Ausdrucksweise des statistischen Modelierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R* [@TeachingR] entsprechende Hilfe. 
+Wenn man mit der Ausdrucksweise des statistischen Modellierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R* [@TeachingR] entsprechende Hilfe. 
 Auch in *Start Teaching with R* [@ModelingR] sind nützliche Tipps für den Einstieg zu finden.
 :::
 
-Es ist ganz einfach, etwas anderes als ein Symbol im Scatterplot zu verwenden. Im folgenden Beispiel wird der Zusammenhang zwischen der Zahl der Überfälle und der Zahl der Morde mit Hilfe der Namen der entsprechenden Bundesstaaten dargestellt. 
+Es ist ganz einfach, etwas anderes als Punkte im Scatterplot zu verwenden. Im folgenden Beispiel wird der Zusammenhang zwischen der Zahl der Überfälle und der Zahl der Morde mit Hilfe der Namen der entsprechenden Bundesstaaten dargestellt. 
 
 ```{r}
 gf_text(Murder ~ Assault, 
@@ -77,7 +77,7 @@ Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobj
 Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
 :::
 
-Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifikanzen mit Sternchen markiert, ab.
+Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
 
 ```{r}
 options(show.signif.stars = FALSE)
@@ -112,37 +112,37 @@ gf_point(resid(cesdmodel) ~ fitted(cesdmodel),
   gf_hline(yintercept = 0)
 ```
 
-Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt.
+Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt:
 
 ```{r}
 mplot(cesdmodel, which = 1)
 ```
 
-Mit `which = 2` kann ein Quantil-Quantil-Diagramm der Normalverteilung erzeugt werden.
+Mit `which = 2` kann ein Quantil-Quantil-Diagramm der Normalverteilung erzeugt werden:
 
 ```{r}
 mplot(cesdmodel, which = 2)
 ```
 
-scale vs. location,
+Mit `which = 3` kann ein Scale-Location-Plot erstellt werden:
 
 ```{r}
 mplot(cesdmodel, which = 3)
 ```
 
-Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer
+Das Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer wird bei `which = 4` ausgegeben:
 
 ```{r}
 mplot(cesdmodel, which = 4)
 ```
 
-Residuen vs. Hebelwirkung,
+Der Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, wird mit `which = 5` erhalten:
 
 ```{r}
 mplot(cesdmodel, which = 5)
 ```
 
-und Cook's Abstandsmaß vs. Hebelwirkung.
+und schlussendlich mit `which = 6` der Cook’s distance vs. leverage-Plot:
 
 ```{r}
 mplot(cesdmodel, which = 6)

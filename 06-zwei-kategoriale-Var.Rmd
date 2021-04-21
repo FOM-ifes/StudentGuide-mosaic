@@ -45,7 +45,7 @@ Grafische Zusammenfassungen von Kreuztabellen können ebenfalls nützlich sein. 
 
 :::{.achtung data-latex=""}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
-ihrem geringen Daten-Tinten-Verhältnis. Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen [@tufte2001].
+ihrem geringen data-to-ink-ratio (Daten-Tinten-Verhältnis). Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen [@tufte2001].
 :::
 
 ```{r, echo=TRUE}
@@ -83,7 +83,7 @@ chisq.test(tally(~ homeless + sex,
 
 Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir einen so starken Zusammenhang finden, wenn der Obdachlosenstatus und das Geschlecht in der Population unabhängig voneinander wären. 
 
-Wenn Studierende signifikante Zusammenhänge finden, ist es wichtig, dass sie diese im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` liefert weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen), die hierzu hilfreich sein können.
+Wenn Sie signifikante Zusammenhänge finden, ist es wichtig, dass Sie diese im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` liefert weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen), die hierzu hilfreich sein können.
 
 ```{r, echo=TRUE}
 xchisq.test(tally(~ homeless + sex, 
@@ -94,8 +94,8 @@ xchisq.test(tally(~ homeless + sex,
 
 Wir beobachten, dass es weniger obdachlose Frauen und mehr obdachlose Männer als erwartet gibt. 
 
-## Fisher's exakter Test
-Es kann auch ein exakter Test berechnet werden. Für 2x2-Kontingenztafeln ist dies unkompliziert. Optionen um die Größe des Problems bei größeren Tabellen zu beschränken existieren (siehe `?fisher.test()`).
+## Exakter Test nach Fisher
+Es kann auch ein exakter Test berechnet werden. Für 2x2-Kontingenztafeln ist dies unkompliziert. Optionen, um die Größe des Problems bei größeren Tabellen zu beschränken, existieren (siehe `?fisher.test()`).
 
 ```{r}
 fisher.test(tally(~ homeless + sex, margins = FALSE, 

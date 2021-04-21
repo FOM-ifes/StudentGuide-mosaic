@@ -17,6 +17,8 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
 
 Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant wahrscheinlicher an einen Primärversorger angebunden werden (weniger wahrscheinlich zu "überleben") als die der Kontrollgruppe (Grundversorgung).
 
+Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant häufiger eine Primärversorgung erhalten (eine deutlich geringere Überlebenszeit aufweisen) als die Kontrollgruppe (Grundversorgung).
+
 
 ## Cox Modell mit proportionalem Ausfallrisiko
 
@@ -26,4 +28,4 @@ summary(coxph(Surv(dayslink, linkstatus) ~ age + substance,
               data = HELPrct))
 ```
 
-Weder Alter noch Substanzgruppe hatten signifikanten Einfluss auf eine Anbindung an Primärversorgung.
+Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an Primärversorgung.
