@@ -15,8 +15,6 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
         xlab  = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")
 ```
 
-Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant wahrscheinlicher an einen Primärversorger angebunden werden (weniger wahrscheinlich zu "überleben") als die der Kontrollgruppe (Grundversorgung).
-
 Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant häufiger eine Primärversorgung erhalten (eine deutlich geringere Überlebenszeit aufweisen) als die Kontrollgruppe (Grundversorgung).
 
 
