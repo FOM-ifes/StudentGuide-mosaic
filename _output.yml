@@ -8,11 +8,11 @@ bookdown::gitbook:
         <li><a href="./">Mosaic-Handbuch</a></li>
     download: ["pdf", "epub"]
 
-
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
+  latex_engine: pdflatex
+  citation_package: biblatex
   keep_tex: yes
+
 bookdown::epub_book: default

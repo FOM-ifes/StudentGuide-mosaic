@@ -18,7 +18,7 @@ Die Desktop- und Server-Versionen von \textsf{RStudio} sind so ähnlich, dass Si
 Die Verwendung von \textsf{RStudio} in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Anwender sich erneut anmelden, wird die vorherige Session wiederhergestellt und sie können weiter machen, wo sie zuletzt aufgehört haben. Nutzer können sich von jedem Gerät mit Internetzugriff anmelden.
 :::
 
-- \textsf{RStudio} unterstützt reproduzierbare Forschung. \textsf{RStudio} macht es einfach Text, statistische Analysen (\textsf{R}-Code und \textsf{R}-Output) und graphische Abbildungen zusammen im gleichen Dokument einzuschließen. Das RMarkdown System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen.  Das \textsc{knitr/LaTeX}-System versetzt Nutzer in die Lage auch \textsf{R} und LaTeX in dasselbe Dokument zu integrieren.  Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output Formates. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
+- \textsf{RStudio} unterstützt reproduzierbare Forschung. \textsf{RStudio} macht es einfach Text, statistische Analysen (\textsf{R}-Code und \textsf{R}-Output) und grafische Abbildungen zusammen im gleichen Dokument einzuschließen. Das RMarkdown System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen.  Das \textsc{knitr/LaTeX}-System versetzt Nutzer in die Lage auch \textsf{R} und LaTeX in dasselbe Dokument zu integrieren.  Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output Formates. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
 
 ::: {.hinweis data-latex=""}
 Um Markdown oder \textsc{knitr/LaTeX} zu verwenden, muss das Paket `knitr` auf dem System installiert sein.
@@ -155,7 +155,7 @@ RMarkdown und \textsf{knitr/LaTeX}-Dateien haben keinen Zugriff auf die \textsc{
 Es ist wichtig sich zu merken, dass RMarkdown- und \textsf{knitr/LaTeX}-Dateien im Gegensatz zu \textsf{R}-Skripten, die in der Konsole ausgeführt werden und Zugriff auf die \textsc{Console}-Umgebung haben, diesen Zugriff nicht haben. Das ist eine gute Eigenschaft, weil die Dateien deshalb eigenständig sein müssen, was die Austauschbarkeit ermöglicht und gute reproduzierbare Forschungspraktiken unterstützt. Aber Anfänger, insbesondere wenn sie Analyseschritte in der Konsole ausprobieren und den Code dann über copy & paste in die Datei einfügen, werden häufig Dateien kreieren, die nicht vollständig sind und deshalb nicht korrekt kompilieren.
 
 
-## Die anderen Panel und Reiter
+## Die Funktionen der Panel und Reiter
 ### Der History-Reiter
   
 Wenn Befehle in der Konsole eingetragen werden, dann erscheinen Sie in dem \textsc{History}-Reiter. Diese Historie kann gespeichert und geladen werden, es gibt eine Suchfunktion, um vorhergehende Befehle zu finden und einzelne Zeilen oder Abschnitte können zurück an die Konsole geschickt werden. Mit geöffnetem \textsc{History}-Reiter können Sie zurück blättern und auf die vorangegangenen Befehle zugreifen. Das ist vor allem dann nützlich, wenn Befehle viel Output erzeugen und schnell aus dem Bildschirm verschwinden.

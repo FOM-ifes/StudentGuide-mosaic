@@ -168,7 +168,7 @@ Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu 
 :::
 
 
-## Zusammenführen von Datensätzen
+## Zusammenführen von Dataframes
 
 Der `fusion1`-Datensatz im Paket `fastR` enthält Genotyp-Informationen für einen \textsc{SNP} (single nucleotide polymorphism) im Gen \textsc{TCF7L2}. Der Dataframe enthält Phänotypen (einschließlich Typ-2-Diabetes Fall-/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
 

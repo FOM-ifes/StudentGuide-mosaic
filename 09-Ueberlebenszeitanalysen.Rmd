@@ -2,7 +2,7 @@
 
 Umfangreiche Hilfsmittel für Überlebenszeitanalysen (Zeitraum bis Ereignis) sind aus dem Paket `survival` verfügbar.
 
-## Kaplan-Meier Kurve
+## Kaplan-Meier-Kurve
 
 ```{r}
 library(survival)
@@ -18,7 +18,7 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
 Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant häufiger eine Primärversorgung erhalten (eine deutlich geringere Überlebenszeit aufweisen) als die Kontrollgruppe (Grundversorgung).
 
 
-## Cox Modell mit proportionalem Ausfallrisiko
+## Cox-Modell mit proportionalem Ausfallrisiko
 
 ```{r}
 library(survival)

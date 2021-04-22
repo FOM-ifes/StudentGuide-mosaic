@@ -28,7 +28,7 @@ tally( ~ homeless, format = "proportion",
        data = HELPrct)
 ```
 
-## Der Binomial-Test
+## Der Binomialtest
 Ein exaktes Konfidenzintervall für einen Anteilswert (sowie ein Test der Nullhypothese, dass der Bevölkerungsanteil gleich einem bestimmten Wert -- standardmäßig 0.5 -- ist) kann durch die Funktion `binom.test()` berechnet werden. Die Standard-Funktion `binom.test()` benötigt folgendes Eingabeformat: 
 ```{r, echo=TRUE}
 binom.test(209, 209 + 244)
@@ -66,7 +66,7 @@ pval(result)
 Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis angezeigt bekommen, stammt die Ausgabe in der Konsole  aus dieser Druckfunktion `print(result)`. Durch den expliziten Aufruf von `print(result)` können oft viele zusätzliche Informationen ausgegeben werden. In einigen Situationen, wie z. B. bei Grafiken, bleibt das Objekt unsichtbar, so dass nichts gedruckt wird. Hier werden die zusätzlichen Informationen üblicherweise nicht benötigt. Falls doch, können Sie aber abgerufen werden.
 :::
 
-## Der Anteilswert-Test 
+## Der Anteilswerttest 
 In ähnlicher Weise kann ein geschätzest Intervall und ein approximativer Test auf Anteilswerte über die Funktion `prop.test()` ermittelt werden. Die Anzahl der Personen je Kategorie der Variablen `homeless` wird folgendermaßen ausgezählt:
 
 ```{r, echo=TRUE}

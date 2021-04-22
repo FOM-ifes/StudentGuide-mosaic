@@ -1,6 +1,6 @@
 # Metrische Antwortvariable, kategorialer Prädiktor
 
-## Eine binäre Variable als Prädiktor: numerische und graphische Zusammenfassung
+## Eine binäre Variable als Prädiktor: numerische und grafische Zusammenfassung
 
 Hier werden wir die Verteilung der CESD-Scores nach Geschlecht vergleichen. 
 Der Befehl `mean()` kann verwendet werden, um den durchschnittlichen CESD-Score separat für Männer und Frauen zu berechnen.
@@ -66,7 +66,7 @@ Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wo
 :::
 
 
-## Nicht-parametrische Zweistichprobentests
+## Nichtparametrische Zweistichprobentests
 Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-Rang-Summe) gezogen.
 
 ```{r}
