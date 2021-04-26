@@ -5,11 +5,11 @@ Datenmanagement ist eine Schlüsselfunktion, die es Studierenden (und Dozenten) 
 
 ## Überprüfung von Dataframes
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Abschnitt über die Datenverwaltung, einschließlich der Verwendung der Funktion `read.file()` zum Laden von Daten in \textsf{R} und \textsf{RStudio}. 
 :::
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern den Studierenden die Möglichkeit, mit Daten zu arbeiten. Hadley Wickham, Autor der Pakete, schlägt vor, dass es sechs Schlüsselwörter (oder Verben) gibt, die in diesen Paketen implementiert sind, die es ermöglichen, eine große Anzahl von Aufgaben zu erfüllen: Filtern (`filter`- Zeilenabgleichskriterien beibehalten), Auswählen (`select` - Spalten nach Namen auswählen), Anordnen (`arrange` - Zeilen neu ordnen), Mutieren (`mutate` - neue Variablen hinzufügen), Zusammenfassen (`summarise` - Variablen auf Werte reduzieren) und Gruppieren nach (`group by` - Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
 :::
 
@@ -55,7 +55,7 @@ Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die e
 head(irisSmall)
 ```
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
 
@@ -116,7 +116,7 @@ Der `faithful`-Datensatz (im Paket `datasets`, welches immer verfügbar ist) hat
 names(faithful)
 ```
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Es ist ratsam, vom ersten Tag an Praktiken für die Auswahl von Variablennamen festzulegen.
 :::
 
@@ -163,7 +163,7 @@ Dataframes können mit der Funktion `arrange()` sortiert werden.
 head(faithful, 3)
 ```
 
-:::{.achtung data-latex=""}
+:::{.achtung data-latex="{achtung}"}
 Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu modifizieren.
 :::
 
@@ -203,7 +203,7 @@ Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu 
 
 Eine häufige Situation ist, wenn wir von einer breiten Form in eine lange Form konvertieren wollen, weil wir die Perspektive darüber, was eine Beobachtungseinheit ist, ändern wollen. Zum Beispiel ist im `traffic`-Dataframe jede Zeile ein Jahr, und es werden Daten für mehrere Staaten bereitgestellt.
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Die Vignetten, die in den Paketen `tidyr` und `dplyr` enthalten sind, bieten eine Reihe nützlicher Beispiele für gängige Datenmanipulationen.
 :::
 
@@ -254,7 +254,7 @@ gf_boxplot(cesd ~ cesdcut, data=HELPrct)
 
 Es bietet sich an, die Labels besser zu bezeichnen.
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Die Funktion `ntiles()` kann verwendet werden, um die Erstellung von Gruppen auf diese Weise zu automatisieren.
 :::
 

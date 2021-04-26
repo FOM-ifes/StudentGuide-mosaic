@@ -18,7 +18,7 @@ favstats(cesd ~ sex, data = HELPrct)
 Boxplots sind besonders hilfreiche grafische Darstellungen, um Verteilungen zu vergleichen.
 Mit dem Befehl `gf_boxplot()` können die Boxplots für die CESD-Scores getrennt nach Geschlecht angezeigt werden. Sowohl aus den numerischen als auch aus den grafischen Zusammenfassungen geht hervor, dass Frauen in der Regel etwas höhere CESD-Werte haben als Männer.
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Obwohl wir normalerweise die erklärenden Variablen entlang der horizontalen Achse darstellen, so ist die umgedrehte  Darstellung für diese Art von Grafen in einigen Fällen vorzuziehen.
 :::
 
@@ -61,7 +61,7 @@ Die Gruppen können ebenso mit dem Befehl `lm()` (ebenfalls unter der Annahme gl
 msummary(lm(cesd ~ sex, data = HELPrct))
 ```
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wohingegen `t.test()` im Wesentlichen eine nicht weiter anpassungsfähige Sackgasse ist. `lm()` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch, *Start Modeling in R* [@ModelingR] für weitere Details.
 :::
 
@@ -91,7 +91,7 @@ do(1) * diffmean(age ~ shuffle(sex), data = HELPrct)
 do(3) * diffmean(age ~ shuffle(sex), data = HELPrct)
 ```
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Weitere Details und Beispiele finden Sie in der im Paket `mosaic` enthaltenen `vignette("Resampling")`.
 :::
 

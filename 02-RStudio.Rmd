@@ -2,7 +2,7 @@
 
 \textsf{RStudio} ist eine integrierte Entwicklerumgebung (*integrated development environment* - IDE) für \textsf{R}, die eine alternative Schnittstelle zu \textsf{R} bietet und mehrere Vorteile gegenüber den Standard \textsf{R}-Schnittstellen bietet:
 
-::: {.hinweis data-latex=""}
+::: {.hinweis data-latex="{hinweis}"}
 Eine Reihe an Einführungsvideos ist verfügbar unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
 :::
 
@@ -10,17 +10,17 @@ Eine Reihe an Einführungsvideos ist verfügbar unter [https://nhorton.people.am
 vom Aussehen und in der Handhabung auf allen ähnlich ist. Die Standardschnittstellen für \textsf{R} sind ziemlich unterschiedlich auf den verschiedenen Platformen. Das kann den Studierenden verwirren oder ablenken und führt zu höherem Unterstützungsaufwand für den Dozenten.
 - \textsf{RStudio} kann in einem Webbrowser laufen.  Zusätzlich zu eigenständigen Desktop-Versionen oder \textsf{RStudio.cloud} kann  \textsf{RStudio} als eine Server-Anwendung installiert werden, auf die über das Internet zugreifbar ist. Die Web-Schnittstelle ist fast identisch zu der Desktopversion. Wie bei anderen Web-Services auch, melden Nutzer sich an, um Zugriff zu ihrem Konto zu erlangen. Wenn Studierende sich abmelden und später wieder anmelden, wird ihre Session wiederhergestellt und sie können an der Stelle mit ihrer Analyse weiter machen, wo sie verblieben waren, auch wenn sie sich auf einem anderen Rechner anmelden. Mit einer etwas fortgeschrittenen Einrichtung können Dozenten die Historie der Nutzung von \textsf{R} in ihrem Klassenraum speichern und Studierende können diese Historie-Datei in ihre eigene Umgebung laden.
 
-::: {.achtung data-latex=""}
+::: {.achtung data-latex="{achtung}"}
 Die Desktop- und Server-Versionen von \textsf{RStudio} sind so ähnlich, dass Sie besonders aufpassen müssen, wenn Sie beide gleichzeitig nutzen, um sicher zu gehen, dass Sie in der richtigen Version arbeiten.
 :::
 
-::: {.note data-latex=""}
+::: {.note data-latex="{note}"}
 Die Verwendung von \textsf{RStudio} in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Anwender sich erneut anmelden, wird die vorherige Session wiederhergestellt und sie können weiter machen, wo sie zuletzt aufgehört haben. Nutzer können sich von jedem Gerät mit Internetzugriff anmelden.
 :::
 
 - \textsf{RStudio} unterstützt reproduzierbare Forschung. \textsf{RStudio} macht es einfach Text, statistische Analysen (\textsf{R}-Code und \textsf{R}-Output) und grafische Abbildungen zusammen im gleichen Dokument einzuschließen. Das RMarkdown System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen.  Das \textsc{knitr/LaTeX}-System versetzt Nutzer in die Lage auch \textsf{R} und LaTeX in dasselbe Dokument zu integrieren.  Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output Formates. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
 
-::: {.hinweis data-latex=""}
+::: {.hinweis data-latex="{hinweis}"}
 Um Markdown oder \textsc{knitr/LaTeX} zu verwenden, muss das Paket `knitr` auf dem System installiert sein.
 :::
 
@@ -40,7 +40,7 @@ Die Anwendung über den Browser hat den Vorteil, dass Sie nichts installieren od
 ## Mit einem RStudio-Server verbinden
 \textsf{RStudio} Server wurden an Hochschulen eingerichtet, um cloud-basierte Berechnungen zu ermöglichen. 
 
-::: {.note data-latex=""}
+::: {.note data-latex="{note}"}
 \textsf{RStudio} Server wurden schon an vielen Institutionen installiert. Nähere Informationen zu (gebührenfreien) akademischen Lizenzen für \textsf{RStudio} Server Pro und Installationsanweisungen sind über [http://www.rstudio.com/resources/faqs](http://www.rstudio.com/resources/faqs) unter dem \textsc{Academic} Reiter verfügbar.
 Der \textsf{RStudio} Server funktioniert mit dem Internet Explorer allerdings nicht sehr zuverlässig.
 :::
@@ -77,7 +77,7 @@ Dieses letzte Beispiel zeigt, wie Funktionen in \textsf{R} aufgerufen werden und
 
 Werte können zur späteren Weiterverarbeitung mit Variablennamen abgespeichert werden.
 
-::: {.note data-latex=""}
+::: {.note data-latex="{note}"}
 Es ist wahrscheinlich am sinnvollsten, sich auf eine Vorgehensweise zwischen rechts-nach-links Zuweisung oder umgekehrt festzulegen, statt hin und her zu wechseln. Wir bevorzugen den Pfeiloperator, weil es visuell darstellt, was in einer Zuweisung passiert und weil es eine klare Unterscheidung zum Zuweisungsoperator darstellt, die Verwendung von `=` weist Variablen Werte zu und die Verwendung von `==` testet auf Gleichheit von Werten.
 :::
 
@@ -148,7 +148,7 @@ include_graphics("images/rmarkdown4.png")
 
 Das Hilfemenü enthält eine "Markdown Quick Reference" und bietet eine kurze Beschreibung der unterstützten Markup Befehle. Die \textsf{RStudio} Webseite enthält weitere ausführlichere Anleitungen über die Verwendung von RMarkdown.
   
-::: {.achtung data-latex=""}
+::: {.achtung data-latex="{achtung}"}
 RMarkdown und \textsf{knitr/LaTeX}-Dateien haben keinen Zugriff auf die \textsc{Console}-Umgebung, weshalb der Code in diesen Dateien eigenständig sein muss.
 :::
 

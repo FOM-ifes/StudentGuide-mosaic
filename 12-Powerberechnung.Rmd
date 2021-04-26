@@ -73,6 +73,6 @@ power.t.test(n = 25, delta = .3, sd = 1, sig.level = alpha,
 Der analytische (formelbasierte) Ansatz ergibt eine ähnliche Schätzung wie die direkte Berechnung über `power.t.test()`.
 Insgesamt sehen wir, dass der t-Test eine größere Power als der Vorzeichen-Test hat, wenn die zugrundeliegenden Daten tatsächlich normalverteilt sind.
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Die empirische Berechnung der Power zeigt die Stärke von Simulationen.
 :::

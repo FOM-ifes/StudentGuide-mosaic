@@ -12,7 +12,7 @@ mean(~cesd, data = HELPrct)
 
 Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittstelle beinhaltet, die `lattice`-Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das Paket `mosaic` stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
 
-::: {.tiefereinsteigen data-latex=""}
+::: {.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch *Start Teaching with R* [@TeachingR] eine detaillierte Präsentation. *Start Modeling with R* [@ModelingR], ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
 :::
 
@@ -43,7 +43,7 @@ with(HELPrct, quantile(cesd))
 with(HELPrct, quantile(cesd, c(.025, .975)))
 ```
 
-::: {.achtung data-latex=""}
+::: {.achtung data-latex="{achtung}"}
 Nicht alle Befehle wurden schon für die Nutzung des Formel-Interfaces überarbeitet. Für diese Funktionen muss für den Zugriff auf Variablen innerhalb eines Datensatzes `with()` oder das \$-Zeichen genutzt werden.
 :::
 
@@ -102,7 +102,7 @@ Male <- filter(HELPrct, sex == 'male')
     5 | 67788
     6 | 0
 
-:::{.achtung data-latex=""}
+:::{.achtung data-latex="{achtung}"}
 Um Gleichheit von Ausprägungen zu überprüfen wird ein doppeltes Gleichheitszeichen genutzt!
 :::
 
@@ -152,11 +152,11 @@ gf_labs(x = "CESD score")
 ## Dichtekurven
 Ein Nachteil von Histogrammen besteht darin, dass sie abhängig von der gewählten Anzahl von Säulen sind. Eine andere Darstellung ist die Dichtekurve.
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Dichteplots sind ebenfalls abhängig von diversen Optionen. Wenn Ihr Dichteplot zu zerklüftet oder zu glatt ist, versuchen Sie, das `adjust`-Argument zu variieren: größer als 1 für glattere Plots, kleiner als 1 für gezacktere Plots.
 :::
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die Funktion `plotFun()` kann für Anmerkungen an Plots genutzt werden (s. Kapitel \@ref(VisReg)).
 :::
 
@@ -189,7 +189,7 @@ Die Funktion `xpnorm()` erzeugt die Wahrscheinlichkeit, dass eine Zufallsvariabl
 xpnorm(1.96, mean = 0, sd = 1)
 ```
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 x steht für eXtra (außerhalb).
 :::
 
@@ -203,7 +203,7 @@ confint(t.test( ~ cesd, data = Female))
 
 Aber es ist genauso zielführend, es mit der Bootstrap-Methode zu berechnen. Die Statistik, die wir resampeln wollen, ist der Mittelwert.
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Mehr Details und Beispiele finden sich in der Vignette zum Resampling im Paket `mosaic`.
 :::
 
@@ -217,11 +217,11 @@ Ein erstes Resampeln führt zu diesem Ergebnis
 mean( ~ cesd, data = resample(Female))
 ```
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Hier resampeln wir durch Ersetzen des Original-Datensatzes, indem wir einen Pseudo-Zufalls-Datensatz mit der gleichen Anzahl von Zeilen erzeugen.
 :::
 
-:::{.note data-latex=""}
+:::{.note data-latex="{hinweis}"}
 Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvoll, die Studierenden die Berechnung durchführen zu lassen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
 :::
 

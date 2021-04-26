@@ -43,7 +43,7 @@ with(HELPrct, CrossTable(homeless, sex,
 
 Grafische Zusammenfassungen von Kreuztabellen können ebenfalls nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Obdachlosen größer ist als für Nicht-Obdachlosen).
 
-:::{.achtung data-latex=""}
+:::{.achtung data-latex="{achtung}"}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
 ihrem geringen data-to-ink-ratio (Daten-Tinten-Verhältnis). Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen [@tufte2001].
 :::
@@ -102,7 +102,7 @@ fisher.test(tally(~ homeless + sex, margins = FALSE,
                      data = HELPrct))
 ```
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt \@ref(kreuztab). Die Funktion `fisher.test()` verwendet einen anderen Schätzer (und anderes Intervall, basierend auf dem Profil der Likelihood).
 :::
 

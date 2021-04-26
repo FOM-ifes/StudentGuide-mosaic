@@ -32,7 +32,7 @@ kable(RVerteilungen, format = "latex", booktabs=T) %>%
                 font_size     = 10)
 ```
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die Funktion `gf_fitdistr()` erleichtert das Schätzen von Parametern für viele Verteilungen.
 :::
 

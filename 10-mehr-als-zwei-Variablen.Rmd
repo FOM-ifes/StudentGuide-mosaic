@@ -26,7 +26,7 @@ plotModel(mod)
 ## Multiple Regression
 Multiple Regression ist eine logische Erweiterung der vorangegangenen Befehle, sobald zusätzliche Prädiktoren hinzukommen. Dies ermöglicht es den Studierenden mit dem Versuch zu beginnen, multivariate Beziehungen zu entflechten.
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Wir neigen dazu, multiple lineare Regression zeitig in unseren Kurse einzuführen, als eine rein deskriptive Methode, und dann immer wieder zu ihr zurückzukehren. Die Beweggründe werden ausführlich im Begleitmaterial *Start Modeling with R* [@ModelingR] beschrieben
 :::
 
@@ -80,11 +80,11 @@ Manchmal ist es nützlich eine Darstellung der Koeffizienten eines multiplen Reg
 mplot(lmnointeract, rows = -1, which = 7)
 ```
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, bei denen das 95%-Konfidenzinterval nicht den Wert Null der Nullhypothese beinhaltet.
 :::
 
-:::{.achtung data-latex=""}
+:::{.achtung data-latex="{achtung}"}
 Vorsicht bei der Generierung eines Regressionsmodells, bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
 :::
 
@@ -97,7 +97,7 @@ Es ist recht einfach die Residuen des Modells auszuwerten. Wir beginnen damit, d
 Die Funktion `mplot()` kann ebenfalls zur Erstellung dieser Grafiken verwendet werden.
 :::
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Hier fügen wir zwei neue Variabelen zu einem bestehenden Datensatz hinzu. Es ist häufig eine gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben. Für dieses Dokument behalten wir den Namen allerdings der Einfachheit halber bei.
 :::
 

@@ -3,7 +3,7 @@
 
 Wir empfehlen den Studierenden immer, jede Analyse durch eine grafische Darstellung ihrer Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS-Linie mit einer etwas dickeren Linie dargestellt.
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Die LOWESS-Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS Filter definiert werden.
 :::
 
@@ -13,7 +13,7 @@ gf_point(cesd ~ mcs, data = Female, shape = 1) %>%
   gf_smooth(se = FALSE, size = 2)
 ```
 
-:::{.tiefereinsteigen data-latex=""}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Wenn man mit der Ausdrucksweise des statistischen Modellierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R* [@TeachingR] entsprechende Hilfe. 
 Auch in *Start Teaching with R* [@ModelingR] sind nützliche Tipps für den Einstieg zu finden.
 :::
@@ -46,7 +46,7 @@ cor(cesd ~ mcs, method = "spearman", data = Female)
 ## Paarweise Plots
 Ein paarweiser Plot (Scatterplot Matrix) kann für jedes Paar eines Variablensets erstellt werden.
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Das Paket `GGally` unterstützt komplexere Formen von paarweisen Plots.
 :::
 
@@ -58,7 +58,7 @@ ggpairs(smallHELP)
 
 ## Einfache lineare Regression
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Normalerweise führen wir die einfache lineare Regression als deskriptive Methode zu einem sehr frühen Zeitpunkt einer Lehrveranstaltung ein.
 :::
 
@@ -72,7 +72,7 @@ cesdmodel <- lm(cesd ~ mcs, data = Female)
 coef(cesdmodel)
 ```
 
-:::{.note data-latex=""}
+:::{.note data-latex="{note}"}
 Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobjekte zu finden. Hier wird der Output von `lm()` als `cesdmodel` gespeichert.
 Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
 :::
@@ -93,7 +93,7 @@ Die Ausgabe von `lm()` ist ein Lineares Modell.
 Ähnlich wie bei `coef()` kann eine Reihe von Operationen auf dieses Objekt zugreifen.  
 Die Funktion `residuals()` gibt den Residuenvektor aus.
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden. Eine andere wichtige Funktion ist `fitted()`, die einen Vektor aus geschätzten Werten erzeugt.
 :::
 
@@ -157,7 +157,7 @@ gf_point(cesd ~ mcs, data = HELPrct) %>%
 ```
 
 
-:::{.aufgabe data-latex=""}
+:::{.aufgabe data-latex="{aufgabe}"}
 Mit Hilfe des Datensatzes `HELPrct` soll eine einfache lineare Regression geschätzt werden, die den Zusammenhang zwischen der am Tag getrunkenen Menge und dem MCS (mental component score) beschreibt. 
 
 Dieses Model kann mit Hilfe des Modells `i1 ~ mcs` spezifiziert werden.  

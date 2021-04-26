@@ -19,7 +19,7 @@ Um ein Paket in \textsf{R} nutzen zu können, muss es zuerst (einmalig) installi
 install.packages("mosaic")        # Beachten Sie die Anführungszeichen
 ```
 
-::: {.note data-latex=""}
+::: {.note data-latex="{note}"}
 \textsf{RStudio} bietet u. a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
 :::
 
@@ -33,11 +33,11 @@ library(mosaic)
 
 Das RMarkdown System bietet eine einfache markup Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es Studierenden, ihre Analysen mit einem Workflow zu versehen, der Reproduzierbarkeit sicherstellt und Kopierfehler vermeidet.
 
-::: {.infobox data-latex=""}
+::: {.infobox data-latex="{infobox}"}
 Das \textsf{knitr/LATEX} System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsf{LaTeX} im selben Dokument zu verknüpfen. Die Belohnung dafür dieses kompliziertere System zu erlernen ist eine viel feinere Kontrolle über das Ausgabeformat. RMarkdown ist jedoch viel einfacher zu lernen und ist auch für fachliche Arbeiten geeignet.
 :::
 
-::: {.hinweis data-latex=""}
+::: {.hinweis data-latex="{hinweise}"}
 Um Markdown oder \textsf{knitr/LATEX} nutzen zu können, muss das Paket `markdown` installiert sein.
 :::
 
