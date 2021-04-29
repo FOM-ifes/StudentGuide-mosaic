@@ -27,7 +27,7 @@ gf_text(Murder ~ Assault,
 ```
 
 
-## Korrelation
+## Korrelationen
 Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet werden.
 
 ```{r}

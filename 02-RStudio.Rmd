@@ -1,14 +1,13 @@
 # Los geht's mit RStudio {#RStudio}
 
-\textsf{RStudio} ist eine integrierte Entwicklerumgebung (*integrated development environment* - IDE) für \textsf{R}, die eine alternative Schnittstelle zu \textsf{R} bietet und mehrere Vorteile gegenüber den Standard \textsf{R}-Schnittstellen bietet:
+\textsf{RStudio} ist eine integrierte Entwicklerumgebung (*integrated development environment* - IDE) für \textsf{R}, die gegenüber anderen eine alternative Schnittstelle zu \textsf{R} mit mehreren Vorteilen bietet:
 
 ::: {.hinweis data-latex="{hinweis}"}
-Eine Reihe an Einführungsvideos ist verfügbar unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
+Es gibt eine Reihe an Einführungsvideos unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
 :::
 
-- \textsf{RStudio} läuft auf Mac-, PC-, und Linux-Rechnern und bietet eine vereinfachte Schnittstelle, die 
-vom Aussehen und in der Handhabung auf allen ähnlich ist. Die Standardschnittstellen für \textsf{R} sind ziemlich unterschiedlich auf den verschiedenen Platformen. Das kann den Studierenden verwirren oder ablenken und führt zu höherem Unterstützungsaufwand für den Dozenten.
-- \textsf{RStudio} kann in einem Webbrowser laufen.  Zusätzlich zu eigenständigen Desktop-Versionen oder \textsf{RStudio.cloud} kann  \textsf{RStudio} als eine Server-Anwendung installiert werden, auf die über das Internet zugreifbar ist. Die Web-Schnittstelle ist fast identisch zu der Desktopversion. Wie bei anderen Web-Services auch, melden Nutzer sich an, um Zugriff zu ihrem Konto zu erlangen. Wenn Studierende sich abmelden und später wieder anmelden, wird ihre Session wiederhergestellt und sie können an der Stelle mit ihrer Analyse weiter machen, wo sie verblieben waren, auch wenn sie sich auf einem anderen Rechner anmelden. Mit einer etwas fortgeschrittenen Einrichtung können Dozenten die Historie der Nutzung von \textsf{R} in ihrem Klassenraum speichern und Studierende können diese Historie-Datei in ihre eigene Umgebung laden.
+- \textsf{RStudio} läuft auf Mac-, PC-, und Linux-Rechnern und bietet eine vereinfachte Schnittstelle, die vom Aussehen und in der Handhabung auf allen ähnlich ist. Die Standardschnittstellen für \textsf{R} sind ziemlich unterschiedlich auf den verschiedenen Platformen. Das kann verwirren oder ablenken und zu höherem Unterstützungsaufwand führen.
+- \textsf{RStudio} kann in einem Webbrowser ausgeführt werden. Zusätzlich zu eigenständigen Desktop-Versionen oder \textsf{RStudio.cloud} kann  \textsf{RStudio} als eine Server-Anwendung installiert werden, die über das Internet zugreifbar ist. Die Web-Schnittstelle ist fast identisch zu der Desktopversion. Wie bei anderen Web-Services auch, melden Nutzer sich an, um Zugriff zu ihrem Konto zu erlangen. Nach Abmeldung und späterer Neuanmeldung, wird die letzte Session wiederhergestellt und Sie können an der Stelle mit ihrer Analyse weiter machen, wo sie verblieben waren, auch wenn Sie sich auf einem anderen Rechner anmelden. Mit einer etwas fortgeschrittenen Einrichtung können Dozierende die History der \textsf{R}-Session in ihrem Klassenraum speichern und Studierende können diese History-Datei in ihre eigene Umgebung laden.
 
 ::: {.achtung data-latex="{achtung}"}
 Die Desktop- und Server-Versionen von \textsf{RStudio} sind so ähnlich, dass Sie besonders aufpassen müssen, wenn Sie beide gleichzeitig nutzen, um sicher zu gehen, dass Sie in der richtigen Version arbeiten.
@@ -18,7 +17,7 @@ Die Desktop- und Server-Versionen von \textsf{RStudio} sind so ähnlich, dass Si
 Die Verwendung von \textsf{RStudio} in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Anwender sich erneut anmelden, wird die vorherige Session wiederhergestellt und sie können weiter machen, wo sie zuletzt aufgehört haben. Nutzer können sich von jedem Gerät mit Internetzugriff anmelden.
 :::
 
-- \textsf{RStudio} unterstützt reproduzierbare Forschung. \textsf{RStudio} macht es einfach Text, statistische Analysen (\textsf{R}-Code und \textsf{R}-Output) und grafische Abbildungen zusammen im gleichen Dokument einzuschließen. Das RMarkdown System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen.  Das \textsc{knitr/LaTeX}-System versetzt Nutzer in die Lage auch \textsf{R} und LaTeX in dasselbe Dokument zu integrieren.  Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output Formates. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
+- \textsf{RStudio} ist ein Tool, das die Erstellung reproduzierbarer Forschung unterstützt. Es vereinfacht Text, statistische Analysen (\textsf{R}-Code und \textsf{R}-Output) und grafische Abbildungen zusammen im gleichen Dokument zu vereinen. Das \textsf{R Markdown}-System bietet eine einfache Markup Sprache und fügt die Ergebnisse in HTML zusammen. Das \textsc{knitr/LaTeX}-System versetzt Nutzer in die Lage auch \textsf{R} und \textsf{LaTeX} in dasselbe Dokument zu integrieren. Die Belohnung für das Erlernen dieses komplizierteren Systems ist eine deutlich präzisere Steuerung des Output-Formates. Abhängig von der Niveaustufe des Kurses können Sie eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden.  
 
 ::: {.hinweis data-latex="{hinweis}"}
 Um Markdown oder \textsc{knitr/LaTeX} zu verwenden, muss das Paket `knitr` auf dem System installiert sein.
@@ -28,10 +27,9 @@ Um Markdown oder \textsc{knitr/LaTeX} zu verwenden, muss das Paket `knitr` auf d
 - \textsf{RStudio} bietet einige nützliche Funktionalitäten über eine grafische Nutzeroberfläche (Graphical User Interface oder GUI). \textsf{RStudio} ist nicht ein GUI für \textsf{R}, aber es bietet ein GUI, das Themen wie die Installation und Verwaltung von Paketen, die Steuerung, Speicherung und das Laden von Umgebungen, das Importieren und Exportieren von Daten sowie den Zugriff auf und Export von Abbildungen, Dateien und Dokumentationen vereinfacht.
 - \textsf{RStudio} bietet Zugriff auf das Paket `manipulate`.  Das Paket `manipulate` bietet eine Möglichkeit, einfach und schnell interaktive grafische Anwendungen zu erstellen.
 
-Obwohl man sicherlich \textsf{R} ohne die Verwendung von \textsf{RStudio} nutzen kann, vereinfacht \textsf{RStudio} viele Dinge und wir empfehlen den Einsatz von \textsf{RStudio} stark.  Außerdem erwarten wir in der Zukunft noch weitere nützliche Funktionalitäten, da \textsf{RStudio} stetig weiterentwickelt wird.
+Obwohl man sicherlich \textsf{R} ohne die Verwendung von \textsf{RStudio} nutzen kann, vereinfacht \textsf{RStudio} viele Dinge und wir empfehlen den Einsatz von \textsf{RStudio} stark. Außerdem erwarten wir in Zukunft noch weitere nützliche Funktionalitäten, da \textsf{RStudio} stetig weiterentwickelt wird.
 
-Wir verwenden in erster Linie eine online Version von \textsf{RStudio}. \textsf{RStudio} ist eine innovative und leistungsstarke Schnittstelle zu \textsf{R}, die in einem Webbrowser oder auf Ihrem lokalen Rechner läuft.
-Die Anwendung über den Browser hat den Vorteil, dass Sie nichts installieren oder konfigurieren müssen. Einfach anmelden und Sie können loslegen. Außerdem "merkt" \textsf{RStudio} sich, was Sie machen und Sie können da weitermachen, wo Sie aufgehört haben, jedesmal wenn Sie sich anmelden (auch auf einer anderen Maschine). Das ist "\textsf{R} in the cloud" und funktioniert ähnlich wie GoogleDocs oder Facebook für \textsf{R}.
+Wir verwenden in erster Linie eine Online-Version von \textsf{RStudio}. Die Anwendung über den Browser hat den Vorteil, dass Sie nichts installieren oder konfigurieren müssen. Einfach anmelden und Sie können loslegen. Außerdem \glqq merkt\grqq \textsf{RStudio} sich, was Sie machen und Sie können da weitermachen, wo Sie aufgehört haben, jedesmal wenn Sie sich anmelden (auch auf einem anderen Rechner). Das ist \glqq\textsf{R} in the cloud\grqq und funktioniert ähnlich wie GoogleDocs oder Facebook für \textsf{R}.
 
 ::: {.hinweis data-latex=""}
 \textsf{R} kann von [http://cran.r-project.org/](http://cran.r-project.org/) heruntergeladen und lokal installiert werden. Das Herunterladen und die Installation sind i. \ A. unkompliziert für Mac-, PC-, oder Linux-Systeme. \textsf{RStudio} ist über [http://www.rstudio.org/](http://www.rstudio.org/) verfügbar.
@@ -60,13 +58,11 @@ include_graphics("images/rstudio-cloud-interface.png")
 
 Sie können feststellen, dass \textsf{RStudio} seine Welt in vier *Panel* aufteilt. Verschiedende *Panel* sind weiter unterteilt in mehrere Reiter. Welche Reiter in welchem *Panel* auftauchen kann vom Nutzer konfiguriert werden.
 
-\textsf{R} kann vieles mehr als ein einfacher Taschenrechner und wir werden zu gegebener Zeit zusätzliche Eigenschaften vorstellen.  Aber, das Durchführen von einfachen Berechnungen in \textsf{R} ist eine
-gute Vorgehensweise, um die Eigenschaften von \textsf{RStudio} kennenzulernen.
+\textsf{R} kann vieles mehr als ein einfacher Taschenrechner und wir werden zu gegebener Zeit zusätzliche Eigenschaften vorstellen. Aber, das Durchführen von einfachen Berechnungen in \textsf{R} ist eine gute Vorgehensweise, um die Eigenschaften von \textsf{RStudio} kennenzulernen.
 
-Befehle, die in dem Reiter \textsc{Console} eingetragen werden, werden direkt ausgeführt von `R`.
-Ein guter Start, sich mit der Konsole vertraut zu machen, ist einfache Berechnungen ähnlich wie mit einem Taschenrechner auszuführen. Das meiste funktioniert analog zum typischen Taschenrechner. 
+Befehle, die in dem Reiter \textsc{Console} eingetragen werden, werden direkt ausgeführt von \textsf{R}. Ein guter Start, sich mit der Konsole vertraut zu machen, ist einfache Berechnungen ähnlich wie mit einem Taschenrechner auszuführen. Das meiste funktioniert analog zum typischen Taschenrechner. 
 
-Versuchen Sie folgende Befehle in der Konsole einzugeben:
+Geben Sie folgende Befehle in der Konsole ein:
 ```{r}
 5 + 3
 15.3 * 23.4
@@ -82,7 +78,7 @@ Es ist wahrscheinlich am sinnvollsten, sich auf eine Vorgehensweise zwischen rec
 :::
 
 ```{r}
-product = 15.3 * 23.4       # Speicher Ergebnis
+product = 15.3 * 23.4       # Speichere das Ergebnis
 product                     # Zeige das Ergebnis an
 product <- 15.3 * 23.4      # <- kann verwendet werden statt =
 product  
@@ -108,7 +104,7 @@ product <- 15.3 * 23.4; product    # Speichere Ergebnis und zeige es an
 
 ### Information zur Version
 
-Manchmal kann es nützlich sein zu prüfen, welche Versionen des  Paketes `mosaic`, von \textsf{R} und
+Manchmal kann es nützlich sein zu prüfen, welche Versionen des Paketes `mosaic`, von \textsf{R} und
 \textsf{RStudio} Sie verwenden. Die Eingabe von `sessionInfo()` zeigt Informationen über die Version von \textsf{R} und die geladenen Pakete an, während  `RStudio.Version()` die Version von \textsf{RStudio} ausgibt.
 
 ```{r}
@@ -122,13 +118,13 @@ Um eine Datei zu erstellen, gehen Sie in der Menüleiste auf \textsc{File}, dann
 Hier kann \textsf{R}-Code eingetragen werden und es stehen Schaltflächen und Menüpunkte zur Verfügung, um den gesamten Code (das sogenannte *Sourcing* der Datei), einzelne Zeilen oder einen ausgewählten Abschnitt der Datei auszuführen.
 
 ### Arbeiten mit RMarkdown und knitr/LaTeX
-Eine dritte Alternative ist es \textsf{RStudio}'s Unterstützung für reproduzierbare Forschung zu nutzen. Wenn Sie \textsf{LaTeX} schon kennen, werden Sie die Funktionialitäten des integrierten \textsf{knitr/LaTeX} erforschen wollen. Wenn Sie \textsf{LaTeX} noch nicht kennen, dann bietet das einfachere RMarkdown System eine gute Einführung in die Welt der reproduzierbaren Forschung. Es bietet auch eine gute Möglichkeit für Studierende, ihre Hausarbeiten und Berichte zu erstellen, die Text, \textsf{R}-Code, \textsf{R}-Output sowie Abbildungen enthalten. Um eine neue \textsf{RMarkdown}-Datei zu erstellen, wählen Sie \textsc{File}, dann \textsc{New File}, dann \textsf{RMarkdown}. Die Datei wird mit einer Kurzvorlage geöffnet, welche die Markup-Sprache skizziert.
+Eine dritte Alternative ist es \textsf{RStudio}s Unterstützung für reproduzierbare Forschung zu nutzen. Wenn Sie \textsf{LaTeX} schon kennen, werden Sie die Funktionialitäten des integrierten \textsf{knitr/LaTeX} erforschen wollen. Wenn Sie \textsf{LaTeX} noch nicht kennen, dann bietet das einfachere RMarkdown System eine gute Einführung in die Welt der reproduzierbaren Forschung. Es bietet auch eine gute Möglichkeit für Studierende, ihre Hausarbeiten und Berichte zu erstellen, die Text, \textsf{R}-Code, \textsf{R}-Output sowie Abbildungen enthalten. Um eine neue \textsf{R Markdown}-Datei zu erstellen, wählen Sie \textsc{File}, dann \textsc{New File}, dann \textsf{R Markdown}. Die Datei wird mit einer Kurzvorlage geöffnet, welche die Markup-Sprache skizziert.
 
 ```{r, echo=FALSE, fig.align='center', out.width="40%"}
 include_graphics("images/rmarkdown1.png")
 ```
 
-Das Paket `mosaic` enthält zwei nützliche RMarkdown Vorlagen für den Einstieg: `fancy` enthält bereits etwas Schnickschnack (und hat zum Ziel, eine Übersicht der Möglichkeiten zu bieten), während `plain` nur ein Grundgerüst enthält und nützlich als Startpunkt für eine neue Analyse ist. Auf diese Vorlagen wird mittels der \textsc{Template}-Option bei Erstellung einer neuen RMarkdown-Datei zugegriffen:
+Das Paket `mosaic` enthält zwei nützliche \textsf{R Markdown} Vorlagen für den Einstieg: `fancy` enthält bereits etwas Schnickschnack (und hat zum Ziel, eine Übersicht der Möglichkeiten zu bieten), während `plain` nur ein Grundgerüst enthält und nützlich als Startpunkt für eine neue Analyse ist. Auf diese Vorlagen wird mittels der \textsc{Template}-Option bei Erstellung einer neuen \textsf{R Markdown}-Datei zugegriffen:
 
 ```{r, echo=FALSE, fig.align='center', out.width="50%"}
 include_graphics("images/rmarkdown2.png")
@@ -146,28 +142,27 @@ Das erzeugt eine formatierte Version des Dokumentes:
 include_graphics("images/rmarkdown4.png")
 ```
 
-Das Hilfemenü enthält eine "Markdown Quick Reference" und bietet eine kurze Beschreibung der unterstützten Markup Befehle. Die \textsf{RStudio} Webseite enthält weitere ausführlichere Anleitungen über die Verwendung von RMarkdown.
+Das Hilfemenü enthält eine "Markdown Quick Reference" und bietet eine kurze Beschreibung der unterstützten Markup Befehle. Die \textsf{RStudio} Webseite enthält weitere ausführlichere Anleitungen über die Verwendung von \textsf{R Markdown}.
   
 ::: {.achtung data-latex="{achtung}"}
-RMarkdown und \textsf{knitr/LaTeX}-Dateien haben keinen Zugriff auf die \textsc{Console}-Umgebung, weshalb der Code in diesen Dateien eigenständig sein muss.
+\textsf{R Markdown} und \textsf{knitr/LaTeX}-Dateien haben keinen Zugriff auf die \textsc{Console}-Umgebung, weshalb der Code in diesen Dateien eigenständig sein muss.
 :::
 
-Es ist wichtig sich zu merken, dass RMarkdown- und \textsf{knitr/LaTeX}-Dateien im Gegensatz zu \textsf{R}-Skripten, die in der Konsole ausgeführt werden und Zugriff auf die \textsc{Console}-Umgebung haben, diesen Zugriff nicht haben. Das ist eine gute Eigenschaft, weil die Dateien deshalb eigenständig sein müssen, was die Austauschbarkeit ermöglicht und gute reproduzierbare Forschungspraktiken unterstützt. Aber Anfänger, insbesondere wenn sie Analyseschritte in der Konsole ausprobieren und den Code dann über copy & paste in die Datei einfügen, werden häufig Dateien kreieren, die nicht vollständig sind und deshalb nicht korrekt kompilieren.
+Dass \textsf{R Markdown}- und \textsf{knitr/LaTeX}-Dateien, im Gegensatz zu \textsf{R}-Skripten, die in der \textsc{Console} ausgeführt werden, keinen Zugriff auf die \textsc{Console}-Umgebung haben, ist eine gute Eigenschaft, weil die Dateien deshalb eigenständig sein müssen. Dies ermöglicht die Austauschbarkeit und unterstützt gute reproduzierbare Forschungspraktiken. Anfänger, insbesondere wenn sie Analyseschritte in der Konsole ausprobieren und den Code dann über copy & paste in die Datei einfügen, werden zunächst noch häufig Dateien kreieren, die nicht vollständig sind und deshalb nicht korrekt kompilieren.
 
 
 ## Die Funktionen der Panel und Reiter
 ### Der History-Reiter
   
-Wenn Befehle in der Konsole eingetragen werden, dann erscheinen Sie in dem \textsc{History}-Reiter. Diese Historie kann gespeichert und geladen werden, es gibt eine Suchfunktion, um vorhergehende Befehle zu finden und einzelne Zeilen oder Abschnitte können zurück an die Konsole geschickt werden. Mit geöffnetem \textsc{History}-Reiter können Sie zurück blättern und auf die vorangegangenen Befehle zugreifen. Das ist vor allem dann nützlich, wenn Befehle viel Output erzeugen und schnell aus dem Bildschirm verschwinden.
+Wenn Befehle in der \textsc{Console} eingetragen werden, dann erscheinen Sie in dem \textsc{History}-Reiter. Diese Historie kann gespeichert und geladen werden, es gibt eine Suchfunktion, um vorhergehende Befehle zu finden und einzelne Zeilen oder Abschnitte können zurück an die Konsole geschickt werden. Mit geöffnetem \textsc{History}-Reiter können Sie zurück blättern und auf die vorangegangenen Befehle zugreifen. Das ist vor allem dann nützlich, wenn Befehle viel Output erzeugen und schnell aus dem Bildschirm verschwinden.
 
 ### Kommunikation zwischen Reitern
-\textsf{RStudio} bietet verschiedene Möglichkeiten, um \textsf{R}-Code zwischen Reitern auszutauschen. Das Klicken der \textsc{Run}-Schaltfläche im Editor-Fenster für ein \textsf{R}-Skript oder RMarkdown- oder andere Datei kopiert Zeilen mit Code in die Konsole und führt sie aus.
+\textsf{RStudio} bietet verschiedene Möglichkeiten, um \textsf{R}-Code zwischen Reitern auszutauschen. Das Klicken der \textsc{Run}-Schaltfläche im Editor-Fenster für ein \textsf{R}-Skript oder \textsf{R Markdown}- oder andere Datei kopiert Zeilen mit Code in die Konsole und führt sie aus.
 
 ### Der File-Reiter
-Der \textsc{Files}-Reiter bietet eine einfache Dateiverwaltung an. Sie kann auf übliche Weise bedient und genutzt werden, um Dateien zu öffnen, zu verschieben, umzubenennen oder zu löschen. In der Browser-Version von \textsf{RStudio} bietet der \textsf{Files}-Reiter auch die Möglichkeit, Dateien hochzuladen, um Dateien von der lokalen Maschine auf den Server zu verschieben. In RMarkdown und \textsf{knitr}-Dateien kann der Code auch in einem bestimmten Abschnitt (\textsf{chunk}) oder in allen ausgeführt werden. Jede dieser Eigenschaften ermöglicht es Codes "live" auszuprobieren und gleichzeitig ein Dokument zu erstellen, das eine Aufzeichnung des verwendeten Codes enthält.
-Umgekehrt kann Code aus der \textsc{History} zurück in die Konsole kopiert werden, um die Befehle nochmals auszuführen (ggf. nach Bearbeitung) oder in eine der Dateiverwaltungs-Reiter, um in einer Datei eingefügt zu werden.
-  
-  
+Der \textsc{Files}-Reiter bietet eine einfache Dateiverwaltung an. Sie kann auf übliche Weise bedient und genutzt werden, um Dateien zu öffnen, zu verschieben, umzubenennen oder zu löschen. In der Browser-Version von \textsf{RStudio} bietet der \textsc{Files}-Reiter auch die Möglichkeit, Dateien hochzuladen, um Dateien vom lokalen Rechner auf den Server zu verschieben. In \textsf{R Markdown}- und \textsf{knitr}-Dateien kann der Code auch in einem bestimmten Abschnitt (\textsc{chunk}) oder in allen ausgeführt werden. Jede dieser Eigenschaften ermöglicht es Codes "live" auszuprobieren und gleichzeitig ein Dokument zu erstellen, das eine Aufzeichnung des verwendeten Codes enthält.
+Umgekehrt kann Code aus der \textsc{History} zurück in die Konsole kopiert werden, um die Befehle nochmals auszuführen (ggf. nach Bearbeitung) oder in eine Datei im \textsc{File}-Reiter eingefügt werden.
+
 ### Der Help-Reiter
 In dem \textsc{Help}-Reiter zeigt \textsf{RStudio} die \textsf{R}-Hilfe-Seiten an. Diese können durchsucht und navigiert werden. Sie können auch eine Hilfeseite öffnen, indem Sie den `?`-Operator in der Konsole verwenden.
 Zum Beispiel führt folgender Befehl dazu, dass die Hilfeseite zur Logarithmusfunktion aufgerufen wird:
@@ -178,7 +173,7 @@ Zum Beispiel führt folgender Befehl dazu, dass die Hilfeseite zur Logarithmusfu
 
 
 ### Der Environment-Reiter
-Der \textsc{Environment}-Reiter zeigt die Objekte, die für die Konsole zur Verfügung stehen. Diese sind unterteilt in Daten, Werte (Objekte die weder Dataframe noch Funktionen sind) und Funktionen. Die Besen-Schaltfläche kann verwendet werden, um alle Objekte aus der Umgebung zu entfernen und es ist empfehlenswert, das ab und zu durchzuführen, vor allem dann, wenn Sie auf dem RStudio Server arbeiten oder wenn Sie sich dafür entscheiden, die Umgebung beim Schließen von \textsf{RStudio} abzuspeichern. In diesen Fällen könnten die Objekte sonst quasi ewig in der Umgebung gespeichert bleiben.
+Der \textsc{Environment}-Reiter zeigt die Objekte, die für die \textsc{Console} zur Verfügung stehen. Diese sind unterteilt in Daten, Werte (Objekte die weder Dataframe noch Funktionen sind) und Funktionen. Die "Besen"-Schaltfläche kann verwendet werden, um alle Objekte aus der Umgebung zu entfernen und es ist empfehlenswert, das ab und zu durchzuführen, vor allem dann, wenn Sie auf dem \textsf{RStudio} Server arbeiten oder wenn Sie sich dafür entscheiden, die Umgebung beim Schließen von \textsf{RStudio} abzuspeichern. In diesen Fällen könnten die Objekte sonst quasi ewig in der Umgebung gespeichert bleiben.
 
 ### Der Plots-Reiter
 Diagramme, die in der Konsole erzeugt werden, werden im \textsc{Plots}-Reiter angezeigt. Zum Beispiel zeigen die folgenden Befehle die Anzahl der Geburten in den Vereinigten Staaten für jeden Tag aus 1978 an:
@@ -188,7 +183,7 @@ library(mosaic)
 gf_point(births ~ day_of_year, data = Births78) 
 ```
 
-Innerhalb des Grafik-Reiters haben Sie Zugriff auf vorherige Plots und Sie können diese, nach interaktiver Größenanpassung, in verschiedenen Formaten exportieren.
+Innerhalb des \textsc{Plots}-Reiters haben Sie Zugriff auf vorherige Grafiken und Sie können diese, nach interaktiver Größenanpassung, in verschiedenen Formaten exportieren.
 
 ### Der Packages-Reiter
-Ein großer Teil der \textsf{R}-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive \textsf{R} Archive Network) verfügbar sind.  Der \textsc{Packages}-Reiter vereinfacht die Installation und das Laden der Pakete. Er ermöglicht es auch Pakete zu finden, die seit ihrer Installation ein Update bekommen haben.
+Ein großer Teil der \textsf{R}-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive \textsf{R} Archive Network) verfügbar sind. Der \textsc{Packages}-Reiter vereinfacht die Installation und das Laden der Pakete. Er ermöglicht es auch Pakete zu finden, die seit ihrer Installation ein Update bekommen haben.

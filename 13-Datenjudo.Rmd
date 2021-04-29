@@ -1,6 +1,6 @@
 # Datenmanagement {#datenmanagement}
 
-Datenmanagement ist eine Schlüsselfunktion, die es Studierenden (und Dozenten) ermöglicht, "mit Daten zu arbeiten" oder wie Diane Lambert von Google sagte "mit Daten zu denken". Wir neigen dazu, das Datenmanagement der Studierenden während des ersten Teils eines einführenden Statistikkurses auf ein Minimum zu beschränken und bei Bedarf schrittweise Themen einzuführen. Für Kurse, in denen die Studierenden inhaltliche Projekte durchführen, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Aufgaben des Datenmanagements beschrieben.
+Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierenden) ermöglicht "mit Daten zu arbeiten" oder wie Diane Lambert von Google sagte "mit Daten zu denken". Wir neigen dazu, die Datenverwaltung für die Studierenden zu Beginn eines einführenden Statistikkurses auf ein Minimum zu beschränken und die Themen, wo nötig, schrittweise einzuführen. In Kursen, in denen die Studierenden substantielle und umfangreiche Projekte durchführen, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Möglichkeiten des Datenmanagements beschrieben.
 
 
 ## Überprüfung von Dataframes
@@ -40,7 +40,7 @@ irisSmall <- mutate(irisSmall, Length = cut(Sepal.Length, breaks=4:8))
 ```
 
 
-Mehrere Befehle können mit dem %>% (\textsc{Pfeife}-) Operator miteinander verknüpft werden:
+Mehrere Befehle können mit dem %>% (\textsc{Pipe}-) Operator miteinander verknüpft werden:
 
 ```{r}
 irisSmall <- iris %>%
@@ -49,7 +49,7 @@ irisSmall <- iris %>%
 ```
 
 
-Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pfeife} erbt).
+Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pipe} erbt).
 
 ```{r}
 head(irisSmall)
@@ -142,7 +142,7 @@ head(faithful, 3)
 ```
 
 
-## Erstellen von Teilmengen von Beobachtungen {#subdaten}
+## Erstellen von Teilmengen spezifischer Beobachtungen {#subdaten}
 
 Wir können auch `filter()` verwenden, um die Größe eines Dataframes zu reduzieren, indem nur bestimmte Zeilen ausgewählt werden.
 
@@ -161,6 +161,8 @@ Dataframes können mit der Funktion `arrange()` sortiert werden.
 
 ```{r}
 head(faithful, 3)
+sorted <- arrange(faithful, duration)
+head(sorted, 3)
 ```
 
 :::{.achtung data-latex="{achtung}"}
@@ -168,7 +170,7 @@ Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu 
 :::
 
 
-## Zusammenführen von Dataframes
+## Zusammenfügen von Dataframes
 
 Der `fusion1`-Datensatz im Paket `fastR` enthält Genotyp-Informationen für einen \textsc{SNP} (single nucleotide polymorphism) im Gen \textsc{TCF7L2}. Der Dataframe enthält Phänotypen (einschließlich Typ-2-Diabetes Fall-/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
 
@@ -197,7 +199,7 @@ tally(~t2d + genotype, data = fusion1m)
 ```
 
 
-## Schneiden und Würfeln
+## Extrahieren und Zusammenfassen von Informationen
 
 Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu ändern. Es wurde für die Konvertierung zwischen langen und breiten Versionen von Zeitreihendaten entwickelt und seine Argumente sind in diesem Sinne benannt.
 
@@ -327,7 +329,7 @@ favstats(agebygroup ~ substance, data = HELPmerged)
 nrow(HELPmerged)
 ```
 
-## Behandlung fehlender Werte {#missings}
+## Umgang mit fehlenden Werten {#missings}
 
 Fehlende Werte entstehen in fast allen Untersuchungen der realen Welt. \textsf{R} verwendet das `NA`-Zeichen als Indikator für fehlende Werte. Der `HELPmiss`-Datensatz innerhalb des Paketes `mosaicData` umfasst alle $n = 470$ Probanden, die zu Studienbeginn eingeschrieben sind (einschließlich der $n = 17$ Probanden mit einigen fehlenden Werten, die nicht in `HELPrct` enthalten waren).
 
