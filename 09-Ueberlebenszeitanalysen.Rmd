@@ -1,6 +1,6 @@
 # Überlebenszeitanalysen
 
-Umfangreiche Hilfsmittel für Überlebenszeitanalysen (Zeitraum bis Ereignis) sind aus dem Paket `survival` verfügbar.
+Umfangreiche Unerstützung für Überlebensanalysen (Zeitspanne bis zum Eintreten eines definierten Ereignis) sind in dem Paket `survival` enthalten.
 
 ## Kaplan-Meier-Kurve
 
@@ -17,10 +17,10 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
         xlab  = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")
 ```
 
-Wir sehen, dass die Personen der Behandlungsgruppe (Health Evaluation and Linkage to Primary Care clinic) signifikant häufiger eine Primärversorgung erhalten (eine deutlich geringere Überlebenszeit aufweisen) als die Kontrollgruppe (Grundversorgung).
+Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
 
-## Cox-Modell mit proportionalem Ausfallrisiko
+## Cox-proportionales-Hazard-Modell 
 
 ```{r}
 library(survival)
@@ -28,4 +28,4 @@ summary(coxph(Surv(dayslink, linkstatus) ~ age + substance,
               data = HELPrct))
 ```
 
-Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an Primärversorgung.
+Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an die Grundversorgung.

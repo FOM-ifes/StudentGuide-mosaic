@@ -1,7 +1,7 @@
 --- 
-title: "Mosaic-Handbuch"
+title: "A Student's Guide to R"
 subtitle: "Übersetzung des englischen Originals"
-author: "FOM"
+author: "Bianca Krol, Sebastian Sauer, Roger Bons, Oliver Gansser, Matthias Gehrke, Herbert Hollmann, Tanja Kistler, Andreas Kladroba und Thomas Weiß"
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 version: "v0.0.1"
 site: bookdown::bookdown_site
@@ -37,7 +37,24 @@ data(faithful)
 
 # Vorwort {-}
 
-Das ist das (noch zu schreibende) Vorwort für die deutsche Version des mosaic-Handbuchs.
+In 2016 hat die FOM Hochschule für Oekonomie & Management sich auf den Weg gemacht, in der Methodenausbildung die Kompetenz der Data Literacy zu fokussieren. In den zurückliegenden Semestern wurde die Ausbildung daher in Anlehnung an die [GAISE](https://www.amstat.org/asa/files/pdfs/GAISE/GaiseCollege_Full.pdf)(Guidelines for Assessment and Instruction in Statistics Education)-Empfehlungen modernisiert. 2019 wurde die FOM aufgrund dieses Ausbildungskonzeptes in das [Data Literacy Education Netzwerk des Stifterverbandes](https://www.stifterverband.org/data-literacy-education) aufgenommen und zu Beginn dieses Jahres hat die FOM die [Data-Literacy-Charta](https://www.stifterverband.org/charta-data-literacy) unterschrieben, in der Folgendes zu finden ist: "Data Literacy umfasst die Datenkompetenzen, die für alle Menschen in einer durch Digitalisierung geprägten Welt wichtig sind. Sie ist unverzichtbarer Bestandteil der Allgemeinbildung." 
+
+Diesem Anspruch versuchen wir im Rahmen unserer Methodenausbildung gerecht zu werden. Um daten-literat zu werden, liegt der Fokus unserer Ausbildung auf dem konzeptionellen Verstehen, der Betonung des gesamten Analyseprozesses (von der Frage bis zur vorläufigen Antwort), der Befähigung von Studierenden zur verantwortungsvollen Nutzung von Daten im beruflichen und akademischen Kontext sowie der Sensibilisierung von Studierenden für reproduzierbare empirische Analysen. Dazu setzen wir in der Lehre auf Unterstützung durch R, RStudio und mosaic.
+
+Das Paket mosaic hilft in der Ausbildung, da es den R Code vereinheitlicht und die Grundlage für ein *Denken mit Daten*^[[Pruim, R., Kaplan, D.T. und Horton, N.J. (2017): The mosaic Package: Helping Students to ‘Think with Data’ Using R. The R Journal, 9(1), 77-10](https://journal.r-project.org/archive/2017/RJ-2017-024/index.html)] bildet. Es findet sich unzählige Literatur zu R und RStudio. Dazu gehört auch [A Student's Guide to R](https://github.com/ProjectMOSAIC/LittleBooks/raw/master/StudentGuide/MOSAIC-StudentGuide.pdf) von Nicholas J. Horton, Randall Pruim und Daniel T. Kaplan, der eine gute Einstiegshilfe für Studierende ist, um erste Schritte in der Datenanalyse mit R zu machen.
+
+Da die englische Sprache ein Hemmnis bei der Einarbeitung in eine neue Materie, wie die der Datenanalyse, sein kann, haben wir uns die Erlaubnis eingeholt, den Student's Guide auf Deutsch zu übersetzen. Vielen Dank dafür an Nicholas Horton!
+
+Ein solches Projekt kann nur gelingen, wenn sich engagierte Kolleginnen und Kollegen mit einbringen. Daher danken wir an dieser Stelle Roger Bons, Oliver Gansser, Matthias Gehrke, Herbert Hollmann, Tanja Kistler, Andreas Kladroba und Thomas Weiß, die sich der Übersetzung von Kapiteln angenommen haben. Ein besonderer Dank geht an Sebastian Sauer, der ebenfalls Kapitel übersetzt hat und der das Projekt maßgeblich mit angestoßen hat. Ebenso möchten wir uns bei Tabea Griesenbeck, wissenschaftliche Mitarbeiterin am ifes, bedanken, die die Organisation, das Layout und die Korrekturen übernommen hat. 
+
+Wir hoffen, dass die deutschsprachige Version des Student's Guide to R unseren Studierenden ab dem Wintersemester 2021 eine weitere, zielführende Hilfestellung ist.
+
+Prof. Dr. Bianca Krol       
+Dekanin | Schlüsselkompetenzen & Methoden
+Direktorin | ifes Institut für Empirie & Statistik
 
 
-Dieses Buch baut technnisch auf *knitr* [@xie2015], *rmarkdown* [@R-rmarkdown], R [@R-base] und vielen weiteren Open-Source-Anwendungen. Details sind im Kapitel \@ref(hinweise) hinterlegt. Lorem Ipsum.
+Prof. Dr. habil. Andrea Schankin
+(hier fehlt noch der Untertitel und es wäre toll, wenn wir die Namen nebeneinander setzen könnten)
+
+Wo kommt das hier her?: Dieses Buch baut technnisch auf *knitr* [@xie2015], *rmarkdown* [@R-rmarkdown], R [@R-base] und vielen weiteren Open-Source-Anwendungen. Details sind im Kapitel \@ref(hinweise) hinterlegt. Lorem Ipsum.
