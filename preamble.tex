@@ -27,6 +27,26 @@
 \definecolor{FOMSubTitelColor}{HTML}{32373D}
 \definecolor{light-grey}{HTML}{fdfdfd}
 
+
+\newenvironment{cols}[1][]{}{}
+
+\newenvironment{col}[1]{\begin{minipage}{#1}\ignorespaces}{%
+\end{minipage}
+\ifhmode\unskip\fi
+\aftergroup\useignorespacesandallpars}
+
+\def\useignorespacesandallpars#1\ignorespaces\fi{%
+#1\fi\ignorespacesandallpars}
+
+\makeatletter
+\def\ignorespacesandallpars{%
+  \@ifnextchar\par
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}
+\makeatother
+
+
 \newtcolorbox{blackbox}{
   colback=light-grey,
   colframe=dark-fom-green,

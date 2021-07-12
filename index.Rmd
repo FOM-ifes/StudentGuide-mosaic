@@ -47,14 +47,34 @@ Da die englische Sprache ein Hemmnis bei der Einarbeitung in eine neue Materie, 
 
 Ein solches Projekt kann nur gelingen, wenn sich engagierte Kolleginnen und Kollegen mit einbringen. Daher danken wir an dieser Stelle Roger Bons, Oliver Gansser, Matthias Gehrke, Herbert Hollmann, Tanja Kistler, Andreas Kladroba und Thomas Weiß, die sich der Übersetzung von Kapiteln angenommen haben. Ein besonderer Dank geht an Sebastian Sauer, der ebenfalls Kapitel übersetzt hat und der das Projekt maßgeblich mit angestoßen hat. Ebenso möchten wir uns bei Tabea Griesenbeck, wissenschaftliche Mitarbeiterin am ifes, bedanken, die die Organisation, das Layout und die Korrekturen übernommen hat. 
 
-Wir hoffen, dass die deutschsprachige Version des Student's Guide to R unseren Studierenden ab dem Wintersemester 2021 eine weitere, zielführende Hilfestellung ist.
+Wir hoffen, dass die deutschsprachige Version des Student's Guide to R unseren Studierenden ab dem Wintersemester 2021 eine weitere, zielführende Hilfestellung ist. \newline
 
-Prof. Dr. Bianca Krol       
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.475\textwidth}"}
+\small
+
+Prof. Dr. Bianca Krol \newline
+
 Dekanin | Schlüsselkompetenzen & Methoden
+
 Direktorin | ifes Institut für Empirie & Statistik
+:::
 
+::: {.col data-latex="{0.05\textwidth}"}
+\ 
+<!-- an empty Div (with a white space), serving as
+a column separator -->
+:::
 
-Prof. Dr. habil. Andrea Schankin
-(hier fehlt noch der Untertitel und es wäre toll, wenn wir die Namen nebeneinander setzen könnten)
+::: {.col data-latex="{0.475\textwidth}"}
+\small
+Prof. Dr. habil. Andrea Schankin \newline 
 
-Wo kommt das hier her?: Dieses Buch baut technnisch auf *knitr* [@xie2015], *rmarkdown* [@R-rmarkdown], R [@R-base] und vielen weiteren Open-Source-Anwendungen. Details sind im Kapitel \@ref(hinweise) hinterlegt. Lorem Ipsum.
+ | 
+ 
+ | \newline
+:::
+
+::::::
