@@ -1,10 +1,10 @@
 # Zwei metrische Variablen {#zweiMetrVar}
 ## Scatterplots
 
-Wir empfehlen den Studierenden immer, jede Analyse durch eine grafische Darstellung ihrer Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS-Linie mit einer etwas dickeren Linie dargestellt.
+Wir empfehlen, jede Analyse durch eine grafische Darstellung Ihrer Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS Linie mit einer etwas dickeren Linie dargestellt.
 
 :::{.note data-latex="{note}"}
-Die LOWESS-Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS Filter definiert werden.
+Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS Filter definiert werden.
 :::
 
 ```{r}
@@ -18,7 +18,7 @@ Wenn man mit der Ausdrucksweise des statistischen Modellierens nicht vertraut is
 Auch in *Start Teaching with R* [@ModelingR] sind nützliche Tipps für den Einstieg zu finden.
 :::
 
-Es ist ganz einfach, etwas anderes als Punkte im Scatterplot zu verwenden. Im folgenden Beispiel wird der Zusammenhang zwischen der Zahl der Überfälle und der Zahl der Morde mit Hilfe der Namen der entsprechenden Bundesstaaten dargestellt. 
+Es ist ganz einfach, etwas anderes als Punkte im Scatterplot zu verwenden. Im folgenden Beispiel wird der Zusammenhang zwischen der Zahl der Überfälle und der Zahl der Morde mit Hilfe der Namen der entsprechenden Bundesstaaten dargestellt:
 
 ```{r}
 gf_text(Murder ~ Assault, 
@@ -32,11 +32,12 @@ Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet w
 
 ```{r}
 cor(cesd ~ mcs, data = Female)
+
 smallHELP <- select(Female, cesd, mcs, pcs)
 cor(smallHELP)
 ```
 
-Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z. B. Spearman) können mit der Option `method` gewählt werden.
+Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z.\ B. Spearman) können mit der Option `method` gewählt werden.
 
 ```{r}
 cor(cesd ~ mcs, method = "spearman", data = Female)
@@ -81,11 +82,18 @@ Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifi
 
 ```{r}
 options(show.signif.stars = FALSE)
+
 coef(cesdmodel)
+
 msummary(cesdmodel)
+
 coef(summary(cesdmodel))
+
+
 confint(cesdmodel)
+
 rsquared(cesdmodel)
+
 class(cesdmodel)
 ```
 
@@ -94,7 +102,7 @@ Die Ausgabe von `lm()` ist ein Lineares Modell.
 Die Funktion `residuals()` gibt den Residuenvektor aus.
 
 :::{.hinweis data-latex="{hinweis}"}
-Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden. Eine andere wichtige Funktion ist `fitted()`, die einen Vektor aus geschätzten Werten erzeugt.
+Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden. Eine andere wichtige Funktion ist `fitted()`, die einen Vektor aus Vorhersagewerten erzeugt.
 :::
 
 ```{r}

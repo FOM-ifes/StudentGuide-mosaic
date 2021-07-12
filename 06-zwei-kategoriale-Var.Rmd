@@ -15,7 +15,7 @@ tally(~ sex | homeless, margins = TRUE,
       format = "percent", data = HELPrct)
 ```
 
-Die Odds Ratios (Chancenverhältnis) können direkt aus der Tabelle berechnet werden.
+Die Odds Ratios (Chancenverhältnis) können direkt aus der Tabelle berechnet werden:
 
 ```{r, echo=TRUE}
 OR <- (40/169)/(67/177)
@@ -41,7 +41,7 @@ with(HELPrct, CrossTable(homeless, sex,
 ```
 
 
-Grafische Zusammenfassungen von Kreuztabellen können ebenfalls nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Obdachlosen größer ist als für Nicht-Obdachlosen).
+Grafische Zusammenfassungen von Kreuztabellen können zusätzlich sehr nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Obdachlose größer ist als für Nicht-Obdachlose).
 
 :::{.achtung data-latex="{achtung}"}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von

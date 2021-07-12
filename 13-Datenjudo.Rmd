@@ -1,6 +1,6 @@
 # Datenmanagement {#datenmanagement}
 
-Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierenden) ermöglicht "mit Daten zu arbeiten" oder wie Diane Lambert von Google sagte "mit Daten zu denken". Wir neigen dazu, die Datenverwaltung für die Studierenden zu Beginn eines einführenden Statistikkurses auf ein Minimum zu beschränken und die Themen, wo nötig, schrittweise einzuführen. In Kursen, in denen die Studierenden substantielle und umfangreiche Projekte durchführen, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Möglichkeiten des Datenmanagements beschrieben.
+Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierenden) ermöglicht \glqq mit Daten zu arbeiten\grqq{} oder wie Diane Lambert von Google sagte \glqq mit Daten zu denken\grqq{}. Wir neigen dazu, die Datenverwaltung zu Beginn eines einführenden Statistikkurses auf ein Minimum zu beschränken und die Themen, wo nötig, schrittweise einzuführen. In Kursen, in denen substantielle und umfangreiche Projekte durchgeführt werden, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Möglichkeiten des Datenmanagements beschrieben.
 
 
 ## Überprüfung von Dataframes
@@ -10,7 +10,7 @@ Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Absch
 :::
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
-Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern den Studierenden die Möglichkeit, mit Daten zu arbeiten. Hadley Wickham, Autor der Pakete, schlägt vor, dass es sechs Schlüsselwörter (oder Verben) gibt, die in diesen Paketen implementiert sind, die es ermöglichen, eine große Anzahl von Aufgaben zu erfüllen: Filtern (`filter`- Zeilenabgleichskriterien beibehalten), Auswählen (`select` - Spalten nach Namen auswählen), Anordnen (`arrange` - Zeilen neu ordnen), Mutieren (`mutate` - neue Variablen hinzufügen), Zusammenfassen (`summarise` - Variablen auf Werte reduzieren) und Gruppieren nach (`group by` - Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
+Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern das Arbeiten mit Daten. Hadley Wickham -- Autor der Pakete -- gibt an, dass mittels sechs der in diesen Paketen implementierten Schlüsselwörter (oder Verben) eine große Anzahl von Aufgaben erfüllt werden kann: Filtern (`filter` -- Zeilen beibehalten, die die angegebenen Kriterien erfüllen), Auswählen (`select` -- Spalten nach Namen auswählen), Anordnen (`arrange` -- Zeilen neu ordnen), Mutieren (`mutate` -- neue Variablen hinzufügen), Zusammenfassen (`summarise` -- Variablen auf zusammenfassende Statistiken reduzieren) und Gruppieren (`group by` - Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
 :::
 
 Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in \textsf{R}) hilfreich sein.
@@ -40,7 +40,7 @@ irisSmall <- mutate(irisSmall, Length = cut(Sepal.Length, breaks=4:8))
 ```
 
 
-Mehrere Befehle können mit dem %>% (\textsc{Pipe}-) Operator miteinander verknüpft werden:
+Mehrere Befehle können mit dem `%>%` (\textsc{Pipe}-) Operator miteinander verknüpft werden:
 
 ```{r}
 irisSmall <- iris %>%
@@ -59,11 +59,12 @@ head(irisSmall)
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
 
-Der \textsc{CPS85}-Datensatz enthält Daten aus einer aktuellen Bevölkerungserhebung (aktuell also 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
+Der \textsc{CPS85}-Datensatz enthält Daten aus einer Bevölkerungserhebung (aus dem Jahr 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
 
 
 ```{r}
 CPS85 <- mutate(CPS85, workforce.years = age - 6 - educ)
+
 favstats(~ workforce.years, data=CPS85)
 ```
 
@@ -97,7 +98,7 @@ CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 
 ## Variablen umbenennen
 
-Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` im Paket `dplyr` geändert werden.
+Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` aus dem Paket `dplyr` geändert werden.
 
 ```{r}
 names(CPS85)
@@ -152,6 +153,7 @@ names(faithful) <- c('duration', 'time.til.next')
 
 # zur Erstellung von Teilmengen kann jede Logik verwendet werden
 faithfulLong <- filter(faithful, duration > 3)
+
 gf_point( time.til.next ~ duration, data = faithfulLong)
 ```
 
@@ -161,6 +163,7 @@ Dataframes können mit der Funktion `arrange()` sortiert werden.
 
 ```{r}
 head(faithful, 3)
+
 sorted <- arrange(faithful, duration)
 head(sorted, 3)
 ```
@@ -201,9 +204,9 @@ tally(~t2d + genotype, data = fusion1m)
 
 ## Extrahieren und Zusammenfassen von Informationen
 
-Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu ändern. Es wurde für die Konvertierung zwischen langen und breiten Versionen von Zeitreihendaten entwickelt und seine Argumente sind in diesem Sinne benannt.
+Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu ändern. Es wurde für die Konvertierung zwischen langen und breiten Darstellungen von Zeitreihendaten entwickelt und seine Argumente sind in diesem Sinne benannt.
 
-Eine häufige Situation ist, wenn wir von einer breiten Form in eine lange Form konvertieren wollen, weil wir die Perspektive darüber, was eine Beobachtungseinheit ist, ändern wollen. Zum Beispiel ist im `traffic`-Dataframe jede Zeile ein Jahr, und es werden Daten für mehrere Staaten bereitgestellt.
+Eine häufige Situation ist es, von einer breiten Form in eine lange Form zu konvertieren, um die Perspektive darüber, was eine Beobachtungseinheit ist, zu änder. Zum Beispiel ist im `traffic`-Dataframe jede Zeile ein Jahr, und es werden Daten für mehrere Staaten bereitgestellt.
 
 :::{.note data-latex="{note}"}
 Die Vignetten, die in den Paketen `tidyr` und `dplyr` enthalten sind, bieten eine Reihe nützlicher Beispiele für gängige Datenmanipulationen.
@@ -211,31 +214,34 @@ Die Vignetten, die in den Paketen `tidyr` und `dplyr` enthalten sind, bieten ein
 
 ```{r}
 data(traffic)
+
 Traffic
 ```
 
 Wir können dies so umformen, dass jede Zeile eine Messung für einen einzelnen Staat in einem Jahr enthält.
 
 ```{r}
-longTraffic <- Traffic %>%
+longTraffic <- Traffic %>% 
   gather(state, deathRate, ny:ri)
+
 head(longTraffic)
 ```
 
 
-Wir können auch in die andere Reichung umformen, diesmal mit allen Daten für einen bestimmten Staat in einer Zeile im Dataframe.
+Wir können auch in die andere Richtung umformen, diesmal mit allen Daten für einen bestimmten Staat in einer Zeile im Dataframe.
 
 ```{r}
 stateTraffic <- longTraffic %>% 
   select(year, deathRate, state) %>%
   mutate(year=paste("deathRate.", year, sep="")) %>%
   spread(year, deathRate)
+
 stateTraffic
 ```
 
 ## Neue Variablen hinzufügen
 
-Eine Reihe von Funktionen erleichtern die Erstellung oder Neucodierung von Variablen.
+Eine Reihe von Funktionen erleichtern die Erstellung oder Neukodierung von Variablen.
 
 
 ### Kategoriale aus einer quantitativen Variable erstellen
@@ -249,9 +255,10 @@ favstats(~ cesd, data=HELPrct)
 ```{r}
 HELPrct <- mutate(HELPrct, 
                   cesdcut = cut(cesd, 
-                                breaks=c(0, 20, 40, 60), 
-                                include.lowest=TRUE))
-gf_boxplot(cesd ~ cesdcut, data=HELPrct)
+                                breaks = c(0, 20, 40, 60), 
+                                include.lowest = TRUE))
+
+gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 ```
 
 Es bietet sich an, die Labels besser zu bezeichnen.
@@ -263,10 +270,11 @@ Die Funktion `ntiles()` kann verwendet werden, um die Erstellung von Gruppen auf
 ```{r}
 HELPrct <- mutate(HELPrct, 
                   cesdcut = cut(cesd, 
-                                labels=c("low", "medium", "high"), 
-                                breaks=c(0, 20, 40, 60), 
-                                include.lowest=TRUE))
-gf_boxplot(cesd ~ cesdcut, pch="|", data=HELPrct)
+                                labels = c("low", "medium", "high"), 
+                                breaks = c(0, 20, 40, 60), 
+                                include.lowest = TRUE))
+
+gf_boxplot(cesd ~ cesdcut, pch="|", data = HELPrct)
 ```
 
 Die `derivedFactor()` Funktion ist noch allgemeiner und kann auch zu diesem Zweck verwendet werden.
@@ -309,6 +317,7 @@ favstats(age ~ substance, data = HELPrct)
 ageGroup <- HELPrct %>%
   group_by(substance) %>%
   summarise(agebygroup = mean(age))
+
 ageGroup
 ```
 
@@ -322,6 +331,7 @@ ageGroup
 
 ```{r}
 HELPmerged <- left_join(ageGroup, HELPrct, by = "substance")
+
 favstats(agebygroup ~ substance, data = HELPmerged)
 ```
 
@@ -335,6 +345,7 @@ Fehlende Werte entstehen in fast allen Untersuchungen der realen Welt. \textsf{R
 
 ```{r}
 smaller <- select(HELPmiss, cesd, drugrisk, indtot, mcs, pcs, substance)
+
 dim(smaller)
 ```
 
@@ -342,34 +353,24 @@ dim(smaller)
 summary(smaller)
 ```
 
-Von den 470 Probanden in den 6 Variablen des Dataframess haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte
+Von den 470 Probanden in den 6 Variablen des Dataframess haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
 
 ```{r}
 favstats(~ mcs, data = smaller)
-```
 
-```{r}
 with(smaller, sum(is.na(mcs)))
-```
 
-```{r}
 nomiss <- na.omit(smaller)
 dim(nomiss)
-```
 
-```{r}
 nrow(nomiss)
-```
 
-```{r}
 ncol(nomiss)
-```
 
-```{r}
 favstats(~ mcs, data = nomiss)
 ```
 
-Alternativ könnten wir den gleichen Datenbestand mit Hilfe von logischen Bedingungen erzeugen.
+Alternativ könnten wir den gleichen Datenbestand mit Hilfe von logischen Bedingungen erzeugen:
 
 ```{r}
 nomiss <- filter(smaller, 

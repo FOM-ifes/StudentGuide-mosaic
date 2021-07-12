@@ -1,7 +1,7 @@
 # Kategoriale Antwortvariable, metrischer Prädiktor
 
 ## Logistische Regression
-Die logistische Regression ist mit dem Befehl `glm()` durchführbar, dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich logistischer Regression.
+Die logistische Regression ist mit dem Befehl `glm()` durchführbar, dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich der logistischen Regression.
 
 :::{.hinweis data-latex="{hinweis}"}
 Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit`-Link ist bereits die Voreinstellung für die Binomialverteilung, so dass wir es hier nicht angeben müssen. Die ausführlichere Angabe wäre `family=binomial(link=logit)`.
@@ -9,9 +9,12 @@ Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` 
 
 ```{r}
 logitmod <- glm(homeless ~ age + female, 
-                family = binomial, data = HELPrct)
+                  family = binomial, data = HELPrct)
+
 msummary(logitmod)
+
 exp(coef(logitmod))
+
 exp(confint(logitmod))
 ```
 
@@ -20,14 +23,17 @@ Wir können zwei Modelle vergleichen (für Tests mit mehreren Freiheitsgraden). 
 ```{r}
 mymodsubage <- glm((homeless == "homeless") ~ age + substance, 
                      family = binomial, data = HELPrct)
-mymodage <- glm((homeless == "homeless") ~ age, family = binomial, 
-                  data = HELPrct)
+mymodage <- glm((homeless == "homeless") ~ age, 
+                  family = binomial, data = HELPrct)
+
 msummary(mymodsubage)
+
 exp(coef(mymodsubage))
+
 anova(mymodage, mymodsubage, test = "Chisq")
 ```
 
-Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain- und Heroin-Gruppen signifikant seltener obdachlos sind als die Personen, die der Alkoholgruppe zugehörig sind.
+Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin konsumierenden Gruppen signifikant seltener obdachlos sind als die Personen, die der Alkohol konsumierenden Gruppe zugehörig sind.
 (Ein ähnliches Ergebnis zeigt sich, wenn nur der Obdachlosenstatus und die Substanz betrachtet werden).
 
 ```{r}

@@ -23,5 +23,5 @@ Variable, Beschreibung (Werte), Hinweis,;
 `sex`, Geschlecht (male: männlich - female: weiblich),,;
 `sexrisks`, Wert zum Risiko sexuell übertragbarer Krankheiten (Risk-Assessment Battery (RAB) sex risk score) (Spannweite 0-21),,;
 `substance`,  Primär genutzte Droge (Alkohol/Kokain/Heroin),,;
-`treat`,  Interventionsgruppe in der Studie (Experimentalgruppe, d.h. HELP-Klinik: ja - Standardbehandlung: no),,;
-,,Die (empirische) Spannweite ist für metrische Variablen angegeben (zum Zeitpunkt des Studienbeginns).;
+`treat`,  Interventionsgruppe in der Studie (Experimentalgruppe, d. h. HELP-Klinik: ja - Standardbehandlung: no),,;
+,,Die (empirische) Spannweite ist für metrische Variablen angegeben (zum Zeitpunkt des Studienbeginns).,;

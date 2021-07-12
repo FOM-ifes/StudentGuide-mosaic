@@ -29,7 +29,7 @@ tally( ~ homeless, format = "proportion",
 ```
 
 ## Der Binomialtest
-Ein exaktes Konfidenzintervall für einen Anteilswert (sowie ein Test der Nullhypothese, dass der Bevölkerungsanteil gleich einem bestimmten Wert -- standardmäßig 0.5 -- ist) kann durch die Funktion `binom.test()` berechnet werden. Die Standard-Funktion `binom.test()` benötigt folgendes Eingabeformat: 
+Ein exaktes Konfidenzintervall für einen Anteilswert (sowie ein Test der Nullhypothese, dass der Bevölkerungsanteil gleich einem bestimmten Wert -- standardmäßig 0.5 -- ist) kann durch die Funktion `binom.test()` berechnet werden. Die Standardfunktion `binom.test()` benötigt folgendes Eingabeformat: 
 ```{r, echo=TRUE}
 binom.test(209, 209 + 244)
 ```
@@ -48,7 +48,7 @@ Wie bei Befehlen dieser Art üblich, gibt es eine Menge von nützlichen Informat
 names(result)
 ```
 
-Spezifische Informationen werden extrahiert, indem man den Operator `$` oder eine entsprechende Funktion zur Extrahierung nutzt. So kann z. B. das Konfidenzintervall oder der p-Wert verwendet werden. 
+Spezifische Informationen werden extrahiert, indem man den Operator `$` oder eine entsprechende Funktion zur Extrahierung nutzt. So kann z.\ B. das Konfidenzintervall oder der p-Wert verwendet werden. 
 
 ```{r, echo=TRUE}
 result$statistic
@@ -63,11 +63,11 @@ pval(result)
 ```
 
 ::: {.tiefereinsteigen data-latex="{tiefereinsteigen}"}
-Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis angezeigt bekommen, stammt die Ausgabe in der Konsole  aus dieser Druckfunktion `print(result)`. Durch den expliziten Aufruf von `print(result)` können oft viele zusätzliche Informationen ausgegeben werden. In einigen Situationen, wie z. B. bei Grafiken, bleibt das Objekt unsichtbar, so dass nichts gedruckt wird. Hier werden die zusätzlichen Informationen üblicherweise nicht benötigt. Falls doch, können Sie aber abgerufen werden.
+Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis angezeigt bekommen, stammt die Ausgabe in der Konsole  aus dieser Druckfunktion `print(result)`. Durch den expliziten Aufruf von `print(result)` können oft viele zusätzliche Informationen ausgegeben werden. In einigen Situationen, wie z.\ B. bei Grafiken, bleibt das Objekt unsichtbar, so dass nichts gedruckt wird. Hier werden die zusätzlichen Informationen üblicherweise nicht benötigt. Falls doch, können Sie aber abgerufen werden.
 :::
 
 ## Der Anteilswerttest 
-In ähnlicher Weise kann ein geschätzest Intervall und ein approximativer Test auf Anteilswerte über die Funktion `prop.test()` ermittelt werden. Die Anzahl der Personen je Kategorie der Variablen `homeless` wird folgendermaßen ausgezählt:
+In ähnlicher Weise kann ein geschätzes Intervall und ein approximativer Test auf Anteilswerte über die Funktion `prop.test()` ermittelt werden. Die Anzahl der Personen je Kategorie der Variablen `homeless` wird folgendermaßen ausgezählt:
 
 ```{r, echo=TRUE}
 tally(~ homeless, data = HELPrct)
@@ -80,7 +80,7 @@ prop.test(~ (homeless == "homeless"),
           correct = FALSE, data = HELPrct)
 ```
 
-Hier untersucht `prop.test` die Variable `homeless` in der gleichen Art und Weise wie `tally()`. Die Funktion `prop.test()` kann ebenso wie `binom.test()` auch direkt mit numerischen Angaben umgehen:  
+Hier untersucht `prop.test()` die Variable `homeless` in der gleichen Art und Weise wie `tally()`. Die Funktion `prop.test()` kann ebenso wie `binom.test()` auch direkt mit numerischen Angaben umgehen:  
 
 ```{r, echo=TRUE}
 prop.test(209, 209 + 244, correct = FALSE)
@@ -89,13 +89,13 @@ prop.test(209, 209 + 244, correct = FALSE)
 ::: {.infobox data-latex="{infobox}"}
 Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil wir betrachten möchten. Wir hätten auch `homeless == "housed"` auswählen können.
 
-`prop.test()` berechnet die Chi-Quadrat-Statistik. Die meisten einführenden Statistikbücher nutzen die Z-Statistik. Sie sind mathematisch äquivalent in Bezug auf inferentielle Aussagen.
+`prop.test()` berechnet die Chi-Quadrat-Statistik. Die meisten einführenden Statistikbücher nutzen die Z-Statistik. Mathematisch sind sie inBezug auf inferentielle Aussagen äquivalent.
 :::
 
 
 ## Anpassungstests
 
-Es gibt eine Vielzahl von Gütemaßen, die mit Hilfe bestimmter Referenz-Verteilungen bestimmt werden können. Für die Daten der HELP-Studie können wir die Nullhypothese testen, dass in jeder Kategorie des Drogenkonsum ein gleich hoher Anteil an Personen in der Population vorliegt.
+Es gibt eine Vielzahl von Gütemaßen, die mit Hilfe bestimmter Referenz-Verteilungen bestimmt werden können. Für die Daten der HELP-Studie können wir die Nullhypothese testen, dass in jeder Kategorie des Drogenkonsums ein gleich hoher Anteil an Personen in der Population vorliegt.
 
 ```{r, echo=TRUE}
 tally(~ substance, format = "percent", 
@@ -109,7 +109,7 @@ observed
 ```
 
 ::: {.achtung data-latex="{achtung}"}
-Zusätzlich zur Option `format` gibt es die Option `margins`, um die Randhäufigkeiten in der Tabelle auszugeben. Die Voreinstallung bei `tally` ist `margins = FALSE`. Probiere es aus!
+Zusätzlich zur Option `format` gibt es die Option `margins`, um die Randhäufigkeiten in der Tabelle auszugeben. Die Voreinstallung bei `tally` ist `margins = FALSE`. Probieren Sie es aus!
 :::
 
 ```{r, echo=TRUE}
@@ -127,7 +127,7 @@ expected <- total*p
 expected
 ```
 
-Wir können die $\chi^2$-Statistik auch manuell als Funktion der beobachteten und erwarteten Häufigkeiten unter Unabhängigkeit berechnen.
+Wir können die $\chi^2$-Statistik auch manuell als Funktion der beobachteten und erwarteten Häufigkeiten unter Unabhängigkeit berechnen:
 
 ```{r, echo=TRUE}
 chisq <- sum((observed - expected)^2/(expected))

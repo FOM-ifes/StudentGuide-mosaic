@@ -5,25 +5,19 @@ Die *erste* Nummer zu Beginn einer Aufgabe bezieht sich auf das Kapitel, zu der 
 <!-- Referenzen zu den Kapiteln müssen noch eingefügt werden -->
 
 
-\@ref(metrVar).1 Erstellen Sie ein facettiertes Histogramm der Depressivitätswerte (CESD-Scores), wobei die Drogenart die zu gruppierende Variable (d. h. die facettierte Variable) darstellt. Beschränken Sie Analyse auf die Männer und überlagern Sie das Histogramm mit einer Dichtekurve der Normalverteilung. Der Datensatz heißt `HELPrct`.
+\@ref(metrVar).1 Erstellen Sie ein facettiertes Histogramm der Depressivitätswerte (CESD-Scores), wobei die Drogenart die zu gruppierende Variable (d.\ h. die facettierte Variable) darstellt. Beschränken Sie die Analyse auf die Männer und überlagern Sie das Histogramm mit einer Dichtekurve der Normalverteilung. Der Datensatz heißt `HELPrct`.
 
 
 \@ref(zweiMetrVar).1 Berechnen Sie eine einfache lineare Regression, um die Anzahl alkoholischer Getränke als Funktion des psychischen Wohlbefindens vorherzusagen (Datensatz `HELPrct`). Das Modell kann mit dieser Formelschreibweise spezifiziert werden: `i1 ~ mcs`. Untersuchen Sie die Verteilung der Residuen für dieses Modell. 
 
-\@ref(mehrVars).1 Der Datensatz `RailTrail` (Teil des Paketes `mosaic`) beinhaltet eine Häufigkeitsauswertung zum Schienenverkehr für eine Trasse in Northampton, Massachusetts, während eines Zeitraums von 90 Tagen in 2005. Die Stadtverwaltung möchte die Auslastung des Schienennetzes wissen und verstehen, wie sie sich als Funktion von Temperatur und Wochentag ändert. Beschreiben Sie die Verteilung der Variablen `avgtemp` hinsichtlich ihres Mittelwerts, ihrer Streuung und Form.
+\@ref(mehrVars).1 Der Datensatz `RailTrail` (Teil des Paketes `mosaic`) beinhaltet eine Häufigkeitsauswertung zum Schienenverkehr für eine Trasse in Northampton, Massachusetts, während eines Zeitraums von 90 Tagen in 2005. Die Stadtverwaltung möchte die Auslastung des Schienennetzes wissen und verstehen, wie sie sich als Funktion von Temperatur und Wochentag ändert. Beschreiben Sie die Verteilung der Variablen `avgtemp` hinsichtlich ihres Mittelwerts, ihrer Streuung und ihrer Form.
 
 
 ```{r}
 data("RailTrail")
-```
 
-
-```{r}
 favstats(~ avgtemp, data = RailTrail)
-```
 
-
-```{r}
 gf_dens(~ avgtemp, xlab = "Mittlere Temperatur (F)", data = RailTrail)
 ```
 
@@ -34,33 +28,30 @@ gf_dens(~ avgtemp, xlab = "Mittlere Temperatur (F)", data = RailTrail)
 \@ref(mehrVars).3 Die Variable im Datensatz `RailTrail`, die die Höhe des Verkehrsaufkommens beschreibt, heißt `volume`. Beschreiben Sie die Lage, Streuung und Form dieser Variable.
 
 
-\@ref(mehrVars).4 Im Datensatz `RailTrail` gibt es eine Indikator-Variable, die anzeigt, ob ein Tag ein Wochentag war (`weekday == 1`) oder ein Wochenende bzw. Feiertag (`weekday == 0`). Setzen Sie `tally()` ein, um die Verteilung dieser kategorialen Variable zu beschreiben. Wie hoch ist der Anteil von Tagen des Wochenendes bzw. Feiertage?
+\@ref(mehrVars).4 Im Datensatz `RailTrail` gibt es eine Indikator-Variable, die anzeigt, ob ein Tag ein Wochentag war (`weekday == 1`) oder ein Wochenende bzw. Feiertag (`weekday == 0`). Setzen Sie `tally()` ein, um die Verteilung dieser kategorialen Variable zu beschreiben. Wie hoch ist der Anteil von Tagen von Wochenenden bzw. Feiertagen?
 
 
 \@ref(mehrVars).5 Verwenden Sie gruppierte Boxplots, um die Verteilung von `volume` nach `weekday` zu untersuchen (Datensatz `RailTrail`). Was lässt sich ablesen? ^[Hinweis: Sie müssen die numerische Variable `weekday` in eine Faktorvariable (`as.factor()`) umwandeln, oder nutzen Sie die Option `horizontal = FALSE`.]
 
 
-\@ref(mehrVars).6 Erstellen Sie ein Dichtediagramm, das für beide Arten von Wochentagen jeweils ein Dichtediagramm zeigt. Die beiden Diagramme sollen sich überlappen. Tipp: Nutzen Sie das Argument `fill`.
+\@ref(mehrVars).6 Erstellen Sie ein Dichtediagramm, das die Dichten beider Arten von Wochentagen zeigt. Die beiden Diagramme sollen sich überlappen. Tipp: Nutzen Sie das Argument `fill`.
 
 
-\@ref(mehrVars).7 Erstellen Sie ein Streudiagramm für das Verkehrsaufkommen (`volume`) als Funktion der Temperatur (Datensatz `RailTrail`). Fügen Sie sowohl eine Regressionsgerade als auch einen geglätteten Mittelwert (Lowess-Kurve) hinzu. Was können Sie über den Zusammenhang schließen? 
+\@ref(mehrVars).7 Erstellen Sie ein Streudiagramm für das Verkehrsaufkommen (`volume`) als Funktion der Temperatur (`avgtemp` im Datensatz `RailTrail`). Fügen Sie sowohl eine Regressionsgerade als auch einen geglätteten Mittelwert (LOWESS Kurve) hinzu. Was können Sie über den Zusammenhang schließen? 
 
 
-\@ref(mehrVars).8 Berechnen Sie eine multiple Regression für `volume` als Funktion von `cloudcover`, `avgtemp`, `weekday` und die Interaktion von Wochentag mit Durchschnittstemperatur. Unterstützen die Daten die Interaktion auf einem Signifikanzniveau von $\alpha = 0.05$?
+\@ref(mehrVars).8 Berechnen Sie eine multiple Regression für `volume` als Funktion von `cloudcover`, `avgtemp`, `weekday` und die Interaktion von Wochentag mit Durchschnittstemperatur. Unterstützen die Daten die Interaktion auf einem Signifikanzniveau von $\alpha = 0,05$?
 
 \@ref(mehrVars).9 Verwenden Sie `makeFun()`, um die Anzahl von Fahrten vorherzusagen an einem Wochentag, bei einer mittleren Temperatur von 60° Fahrenheit und ohne Wolken. Überprüfen Sie Ihre Berechnung anhand der Modellkoeffizienten:
 
-```{r echo = FALSE}
+```{r tidy=TRUE}
 fm <- lm(volume ~  weekday + avgtemp + cloudcover + weekday:avgtemp, data = RailTrail)
-```
 
-
-```{r, tidy=TRUE}
 coef(fm)
 ```
 
 
-\@ref(mehrVars).10 Nutzen Sie `makeFun()` und `gf_fun()`, um die Zahl der vorhergesagten Fahrten sowohl an Wochentagen als auch an Wochenenden bzw. Feiertagen mit einer Temperaturspanne von 30 bis 80 Grad Fahrenheit an einem wolkigen Tag (`cloudcover = 10`) zu visualisieren .
+\@ref(mehrVars).10 Nutzen Sie `makeFun()` und `gf_fun()`, um die Zahl der vorhergesagten Fahrten sowohl an Wochentagen als auch an Wochenenden bzw. Feiertagen mit einer Temperaturspanne von 30 bis 80 Grad Fahrenheit an einem wolkigen Tag (`cloudcover = 10`) zu visualisieren.
 
 
 \@ref(mehrVars).11 Erstellen Sie ein Histogramm der Residuen des Regressionsmodells aus der vorherigen Aufgabe, um die Normalverteilung zu überprüfen. Die Dichte einer Normalverteilung soll in der Abbildung über das Histogramm gelegt werden.
@@ -77,14 +68,14 @@ coef(fm)
 
 \@ref(WkeitZuf).2 Finden Sie den Median einer exponentialverteilten Zufallsvariablen $X$ mit einem Parameterwert von 10.
 
-\@ref(powerberechnung).1 Berechnen Sie die Power eins zweiseitigen t-Tests für unabhängige Stichproben, wobei beide Verteilungen approximativ normalverteilt sind mit der gleichen Standardabweichung. Der Unterschied zwischen den Mittelwerten liege bei einer halben Standardabweichungseinheit. Gehen Sie von 25 Fällen pro Gruppe aus und einem Alpha-Niveau von 0.0539.
+\@ref(powerberechnung).1 Berechnen Sie die Power eines zweiseitigen t-Tests für unabhängige Stichproben, wobei beide Verteilungen approximativ normalverteilt sind mit der gleichen Standardabweichung. Der Unterschied zwischen den Mittelwerten liege bei einer halben Standardabweichungseinheit. Gehen Sie von 25 Fällen pro Gruppe aus und einem Alpha-Niveau von 0,0539.
 
-\@ref(powerberechnung).2 Berechnen Sie die nötige Stichprobengröße $n$ für eine Power von 90% bei einem t-Test für zwei unabhängige Gruppen, wobei der Unterschied in den Mittelwerten bei $1/4$ einer Standardabweichungseinheit liege ($\alpha = 0.005$).
+\@ref(powerberechnung).2 Berechnen Sie die nötige Stichprobengröße $n$ für eine Power von 90% bei einem t-Test für zwei unabhängige Gruppen, wobei der Unterschied in den Mittelwerten bei $1/4$ einer Standardabweichungseinheit liege ($\alpha = 0,05$).
 
 
 \@ref(datenmanagement).1 Erstellen Sie ein Streudiagramm für den Datensatz  `faithful`, wobei die Eruptionszeit als Funktion von der Zeit seit der letzten Eruption dargestellt werden soll.
 
 
-\@ref(datenmanagement).2 Der Datensatz `fusion2` im \textsf{R}-Paket `fastR` beinhaltet Genotypen für ein bestimmtes Einzelnukleotid-Polymorphismus (\textsc{SNP}). Fügen Sie die Datensätze `fusion1`, `fusion2`und `Pheno` zu einen Datensatz zusammen. Beachten Sie, dass `fusion1` und `fusion2` über die gleichen Variablennamen verfügen. Es ist eine (mögliche) sinnvolle Herangehensweise, die Variablennamen nach dem Zusammenfügen umzubenennen, so dass der resultierende Datensatz einfacher zu verwenden ist. Bereinigen Sie den Datensatz um Duplikate oder unnötige Spalten.
+\@ref(datenmanagement).2 Der Datensatz `fusion2` im \textsf{R} Paket `fastR` beinhaltet Genotypen für ein bestimmtes Einzelnukleotid-Polymorphismus (\textsc{SNP}). Fügen Sie die Datensätze `fusion1`, `fusion2` und `Pheno` zu einen Datensatz zusammen. Beachten Sie, dass `fusion1` und `fusion2` über die gleichen Variablennamen verfügen. Es ist eine (mögliche) sinnvolle Herangehensweise, die Variablennamen nach dem Zusammenfügen umzubenennen, so dass der resultierende Datensatz einfacher zu verwenden ist. Bereinigen Sie den Datensatz um Duplikate oder unnötige Spalten.
 
 

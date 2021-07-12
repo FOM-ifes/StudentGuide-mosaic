@@ -29,8 +29,8 @@ gf_boxplot(cesd ~ sex, data = HELPrct) %>%
 
 Bei nur kleiner Stichprobengröße gibt es keine Notwendigkeit, diese über Boxplots darzustellen, da der Befehl `gf_point()` ebenfalls kategoriale Prädiktoren darstellen kann. Auch 10--20 Beobachtungen pro Gruppe sind mittels Streudiagramm gut darzustellen. Beobachtungen, die einen gleichen Wert aufweisen, können über die Anpassung des Transparenzlevels (Argument `alpha`) sichtbar gemacht werden.
 
-:::{.hinweis data-latex=""}
-Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. Mit dem Gedanken ein großer Erfolg sei errungen worden, fragte er naiv wie viele Beobachtungen in jeder Gruppe enthalten seien. "Vier", antwortete der Biologe.
+:::{.hinweis data-latex="{hinweis}"}
+Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. Mit dem Gedanken ein großer Erfolg sei errungen worden, fragte er naiv wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
 :::
 
 ```{r}
@@ -55,14 +55,14 @@ Wir können den Test unter der Annahme von gleichen Varianzen wiederholen:
 t.test(cesd ~ sex, var.equal = TRUE, data = HELPrct)
 ```
 
-Die Gruppen können ebenso mit dem Befehl `lm()` (ebenfalls unter der Annahme gleicher Varianz) verglichen werden. Der \textsf{mosaic}-Befehl  `msummary()` gibt eine etwas schlankere Ausgabe im Vergleich zur klassischen Ausgabe des Befehls `summary()` aus.
+Die Gruppen können ebenso mit dem Befehl `lm()` (ebenfalls unter der Annahme gleicher Varianzen) verglichen werden. Der \textsf{mosaic} Befehl  `msummary()` gibt eine etwas schlankere Ausgabe im Vergleich zur klassischen Ausgabe des Befehls `summary()` aus.
 
 ```{r}
 msummary(lm(cesd ~ sex, data = HELPrct))
 ```
 
 :::{.hinweis data-latex="{hinweis}"}
-Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wohingegen `t.test()` im Wesentlichen eine nicht weiter anpassungsfähige Sackgasse ist. `lm()` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch, *Start Modeling in R* [@ModelingR] für weitere Details.
+Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wohingegen `t.test()` im Wesentlichen eine nicht weiter anpassungsfähige Sackgasse ist. `lm()` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch *Start Modeling in R* [@ModelingR] für weitere Details.
 :::
 
 
@@ -79,6 +79,7 @@ Hier erweitern wir die in Abschnitt \@ref(bootstrap) eingeführten Methoden, um 
 
 ```{r}
 mean(age ~ sex, data = HELPrct)
+
 test.stat <- diffmean(age ~ sex, data = HELPrct)
 test.stat
 ```
@@ -87,7 +88,9 @@ Wir können nun die gleiche Statistik erneut berechnen, nachdem wir die Gruppenb
 
 ```{r}
 do(1) * diffmean(age ~ shuffle(sex), data = HELPrct)
+
 do(1) * diffmean(age ~ shuffle(sex), data = HELPrct)
+
 do(3) * diffmean(age ~ shuffle(sex), data = HELPrct)
 ```
 
@@ -96,13 +99,13 @@ Weitere Details und Beispiele finden Sie in der im Paket `mosaic` enthaltenen `v
 :::
 
 ```{r}
-rtest.stats <- do(500) * diffmean(age ~ shuffle(sex), 
-  data = HELPrct)
-rtest.stats <- mutate(rtest.stats, 
-                      diffmeantest = 
+rtest.stats <- do(500) * diffmean(age ~ shuffle(sex), data = HELPrct)
+rtest.stats <- mutate(rtest.stats, diffmeantest = 
                         ifelse(diffmean >= test.stat, TRUE, FALSE))
 head(rtest.stats, 3)
+
 favstats(~ diffmean, data = rtest.stats)
+
 gf_histogram(~ diffmean, n = 40, xlim = c(-6, 6), 
                fill = ~ diffmeantest, pch = 16, cex = .8, 
                data = rtest.stats) %>% 
@@ -113,7 +116,7 @@ Mit der vorliegenden Permutation erhalten wir keine ausreichenden Belege, um der
 
 
 ## Einfaktorielle Varianzanalyse
-Die vorangegangenen Vergleiche wurden zwischen zwei Gruppen durchgeführt. Wir können ebenso die Mittelwertsvergleiche zwischen drei oder mehr Gruppen mit einer einfachen Varianzanalys (ANOVA) testen. Hier vergleichen wir den CESD-Score auf Basis des vorwiegenden Drogenkonsums (Heroin, Kokain oder Alkohol), der Median wird im folgenden Diagramm nun mittels einer Linie und nicht mit einem Punkt dargestellt.
+Die vorangegangenen Vergleiche wurden zwischen zwei Gruppen durchgeführt. Wir können ebenso die Mittelwertsvergleiche zwischen drei oder mehr Gruppen mit einer einfachen Varianzanalys (ANOVA) testen. Hier vergleichen wir den CESD-Score auf Basis des vorwiegenden Drogenkonsums (Heroin, Kokain oder Alkohol). Der Median wird im folgenden Diagramm nun mittels einer Linie und nicht mit einem Punkt dargestellt.
 
 ```{r}
 gf_boxplot(cesd ~ substance, data = HELPrct)
@@ -131,7 +134,7 @@ modintercept <- lm(cesd ~ 1,         data = HELPrct)
 modsubstance <- lm(cesd ~ substance, data = HELPrct)
 ```
 
-Der Befehl `anova()` kann mehrere Modelle zusammenfassen.
+Der Befehl `anova()` kann mehrere Modelle zusammenfassen:
 
 ```{r}
 anova(modsubstance)
@@ -164,4 +167,4 @@ HELPHSD
 mplot(HELPHSD)
 ```
 
-Auch hier zeigt sich, dass die Kokaingruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.
+Auch hier zeigt sich, dass die Kokainkonsumgruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.

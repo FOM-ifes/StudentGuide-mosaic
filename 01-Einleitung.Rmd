@@ -2,17 +2,16 @@
 
 Dieses Referenzbuch beinhaltet einen Überblick über die Befehle und Funktionen, die zur Bearbeitung von Daten im Rahmen von Statistikkursen für Einsteiger und Fortgeschrittene benötigt werden. Ziel ist es, eine Ergänzung zu den Büchern *Start Teaching with R* [@TeachingR] und *Start Modeling with R* [@ModelingR] zur Verfügung zu stellen.
 
-In den meisten der hier verwendeten Beispiele werden Daten der HELP-Studie (Health Evaluation and Linkage to Primary Care) verwendet: Ein randomisiertes klinisches Experiment mit einer neuen Vorgehensweise, die Risikopatienten mit Primärversorgern zusammenbringen soll. Ausführlichere Informationen zu dem Datensatz sind in Kapitel \@ref(HELPstudie) enthalten.
+In den meisten der hier verwendeten Beispiele werden Daten der HELP-Studie (Health Evaluation and Linkage to Primary Care) verwendet: Ein randomisiertes klinisches Experiment mit einer neuen Vorgehensweise, um Risikopatienten mit Primärversorgern zusammenbringen. Ausführlichere Informationen zu dem Datensatz sind in Kapitel \@ref(HELPstudie) enthalten.
 
-Die Themenauswahl und -reihenfolge ist von Lehrbuch zu Lehrbuch sehr unterschiedlich gestaltet, weswegen die Gliederung dieses Buches anhand der Art der Daten, die analysiert werden sollen, vorgenommen wurde. Damit soll das Nachschlagen und Auffinden benötigter Informationen vereinfacht werden. Gewisse Fähigkeiten im Bereich des Datenmanagements sind für Studierende essentiell [@ChanceInClass].
+Die Themenauswahl und -reihenfolge ist von Lehrbuch zu Lehrbuch sehr unterschiedlich gestaltet. In diesem Buch orientiert sich die Gliederung an der Art der Daten, die analysiert werden sollen. Damit soll das Nachschlagen und Auffinden benötigter Informationen vereinfacht werden. Gewisse Fähigkeiten im Bereich des Datenmanagements sind für Studierende essentiell [@ChanceInClass]. Für die wichtigsten Kernbegriffe findet sich hierzu eine Einführung in Kapitel \@ref(datenmanagement).
 
-In Kapitel \@ref(datenmanagement) gibt es eine Einführung zu den wichtigsten Kernbegriffen.
-
-Dieses Werk baut auf die Initiativen des MOSAIC Projektes [http://www.mosaic-web.org](http://www.mosaic-web.org) auf: Ein durch die amerikanische National Science Foundation (NSF) gefördertes Programm, um den Unterricht von Statistik, Mathematik, Naturwissenschaften und Informatik im Grundstudium zu fördern. Wir werden insbesondere das Paket `mosaic`, das erstellt wurde, um den Einsatz von \textsf{R} in statistischen Kursen zu vereinfachen, und das Paket `mosaicData`, welches eine Reihe von Datensätzen enthält, einsetzen. Das Paket `ggformula` bietet hierbei unter Benutzung der `mosaic`-Syntax Unterstützung für qualitätsvolle Grafiken. Eine Beschreibung des MOSAIC Ansatzes für die Lehre von Statistik und Datenwissenschaft ist verfügbar über [https://journal.r-project.org/archive/2017/RJ-2017-024](https://journal.r-project.org/archive/2017/RJ-2017-024). Eine kurze Zusammenfassung der \textsf{R} Befehle, die für die Lehre einführender Statistik essentiell ist, steht in der `vignette` des Paketes `mosaic` zur Verfügung:
+Dieses Werk baut auf die Initiativen des MOSAIC Projektes [http://www.mosaic-web.org](http://www.mosaic-web.org) auf: Ein durch die amerikanische National Science Foundation (NSF) gefördertes Programm, um den Unterricht von Statistik, Mathematik, Naturwissenschaften und Informatik im Grundstudium zu fördern. Wir werden insbesondere das Paket `mosaic`, das erstellt wurde, um den Einsatz von \textsf{R} in statistischen Kursen zu vereinfachen, und das Paket `mosaicData`, welches eine Reihe von Datensätzen enthält, einsetzen. Das Paket `ggformula` bietet hierbei unter Benutzung der `mosaic` Syntax Unterstützung für qualitätsvolle Grafiken. Eine Beschreibung des MOSAIC Ansatzes für die Lehre von Statistik und Datenwissenschaft ist verfügbar über [https://journal.r-project.org/archive/2017/RJ-2017-024](https://journal.r-project.org/archive/2017/RJ-2017-024). Eine kurze Zusammenfassung der \textsf{R} Befehle, die für die Lehre einführender Statistik essentiell ist, steht in der `vignette` des Paketes `mosaic` zur Verfügung:
 [https://cran.r-project.org/web/packages/mosaic](https://cran.r-project.org/web/packages/mosaic).
 
 Auch weitere Ressourcen des MOSAIC Projektes können nützlich sein, zum Beispiel eine kommentierte Sammlung von Beispielen aus verschiedenen Lehrbüchern (vgl. [https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html](https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html)).
 
+\pagebreak
 Um ein Paket in \textsf{R} nutzen zu können, muss es zuerst (einmalig) installiert werden und in jeder neuen Session geladen werden. Das Paket `mosaic` kann mit folgendem Befehl installiert werden:
 
 ```{r, eval=FALSE}
@@ -20,7 +19,7 @@ install.packages("mosaic")        # Beachten Sie die Anführungszeichen
 ```
 
 ::: {.note data-latex="{note}"}
-\textsf{RStudio} bietet u. a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
+\textsf{RStudio} bietet u.\ a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
 :::
 
 Das `#` Zeichen stellt einen Kommentar in R dar und klammert den restlichen Text bis zum Ende der Zeile aus. 
@@ -31,14 +30,14 @@ Nachdem das Paket einmalig installiert wurde, kann es zur Verwendung der enthalt
 library(mosaic)
 ```
 
-\textsf{R Markdown} bietet eine einfache markup Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es, Analysen mit einem Workflow zu versehen, der Reproduzierbarkeit sicherstellt und Kopierfehler vermeidet.
+\textsc{R Markdown} bietet eine einfache Markup-Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es, Analysen mit einem Workflow zu versehen, der Reproduzierbarkeit sicherstellt und Kopierfehler vermeidet.
 
 ::: {.infobox data-latex="{infobox}"}
-Das \textsf{knitr/LATEX} System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsf{LaTeX} im selben Dokument zu verknüpfen. Die Belohnung dafür dieses kompliziertere System zu erlernen ist eine viel feinere Kontrolle über das Ausgabeformat. \textsf{R Markdown} ist jedoch deutlich einfacher zu erlernen und eignet sich auch für fachliche Arbeiten.
+Das \textsc{knitr/LATEX} System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsc{LaTeX} im selben Dokument zu verknüpfen. Die Belohnung dafür dieses kompliziertere System zu erlernen ist eine viel feinere Kontrolle über das Ausgabeformat. \textsc{R Markdown} ist jedoch deutlich einfacher zu erlernen und eignet sich auch für fachliche Arbeiten.
 :::
 
 ::: {.hinweis data-latex="{hinweise}"}
-Um \textsf{Markdown} oder \textsf{knitr/LATEX} nutzen zu können, muss das Paket `markdown` installiert sein.
+Um \textsc{Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket `markdown` installiert sein.
 :::
 
-Die Einführung in \textsf{R Markdown} erfolgt typischerweise zu Beginn des Kurses, begleitet von der Aufforderung dies von vornherein für Seminar- und Hausarbeiten etc. zu nutzen [@baumer2014r].
+Die Einführung in \textsc{R Markdown} erfolgt typischerweise zu Beginn des Kurses, begleitet von der Aufforderung dies von vornherein für Seminar- und Hausarbeiten etc. zu nutzen [@baumer2014r].

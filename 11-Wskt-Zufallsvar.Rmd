@@ -4,8 +4,10 @@
 
 ```{r}
 xpnorm(1.96, mean = 0, sd = 1) # P(Z < 1.96)
+
 # Wert, der P(Z < z) = 0.975 erfüllt
 qnorm(.975, mean = 0, sd = 1)
+
 integrate(dnorm, -Inf, 0) # P(Z < 0)
 ```
 
@@ -25,7 +27,7 @@ Basisname <- c("beta", "binom", "cauchy", "chisq", "exp", "f", "gamma", "geom", 
 RVerteilungen <- data.frame("Verteilung" = Verteilung, "Basisname" = Basisname)
 ```
 
-```{r}
+```{r, echo=FALSE}
 kable(RVerteilungen, format = "latex", booktabs=T) %>% 
   kable_styling(latex_options = c("striped", "HOLD_position", "condensed"),
                 full_width    = F, 
@@ -66,8 +68,9 @@ gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7),
 Die Funktion `gf_fun()` kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
 
 ```{r}
-f <- makeFun(2 * exp(-2 * x) ~ x) # exponential with rate parameter 2
+f <- makeFun(2 * exp(-2 * x) ~ x) # Exponentialfunktion mit rate Parameter 2
 x <- rexp(1000, rate = 2)
+
 gf_dhistogram(~ x, binwidth = 0.2, center = 0.1) %>%
   gf_fun(f(x) ~ x, color = "red", size = 2, xlim = c(0, 3))
 ```

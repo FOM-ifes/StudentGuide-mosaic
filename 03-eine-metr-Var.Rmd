@@ -7,19 +7,21 @@ Um die Lesbarkeit der Ausgabe zu verbessern, werden wir die Zahl der ausgegebene
 ```{r}
 library(mosaic)
 options(digits = 4)
+
 mean(~cesd, data = HELPrct)
 ```
 
-Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittstelle beinhaltet, die `lattice`-Grafiken und linearen Modellen (z. B. `lm()` ) ähnlich ist. Das Paket `mosaic` stellt viele weitere Funktionen zur Verfügung, die die gleiche Notation verwenden wie wir in diesem Buch.
+Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittstelle beinhaltet, die `lattice`-Grafiken und linearen Modellen (z.\ B. `lm()`) ähnlich ist. Das Paket `mosaic` stellt viele weitere Funktionen zur Verfügung, dessen Notation wir in diesem Buch verwenden.
 
 ::: {.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch *Start Teaching with R* [@TeachingR] eine detaillierte Präsentation. *Start Modeling with R* [@ModelingR], ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
 :::
 
-Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wir werden die MOSAIC-Versionen verwenden, wann immer möglich):
+Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wir werden die MOSAIC Syntax verwenden, wann immer möglich):
 
 ```{r}
 with(HELPrct, mean(cesd))
+
 mean(HELPrct$cesd)
 ```
 
@@ -27,11 +29,11 @@ Eine ähnliche Funktionalität gibt es auch für andere zusammenfassende Statist
 
 ```{r}
 sd(~ cesd, data=HELPrct)
-sd(~ cesd, data=HELPrct)^2
-var(~ cesd, data=HELPrct)
-```
 
-```{r}
+sd(~ cesd, data=HELPrct)^2
+
+var(~ cesd, data=HELPrct)
+
 median(~ cesd, data=HELPrct)
 ```
 Nach dem gleichen Muster lassen sich auch Quantile der Verteilung berechnen:  
@@ -40,6 +42,7 @@ Standardmäßig stellt die Funktion `quantile()` die Quartile dar, aber ihr kann
 
 ```{r}
 with(HELPrct, quantile(cesd))
+
 with(HELPrct, quantile(cesd, c(.025, .975)))
 ```
 
@@ -47,7 +50,7 @@ with(HELPrct, quantile(cesd, c(.025, .975)))
 Nicht alle Befehle wurden schon für die Nutzung des Formel-Interfaces überarbeitet. Für diese Funktionen muss für den Zugriff auf Variablen innerhalb eines Datensatzes `with()` oder das \$-Zeichen genutzt werden.
 :::
 
-Schließlich stellt die Funktion `favstats()` (für favorite stats) im Paket `mosaic` eine prägnante Zusammenfassung einiger nützlicher Kennzahlen.  
+Schließlich stellt die Funktion `favstats()` (für favorite stats) im Paket `mosaic` eine prägnante Zusammenfassung einiger nützlicher Kennzahlen dar: 
 
 ```{r}
 favstats(~cesd, data = HELPrct)
@@ -60,7 +63,7 @@ Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nut
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5.9)
 ```
 
-Wir können die Optionen `binwidth()` und `center()` nutzen, um die Lage der Säulen zu steuern.
+Wir können die Optionen `binwidth` und `center` nutzen, um die Lage der Säulen zu steuern:
 
 ```{r}
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5, center = 2.5)
@@ -70,6 +73,7 @@ Im Datensatz `HELPrct` ist etwa ein Viertel der Probanden weiblich.
 
 ```{r}
 tally( ~ sex, data = HELPrct)
+
 tally( ~ sex, format = "percent", data = HELPrct)
 ```
 
@@ -78,6 +82,7 @@ Es ist unkompliziert die Analyse nur auf die weiblichen Probanden zu beschränke
 ```{r, eval=FALSE}
 Female <- filter(HELPrct, sex == 'female')
 Male <- filter(HELPrct, sex == 'male')
+
 with(Female, stem(cesd))
 ```
 
@@ -109,43 +114,43 @@ Um Gleichheit von Ausprägungen zu überprüfen wird ein doppeltes Gleichheitsze
 Teilgruppen können auch innerhalb eines Befehls erzeugt werden (dieses Mal mit einer überlagerten Normalverteilung):
 
 ```{r}
-gf_dhistogram(~ cesd, data = filter(HELPrct, sex == "female"),
-binwidth = 7.1) %>%
-gf_fitdistr(dist = "dnorm")
+gf_dhistogram(~ cesd, binwidth = 7.1, 
+                      data = filter(HELPrct, sex == "female")) %>%
+    gf_fitdistr(dist = "dnorm")
 ```
 
-Alternativ können wir nebeneinander angeordnete Plots erzeugen, um mehre Teilgruppen zu vergleichen.
+Alternativ können wir nebeneinander angeordnete Plots erzeugen, um mehrere Teilgruppen zu vergleichen:
 
 ```{r}
 gf_dhistogram(~ cesd, data = HELPrct, binwidth = 5.9) %>%
-gf_facet_wrap(~ sex)
+    gf_facet_wrap(~ sex)
 ```
 
-Das Layout kann auch anders angeordnet werden.
+Das Layout kann auch anders angeordnet werden:
 
 ```{r}
 gf_dhistogram(~ cesd, data = HELPrct, binwidth = 5.9) %>%
-gf_facet_wrap(~ sex, nrow = 2)
+    gf_facet_wrap(~ sex, nrow = 2)
 ```
 
-Wir können die Zahl der Säulen auf verschiedene Arten steuern. Hierzu wird die Gesamtzahl angegeben.
+Wir können die Zahl der Säulen auf verschiedene Arten steuern. Hierzu wird die Gesamtzahl angegeben:
 
 ```{r}
 gf_dhistogram(~ cesd, bins = 20, data = Female)
 ```
 
-Auch die Breite der Säulen kann vorgegeben werden.
+Auch die Breite der Säulen kann vorgegeben werden:
 
 ```{r}
 gf_dhistogram(~ cesd, binwidth = 2, data = Female)
 ```
 
-Die Funktion `dotplot()` wird genutzt, um einen *dotplot* für eine kleinere Teilgruppe zu erzeugen (obdachlose Frauen). Wir zeigen auch, wie die Beschriftung der x-Achse geändert werden kann.
+Die Funktion `dotplot()` wird genutzt, um einen *dotplot* für eine kleinere Teilgruppe zu erzeugen (obdachlose Frauen). Wir zeigen auch, wie die Beschriftung der x-Achse geändert werden kann:
 
 ```{r}
 gf_dotplot(~ cesd, binwidth = 3,
-data = filter(HELPrct, sex == "female", homeless == "homeless")) %>%
-gf_labs(x = "CESD score")
+             data = filter(HELPrct, sex == "female", homeless == "homeless")) %>%
+    gf_labs(x = "CESD score")
 ```
 
 
@@ -173,7 +178,7 @@ gf_dens(~ cesd, data = Female) %>%
 
 
 ## Häufigkeitspolygone
-Eine dritte Option ist ein Häufigkeitspolygon, bei dem die Grafik erzeugt wird, indem die Mittelpunkte der Säulen eines Histogramms miteinander verbunden werden.
+Eine dritte Option ist ein Häufigkeitspolygon, bei dem die Grafik erzeugt wird, indem die Mittelpunkte der Säulen eines Histogramms miteinander verbunden werden:
 
 ```{r}
 gf_freqpoly(~ cesd, data = Female, binwidth = 3.8)
@@ -198,6 +203,7 @@ Das 95%-Konfidenzintervall für den Mittelwert des CESD-Wertes der Frauen kann m
 
 ```{r}
 t.test( ~ cesd, data = Female)
+
 confint(t.test( ~ cesd, data = Female))
 ```
 
@@ -222,7 +228,7 @@ Hier resampeln wir durch Ersetzen des Original-Datensatzes, indem wir einen Pseu
 :::
 
 :::{.note data-latex="{hinweis}"}
-Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvoll, die Studierenden die Berechnung durchführen zu lassen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
+Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvoll, die Berechnung einmal selbst durchzuführen, um zu zeigen, dass sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
 :::
 
 Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
@@ -236,5 +242,6 @@ Jetzt resampeln wir 1000 Stichproben und speichern das Ergebnis in einem Objekt 
 ```{r}
 trials <- do(1000) * mean( ~ cesd, data = resample(Female))
 head(trials, 3)
+
 qdata( ~ mean, c(.025, .975), data = trials)
 ```

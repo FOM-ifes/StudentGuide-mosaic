@@ -7,9 +7,11 @@ Umfangreiche Hilfsmittel für Überlebenszeitanalysen (Zeitraum bis Ereignis) si
 ```{r}
 library(survival)
 library(broom)
+
 fit <- survfit(Surv(dayslink, linkstatus) ~ treat, 
                data = HELPrct)
 fit <- broom::tidy(fit)
+
 gf_step(fit, estimate ~ time, linetype = ~ strata,
         title = "Produkt-Limit Überlebensschätzer (Zeitraum bis Anbindung)",
         xlab  = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")

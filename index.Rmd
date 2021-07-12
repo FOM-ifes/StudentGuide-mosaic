@@ -23,7 +23,7 @@ library(kableExtra)
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
-  comment = '', prompt=FALSE, out.width="60%", fig.align='center', warning=FALSE, message=FALSE
+  comment = '', prompt=FALSE, out.width="60%", fig.align='center', warning=FALSE, message=FALSE, tidy = 'styler', collapse=TRUE
 )
 ```
 

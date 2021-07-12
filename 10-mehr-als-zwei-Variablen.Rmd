@@ -2,7 +2,7 @@
 
 ## Zwei- (oder mehr-) faktorielle ANOVA
 
-Wir können ein zwei- (oder mehr-) faktorielles ANOVA-Modell, mit oder ohne Interaktion, auf Basis der vereinheitlichten `mosaic`-Syntax erstellen.
+Wir können ein zwei- (oder mehr-) faktorielles ANOVA-Modell, mit oder ohne Interaktion, auf Basis der vereinheitlichten `mosaic` Syntax erstellen.
 
 ```{r}
 HELPrct <- mutate(HELPrct, 
@@ -10,13 +10,17 @@ HELPrct <- mutate(HELPrct,
                                   levels = c("alcohol", "cocaine","heroine"),
                                   labels = c("A", "C", "H"))
                   )
+
 median(cesd ~ substance | sex, data = HELPrct)
+
 gf_boxplot(cesd ~ subgrp | sex, data = HELPrct)
+
 summary(aov(cesd ~ substance + sex, data=HELPrct))
+
 summary(aov(cesd ~ substance * sex, data=HELPrct))
 ```
 
-Es deutet wenig auf eine Interaktion hin, obwohl signifikante Haupteffekte für die option `Substanzgruppen` und option `sex` bestehen.
+Es deutet wenig auf eine Interaktion hin, obwohl signifikante Haupteffekte für die Variablen `Substanzgruppen` und `sex` bestehen.
 
 ```{r}
 mod <- lm(cesd ~ substance + sex + substance * sex, data = HELPrct)
@@ -24,16 +28,17 @@ plotModel(mod)
 ```
 
 ## Multiple Regression
-Multiple Regression ist eine logische Erweiterung der vorangegangenen Befehle, sobald zusätzliche Prädiktoren hinzukommen. Dies ermöglicht es den Studierenden mit dem Versuch zu beginnen, multivariate Beziehungen zu entflechten.
+Multiple Regression ist eine logische Erweiterung der vorangegangenen Befehle, sobald zusätzliche Prädiktoren hinzukommen. Dies ermöglicht die Entflechtung multivariater Beziehungen.
 
 :::{.note data-latex="{note}"}
-Wir neigen dazu, multiple lineare Regression zeitig in unseren Kurse einzuführen, als eine rein deskriptive Methode, und dann immer wieder zu ihr zurückzukehren. Die Beweggründe werden ausführlich im Begleitmaterial *Start Modeling with R* [@ModelingR] beschrieben
+Wir neigen dazu, multiple lineare Regression zeitig als eine rein deskriptive Methode in unseren Kursen einzuführen, und dann immer wieder zu ihr zurückzukehren. Die Beweggründe werden ausführlich im Begleitmaterial *Start Modeling with R* [@ModelingR] beschrieben
 :::
 
 Hier betrachten wir ein Modell (Parallelsteigungen) für die depressive Symptomatik als eine Funktion aus dem Mental Component Score (MCS), dem Alter (in Jahren) und dem Geschlecht der Person.
 
 ```{r}
-lmnointeract <- lm(cesd~mcs+age+sex,data=HELPrct)
+lmnointeract <- lm(cesd ~ mcs + age + sex, data = HELPrct)
+
 msummary(lmnointeract)
 ```
 
@@ -41,6 +46,7 @@ Wir können ebenso ein Modell anpassen, das eine Interaktion zwischen `MCS` und 
 
 ```{r}
 lminteract <- lm(cesd ~ mcs + age + sex + mcs:sex, data= HELPrct)
+
 msummary(lminteract)
 
 anova(lminteract)
@@ -48,7 +54,7 @@ anova(lminteract)
 anova(lmnointeract, lminteract)
 ```
 
-Es deutet wenig auf einen Interaktionseffekt hin, sodass wir diese aus dem Modell entfernen können.
+Es deutet wenig auf einen Interaktionseffekt hin, so dass wir diese aus dem Modell entfernen können.
 
 
 ### Visualisierung der Regressionsergebnisse {#VisReg}
@@ -59,22 +65,22 @@ Die Funktionen `makeFun()` und `plotFun()`aus dem Paket `mosaic` können zur Abb
 lmfunction <- makeFun(lmnointeract)
 ```
 
-Wir können nun die vorhergesagten Werte - getrennt nach männlichen und weiblichen Personen - für einen MCS-Wertebereich (mental component score), zusammen mit den beobachteten Werten aller 36-jähriger darstellen.
+Wir können nun die vorhergesagten Werte -- getrennt nach männlichen und weiblichen Personen -- für einen MCS-Wertebereich (mental component score), zusammen mit den beobachteten Werten aller 36-jähriger darstellen.
 
 ```{r}
 gf_point(cesd ~ mcs, color = ~ sex,
-         data = filter(HELPrct, age == 36),
-         ylab = "vorhergesagte CESD") %>%
-gf_fun(lmfunction(mcs, age=36, sex = "male") ~ mcs,
-       xlim = c(0,60), size = 1.5) %>%
-gf_fun(lmfunction(mcs, age=36, sex = "female") ~ mcs,
-       xlim = c(0,60), linetype = 2, size = 2)
+          data = filter(HELPrct, age == 36),
+          ylab = "vorhergesagte CESD") %>%
+  gf_fun(lmfunction(mcs, age=36, sex = "male") ~ mcs,
+          xlim = c(0,60), size = 1.5) %>%
+  gf_fun(lmfunction(mcs, age=36, sex = "female") ~ mcs,
+          xlim = c(0,60), linetype = 2, size = 2)
 ```
 
 
 ### Koeffizientendarstellung
 
-Manchmal ist es nützlich eine Darstellung der Koeffizienten eines multiplen Regressionsmodells (zusammen mit den entsprechenden Konfidenzintervallen) zu erstellen.
+Manchmal ist es nützlich eine Darstellung der Koeffizienten eines multiplen Regressionsmodells (zusammen mit den entsprechenden Konfidenzintervallen) zu erstellen:
 
 ```{r}
 mplot(lmnointeract, rows = -1, which = 7)
@@ -85,7 +91,7 @@ Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, be
 :::
 
 :::{.achtung data-latex="{achtung}"}
-Vorsicht bei der Generierung eines Regressionsmodells, bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
+Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
 :::
 
 
@@ -93,18 +99,19 @@ Vorsicht bei der Generierung eines Regressionsmodells, bei Vorliegen von fehlend
 
 Es ist recht einfach die Residuen des Modells auszuwerten. Wir beginnen damit, die angepassten Werte und die Residuen den Daten hinzuzufügen.
 
-:::{.hinweis data-latex=""}
+:::{.hinweis data-latex="{hinweis}"}
 Die Funktion `mplot()` kann ebenfalls zur Erstellung dieser Grafiken verwendet werden.
 :::
 
 :::{.note data-latex="{note}"}
-Hier fügen wir zwei neue Variabelen zu einem bestehenden Datensatz hinzu. Es ist häufig eine gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben. Für dieses Dokument behalten wir den Namen allerdings der Einfachheit halber bei.
+Hier fügen wir zwei neue Variablen zu einem bestehenden Datensatz hinzu. Es ist häufig eine gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben. Für dieses Dokument behalten wir den Namen allerdings der Einfachheit halber bei.
 :::
 
 ```{r}
 HELPrct <- mutate(HELPrct, 
                   residuals = resid(lmnointeract), 
                   pred = fitted(lmnointeract))
+
 gf_dhistogram(~ residuals, data= HELPrct) %>%
   gf_fitdistr(dist = "dnorm")
 ```
