@@ -353,7 +353,7 @@ dim(smaller)
 summary(smaller)
 ```
 
-Von den 470 Probanden in den 6 Variablen des Dataframess haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
+Von den 470 Probanden in den 6 Variablen des Dataframes haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
 
 ```{r}
 favstats(~ mcs, data = smaller)
