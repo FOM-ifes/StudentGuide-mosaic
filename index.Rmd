@@ -40,11 +40,11 @@ data(faithful)
 
 # Vorwort {-}
 
-In 2016 hat die FOM Hochschule für Oekonomie & Management sich auf den Weg gemacht, in der Methodenausbildung die Kompetenz der Data Literacy zu fokussieren. In den zurückliegenden Semestern wurde die Ausbildung daher in Anlehnung an die [GAISE](https://www.amstat.org/asa/files/pdfs/GAISE/GaiseCollege_Full.pdf)(Guidelines for Assessment and Instruction in Statistics Education)-Empfehlungen modernisiert. 2019 wurde die FOM aufgrund dieses Ausbildungskonzeptes in das [Data Literacy Education Netzwerk des Stifterverbandes](https://www.stifterverband.org/data-literacy-education) aufgenommen und zu Beginn dieses Jahres hat die FOM die [Data-Literacy-Charta](https://www.stifterverband.org/charta-data-literacy) unterschrieben, in der Folgendes zu finden ist: "Data Literacy umfasst die Datenkompetenzen, die für alle Menschen in einer durch Digitalisierung geprägten Welt wichtig sind. Sie ist unverzichtbarer Bestandteil der Allgemeinbildung." 
+Im Jahr 2016 machte sich die FOM Hochschule für Oekonomie & Management auf den Weg, die Kompetenz der Data Literacy in der Methodenausbildung zu stärken. In den zurückliegenden Semestern wurde die Ausbildung daher in Anlehnung an die [GAISE](https://www.amstat.org/asa/files/pdfs/GAISE/GaiseCollege_Full.pdf)(Guidelines for Assessment and Instruction in Statistics Education)-Empfehlungen modernisiert. 2019 wurde die FOM aufgrund dieses Ausbildungskonzeptes in das [Data Literacy Education Netzwerk des Stifterverbandes](https://www.stifterverband.org/data-literacy-education) aufgenommen. Zu Beginn dieses Jahres hat die FOM den eingeschlagenen Weg noch einmal bekräftigt und die [Data-Literacy-Charta](https://www.stifterverband.org/charta-data-literacy) unterschrieben, in der Folgendes zu lesen ist: "Data Literacy umfasst die Datenkompetenzen, die für alle Menschen in einer durch Digitalisierung geprägten Welt wichtig sind. Sie ist unverzichtbarer Bestandteil der Allgemeinbildung." 
 
-Diesem Anspruch versuchen wir im Rahmen unserer Methodenausbildung gerecht zu werden. Um daten-literat zu werden, liegt der Fokus unserer Ausbildung auf dem konzeptionellen Verstehen, der Betonung des gesamten Analyseprozesses (von der Frage bis zur vorläufigen Antwort), der Befähigung von Studierenden zur verantwortungsvollen Nutzung von Daten im beruflichen und akademischen Kontext sowie der Sensibilisierung von Studierenden für reproduzierbare empirische Analysen. Dazu setzen wir in der Lehre auf Unterstützung durch R, RStudio und mosaic.
+Um daten-literat zu werden, liegt der Fokus unserer Methodenausbildung auf dem konzeptionellen Verstehen und der Betonung des gesamten Analyseprozesses (von der Frage bis zur vorläufigen Antwort), um unsere Studierenden zur verantwortungsvollen Nutzung von Daten im beruflichen und akademischen Kontext zu sensibilisieren und sie zur Durchführung von reproduzierbaren empirischen Analysen zu befähigen. Dazu setzen wir in der Lehre auf die Unterstützung durch R, RStudio und mosaic.
 
-Das Paket mosaic hilft in der Ausbildung, da es den R Code vereinheitlicht und die Grundlage für ein *Denken mit Daten*^[[Pruim, R., Kaplan, D.T. und Horton, N.J. (2017): The mosaic Package: Helping Students to ‘Think with Data’ Using R. The R Journal, 9(1), 77-10](https://journal.r-project.org/archive/2017/RJ-2017-024/index.html)] bildet. Es findet sich unzählige Literatur zu R und RStudio. Dazu gehört auch [A Student's Guide to R](https://github.com/ProjectMOSAIC/LittleBooks/raw/master/StudentGuide/MOSAIC-StudentGuide.pdf) von Nicholas J. Horton, Randall Pruim und Daniel T. Kaplan, der eine gute Einstiegshilfe für Studierende ist, um erste Schritte in der Datenanalyse mit R zu machen.
+Das Paket mosaic vereinheitlicht den R Code und bildet die Grundlage für ein *Denken mit Daten*^[[Pruim, R., Kaplan, D.T. und Horton, N.J. (2017): The mosaic Package: Helping Students to ‘Think with Data’ Using R. The R Journal, 9(1), 77-10](https://journal.r-project.org/archive/2017/RJ-2017-024/index.html)]. Es findet sich unzählige Literatur zu R, RStudio und mosaic. Dazu gehört auch [A Student's Guide to R](https://github.com/ProjectMOSAIC/LittleBooks/raw/master/StudentGuide/MOSAIC-StudentGuide.pdf) von Nicholas J. Horton, Randall Pruim und Daniel T. Kaplan, der eine gute Einstiegshilfe für Studierende ist, um erste Schritte in der Datenanalyse mit R zu gehen.
 
 Da die englische Sprache ein Hemmnis bei der Einarbeitung in eine neue Materie, wie die der Datenanalyse, sein kann, haben wir uns die Erlaubnis eingeholt, den Student's Guide auf Deutsch zu übersetzen. Vielen Dank dafür an Nicholas Horton!
 
@@ -75,9 +75,9 @@ a column separator -->
 \small
 Prof. Dr. habil. Andrea Schankin \newline 
 
- | 
+Modulleiterin | Quantitative Methodenmodule HSB Wirtschaftspsychologie 
  
- | \newline
+Kooptierte Wissenschaftlerin | iwp Institut für Wirtschaftspsychologie \newline
 :::
 
 ::::::
