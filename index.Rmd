@@ -13,6 +13,10 @@ description: "Dies ist die Übersetzung des 'Student's Guide to R' von Daniel T.
 lang: de-DE
 colorlinks: yes
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
+
+header-includes:
+  - \usepackage{makeidx}
+  - \makeindex
 ---
 
 ```{r packages, echo=FALSE, warning=FALSE, message=FALSE}
@@ -32,7 +36,6 @@ data(HELPrct)
 data(iris)
 data(faithful)
 ```
-
 
 
 # Vorwort {-}
@@ -78,3 +81,13 @@ Prof. Dr. habil. Andrea Schankin \newline
 :::
 
 ::::::
+
+```{=latex}
+% Trigger ToC creation in LaTeX
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+```
+
+\clearpage

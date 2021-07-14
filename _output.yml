@@ -6,13 +6,16 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">Mosaic-Handbuch</a></li>
-    download: ["pdf", "epub"]
+  download: ["pdf", "epub"]
 
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
+    before_body: Originaltitelseite.tex
+    after_body: InsertIndex.tex
   latex_engine: pdflatex
   citation_package: biblatex
   keep_tex: yes
+  toc: FALSE
 
 bookdown::epub_book: default

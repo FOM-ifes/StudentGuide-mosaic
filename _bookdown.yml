@@ -20,6 +20,5 @@ rmd_files: [
   "12-Powerberechnung.Rmd",
   "13-Datenjudo.Rmd",
   "14-Fallstudie-HELP.Rmd",
-  "15-Aufgaben.Rmd",
-  "16-Hinweise.Rmd"
+  "15-Aufgaben.Rmd"
 ]
