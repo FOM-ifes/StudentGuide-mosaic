@@ -10,7 +10,7 @@ Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Absch
 :::
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
-Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern das Arbeiten mit Daten. Hadley Wickham -- Autor der Pakete -- gibt an, dass mittels sechs der in diesen Paketen implementierten Schlüsselwörter (oder Verben) eine große Anzahl von Aufgaben erfüllt werden kann: Filtern (`filter` -- Zeilen beibehalten, die die angegebenen Kriterien erfüllen), Auswählen (`select` -- Spalten nach Namen auswählen), Anordnen (`arrange` -- Zeilen neu ordnen), Mutieren (`mutate` -- neue Variablen hinzufügen), Zusammenfassen (`summarise` -- Variablen auf zusammenfassende Statistiken reduzieren) und Gruppieren (`group by` - Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
+Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern das Arbeiten mit Daten. Hadley Wickham -- Autor der Pakete -- gibt an, dass mittels sechs, der in diesen Paketen implementierten Schlüsselwörter (oder Verben) eine große Anzahl von Aufgaben erfüllt werden kann: Filtern (`filter` -- Zeilen beibehalten, die die angegebenen Kriterien erfüllen), Auswählen (`select` -- Spalten nach Namen auswählen), Anordnen (`arrange` -- Zeilen neu ordnen), Mutieren (`mutate` -- neue Variablen hinzufügen), Zusammenfassen (`summarise` -- Variablen auf zusammenfassende Statistiken reduzieren) und Gruppieren (`group by` - Gruppen zusammenfassen). Siehe [http://www.amherst.edu/~nhorton/precursors](http://www.amherst.edu/~nhorton/precursors) für weitere Details und Ressourcen.
 :::
 
 Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in \textsf{R}) hilfreich sein.
@@ -56,7 +56,7 @@ head(irisSmall)
 ```
 
 :::{.hinweis data-latex="{hinweis}"}
-`cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
+`Die Funktion `cut()` verfügt über eine Option `labels`, mit der Sie aussagekräftigere Namen für die Gruppen angeben können. 
 :::
 
 Der \textsc{CPS85}-Datensatz enthält Daten aus einer Bevölkerungserhebung (aus dem Jahr 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
@@ -118,7 +118,7 @@ names(faithful)
 ```
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
-Es ist ratsam, vom ersten Tag an Praktiken für die Auswahl von Variablennamen festzulegen.
+Es ist ratsam, vom ersten Tag an Regeln für die Auswahl von Variablennamen festzulegen.
 :::
 
 Die Messungen sind die Dauer einer Eruption und die Zeit bis zur folgenden Eruption, also vergeben wir geeignetere Namen.
@@ -131,7 +131,7 @@ names(faithful)
 ```
 
 ```{r}
-library(mosaic)
+
 gf_point(time.til.next ~ duration, alpha = 0.5, data = faithful)
 ```
 
@@ -307,7 +307,7 @@ coef(lm(cesd ~ subnew, data=HELPrct))
 
 ## Gruppenstatistiken
 
-Es kann oft sinnvoll sein, zusammenfassende Statistiken nach Gruppen zu berechnen und diese in ein Dataframe einzufügen. Die Funktion `group_by()` im Paket `dplyr` erleichtert diesen Prozess. Hier zeigen wir, wie man eine Variable hinzufügt, die das mittlere Alter der Probanden je Drogenmittel enthält.
+Es kann oft sinnvoll sein, zusammenfassende Statistiken nach Gruppen zu berechnen und diese in ein Dataframe einzufügen. Die Funktion `group_by()` im Paket `dplyr` erleichtert diesen Prozess. Hier zeigen wir, wie man eine Variable hinzufügt, die das mittlere Alter der Probanden je Substanzgruppe enthält.
 
 ```{r}
 favstats(age ~ substance, data = HELPrct)
