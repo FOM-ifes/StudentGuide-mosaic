@@ -68,9 +68,9 @@ coef(fm)
 
 \@ref(WkeitZuf).2 Finden Sie den Median einer exponentialverteilten Zufallsvariablen $X$ mit einem Parameterwert von 10.
 
-\@ref(powerberechnung).1 Berechnen Sie die Power eines zweiseitigen t-Tests für unabhängige Stichproben, wobei beide Verteilungen approximativ normalverteilt sind mit der gleichen Standardabweichung. Der Unterschied zwischen den Mittelwerten liege bei einer halben Standardabweichungseinheit. Gehen Sie von 25 Fällen pro Gruppe aus und einem Alpha-Niveau von 0,0539.
+\@ref(powerberechnung).1 Berechnen Sie die Power eines zweiseitigen t-Tests für unabhängige Stichproben, wobei beide Verteilungen approximativ normalverteilt sind mit der gleichen Standardabweichung. Der Unterschied zwischen den Mittelwerten liege bei einer halben Standardabweichungseinheit. Gehen Sie von 25 Fällen pro Gruppe aus und einem Alpha-Niveau von 0.0539.
 
-\@ref(powerberechnung).2 Berechnen Sie die nötige Stichprobengröße $n$ für eine Power von 90% bei einem t-Test für zwei unabhängige Gruppen, wobei der Unterschied in den Mittelwerten bei $1/4$ einer Standardabweichungseinheit liege ($\alpha = 0,05$).
+\@ref(powerberechnung).2 Berechnen Sie die nötige Stichprobengröße $n$ für eine Power von 90% bei einem t-Test für zwei unabhängige Gruppen, wobei der Unterschied in den Mittelwerten bei $1/4$ einer Standardabweichungseinheit liege ($\alpha = 0.05$).
 
 
 \@ref(datenmanagement).1 Erstellen Sie ein Streudiagramm für den Datensatz  `faithful`, wobei die Eruptionszeit als Funktion von der Zeit seit der letzten Eruption dargestellt werden soll.
