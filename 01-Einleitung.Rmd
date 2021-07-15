@@ -19,7 +19,7 @@ install.packages("mosaic")        # Beachten Sie die Anführungszeichen
 ```
 
 ::: {.note data-latex="{note}"}
-\textsf{RStudio} bietet u.\ a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
+\textsf{RStudio} bietet u.&#8239;a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
 :::
 
 Das `#` Zeichen stellt einen Kommentar in R dar und klammert den restlichen Text bis zum Ende der Zeile aus. 

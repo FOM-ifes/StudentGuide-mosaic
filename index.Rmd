@@ -17,6 +17,7 @@ geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 header-includes:
   - \usepackage{makeidx}
   - \makeindex
+  - \usepackage[totoc]{idxlayout}
 ---
 
 ```{r packages, echo=FALSE, warning=FALSE, message=FALSE}
@@ -55,29 +56,29 @@ Wir hoffen, dass die deutschsprachige Version des Student's Guide to R unseren S
 
 :::::: {.cols data-latex=""}
 
-::: {.col data-latex="{0.475\textwidth}"}
+::: {.col data-latex="{0.4\textwidth}"}
 \small
 
 Prof. Dr. Bianca Krol \newline
 
-Dekanin | Schlüsselkompetenzen & Methoden
+Dekanin | \newline Schlüsselkompetenzen & Methoden 
 
-Direktorin | ifes Institut für Empirie & Statistik
+Direktorin | ifes \newline Institut für Empirie & Statistik
 :::
 
-::: {.col data-latex="{0.05\textwidth}"}
+::: {.col data-latex="{0.1\textwidth}"}
 \ 
 <!-- an empty Div (with a white space), serving as
 a column separator -->
 :::
 
-::: {.col data-latex="{0.475\textwidth}"}
+::: {.col data-latex="{0.5\textwidth}"}
 \small
 Prof. Dr. habil. Andrea Schankin \newline 
 
 Modulleiterin | Quantitative Methodenmodule HSB Wirtschaftspsychologie 
  
-Kooptierte Wissenschaftlerin | iwp Institut für Wirtschaftspsychologie \newline
+Kooptierte Wissenschaftlerin | iwp Institut für Wirtschaftspsychologie
 :::
 
 ::::::
@@ -89,5 +90,3 @@ Kooptierte Wissenschaftlerin | iwp Institut für Wirtschaftspsychologie \newline
   \tableofcontents
 }
 ```
-
-\clearpage

@@ -35,6 +35,7 @@ Wir verwenden in erster Linie eine Online-Version von \textsf{RStudio}. Die Anwe
 \textsf{R} kann von [http://cran.r-project.org/](http://cran.r-project.org/) heruntergeladen und lokal installiert werden. Das Herunterladen und die Installation sind i. \ A. unkompliziert für Mac-, PC-, oder Linux-Systeme. \textsf{RStudio} ist über [http://www.rstudio.org/](http://www.rstudio.org/) verfügbar.
 :::
 
+
 ## Mit einem RStudio Server verbinden
 \textsf{RStudio} Server wurden an Hochschulen eingerichtet, um cloud-basierte Berechnungen zu ermöglichen. 
 
@@ -88,7 +89,6 @@ Es ist wahrscheinlich am sinnvollsten, sich auf eine Vorgehensweise zwischen rec
 :::
 
 Sobald Variablen definiert sind, können sie in anderen Operationen und Funktionen verwendet werden.
-
 ```{r}
 0.5 * product               # Die Hälfte von product
 
@@ -102,7 +102,6 @@ log(product, base = 2)      # Logarithmus zur Basis 2 von product,
                             # mit expliziter Angabe der Basis
 ```
 
-
 Das Semikolon kann verwendet werden, um mehrere Befehle in einer Zeile zu schreiben.  
 Eine übliche Anwendung davon ist es, das Zuweisen eines Ergebnisses und Anzeigen desselben auf einmal zu machen:
 
@@ -113,6 +112,8 @@ product <- 15.3 * 23.4; product    # Speichere das Ergebnis und zeige es an
 
 ### Information zur Version
 
+\index{sqrt}
+
 Manchmal kann es nützlich sein zu prüfen, welche Versionen des Paketes `mosaic`, von \textsf{R} sowie
 \textsf{RStudio} Sie verwenden. Die Eingabe von `sessionInfo()` zeigt Informationen über die Version von \textsf{R} und die geladenen Pakete an, während  `RStudio.Version()` die Version von \textsf{RStudio} ausgibt.
 
@@ -121,6 +122,9 @@ sessionInfo()
 ```
 
 ## Arbeiten mit Dateien
+
+\index{log}
+
 ### Das Arbeiten mit R Script Dateien
 Eine Alternative ist es, \textsf{R} Befehle in eine Datei zu speichern. \textsf{RStudio} bietet einen integrierten Editor um diese Dateien zu bearbeiten und unterstützt die Ausführung eines Teils oder aller Befehle.
 Um eine Datei zu erstellen, gehen Sie in der Menüleiste auf \textsc{File}, dann \textsc{New File} und dann \textsc{R Script}. Es öffnet sich ein Datei-Editor Fenster im \textsc{Source} Panel.

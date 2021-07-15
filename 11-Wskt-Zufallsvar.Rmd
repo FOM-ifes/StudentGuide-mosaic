@@ -1,5 +1,7 @@
 # Wahrscheinlichkeitverteilungen und Zufallsvariablen {#WkeitZuf}
 
+\index{abs}
+
 \textsf{R} kann Werte für zahlreiche Verteilungsfunktionen berechnen. Es ist leicht, aus diesen Verteilungsfunktionen Zufallsdaten zu generieren, die dann für Simulationen und explorative Untersuchungen genutzt werden können.
 
 ```{r}
