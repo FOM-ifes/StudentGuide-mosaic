@@ -7,6 +7,7 @@ version: "v0.0.1"
 site: bookdown::bookdown_site
 documentclass: scrbook
 bibliography: [bib/book.bib, bib/packages.bib, bib/article.bib]
+biblio-style: apa
 link-citations: yes
 description: "Dies ist die Übersetzung des 'Student's Guide to R' von Daniel T. Kaplan, Nicholas J. Horton und Randall Pruim aus dem Project Mosaic."
 

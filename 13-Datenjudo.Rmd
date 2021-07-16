@@ -48,7 +48,6 @@ irisSmall <- iris %>%
   mutate(Length = cut(Sepal.Length, breaks=4:8))
 ```
 
-
 Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pipe} erbt).
 
 ```{r}
@@ -76,6 +75,7 @@ tally(~ (exper - workforce.years), data = CPS85)
 
 
 ## Variablen löschen
+\index{Pipe Operator (\small{\%<\%})}
 
 Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Variable zu behalten. Eliminieren wir diese also wieder. Beachten Sie die geschickte Verwendung des Minuszeichens.
 
@@ -95,7 +95,7 @@ Beliebig viele Variablen können gelöscht oder auf ähnliche Weise beibehalten 
 CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 ```
 
-
+\index{Variablen hinzufügen}
 ## Variablen umbenennen
 
 Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` aus dem Paket `dplyr` geändert werden.
@@ -172,11 +172,10 @@ head(sorted, 3)
 Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu modifizieren.
 :::
 
-
 ## Zusammenfügen von Dataframes
 
 Der `fusion1`-Datensatz im Paket `fastR` enthält Genotyp-Informationen für einen \textsc{SNP} (single nucleotide polymorphism) im Gen \textsc{TCF7L2}. Der Dataframe enthält Phänotypen (einschließlich Typ-2-Diabetes Fall-/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
-
+\index{arrange()}
 
 ```{r}
 library(fastR2)
@@ -238,6 +237,7 @@ stateTraffic <- longTraffic %>%
 
 stateTraffic
 ```
+\index{inner\_join}
 
 ## Neue Variablen hinzufügen
 
@@ -274,7 +274,7 @@ HELPrct <- mutate(HELPrct,
                                 breaks = c(0, 20, 40, 60), 
                                 include.lowest = TRUE))
 
-gf_boxplot(cesd ~ cesdcut, pch="|", data = HELPrct)
+gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 ```
 
 Die `derivedFactor()` Funktion ist noch allgemeiner und kann auch zu diesem Zweck verwendet werden.
@@ -287,8 +287,8 @@ HELPrct <- mutate(HELPrct,
                     high = cesd > 40))
 ```
 
-
 ### Faktoren neu ordnen
+\index{breaks Option}
 
 Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
 

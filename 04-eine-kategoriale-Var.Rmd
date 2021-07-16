@@ -1,4 +1,5 @@
 # Eine kategoriale Variable
+\index{Bootstrap-Methode}
 
 ## Analyse kategorialer Daten 
 
@@ -7,7 +8,6 @@ Mit Hilfe der Funktion `tally()` können absolute und relative Häufigkeiten fü
 ::: {.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Im Begleitbuch *Start Teaching with R* [@TeachingR] wird die Formelschreibweise erklärt, die hier ebenfalls verwendet wird. Siehe ebenfalls dort zum Thema statistische Modellierung.
 :::
-
 
 ```{r, echo=TRUE}
 tally( ~ homeless, data = HELPrct)
@@ -29,6 +29,8 @@ tally( ~ homeless, format = "proportion",
 ```
 
 ## Der Binomialtest
+\index{kategoriale Variablen}
+\index{Kontingenztabellen}
 Ein exaktes Konfidenzintervall für einen Anteilswert (sowie ein Test der Nullhypothese, dass der Bevölkerungsanteil gleich einem bestimmten Wert -- standardmäßig 0.5 -- ist) kann durch die Funktion `binom.test()` berechnet werden. Die Standardfunktion `binom.test()` benötigt folgendes Eingabeformat: 
 ```{r, echo=TRUE}
 binom.test(209, 209 + 244)
@@ -68,6 +70,8 @@ Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis ang
 
 ## Der Anteilswerttest 
 In ähnlicher Weise kann ein geschätzes Intervall und ein approximativer Test auf Anteilswerte über die Funktion `prop.test()` ermittelt werden. Die Anzahl der Personen je Kategorie der Variablen `homeless` wird folgendermaßen ausgezählt:
+\index{Binomialtest}
+\index{binom.test()}
 
 ```{r, echo=TRUE}
 tally(~ homeless, data = HELPrct)
@@ -163,15 +167,9 @@ xchisq.test(observed, p = p)
 Objekte, die sich im Arbeitsspeicher von \textsf{R} befinden, sind unter dem Reiter \textsc{Environment} in \textsf{RStudio} aufgelistet. Diese Liste kann bereinigt werden, indem die nicht mehr benötigten Objekte mit `rm()` gelöscht werden.
 :::
 
+\index{chisq.test()}
+
 ```{r, echo=TRUE}
 # nicht mehr benötigte Variablen löschen
 rm(observed, p, total, chisq)
 ```
-
-
-
-
-
-
-
-

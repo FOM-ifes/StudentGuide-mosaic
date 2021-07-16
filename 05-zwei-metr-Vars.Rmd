@@ -119,6 +119,7 @@ gf_point(resid(cesdmodel) ~ fitted(cesdmodel),
   gf_smooth(se = FALSE) %>%
   gf_hline(yintercept = 0)
 ```
+\index{coef()}
 
 Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt:
 
@@ -143,6 +144,9 @@ Das Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer wird bei `wh
 ```{r}
 mplot(cesdmodel, which = 4)
 ```
+
+\index{class()}
+\index{alpha Option}
 
 Der Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, wird mit `which = 5` erhalten:
 

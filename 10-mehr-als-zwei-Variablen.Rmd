@@ -97,6 +97,8 @@ Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, be
 Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
 :::
 
+\index{color Option}
+\index{Koeffizientenvisualisierungen}
 
 ### Residuenanalyse
 
