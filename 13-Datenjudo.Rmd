@@ -45,7 +45,7 @@ Mehrere Befehle können mit dem `%>%` (\textsc{Pipe}-) Operator miteinander verk
 ```{r}
 irisSmall <- iris %>%
   select(Species, Sepal.Length) %>%
-  mutate(Length = cut(Sepal.Length, breaks=4:8))
+  mutate(Length = cut(Sepal.Length, breaks = 4:8))
 ```
 
 Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pipe} erbt).
@@ -75,7 +75,7 @@ tally(~ (exper - workforce.years), data = CPS85)
 
 
 ## Variablen löschen
-\index{Pipe Operator (\small{\%<\%})}
+\index{Pipe-Operator (\small{\%<\%})}
 
 Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Variable zu behalten. Eliminieren wir diese also wieder. Beachten Sie die geschickte Verwendung des Minuszeichens.
 
@@ -232,7 +232,7 @@ Wir können auch in die andere Richtung umformen, diesmal mit allen Daten für e
 ```{r}
 stateTraffic <- longTraffic %>% 
   select(year, deathRate, state) %>%
-  mutate(year=paste("deathRate.", year, sep="")) %>%
+  mutate(year = paste("deathRate.", year, sep = "")) %>%
   spread(year, deathRate)
 
 stateTraffic
@@ -249,7 +249,7 @@ Eine Reihe von Funktionen erleichtern die Erstellung oder Neukodierung von Varia
 Als nächstes zeigen wir, wie man eine dreistufige kategoriale Variable mit Trennung bei 20 und 40 für die CESD-Skala (die von 0 bis 60 Punkten reicht) erstellt.
 
 ```{r}
-favstats(~ cesd, data=HELPrct)
+favstats(~ cesd, data = HELPrct)
 ```
 
 ```{r}
