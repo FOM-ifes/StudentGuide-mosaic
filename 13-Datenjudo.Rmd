@@ -73,9 +73,11 @@ Tatsächlich wurde dies für alle bis auf einen Fall getan, um die bereits in de
 tally(~ (exper - workforce.years), data = CPS85)
 ```
 
+\index{Dataframes!Überprüfen}
+\index{iris Datensatz}
 
 ## Variablen löschen
-\index{Pipe Operator (\small{\%<\%})}
+\index{Pipe-Operator (\small{\%<\%})}
 
 Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Variable zu behalten. Eliminieren wir diese also wieder. Beachten Sie die geschickte Verwendung des Minuszeichens.
 
@@ -83,6 +85,8 @@ Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Vari
 names(CPS85)
 ```
 
+\index{Datenjudo}
+\index{inspect()}
 
 ```{r}
 CPS1 <- select(CPS85, select = -matches("workforce.years"))
@@ -96,6 +100,8 @@ CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 ```
 
 \index{Variablen hinzufügen}
+\index{Die ersten Zeilen anzeigen}
+
 ## Variablen umbenennen
 
 Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` aus dem Paket `dplyr` geändert werden.
@@ -142,6 +148,9 @@ data(faithful)
 head(faithful, 3)
 ```
 
+\index{CPS85 Datensatz}
+\index{Dataframe}
+\index{Variablen löschen}
 
 ## Erstellen von Teilmengen spezifischer Beobachtungen {#subdaten}
 
@@ -172,10 +181,13 @@ head(sorted, 3)
 Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu modifizieren.
 :::
 
+\index{Teilmengen erstellen}
+
 ## Zusammenfügen von Dataframes
 
 Der `fusion1`-Datensatz im Paket `fastR` enthält Genotyp-Informationen für einen \textsc{SNP} (single nucleotide polymorphism) im Gen \textsc{TCF7L2}. Der Dataframe enthält Phänotypen (einschließlich Typ-2-Diabetes Fall-/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
 \index{arrange()}
+\index{gf\_point()}
 
 ```{r}
 library(fastR2)
@@ -218,6 +230,8 @@ Traffic
 ```
 
 Wir können dies so umformen, dass jede Zeile eine Messung für einen einzelnen Staat in einem Jahr enthält.
+\index{data()}
+\index{library()}
 
 ```{r}
 longTraffic <- Traffic %>% 
@@ -238,11 +252,14 @@ stateTraffic <- longTraffic %>%
 stateTraffic
 ```
 \index{inner\_join}
+\index{faithful Datensatz}
+\index{head()}
 
 ## Neue Variablen hinzufügen
 
 Eine Reihe von Funktionen erleichtern die Erstellung oder Neukodierung von Variablen.
 
+\index{Dataframes!Auswählen}
 
 ### Kategoriale aus einer quantitativen Variable erstellen
 
@@ -287,8 +304,14 @@ HELPrct <- mutate(HELPrct,
                     high = cesd > 40))
 ```
 
+\index{gather()}
+\index{Dataframes!Zusammenfügen}
+\index{fusion1 Datensatz}
+
 ### Faktoren neu ordnen
 \index{breaks Option}
+\index{HELPrct Datensatz}
+\index{labels Option}
 
 Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
 
@@ -304,6 +327,10 @@ Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihen
 HELPrct <- mutate(HELPrct, subnew = relevel(substance, ref="heroin"))
 coef(lm(cesd ~ subnew, data=HELPrct))
 ```
+
+\index{Dataframes!Sortieren}
+\index{Neue Variablen hinzufügen}
+\index{include.lowest}
 
 ## Gruppenstatistiken
 
@@ -338,6 +365,8 @@ favstats(agebygroup ~ substance, data = HELPmerged)
 ```{r}
 nrow(HELPmerged)
 ```
+
+\index{Faktoren neu ordnen}
 
 ## Umgang mit fehlenden Werten {#missings}
 
@@ -378,3 +407,12 @@ nomiss <- filter(smaller,
 dim(nomiss)
 ```
 
+\index{lm()}
+\index{Dataframes!Neu ordnen}
+\index{dim()}
+\index{Gruppenstatistiken}
+\index{group\_by()}
+\index{HELPmiss Datensatz}
+\index{Fehlende Werte}
+\index{is.na()}
+\index{left\_join()}

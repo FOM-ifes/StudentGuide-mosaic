@@ -41,3 +41,9 @@ Um \textsc{Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket
 :::
 
 Die Einführung in \textsc{R Markdown} erfolgt typischerweise zu Beginn des Kurses, begleitet von der Aufforderung dies von vornherein für Seminar- und Hausarbeiten etc. zu nutzen [@baumer2014r].
+
+\index{install.packages()}
+\index{Paketinstallation}
+\index{knitr}
+\index{library()}
+\index{Pakete laden}
