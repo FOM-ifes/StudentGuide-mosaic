@@ -59,6 +59,8 @@ favstats(~cesd, data = HELPrct)
 ## Grafische Zusammenfassungen
 Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nutzen wir das Formel-Interface (wie im Buch *Start Modeling with R* [@TeachingR]), um ein Histogramm der CESD-Werte zu erzeugen.  
 
+\index{lm()}
+
 ```{r}
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5.9)
 ```
@@ -78,6 +80,8 @@ tally( ~ sex, format = "percent", data = HELPrct)
 ```
 
 Es ist einfach, die Analyse nur auf die weiblichen Probanden zu beschränken. Wenn wir viele Analysen mit einer Teilgruppe unserer Daten durchführen wollen, ist es am einfachsten, einen neuen Datensatz zu erzeugen, der nur die Fälle enthält, die uns interessieren. Die Funktion `filter()` im Paket `dplyr` kann genutzt werden, um einen solchen Datensatz zu erzeugen, der nur die Frauen oder nur die Männer enthält (s. auch Kapitel \@ref(subdaten)). Nachdem dieser erzeugt ist, wird die Funktion `stem()` genutzt, um ein Stamm-Blatt-Diagramm (*stem and leaf plot*) zu erzeugen.  
+
+\index{library()}
 
 ```{r, eval=FALSE}
 Female <- filter(HELPrct, sex == 'female')
@@ -154,6 +158,13 @@ gf_dotplot(~ cesd, binwidth = 3,
 ```
 
 \index{binwidth Option}
+<<<<<<< HEAD
+=======
+\index{dplyr package}
+\index{favstats()}
+\index{filter()}
+\index{HELPrct Datensatz}
+>>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960
 
 ## Dichtekurven
 Ein Nachteil von Histogrammen besteht darin, dass sie abhängig von der gewählten Anzahl von Säulen sind. Eine andere Darstellung ist die Dichtekurve.
@@ -166,7 +177,15 @@ Dichteplots sind ebenfalls abhängig von diversen Optionen. Wenn Ihr Dichteplot 
 Die Funktion `plotFun()` kann für Anmerkungen an Plots genutzt werden (s. Kapitel \@ref(VisReg)).
 :::
 
+<<<<<<< HEAD
 Hier versehen wir einen Dichteplot mit einigen zusätzlichen Inhalten, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
+=======
+\index{dist Option}
+\index{gf\_facet\_wrap()}
+\index{gf\_histogram()}
+
+Hier verzieren wir einen Dichteplot mit einigen Zusätzen, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
+>>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960
 
 ```{r, fig.keep='last'}
 gf_dens(~ cesd, data = Female) %>% 
@@ -177,6 +196,7 @@ gf_dens(~ cesd, data = Female) %>%
     xlim(0, 80)
 ```
 \index{bins Option}
+\index{gf\_dhistogram()}
 
 ## Häufigkeitspolygone
 Eine dritte Option ist ein Häufigkeitspolygon, bei dem die Grafik erzeugt wird, indem die Mittelpunkte der Säulen eines Histogramms miteinander verbunden werden:
@@ -200,6 +220,13 @@ x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
 :::
 
 \index{annotate()}
+\index{format Option}
+\index{gf\_dens()}
+\index{gf\_dotplot()}
+\index{gf\_fitdistr()}
+\index{gf\_labs()}
+\index{gf\_vline()}
+\index{label Option}
 
 ## Inferenz einer einzelnen Stichprobe {#bootstrap}
 Das 95%-Konfidenzintervall für den Mittelwert des CESD-Wertes der Frauen wird bei der Durchführung eines t-Tests mit ausgegeben:
@@ -235,6 +262,9 @@ Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvo
 :::
 
 \index{confint}
+\index{geom Option}
+\index{gf\_freqpoly()}
+\index{gf\_refine()}
 Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
 
 ```{r}

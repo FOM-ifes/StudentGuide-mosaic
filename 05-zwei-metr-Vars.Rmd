@@ -43,6 +43,7 @@ Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z.\
 cor(cesd ~ mcs, method = "spearman", data = Female)
 ```
 
+\index{LOWESS}
 
 ## Paarweise Plots
 Ein paarweiser Plot (Scatterplot Matrix) kann für jedes Paar eines Variablensets erstellt werden.
@@ -56,6 +57,8 @@ library(GGally)
 ggpairs(smallHELP)
 ```
 
+\index{gf\_point()}
+\index{label Option}
 
 ## Einfache lineare Regression
 
@@ -78,7 +81,14 @@ Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobj
 Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
 :::
 
+<<<<<<< HEAD
 Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
+=======
+\index{Linearität}
+\index{cor()}
+\index{gf\_text()}
+Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
+>>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960
 
 ```{r}
 options(show.signif.stars = FALSE)
@@ -120,6 +130,8 @@ gf_point(resid(cesdmodel) ~ fitted(cesdmodel),
   gf_hline(yintercept = 0)
 ```
 \index{coef()}
+\index{ggpairs()}
+\index{Lineare Regression}
 
 Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt:
 
@@ -147,6 +159,8 @@ mplot(cesdmodel, which = 4)
 
 \index{class()}
 \index{alpha Option}
+\index{library()}
+\index{lm()}
 
 Den Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, erhält man mit `which = 5`:
 
@@ -168,6 +182,10 @@ gf_point(cesd ~ mcs, data = HELPrct) %>%
   gf_lm(interval = "prediction", fill = "navy")
 ```
 
+\index{Cook's Abstandsmaß}
+\index{gf\_hline()}
+\index{gf\_qq()}
+\index{gf\_smooth()}
 
 :::{.aufgabe data-latex="{aufgabe}"}
 Mit Hilfe des Datensatzes `HELPrct` soll eine einfache lineare Regression geschätzt werden, die den Zusammenhang zwischen der am Tag getrunkenen Menge und dem MCS (mental component score) beschreibt. 
@@ -176,3 +194,10 @@ Dieses Model kann mit Hilfe des Modells `i1 ~ mcs` spezifiziert werden.
 
 Interpretieren Sie die Verteilung der Residuen.
 :::
+
+\index{Korrelationen}
+\index{density Option}
+\index{gf\_lm()}
+\index{gf\_point()}
+\index{interval Option}
+\index{Leverage}

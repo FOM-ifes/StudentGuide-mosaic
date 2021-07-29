@@ -8,6 +8,9 @@ Die Teilnehmer wurden zu Beginn ihres Entzugsaufenthaltes befragt sowie alle sec
 
 Das \textsf{R}-Paket `mosaicData` enthält mehrere Varianten des anonymisierten  \textsc{HELP}-Datensatzes. Für die vorliegende Fallstudie konzentrieren wir uns auf den `HELPrct`-Datensatz, der 27 Variablen zu 453 Personen enthält, wobei vergleichsweise wenig Daten fehlen, besonders zum ersten Messzeitpunkt. Tabelle \@ref(tab:tabhelp). Weitere Informationen finden sich online unter [https://nhorton.people.amherst.edu/r2/](https://nhorton.people.amherst.edu/r2/). Die Messinstrumente sind hier aufgeführt: [https://nhorton.people.amherst.edu/help/](https://nhorton.people.amherst.edu/help/).
 
+\index{Health Evaluation and Linkage to Primary Care (HELP) - Studie}
+\index{HELPrct Datensatz}
+
 \newpage
 \thispagestyle{empty}
 ```{r tabhelp, echo=FALSE}

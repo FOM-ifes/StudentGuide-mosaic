@@ -57,6 +57,8 @@ gf_dist('exp', rate = 1, kind = 'histogram', xlab = "x")
 gf_dist('binom', size = 25, prob = 0.25, xlim = c(-1, 26))
 ```
 
+\index{dnorm Option}
+\index{integrate()}
 
 Mehrere Verteilungen können in einer Grafik angezeigt werden:
 

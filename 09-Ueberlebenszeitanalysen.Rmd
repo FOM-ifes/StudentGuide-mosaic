@@ -19,6 +19,7 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
 
 Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
+\index{library()}
 
 ## Cox-proportionales-Hazard-Modell 
 
@@ -29,3 +30,8 @@ summary(coxph(Surv(dayslink, linkstatus) ~ age + substance,
 ```
 
 Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an die Grundversorgung.
+
+\index{Überlebenszeitanalysen}
+\index{gf\_step()}
+\index{Kaplan-Meier-Kurve}
+\index{linetype Option}

@@ -73,6 +73,8 @@ Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-
 wilcox.test(cesd ~ sex, data = HELPrct)
 ```
 
+\index{gf\_refine()}
+\index{gf\_point()}
 
 ## Permutationstest
 Hier erweitern wir die in Abschnitt \@ref(bootstrap) eingeführten Methoden, um einen zweiseitigen Test einzusetzen, der das Alter zu Beginn getrennt nach Geschlecht vergleicht. Hierzu berechnen wir zunächst die beobachtete Differenz der Mittelwerte:
@@ -148,10 +150,15 @@ Der Befehl `anova()` kann auch zum formalen Vergleich zweier (verschachtelter) M
 anova(modintercept, modsubstance)
 ```
 
+\index{lm()}
 \index{cex Option}
+\index{diffmean()}
+\index{head()}
 
 ## Tukeys Post-hoc-Test
+\index{fill Option}
 \index{aov}
+\index{gf\_vline()}
 Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines ANOVA-Modells verwendet werden können. Einer davon ist Tukey's Honest Significant Differences (HSD). Weitere Optionen sind innerhalb des Paketes `multcomp` aufgeführt.
 
 ```{r}
@@ -172,3 +179,8 @@ mplot(HELPHSD)
 Auch hier zeigt sich, dass die Kokainkonsumgruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.
 \index{anova()}
 \index{Varianzanalyse}
+\index{factor()}
+\index{gf\_boxplot()}
+\index{Tukeys Post-hoc-Test}
+\index{labels Option}
+\index{levels Option}

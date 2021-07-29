@@ -78,4 +78,4 @@ coef(fm)
 
 \@ref(datenmanagement).2 Der Datensatz `fusion2` im \textsf{R} Paket `fastR` beinhaltet Genotypen für ein bestimmtes Einzelnukleotid-Polymorphismus (\textsc{SNP}). Fügen Sie die Datensätze `fusion1`, `fusion2` und `Pheno` zu einen Datensatz zusammen. Beachten Sie, dass `fusion1` und `fusion2` über die gleichen Variablennamen verfügen. Es ist eine (mögliche) sinnvolle Herangehensweise, die Variablennamen nach dem Zusammenfügen umzubenennen, so dass der resultierende Datensatz einfacher zu verwenden ist. Bereinigen Sie den Datensatz um Duplikate oder unnötige Spalten.
 
-
+\index{lm()}

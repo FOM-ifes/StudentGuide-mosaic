@@ -40,3 +40,8 @@ Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin kons
 tally(~ homeless | substance, format = "percent", 
       margins = TRUE, data = HELPrct)
 ```
+
+\index{exp()}
+\index{family Option}
+\index{glm()}
+\index{Logistische Regression}

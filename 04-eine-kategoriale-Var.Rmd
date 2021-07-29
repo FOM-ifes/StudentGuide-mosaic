@@ -1,5 +1,6 @@
 # Eine kategoriale Variable
 \index{Bootstrap-Methode}
+\index{head()}
 
 ## Analyse kategorialer Daten 
 
@@ -27,6 +28,8 @@ tally( ~ homeless, format = "percent",
 tally( ~ homeless, format = "proportion", 
        data = HELPrct)
 ```
+
+\index{do()}
 
 ## Der Binomialtest
 \index{kategoriale Variablen}
@@ -168,6 +171,8 @@ Objekte, die sich im Arbeitsspeicher von \textsf{R} befinden, sind unter dem Rei
 :::
 
 \index{chisq.test()}
+\index{correct Option}
+\index{gf\_dist()}
 
 ```{r, echo=TRUE}
 # nicht mehr benötigte Variablen löschen

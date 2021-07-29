@@ -1,6 +1,6 @@
 # Einleitung
 
-Dieses Bbuch beinhaltet einen Überblick über die Befehle und Funktionen, die zur Datenanalyse im im Rahmen von Statistik-Modulen für Einsteiger und Fortgeschrittene benötigt werden. Ziel ist es, eine Ergänzung zu den Büchern *Start Teaching with R* [@TeachingR] und *Start Modeling with R* [@ModelingR] zur Verfügung zu stellen.
+Dieses Buch beinhaltet einen Überblick über die Befehle und Funktionen, die zur Datenanalyse im im Rahmen von Statistik-Modulen für Einsteiger und Fortgeschrittene benötigt werden. Ziel ist es, eine Ergänzung zu den Büchern *Start Teaching with R* [@TeachingR] und *Start Modeling with R* [@ModelingR] zur Verfügung zu stellen.
 
 In den meisten der hier verwendeten Beispiele werden Daten der HELP-Studie (Health Evaluation and Linkage to Primary Care) verwendet: Ein randomisiertes klinisches Experiment mit einer neuen Vorgehensweise, um Risikopatienten mit Leistungsanbietern der medizinischen Grundversorgung zusammenzubringen. Ausführlichere Informationen zu dem Datensatz sind in Kapitel \@ref(HELPstudie) enthalten.
 
@@ -41,3 +41,4 @@ Um \textsc{Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket
 :::
 
 Üblicherweise führen wir \textsc{RMarkdown} sehr früh in den Kursen ein und forden die Studierenden auf, dies für Seminar- und Hausarbeiten zu nutzen [@baumer2014r].
+
