@@ -83,12 +83,11 @@ Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden
 
 <<<<<<< HEAD
 Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
-=======
+
 \index{Linearität}
 \index{cor()}
 \index{gf\_text()}
-Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
->>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960
+
 
 ```{r}
 options(show.signif.stars = FALSE)
