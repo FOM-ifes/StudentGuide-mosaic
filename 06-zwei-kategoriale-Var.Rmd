@@ -1,21 +1,21 @@
 # Zwei kategoriale Variablen
 ## Kreuztabellen {#kreuztab}
 
-Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Obdachlosenstatus (obdachlos in einer oder mehr als einer Nacht in den letzten sechs Monaten oder nicht obdachlos) und das Geschlecht. 
+Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Obdachlosenstatus (obdachlos in einer / mehr als einer Nacht in den letzten sechs Monaten oder nicht obdachlos) und das Geschlecht. 
 
 ```{r, echo=TRUE}
 tally(~ homeless + sex, margins = FALSE, 
       data = HELPrct)
 ```
 
-Wir können auch Spaltenprozente erzeugen.
+Wir können auch Spaltenprozente erzeugen:
 
 ```{r, echo=TRUE}
 tally(~ sex | homeless, margins = TRUE, 
       format = "percent", data = HELPrct)
 ```
 
-Die Odds Ratios (Chancenverhältnis) können direkt aus der Tabelle berechnet werden:
+Die Odds Ratios (Chancenverhältnisse) können direkt aus der Tabelle berechnet werden:
 
 ```{r, echo=TRUE}
 OR <- (40/169)/(67/177)
@@ -41,7 +41,7 @@ with(HELPrct, CrossTable(homeless, sex,
 ```
 
 
-Grafische Zusammenfassungen von Kreuztabellen können zusätzlich sehr nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (zu sehen durch die Breite der Fläche, die für Obdachlose größer ist als für Nicht-Obdachlose).
+Grafische Zusammenfassungen von Kreuztabellen können ebenfalls sehr nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (die Breite der Fläche ist für Obdachlose größer als für Nicht-Obdachlose).
 
 :::{.achtung data-latex="{achtung}"}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
@@ -103,6 +103,6 @@ fisher.test(tally(~ homeless + sex, margins = FALSE,
 ```
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
-Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt \@ref(kreuztab). Die Funktion `fisher.test()` verwendet einen anderen Schätzer (und anderes Intervall, basierend auf dem Profil der Likelihood).
+Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt \@ref(kreuztab). Die Funktion `fisher.test()` verwendet einen anderen Schätzer (und anderes Intervall, basierend auf dem Likelihood).
 :::
 

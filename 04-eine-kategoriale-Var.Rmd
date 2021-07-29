@@ -65,7 +65,7 @@ pval(result)
 ```
 
 ::: {.tiefereinsteigen data-latex="{tiefereinsteigen}"}
-Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis angezeigt bekommen, stammt die Ausgabe in der Konsole  aus dieser Druckfunktion `print(result)`. Durch den expliziten Aufruf von `print(result)` können oft viele zusätzliche Informationen ausgegeben werden. In einigen Situationen, wie z.\ B. bei Grafiken, bleibt das Objekt unsichtbar, so dass nichts gedruckt wird. Hier werden die zusätzlichen Informationen üblicherweise nicht benötigt. Falls doch, können Sie aber abgerufen werden.
+Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis angezeigt bekommen, stammt die Ausgabe in der Konsole  aus dieser Druckfunktion `print(result)`. Durch den expliziten Aufruf von `print(result)` können oft viele zusätzliche Informationen ausgegeben werden. In einigen Situationen, wie z.\ B. bei Grafiken, bleibt das Objekt unsichtbar, so dass nichts gedruckt wird. Hier werden die zusätzlichen Informationen üblicherweise nicht benötigt. Falls doch, können sie aber abgerufen werden.
 :::
 
 ## Der Anteilswerttest 
@@ -93,7 +93,7 @@ prop.test(209, 209 + 244, correct = FALSE)
 ::: {.infobox data-latex="{infobox}"}
 Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil wir betrachten möchten. Wir hätten auch `homeless == "housed"` auswählen können.
 
-`prop.test()` berechnet die Chi-Quadrat-Statistik. Die meisten einführenden Statistikbücher nutzen die Z-Statistik. Mathematisch sind sie inBezug auf inferentielle Aussagen äquivalent.
+`prop.test()` berechnet die Chi-Quadrat-Statistik. Die meisten einführenden Statistikbücher nutzen die Z-Statistik. Mathematisch sind sie in Bezug auf inferentielle Aussagen äquivalent.
 :::
 
 

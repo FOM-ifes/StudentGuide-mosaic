@@ -19,7 +19,7 @@ Boxplots sind besonders hilfreiche grafische Darstellungen, um Verteilungen zu v
 Mit dem Befehl `gf_boxplot()` können die Boxplots für die CESD-Scores getrennt nach Geschlecht angezeigt werden. Sowohl aus den numerischen als auch aus den grafischen Zusammenfassungen geht hervor, dass Frauen in der Regel etwas höhere CESD-Werte haben als Männer.
 
 :::{.hinweis data-latex="{hinweis}"}
-Obwohl wir normalerweise die erklärenden Variablen entlang der horizontalen Achse darstellen, so ist die umgedrehte  Darstellung für diese Art von Grafen in einigen Fällen vorzuziehen.
+Obwohl wir normalerweise die erklärenden Variablen entlang der horizontalen Achse darstellen, so ist die umgedrehte  Darstellung für diese Art von Grafiken in einigen Fällen vorzuziehen.
 :::
 
 ```{r}
@@ -30,7 +30,7 @@ gf_boxplot(cesd ~ sex, data = HELPrct) %>%
 Bei nur kleiner Stichprobengröße gibt es keine Notwendigkeit, diese über Boxplots darzustellen, da der Befehl `gf_point()` ebenfalls kategoriale Prädiktoren darstellen kann. Auch 10--20 Beobachtungen pro Gruppe sind mittels Streudiagramm gut darzustellen. Beobachtungen, die einen gleichen Wert aufweisen, können über die Anpassung des Transparenzlevels (Argument `alpha`) sichtbar gemacht werden.
 
 :::{.hinweis data-latex="{hinweis}"}
-Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. Mit dem Gedanken ein großer Erfolg sei errungen worden, fragte er naiv wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
+Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. In dem Glauben, einen großen Erfolg errungen zu haben, fragte er naiv, wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
 :::
 
 ```{r}
@@ -116,7 +116,7 @@ Mit der vorliegenden Permutation erhalten wir keine ausreichenden Belege, um der
 
 
 ## Einfaktorielle Varianzanalyse
-Die vorangegangenen Vergleiche wurden zwischen zwei Gruppen durchgeführt. Wir können ebenso die Mittelwertsvergleiche zwischen drei oder mehr Gruppen mit einer einfachen Varianzanalys (ANOVA) testen. Hier vergleichen wir den CESD-Score auf Basis des vorwiegenden Drogenkonsums (Heroin, Kokain oder Alkohol). Der Median wird im folgenden Diagramm nun mittels einer Linie und nicht mit einem Punkt dargestellt.
+Die vorangegangenen Vergleiche wurden zwischen zwei Gruppen durchgeführt. Wir können ebenso die Mittelwertvergleiche zwischen drei oder mehr Gruppen mit einer einfachen Varianzanalyse (ANOVA) testen. Hier vergleichen wir den CESD-Score auf Basis des vorwiegenden Drogenkonsums (Heroin, Kokain oder Alkohol). Der Median wird im folgenden Diagramm nun mittels einer Linie und nicht durch einen Punkt dargestellt.
 
 ```{r}
 gf_boxplot(cesd ~ substance, data = HELPrct)
@@ -140,7 +140,7 @@ Der Befehl `anova()` kann mehrere Modelle zusammenfassen:
 anova(modsubstance)
 ```
 
-Im vorliegenden Fall sind die Ergebnisse identisch (da es nur einen Prädiktor mit 2 Freiheitsgraden (`df`) gibt).
+Im vorliegenden Fall sind die Ergebnisse identisch, da es nur einen Prädiktor mit 2 Freiheitsgraden (`df`) gibt.
 
 Der Befehl `anova()` kann auch zum formalen Vergleich zweier (verschachtelter) Modelle verwendet werden.
 
