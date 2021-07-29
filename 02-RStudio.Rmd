@@ -199,13 +199,5 @@ gf_point(births ~ day_of_year, data = Births78)
 
 Innerhalb des \textsc{Plots}-Reiters haben Sie Zugriff auf vorherige Grafiken und Sie können diese, nach interaktiver Größenanpassung, in verschiedene Formate exportieren.
 
-<<<<<<< HEAD
 ### Pakete (Packages)
 Ein großer Teil der \textsf{R}-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive \textsf{R} Archive Network) verfügbar sind. Der \textsc{Packages}- Reiter vereinfacht die Installation und das Laden der Pakete. Hier können Sie auch nach Paketen suchen, die seit der Installation ein Update erhalten haben. 
-=======
-### Der Packages Reiter
-Ein großer Teil der \textsf{R} Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive \textsf{R} Archive Network) verfügbar sind. Der \textsc{Packages} Reiter vereinfacht die Installation und das Laden der Pakete. Er ermöglicht es auch Pakete zu finden, die seit ihrer Installation ein Update bekommen haben.
-
-\index{gf\_point()}
-\index{library()}
->>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960

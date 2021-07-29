@@ -158,13 +158,11 @@ gf_dotplot(~ cesd, binwidth = 3,
 ```
 
 \index{binwidth Option}
-<<<<<<< HEAD
-=======
 \index{dplyr package}
 \index{favstats()}
 \index{filter()}
 \index{HELPrct Datensatz}
->>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960
+
 
 ## Dichtekurven
 Ein Nachteil von Histogrammen besteht darin, dass sie abhängig von der gewählten Anzahl von Säulen sind. Eine andere Darstellung ist die Dichtekurve.
@@ -177,15 +175,12 @@ Dichteplots sind ebenfalls abhängig von diversen Optionen. Wenn Ihr Dichteplot 
 Die Funktion `plotFun()` kann für Anmerkungen an Plots genutzt werden (s. Kapitel \@ref(VisReg)).
 :::
 
-<<<<<<< HEAD
+
 Hier versehen wir einen Dichteplot mit einigen zusätzlichen Inhalten, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
-=======
+
 \index{dist Option}
 \index{gf\_facet\_wrap()}
 \index{gf\_histogram()}
-
-Hier verzieren wir einen Dichteplot mit einigen Zusätzen, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
->>>>>>> 24af12f130bb5825ac001fa9d325839c43c29960
 
 ```{r, fig.keep='last'}
 gf_dens(~ cesd, data = Female) %>% 
