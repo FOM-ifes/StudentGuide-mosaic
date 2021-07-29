@@ -1,7 +1,7 @@
 --- 
 title: "A Student's Guide to R"
 subtitle: "Übersetzung des englischen Originals"
-author: "Bianca Krol, Sebastian Sauer, Roger Bons, Oliver Gansser, Matthias Gehrke, Herbert Hollmann, Tanja Kistler, Andreas Kladroba und Thomas Weiß"
+author: "Bianca Krol, Sebastian Sauer, Roger Bons, Oliver Gansser, Matthias Gehrke, Tabea Griesenbeck, Herbert Hollmann, Tanja Kistler, Andreas Kladroba und Thomas Weiß"
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 version: "v0.0.1"
 site: bookdown::bookdown_site
