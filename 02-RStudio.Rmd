@@ -201,3 +201,6 @@ Innerhalb des \textsc{Plots}-Reiters haben Sie Zugriff auf vorherige Grafiken un
 
 ### Pakete (Packages)
 Ein großer Teil der \textsf{R}-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive \textsf{R} Archive Network) verfügbar sind. Der \textsc{Packages}- Reiter vereinfacht die Installation und das Laden der Pakete. Hier können Sie auch nach Paketen suchen, die seit der Installation ein Update erhalten haben. 
+
+\index{gf\_point()}
+\index{library()}
