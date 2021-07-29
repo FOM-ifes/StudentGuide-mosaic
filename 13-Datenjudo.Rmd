@@ -102,7 +102,7 @@ CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 \index{Variablen hinzufügen}
 \index{Die ersten Zeilen anzeigen}
 
-## Variablen umbenennen
+## Variablen umbenennen  
 
 Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` aus dem Paket `dplyr` geändert werden.
 
