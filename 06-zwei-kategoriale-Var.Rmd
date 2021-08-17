@@ -83,6 +83,7 @@ chisq.test(tally(~ homeless + sex,
 
 \index{Kreuztabellen}
 \index{library()}
+\index{oddsRatio()}
 Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir einen so starken Zusammenhang finden, wenn der Obdachlosenstatus und das Geschlecht in der Population unabhängig voneinander wären. 
 
 Wenn Sie signifikante Zusammenhänge finden, ist es wichtig, dass Sie diese im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` liefert weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen), die hierzu hilfreich sein können.
@@ -110,3 +111,4 @@ Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu A
 
 \index{Exakter Test nach Fisher}
 \index{fisher.test()}
+\index{margins Option}

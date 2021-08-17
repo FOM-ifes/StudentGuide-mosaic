@@ -45,3 +45,4 @@ tally(~ homeless | substance, format = "percent",
 \index{family Option}
 \index{glm()}
 \index{Logistische Regression}
+\index{msummary()}

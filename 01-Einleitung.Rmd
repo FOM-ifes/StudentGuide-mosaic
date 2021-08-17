@@ -47,3 +47,5 @@ Die Einführung in \textsc{R Markdown} erfolgt typischerweise zu Beginn des Kurs
 \index{knitr}
 \index{library()}
 \index{Pakete laden}
+\index{markdown}
+\index{mosaic Paket}

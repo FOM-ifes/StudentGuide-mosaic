@@ -58,6 +58,7 @@ head(irisSmall)
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
 
+\index{mutate()}
 Der \textsc{CPS85}-Datensatz enthält Daten aus einer Bevölkerungserhebung (aus dem Jahr 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
 
 
@@ -75,6 +76,7 @@ tally(~ (exper - workforce.years), data = CPS85)
 
 \index{Dataframes!Überprüfen}
 \index{iris Datensatz}
+\index{mutate()}
 
 ## Variablen löschen
 \index{Pipe-Operator (\small{\%<\%})}
@@ -151,6 +153,7 @@ head(faithful, 3)
 \index{CPS85 Datensatz}
 \index{Dataframe}
 \index{Variablen löschen}
+\index{names()}
 
 ## Erstellen von Teilmengen spezifischer Beobachtungen {#subdaten}
 
@@ -307,6 +310,7 @@ HELPrct <- mutate(HELPrct,
 \index{gather()}
 \index{Dataframes!Zusammenfügen}
 \index{fusion1 Datensatz}
+\index{mutate()}
 
 ### Faktoren neu ordnen
 \index{breaks Option}
@@ -367,6 +371,8 @@ nrow(HELPmerged)
 ```
 
 \index{Faktoren neu ordnen}
+\index{mutate()}
+\index{ntiles()}
 
 ## Umgang mit fehlenden Werten {#missings}
 
@@ -407,6 +413,7 @@ nomiss <- filter(smaller,
 dim(nomiss)
 ```
 
+\index{nrow()}
 \index{lm()}
 \index{Dataframes!Neu ordnen}
 \index{dim()}
@@ -416,3 +423,7 @@ dim(nomiss)
 \index{Fehlende Werte}
 \index{is.na()}
 \index{left\_join()}
+\index{Zusammenfügen von Dataframes}
+\index{NA Zeichenkette}
+\index{na.omit()}
+\index{ncol()}

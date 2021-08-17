@@ -3,6 +3,7 @@ Obwohl dieses Thema i.\ d.\ R. kein Hauptpunkt in einführenden Statistikkursen 
 Wir werden die Power des Vorzeichentests und die Power eines Tests basierend auf der Normalverteilungsannahme (einseitiger Einstichproben-t-Test) vergleichen unter der Annahme, dass die Varianz $\sigma$ der Population bekannt sei. $X1, ... , X25$ seien u.\ i.\ v. $N(0,3; 1)$ (das ist die Zufallsfolge, für die wir die Power berechnen wollen). Wir testen die Nullhypothese $H_0: \mu = 0$ versus $H_A: \mu > 0$ zum Signifikanzniveau $\alpha = 0.05$. 
 \index{center Option}
 \index{cut()}
+\index{makeFun()}
 
 ## Vorzeichentest
 Wir starten mit der Berechnung des Alpha-Fehlers (Fehler 1. Art) für den Vorzeichentest. Wir verwerfen die Nullhypothese, wenn die Anzahl der positiven Werte groß ist. Unter der Nullhypothese ist das eine binomialverteilte Zufallsvariable mit $n = 25$ Versuchen und $p = 0,5$ Wahrscheinlichkeit für einen positiven Wert. Lassen Sie uns Werte zwischen 15 und 19 nutzen.

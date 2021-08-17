@@ -59,6 +59,7 @@ include_graphics("images/rstudio-cloud-interface.png")
 
 Sie können feststellen, dass \textsf{RStudio} seine Welt in vier *Panel* aufteilt. Verschiedende Panel sind weiter unterteilt in mehrere *Reiter*. Welche Reiter in welchem Panel auftauchen kann vom Nutzer konfiguriert werden.
 
+\index{markdown}
 \textsf{R} kann vieles mehr als ein einfacher Taschenrechner und wir werden zu gegebener Zeit zusätzliche Eigenschaften vorstellen. Aber, das Durchführen von einfachen Berechnungen in \textsf{R} ist eine gute Vorgehensweise, um die Eigenschaften von \textsf{RStudio} kennenzulernen.
 
 Befehle, die in dem Reiter \textsc{Console} eingetragen werden, werden direkt ausgeführt von \textsf{R}. Auch hier ist die Ausführung einfacher Berechnungen ein guter Start, um sich mit der Konsole vertraut zu machen. Das meiste funktioniert analog zum typischen Taschenrechner. 

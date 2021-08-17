@@ -99,6 +99,7 @@ Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil
 `prop.test()` berechnet die Chi-Quadrat-Statistik. Die meisten einführenden Statistikbücher nutzen die Z-Statistik. Mathematisch sind sie inBezug auf inferentielle Aussagen äquivalent.
 :::
 
+\index{names()}
 
 ## Anpassungstests
 
@@ -156,6 +157,7 @@ gf_dist("chisq", df = 2, fill = ~ (x > 9.31),
         geom = "area")
 ```
 
+\index{margins Option}
 Alternativ kann  mit Hilfe des Paketes `mosaic` ein analoger `chisq.test()` durchgeführt werden, welcher zusätzlich weitere Angaben liefert, wie z.\ B. die beobachteten und erwarteten Häufigkeiten.
 
 ::: {.hinweis data-latex="{hinweis}"}

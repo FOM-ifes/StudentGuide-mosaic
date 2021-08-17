@@ -20,6 +20,7 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
 Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
 \index{library()}
+\index{margins Option}
 
 ## Cox-proportionales-Hazard-Modell 
 

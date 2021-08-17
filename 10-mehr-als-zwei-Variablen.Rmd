@@ -29,6 +29,7 @@ plotModel(mod)
 
 \index{Cox-proportionales-Hazard-Modell}
 \index{coxph()}
+\index{mutate()}
 
 ## Multiple Regression
 Die multiple Regression ist eine logische Erweiterung der vorangegangenen Befehle, bei der zusätzliche Prädiktoren hinzugefügt werden. Damit können die Studierenden versuchen, multivariate Beziehungen zu analysieren.
@@ -61,6 +62,7 @@ Es deutet wenig auf einen Interaktionseffekt hin, so dass wir diesen aus dem Mod
 
 \index{Interaktionen}
 \index{labels Option}
+\index{median()}
 
 ### Visualisierung der Regressionsergebnisse {#VisReg}
 
@@ -105,6 +107,7 @@ Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlende
 
 \index{color Option}
 \index{Koeffizientenvisualisierungen}
+\index{Multiple Regression}
 
 ### Residuenanalyse
 
@@ -129,6 +132,7 @@ gf_dhistogram(~ residuals, data= HELPrct) %>%
 ```
 
 \index{linetype Option}
+\index{makeFun()}
 Wir können den Teil der Beobachtungen mit extrem hohen Residuen bestimmen.
 
 ```{r, tidy=FALSE}
@@ -150,3 +154,6 @@ Die Annahme der Normalverteilung (s. Histogramm), der Linearität, und Heteroske
 \index{fitted()}
 \index{gf\_point()}
 \index{gf\_smooth()}
+\index{mplot()}
+\index{msummary()}
+\index{mutate()}

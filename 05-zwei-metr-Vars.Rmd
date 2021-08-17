@@ -157,6 +157,7 @@ mplot(cesdmodel, which = 4)
 \index{alpha Option}
 \index{library()}
 \index{lm()}
+\index{options()}
 
 Der Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, wird mit `which = 5` erhalten:
 
@@ -182,6 +183,8 @@ gf_point(cesd ~ mcs, data = HELPrct) %>%
 \index{gf\_hline()}
 \index{gf\_qq()}
 \index{gf\_smooth()}
+\index{mplot()}
+\index{msummary()}
 
 :::{.aufgabe data-latex="{aufgabe}"}
 Mit Hilfe des Datensatzes `HELPrct` soll eine einfache lineare Regression geschätzt werden, die den Zusammenhang zwischen der am Tag getrunkenen Menge und dem MCS (mental component score) beschreibt. 

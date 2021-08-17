@@ -65,6 +65,7 @@ msummary(lm(cesd ~ sex, data = HELPrct))
 Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wohingegen `t.test()` im Wesentlichen eine nicht weiter anpassungsfähige Sackgasse ist. `lm()` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch *Start Modeling in R* [@ModelingR] für weitere Details.
 :::
 
+\index{mean()}
 
 ## Nichtparametrische Zweistichprobentests
 Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-Rang-Summe) gezogen.
@@ -142,6 +143,7 @@ Der Befehl `anova()` kann mehrere Modelle zusammenfassen:
 anova(modsubstance)
 ```
 
+\index{mutate()}
 Im vorliegenden Fall sind die Ergebnisse identisch (da es nur einen Prädiktor mit 2 Freiheitsgraden (`df`) gibt).
 
 Der Befehl `anova()` kann auch zum formalen Vergleich zweier (verschachtelter) Modelle verwendet werden.
@@ -154,11 +156,14 @@ anova(modintercept, modsubstance)
 \index{cex Option}
 \index{diffmean()}
 \index{head()}
+\index{msummary()}
 
 ## Tukeys Post-hoc-Test
 \index{fill Option}
 \index{aov}
 \index{gf\_vline()}
+\index{Modellvergleich}
+\index{Einfaktorielle Varianzanalyse}
 Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines ANOVA-Modells verwendet werden können. Einer davon ist Tukey's Honest Significant Differences (HSD). Weitere Optionen sind innerhalb des Paketes `multcomp` aufgeführt.
 
 ```{r}
@@ -184,3 +189,6 @@ Auch hier zeigt sich, dass die Kokainkonsumgruppe deutlich niedrigere CESD-Werte
 \index{Tukeys Post-hoc-Test}
 \index{labels Option}
 \index{levels Option}
+\index{mplot()}
+\index{Multiple Vergleiche}
+\index{Multivariate Beziehungen}
