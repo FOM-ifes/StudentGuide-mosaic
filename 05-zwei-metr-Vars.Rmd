@@ -1,10 +1,10 @@
 # Zwei metrische Variablen {#zweiMetrVar}
 ## Scatterplots
 
-Wir empfehlen, jede Analyse durch eine grafische Darstellung Ihrer Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS Linie mit einer etwas dickeren Linie dargestellt.
+Wir empfehlen, jede Analyse durch eine grafische Darstellung der Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS-Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS-Linie mit einer etwas dickeren Linie dargestellt.
 
 :::{.note data-latex="{note}"}
-Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS Filter definiert werden.
+Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS-Filter definiert werden.
 :::
 
 ```{r}
@@ -81,10 +81,13 @@ Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobj
 Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
 :::
 
+<<<<<<< HEAD
+Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
+
 \index{Linearität}
 \index{cor()}
 \index{gf\_text()}
-Um den Output übersichtlicher zu gestalten schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
+
 
 ```{r}
 options(show.signif.stars = FALSE)
@@ -103,7 +106,7 @@ rsquared(cesdmodel)
 class(cesdmodel)
 ```
 
-Die Ausgabe von `lm()` ist ein Lineares Modell.
+Die Ausgabe von `lm()` ist ein lineares Modell.
 Ähnlich wie bei `coef()` kann eine Reihe von Operationen auf dieses Objekt zugreifen.  
 Die Funktion `residuals()` gibt den Residuenvektor aus.
 
@@ -159,13 +162,13 @@ mplot(cesdmodel, which = 4)
 \index{lm()}
 \index{options()}
 
-Der Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, wird mit `which = 5` erhalten:
+Den Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, erhält man mit `which = 5`:
 
 ```{r}
 mplot(cesdmodel, which = 5)
 ```
 
-und schlussendlich mit `which = 6` der Cook’s distance vs. leverage-Plot:
+Schlussendlich gibt `which = 6` den Cook’s distance vs. Leverage-Plot aus:
 
 ```{r}
 mplot(cesdmodel, which = 6)
