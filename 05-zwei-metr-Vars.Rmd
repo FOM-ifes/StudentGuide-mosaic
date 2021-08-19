@@ -59,6 +59,7 @@ ggpairs(smallHELP)
 
 \index{gf\_point()}
 \index{label Option}
+\index{Pearson Korrelation}
 
 ## Einfache lineare Regression
 
@@ -81,7 +82,6 @@ Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobj
 Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
 :::
 
-<<<<<<< HEAD
 Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
 
 \index{Linearität}
@@ -131,6 +131,7 @@ gf_point(resid(cesdmodel) ~ fitted(cesdmodel),
 \index{coef()}
 \index{ggpairs()}
 \index{Lineare Regression}
+\index{Paarweise Plots}
 
 Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt:
 
@@ -161,6 +162,7 @@ mplot(cesdmodel, which = 4)
 \index{library()}
 \index{lm()}
 \index{options()}
+\index{pch Option}
 
 Den Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, erhält man mit `which = 5`:
 
@@ -203,3 +205,4 @@ Interpretieren Sie die Verteilung der Residuen.
 \index{gf\_point()}
 \index{interval Option}
 \index{Leverage}
+\index{Vorhersageintervalle}

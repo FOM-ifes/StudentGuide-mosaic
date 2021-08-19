@@ -78,3 +78,5 @@ x <- rexp(1000, rate = 2)
 gf_dhistogram(~ x, binwidth = 0.2, center = 0.1) %>%
   gf_fun(f(x) ~ x, color = "red", size = 2, xlim = c(0, 3))
 ```
+
+\index{pch Option}

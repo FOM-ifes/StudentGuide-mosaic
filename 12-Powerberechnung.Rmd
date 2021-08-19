@@ -60,6 +60,7 @@ crit <- zstar * stderr
 crit
 ```
 
+\index{pnorm()}
 Daher verwerfen wir die Nullhypothese für beobachtete Mittelwerte größer als $0.322$.
 Um die Power dieses einseitigen Tests zu berechnen, bestimmen wir die Wahrscheinlichkeit unter der Annahme der Alternativhypothese, rechts von dieser Obergrenze zu sein.
 
@@ -75,9 +76,12 @@ power.t.test(n = 25, delta = .3, sd = 1, sig.level = alpha,
              alternative = "one.sided", type = "one.sample")$power
 ```
 
+\index{pbinom()}
 Der analytische (formelbasierte) Ansatz ergibt eine ähnliche Schätzung wie die direkte Berechnung über `power.t.test()`.
 Insgesamt sehen wir, dass der t-Test eine größere Power als der Vorzeichentest hat, wenn die zugrundeliegenden Daten tatsächlich normalverteilt sind.
 
 :::{.note data-latex="{note}"}
 Die empirische Berechnung der Power zeigt die Stärke von Simulationen.
 :::
+
+\index{power.t.test()}

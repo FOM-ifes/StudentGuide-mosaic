@@ -77,6 +77,7 @@ tally(~ (exper - workforce.years), data = CPS85)
 \index{Dataframes!Überprüfen}
 \index{iris Datensatz}
 \index{mutate()}
+\index{\textsc{Pipe} Operator}
 
 ## Variablen löschen
 \index{Pipe-Operator (\small{\%<\%})}
@@ -316,6 +317,7 @@ HELPrct <- mutate(HELPrct,
 \index{breaks Option}
 \index{HELPrct Datensatz}
 \index{labels Option}
+\index{paste()}
 
 Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
 

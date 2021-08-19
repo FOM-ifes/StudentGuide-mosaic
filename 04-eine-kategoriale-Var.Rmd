@@ -100,9 +100,11 @@ Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil
 :::
 
 \index{names()}
+\index{print()}
 
 ## Anpassungstests
 
+\index{Anpassungstests}
 Es gibt eine Vielzahl von Gütemaßen, die mit Hilfe bestimmter Referenz-Verteilungen bestimmt werden können. Für die Daten der HELP-Studie können wir die Nullhypothese testen, dass in jeder Kategorie des Drogenkonsums ein gleich hoher Anteil an Personen in der Population vorliegt.
 
 ```{r, echo=TRUE}
@@ -175,6 +177,7 @@ Objekte, die sich im Arbeitsspeicher von \textsf{R} befinden, sind unter dem Rei
 \index{chisq.test()}
 \index{correct Option}
 \index{gf\_dist()}
+\index{pchisq()}
 
 ```{r, echo=TRUE}
 # nicht mehr benötigte Variablen löschen

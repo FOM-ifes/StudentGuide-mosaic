@@ -76,6 +76,7 @@ Wir können nun die vorhergesagten Werte -- getrennt für männliche und weiblic
 
 \index{levels Option}
 \index{lm()}
+\index{plotModel()}
 
 ```{r}
 gf_point(cesd ~ mcs, color = ~ sex,
@@ -108,6 +109,7 @@ Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlende
 \index{color Option}
 \index{Koeffizientenvisualisierungen}
 \index{Multiple Regression}
+\index{plotFUN()}
 
 ### Residuenanalyse
 

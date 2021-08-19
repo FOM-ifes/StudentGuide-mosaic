@@ -19,7 +19,7 @@ Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begle
 
 Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wann immer möglich werden wir die `mosaic`-Syntax verwenden, ):
 
-\index{*Modeling with R*}
+\index{\textit{Modeling with R}}
 
 ```{r}
 with(HELPrct, mean(cesd))
@@ -226,6 +226,8 @@ x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
 \index{gf\_labs()}
 \index{gf\_vline()}
 \index{label Option}
+\index{plotFUN()}
+\index{Polygone}
 
 ## Inferenz einer einzelnen Stichprobe {#bootstrap}
 Das 95%-Konfidenzintervall für den Mittelwert des CESD-Wertes der Frauen wird bei der Durchführung eines t-Tests mit ausgegeben:

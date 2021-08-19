@@ -144,6 +144,7 @@ anova(modsubstance)
 ```
 
 \index{mutate()}
+\index{Permutationstest}
 
 Im vorliegenden Fall sind die Ergebnisse identisch, da es nur einen Prädiktor mit 2 Freiheitsgraden (`df`) gibt.
 
@@ -158,6 +159,7 @@ anova(modintercept, modsubstance)
 \index{diffmean()}
 \index{head()}
 \index{msummary()}
+\index{pch Option}
 
 ## Tukeys Post-hoc-Test
 \index{fill Option}
