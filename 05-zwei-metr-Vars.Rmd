@@ -12,6 +12,7 @@ Female <- filter(HELPrct, female == 1)
 gf_point(cesd ~ mcs, data = Female, shape = 1) %>%
   gf_smooth(se = FALSE, size = 2)
 ```
+\index{filter()}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Wenn man mit der Ausdrucksweise des statistischen Modellierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R* [@TeachingR] entsprechende Hilfe. 
@@ -29,6 +30,7 @@ gf_text(Murder ~ Assault,
 
 ## Korrelationen
 Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet werden.
+\index{Korrelationen}
 
 ```{r}
 cor(cesd ~ mcs, data = Female)
@@ -36,6 +38,7 @@ cor(cesd ~ mcs, data = Female)
 smallHELP <- select(Female, cesd, mcs, pcs)
 cor(smallHELP)
 ```
+\index{cor()}
 
 Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z.\ B. Spearman) können mit der Option `method` gewählt werden.
 
@@ -76,6 +79,7 @@ Im folgenden betrachten wir das Modell `cesd ~ mcs`.
 cesdmodel <- lm(cesd ~ mcs, data = Female)
 coef(cesdmodel)
 ```
+\index{coef()}
 
 :::{.note data-latex="{note}"}
 Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobjekte zu finden. Hier wird der Output von `lm()` als `cesdmodel` gespeichert.
@@ -85,7 +89,6 @@ Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden
 Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
 
 \index{Linearität}
-\index{cor()}
 \index{gf\_text()}
 
 
@@ -105,6 +108,8 @@ rsquared(cesdmodel)
 
 class(cesdmodel)
 ```
+\index{confint()}
+\index{class()}
 
 Die Ausgabe von `lm()` ist ein lineares Modell.
 Ähnlich wie bei `coef()` kann eine Reihe von Operationen auf dieses Objekt zugreifen.  
@@ -113,22 +118,28 @@ Die Funktion `residuals()` gibt den Residuenvektor aus.
 :::{.hinweis data-latex="{hinweis}"}
 Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden. Eine andere wichtige Funktion ist `fitted()`, die einen Vektor aus Vorhersagewerten erzeugt.
 :::
+\index{fitted()}
 
 ```{r}
 gf_histogram(~ residuals(cesdmodel), density = TRUE)
 ```
+\index{gf\_histogram()}
+\index{density Option}
 
 ```{r}
 gf_qq(~ resid(cesdmodel))
 ```
 
+\index{alpha Option}
 ```{r}
 gf_point(resid(cesdmodel) ~ fitted(cesdmodel), 
          alpha = 0.5, cex = 0.3, pch = 20) %>%
   gf_smooth(se = FALSE) %>%
   gf_hline(yintercept = 0)
 ```
-\index{coef()}
+\index{cex Option}
+\index{gf\_hline()}
+
 \index{ggpairs()}
 \index{Lineare Regression}
 \index{Paarweise Plots}
@@ -152,13 +163,12 @@ mplot(cesdmodel, which = 3)
 ```
 
 Das Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer wird bei `which = 4` ausgegeben:
+\index{Cook's Abstandsmaß}
 
 ```{r}
 mplot(cesdmodel, which = 4)
 ```
 
-\index{class()}
-\index{alpha Option}
 \index{library()}
 \index{lm()}
 \index{options()}
@@ -183,9 +193,8 @@ gf_point(cesd ~ mcs, data = HELPrct) %>%
   gf_lm(interval = "confidence", fill = "red") %>%
   gf_lm(interval = "prediction", fill = "navy")
 ```
-
-\index{Cook's Abstandsmaß}
-\index{gf\_hline()}
+\index{gf\_lm()}
+\index{fill Option}
 \index{gf\_qq()}
 \index{gf\_smooth()}
 \index{mplot()}
@@ -199,9 +208,6 @@ Dieses Model kann mit Hilfe des Modells `i1 ~ mcs` spezifiziert werden.
 Interpretieren Sie die Verteilung der Residuen.
 :::
 
-\index{Korrelationen}
-\index{density Option}
-\index{gf\_lm()}
 \index{gf\_point()}
 \index{interval Option}
 \index{Leverage}

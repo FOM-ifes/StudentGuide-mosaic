@@ -57,6 +57,7 @@ Schließlich stellt die Funktion `favstats()` (für favorite stats) im Paket `mo
 ```{r}
 favstats(~cesd, data = HELPrct)
 ```
+\index{favstats()}
 
 ## Grafische Zusammenfassungen
 Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nutzen wir das Formel-Interface (wie im Buch *Start Modeling with R* [@TeachingR]), um ein Histogramm der CESD-Werte zu erzeugen.  
@@ -67,6 +68,7 @@ Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nut
 ```{r}
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5.9)
 ```
+\index{gf\_histogram()}
 
 Wir können die Optionen `binwidth` und `center` nutzen, um die Lage der Säulen zu steuern:
 
@@ -74,6 +76,8 @@ Wir können die Optionen `binwidth` und `center` nutzen, um die Lage der Säulen
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5, center = 2.5)
 ```
 
+\index{center Option}
+\index{binwidth Option}
 Im Datensatz `HELPrct` ist etwa ein Viertel der Probanden weiblich.
 
 ```{r}
@@ -81,9 +85,11 @@ tally( ~ sex, data = HELPrct)
 
 tally( ~ sex, format = "percent", data = HELPrct)
 ```
+\index{format Option}
 
 Es ist einfach, die Analyse nur auf die weiblichen Probanden zu beschränken. Wenn wir viele Analysen mit einer Teilgruppe unserer Daten durchführen wollen, ist es am einfachsten, einen neuen Datensatz zu erzeugen, der nur die Fälle enthält, die uns interessieren. Die Funktion `filter()` im Paket `dplyr` kann genutzt werden, um einen solchen Datensatz zu erzeugen, der nur die Frauen oder nur die Männer enthält (s. auch Kapitel \@ref(subdaten)). Nachdem dieser erzeugt ist, wird die Funktion `stem()` genutzt, um ein Stamm-Blatt-Diagramm (*stem and leaf plot*) zu erzeugen.  
-
+\index{dplyr Paket}
+\index{filter()}
 \index{library()}
 \index{median()}
 
@@ -126,6 +132,10 @@ gf_dhistogram(~ cesd, binwidth = 7.1,
                       data = filter(HELPrct, sex == "female")) %>%
     gf_fitdistr(dist = "dnorm")
 ```
+\index{gf\_dhistogram()}
+\index{gf\_fitdistr()}
+\index{dist Option}
+\index{dnorm Attribut}
 
 Alternativ können wir nebeneinander angeordnete Plots erzeugen, um mehrere Teilgruppen zu vergleichen:
 
@@ -133,7 +143,7 @@ Alternativ können wir nebeneinander angeordnete Plots erzeugen, um mehrere Teil
 gf_dhistogram(~ cesd, data = HELPrct, binwidth = 5.9) %>%
     gf_facet_wrap(~ sex)
 ```
-
+\index{gf\_facet\_wrap()}
 Das Layout kann auch anders angeordnet werden:
 
 ```{r}
@@ -146,6 +156,8 @@ Wir können die Zahl der Säulen auf verschiedene Arten steuern. Hier wird die G
 ```{r}
 gf_dhistogram(~ cesd, bins = 20, data = Female)
 ```
+
+\index{bins Option}
 
 Auch die Breite der Säulen kann vorgegeben werden:
 
@@ -160,11 +172,9 @@ gf_dotplot(~ cesd, binwidth = 3,
              data = filter(HELPrct, sex == "female", homeless == "homeless")) %>%
     gf_labs(x = "CESD score")
 ```
+\index{gf\_dotplot()}
+\index{gf\_labs()}
 
-\index{binwidth Option}
-\index{dplyr package}
-\index{favstats()}
-\index{filter()}
 \index{HELPrct Datensatz}
 
 
@@ -182,9 +192,8 @@ Die Funktion `plotFun()` kann für Anmerkungen an Plots genutzt werden (s. Kapit
 
 Hier versehen wir einen Dichteplot mit einigen zusätzlichen Inhalten, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
 
-\index{dist Option}
-\index{gf\_facet\_wrap()}
-\index{gf\_histogram()}
+
+\index{annotate()}
 
 ```{r, fig.keep='last'}
 gf_dens(~ cesd, data = Female) %>% 
@@ -194,8 +203,9 @@ gf_dens(~ cesd, data = Female) %>%
     gf_vline(xintercept = 60) + 
     xlim(0, 80)
 ```
-\index{bins Option}
-\index{gf\_dhistogram()}
+\index{gf\_dens}
+\index{geom Option}
+
 
 ## Häufigkeitspolygone
 Eine dritte Option ist ein Häufigkeitspolygon, bei dem die Grafik erzeugt wird, indem die Mittelpunkte der Säulen eines Histogramms miteinander verbunden werden:
@@ -203,7 +213,7 @@ Eine dritte Option ist ein Häufigkeitspolygon, bei dem die Grafik erzeugt wird,
 ```{r}
 gf_freqpoly(~ cesd, data = Female, binwidth = 3.8)
 ```
-
+\index{gf\_freqpoly()}
 
 ## Normalverteilungen
 Die berühmteste Dichtekurve ist die Normalverteilung.
@@ -218,12 +228,7 @@ xpnorm(1.96, mean = 0, sd = 1)
 x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
 :::
 
-\index{annotate()}
-\index{format Option}
 \index{gf\_dens()}
-\index{gf\_dotplot()}
-\index{gf\_fitdistr()}
-\index{gf\_labs()}
 \index{gf\_vline()}
 \index{label Option}
 \index{plotFUN()}
@@ -237,8 +242,10 @@ t.test( ~ cesd, data = Female)
 
 confint(t.test( ~ cesd, data = Female))
 ```
+\index{confint()}
 
 Aber es ist genauso zielführend, es mit der **Bootstrap-Methode** zu berechnen. Die Statistik, die wir resampeln wollen, ist der Mittelwert.
+\index{Bootstrap-Methode}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Mehr Details und Beispiele finden sich in der Vignette zum Resampling im Paket `mosaic`.
@@ -263,8 +270,6 @@ Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvo
 :::
 
 \index{confint}
-\index{geom Option}
-\index{gf\_freqpoly()}
 \index{gf\_refine()}
 Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
 
@@ -280,5 +285,5 @@ head(trials, 3)
 
 qdata( ~ mean, c(.025, .975), data = trials)
 ```
-
+\index{do()}
 \index{mean()}

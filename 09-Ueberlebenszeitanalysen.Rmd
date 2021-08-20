@@ -1,4 +1,5 @@
 # Überlebenszeitanalysen
+\index{Überlebenszeitanalysen}
 
 Umfangreiche Unerstützung für Überlebensanalysen (Zeitspanne bis zum Eintreten eines definierten Ereignis) sind in dem Paket `survival` enthalten.
 
@@ -23,16 +24,18 @@ Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundhei
 \index{margins Option}
 
 ## Cox-proportionales-Hazard-Modell 
+\index{Cox-proportionales-Hazard-Modell }
 
 ```{r}
 library(survival)
 summary(coxph(Surv(dayslink, linkstatus) ~ age + substance, 
               data = HELPrct))
 ```
+\index{coxph()}
 
 Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an die Grundversorgung.
 
-\index{Überlebenszeitanalysen}
+
 \index{gf\_step()}
 \index{Kaplan-Meier-Kurve}
 \index{linetype Option}

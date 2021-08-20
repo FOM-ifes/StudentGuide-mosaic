@@ -1,9 +1,10 @@
 # Datenmanagement {#datenmanagement}
+\index{Datenjudo}
 
 Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierenden) ermöglicht \glqq mit Daten zu arbeiten\grqq{} oder wie Diane Lambert von Google sagte \glqq mit Daten zu denken\grqq{}. Wir neigen dazu, die Datenverwaltung zu Beginn eines einführenden Statistikkurses auf ein Minimum zu beschränken und die Themen, wo nötig, schrittweise einzuführen. In Kursen, in denen substantielle und umfangreiche Projekte durchgeführt werden, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Möglichkeiten des Datenmanagements beschrieben.
 
-
 ## Überprüfung von Dataframes
+\index{Dataframes!Überprüfen}
 
 :::{.note data-latex="{note}"}
 Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Abschnitt über die Datenverwaltung, einschließlich der Verwendung der Funktion `read.file()` zum Laden von Daten in \textsf{R} und \textsf{RStudio}. 
@@ -12,21 +13,27 @@ Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Absch
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern das Arbeiten mit Daten. Hadley Wickham -- Autor der Pakete -- gibt an, dass mittels sechs der in diesen Paketen implementierten Schlüsselwörter (oder Verben) eine große Anzahl von Aufgaben erfüllt werden kann: Filtern (`filter` -- Zeilen beibehalten, die die angegebenen Kriterien erfüllen), Auswählen (`select` -- Spalten nach Namen auswählen), Anordnen (`arrange` -- Zeilen neu ordnen), Mutieren (`mutate` -- neue Variablen hinzufügen), Zusammenfassen (`summarise` -- Variablen auf zusammenfassende Statistiken reduzieren) und Gruppieren (`group by` - Gruppen zusammenfassen). Siehe [https://nhorton.people.amherst.edu/precursors/](https://nhorton.people.amherst.edu/precursors/) für weitere Details und Ressourcen.
 :::
+\index{dplyr Paket}
+\index{Dataframes!Auswählen}
 
 Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in \textsf{R}) hilfreich sein.
-
+\index{Dataframe}
+\index{inspect()}
 
 ```{r}
 inspect(iris)
 ```
 
-
 Der `iris`-Datensatz enthält eine kategoriale und vier quantitative Variablen.
-
+\index{iris Datensatz}
 
 ## Hinzufügen neuer Variablen zu einem Dataframe
 
+\index{\textsc{Pipe} Operator \small{\%<\%}}
+\index{Variablen hinzufügen}
+
 Wir können zusätzliche Variablen zu einem bestehenden Dataframe mit `mutate()` hinzufügen. Aber zuerst erstellen wir eine kleinere Version des `iris`-Datensatzes.
+\index{mutate()}
 
 ```{r}
 irisSmall <- select(iris, Species, Sepal.Length)
@@ -35,18 +42,19 @@ irisSmall <- select(iris, Species, Sepal.Length)
 
 ```{r}
 # schneidet die Daten in n Gruppen
-irisSmall <- mutate(irisSmall, Length = cut(Sepal.Length, breaks=4:8))
+irisSmall <- mutate(irisSmall, Length = cut(Sepal.Length, breaks = 4:8))
 
 ```
+\index{breaks Option}
 
-
-Mehrere Befehle können mit dem `%>%` (\textsc{Pipe}-) Operator miteinander verknüpft werden:
+Mehrere Befehle können mit dem `%>%` (\textsc{Pipe}-) Operator miteinander verknüpft werden: 
 
 ```{r}
 irisSmall <- iris %>%
   select(Species, Sepal.Length) %>%
   mutate(Length = cut(Sepal.Length, breaks = 4:8))
 ```
+\index{cut()}
 
 Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pipe} erbt).
 
@@ -58,15 +66,15 @@ head(irisSmall)
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
 
-\index{mutate()}
 Der \textsc{CPS85}-Datensatz enthält Daten aus einer Bevölkerungserhebung (aus dem Jahr 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
-
+\index{CPS85 Datensatz}
 
 ```{r}
 CPS85 <- mutate(CPS85, workforce.years = age - 6 - educ)
 
-favstats(~ workforce.years, data=CPS85)
+favstats(~ workforce.years, data = CPS85)
 ```
+\index{favstats()}
 
 Tatsächlich wurde dies für alle bis auf einen Fall getan, um die bereits in den \textsc{CPS85}-Daten enthaltene Variable `exper` zu generieren.
 
@@ -74,13 +82,9 @@ Tatsächlich wurde dies für alle bis auf einen Fall getan, um die bereits in de
 tally(~ (exper - workforce.years), data = CPS85)
 ```
 
-\index{Dataframes!Überprüfen}
-\index{iris Datensatz}
-\index{mutate()}
-\index{\textsc{Pipe} Operator}
 
 ## Variablen löschen
-\index{Pipe-Operator (\small{\%<\%})}
+\index{Variablen löschen}
 
 Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Variable zu behalten. Eliminieren wir diese also wieder. Beachten Sie die geschickte Verwendung des Minuszeichens.
 
@@ -88,8 +92,6 @@ Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Vari
 names(CPS85)
 ```
 
-\index{Datenjudo}
-\index{inspect()}
 
 ```{r}
 CPS1 <- select(CPS85, select = -matches("workforce.years"))
@@ -102,8 +104,6 @@ Beliebig viele Variablen können gelöscht oder auf ähnliche Weise beibehalten 
 CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 ```
 
-\index{Variablen hinzufügen}
-\index{Die ersten Zeilen anzeigen}
 
 ## Variablen umbenennen  
 
@@ -112,6 +112,7 @@ Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rena
 ```{r}
 names(CPS85)
 ```
+\index{names()}
 
 ```{r}
 CPSnew <- rename(CPS85, workforce = workforce.years)
@@ -125,6 +126,7 @@ Der `faithful`-Datensatz (im Paket `datasets`, welches immer verfügbar ist) hat
 ```{r}
 names(faithful)
 ```
+\index{faithful Datensatz}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Es ist ratsam, vom ersten Tag an Praktiken für die Auswahl von Variablennamen festzulegen.
@@ -139,10 +141,13 @@ faithful <- rename(faithful,
 names(faithful)
 ```
 
+\index{alpha Option}
+
 ```{r}
 library(mosaic)
 gf_point(time.til.next ~ duration, alpha = 0.5, data = faithful)
 ```
+\index{gf\_point()}
 
 Wenn eine Variable, die einen Datensatz enthält, modifiziert oder verwendet wird, um ein anderes Objekt zu speichern, können die Originaldaten aus dem entsprechenden Paket mittels `data()` wiederhergestellt werden. 
 
@@ -151,14 +156,15 @@ data(faithful)
 head(faithful, 3)
 ```
 
-\index{CPS85 Datensatz}
-\index{Dataframe}
-\index{Variablen löschen}
-\index{names()}
+\index{data()}
+\index{Dataframes!Anzeigen der ersten Zeilen}
+
 
 ## Erstellen von Teilmengen spezifischer Beobachtungen {#subdaten}
+\index{Teilmengen erstellen}
 
 Wir können auch `filter()` verwenden, um die Größe eines Dataframes zu reduzieren, indem nur bestimmte Zeilen ausgewählt werden.
+\index{filter()}
 
 ```{r}
 data(faithful)
@@ -171,9 +177,11 @@ gf_point( time.til.next ~ duration, data = faithfulLong)
 ```
 
 ## Sortieren von Dataframes
+\index{Dataframes!Sortieren}
 
 Dataframes können mit der Funktion `arrange()` sortiert werden.
 
+\index{arrange()}
 ```{r}
 head(faithful, 3)
 
@@ -185,19 +193,20 @@ head(sorted, 3)
 Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu modifizieren.
 :::
 
-\index{Teilmengen erstellen}
 
 ## Zusammenfügen von Dataframes
+\index{Dataframes!Zusammenfügen}
 
 Der `fusion1`-Datensatz im Paket `fastR` enthält Genotyp-Informationen für einen \textsc{SNP} (single nucleotide polymorphism) im Gen \textsc{TCF7L2}. Der Dataframe enthält Phänotypen (einschließlich Typ-2-Diabetes Fall-/Kontrollstatus) für eine sich überschneidende Menge von Individuen. Wir können diese zusammenfügen (oder verschmelzen), um die Assoziation zwischen Genotypen und Phänotypen mit Hilfe von `merge()` zu untersuchen. 
-\index{arrange()}
-\index{gf\_point()}
+\index{fusion1 Datensatz}
 
 ```{r}
 library(fastR2)
 fusion1 <- arrange(FUSION1, id)
 head(fusion1, 3)
 ```
+
+\index{arrange()}
 
 ```{r}
 data(pheno)
@@ -243,7 +252,7 @@ longTraffic <- Traffic %>%
 
 head(longTraffic)
 ```
-
+\index{gather()}
 
 Wir können auch in die andere Richtung umformen, diesmal mit allen Daten für einen bestimmten Staat in einer Zeile im Dataframe.
 
@@ -256,14 +265,12 @@ stateTraffic <- longTraffic %>%
 stateTraffic
 ```
 \index{inner\_join}
-\index{faithful Datensatz}
 \index{head()}
 
 ## Neue Variablen hinzufügen
 
 Eine Reihe von Funktionen erleichtern die Erstellung oder Neukodierung von Variablen.
-
-\index{Dataframes!Auswählen}
+\index{Variablen bearbeiten}
 
 ### Kategoriale aus einer quantitativen Variable erstellen
 
@@ -281,6 +288,7 @@ HELPrct <- mutate(HELPrct,
 
 gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 ```
+\index{gf\_boxplot}
 
 Es bietet sich an, die Labels besser zu bezeichnen.
 
@@ -308,13 +316,10 @@ HELPrct <- mutate(HELPrct,
                     high = cesd > 40))
 ```
 
-\index{gather()}
-\index{Dataframes!Zusammenfügen}
-\index{fusion1 Datensatz}
 \index{mutate()}
 
 ### Faktoren neu ordnen
-\index{breaks Option}
+\index{Dataframes!Neu ordnen}
 \index{HELPrct Datensatz}
 \index{labels Option}
 \index{paste()}
@@ -328,13 +333,13 @@ Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihen
 ```{r}
  coef(lm(cesd ~ substance, data = HELPrct))
 ```
+\index{coef()}
 
 ```{r}
 HELPrct <- mutate(HELPrct, subnew = relevel(substance, ref="heroin"))
 coef(lm(cesd ~ subnew, data=HELPrct))
 ```
 
-\index{Dataframes!Sortieren}
 \index{Neue Variablen hinzufügen}
 \index{include.lowest}
 
@@ -385,12 +390,13 @@ smaller <- select(HELPmiss, cesd, drugrisk, indtot, mcs, pcs, substance)
 
 dim(smaller)
 ```
+\index{dim()}
 
 ```{r}
 summary(smaller)
 ```
 
-Von den 470 Probanden in den 6 Variablen des Dataframess haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
+Von den 470 Probanden in den 6 Variablen des Dataframes haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
 
 ```{r}
 favstats(~ mcs, data = smaller)
@@ -417,15 +423,12 @@ dim(nomiss)
 
 \index{nrow()}
 \index{lm()}
-\index{Dataframes!Neu ordnen}
-\index{dim()}
 \index{Gruppenstatistiken}
 \index{group\_by()}
 \index{HELPmiss Datensatz}
 \index{Fehlende Werte}
 \index{is.na()}
 \index{left\_join()}
-\index{Zusammenfügen von Dataframes}
 \index{NA Zeichenkette}
 \index{na.omit()}
 \index{ncol()}

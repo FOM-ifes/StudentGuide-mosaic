@@ -19,7 +19,9 @@ summary(aov(cesd ~ substance + sex, data=HELPrct))
 
 summary(aov(cesd ~ substance * sex, data=HELPrct))
 ```
-
+\index{factor()}
+\index{gf\_boxplot}
+\index{aov()}
 Es deutet wenig auf eine Interaktion hin, obwohl signifikante Haupteffekte für die Variablen `Substanzgruppen` und `sex` bestehen.
 
 ```{r}
@@ -27,8 +29,6 @@ mod <- lm(cesd ~ substance + sex + substance * sex, data = HELPrct)
 plotModel(mod)
 ```
 
-\index{Cox-proportionales-Hazard-Modell}
-\index{coxph()}
 \index{mutate()}
 
 ## Multiple Regression
@@ -60,11 +60,13 @@ anova(lmnointeract, lminteract)
 
 Es deutet wenig auf einen Interaktionseffekt hin, so dass wir diesen aus dem Modell entfernen können.
 
+\index{anova()}
 \index{Interaktionen}
 \index{labels Option}
 \index{median()}
 
 ### Visualisierung der Regressionsergebnisse {#VisReg}
+\index{Koeffizientenvisualisierungen}
 
 Die Funktionen `makeFun()` und `plotFun()`aus dem Paket `mosaic` können zur Darstellung vorhergesagter Werte des Regressionsmodells verwendet werden. In diesem Beispiel können wir die vorhergesagten CESD-Werte für einen MCS-Wertebereich (mental component score) ausgeben, die eine hypothetisch 36-jährige  männliche und weibliche Person in einem Modell mit parallelen Steigungen (keine Interaktion) haben könnte.
 
@@ -87,7 +89,9 @@ gf_point(cesd ~ mcs, color = ~ sex,
   gf_fun(lmfunction(mcs, age=36, sex = "female") ~ mcs,
           xlim = c(0,60), linetype = 2, size = 2)
 ```
-
+\index{color Option}
+\index{filter()}
+\index{gf\_fun()}
 
 ### Koeffizientendarstellung
 
@@ -106,14 +110,11 @@ Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, be
 Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
 :::
 
-\index{color Option}
-\index{Koeffizientenvisualisierungen}
 \index{Multiple Regression}
 \index{plotFUN()}
 
 ### Residuenanalyse
 
-\index{gf\_fun()}
 Es ist recht einfach die Residuen des Modells auszuwerten. Wir beginnen damit, die angepassten Werte und die Residuen den Daten hinzuzufügen.
 
 :::{.hinweis data-latex="{hinweis}"}
@@ -132,10 +133,15 @@ HELPrct <- mutate(HELPrct,
 gf_dhistogram(~ residuals, data= HELPrct) %>%
   gf_fitdistr(dist = "dnorm")
 ```
-
+\index{gf\_dhistogram()}
+\index{fitted()}
+\index{gf\_fitdistr()}
+\index{dist Option}
+\index{dnorm Attribut}
 \index{linetype Option}
 \index{makeFun()}
 Wir können den Teil der Beobachtungen mit extrem hohen Residuen bestimmen.
+\index{abs()}
 
 ```{r, tidy=FALSE}
 filter(HELPrct, abs(residuals)>25)
@@ -150,10 +156,11 @@ gf_point(residuals ~ mcs, cex = .3, xlab = "Mentalitätskomponentenwert",
   gf_smooth(se = FALSE) %>%
   gf_hline(yintercept = 0)
 ```
+\index{cex Option}
+\index{gf\_hline}
 
 Die Annahme der Normalverteilung (s. Histogramm), der Linearität, und Heteroskedazität (s. Residuenplots - jeweils eine horizontale Linie ohne Muster oder Trends in der Punktewolke) erscheinen hier angemessen.  
 
-\index{fitted()}
 \index{gf\_point()}
 \index{gf\_smooth()}
 \index{mplot()}

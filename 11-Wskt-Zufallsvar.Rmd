@@ -1,7 +1,5 @@
 # Wahrscheinlichkeitverteilungen und Zufallsvariablen {#WkeitZuf}
 
-\index{abs}
-
 \textsf{R} kann Werte für zahlreiche Verteilungsfunktionen berechnen. Es ist leicht, aus diesen Verteilungsfunktionen Zufallsdaten zu generieren, die dann für Simulationen und explorative Untersuchungen genutzt werden können.
 
 ```{r}
@@ -39,8 +37,10 @@ kable(RVerteilungen, format = "latex", booktabs=T) %>%
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die Funktion `gf_fitdistr()` erleichtert das Schätzen von Parametern für viele Verteilungen.
 :::
+\index{gf\_fitdistr()}
 
 Die Funktion `gf_dist()` kann genutzt werden, um Verteilungen in unterschiedlichen Weisen darzustellen.
+\index{gf\_dist()}
 
 ```{r}
 gf_dist('norm', mean = 100, sd = 10, kind = 'cdf')
@@ -68,8 +68,13 @@ gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7),
   gf_dist("binom", size = 50, prob = .3, col = "black", pch = 16) %>%
   gf_labs(fill = "Intervals")
 ```
+\index{fill Option}
+\index{cut()}
+\index{geom Option}
+\index{gf\_labs()}
 
 Die Funktion `gf_fun()` kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
+\index{gf\_fun()}
 
 ```{r}
 f <- makeFun(2 * exp(-2 * x) ~ x) # Exponentialfunktion mit rate Parameter 2
@@ -78,5 +83,9 @@ x <- rexp(1000, rate = 2)
 gf_dhistogram(~ x, binwidth = 0.2, center = 0.1) %>%
   gf_fun(f(x) ~ x, color = "red", size = 2, xlim = c(0, 3))
 ```
-
+\index{exp()}
+\index{gf\_dhistogram()}
+\index{binwidth Option}
+\index{center Option}
+\index{color Option}
 \index{pch Option}

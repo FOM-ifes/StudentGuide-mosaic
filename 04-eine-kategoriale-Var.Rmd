@@ -1,8 +1,8 @@
 # Eine kategoriale Variable
-\index{Bootstrap-Methode}
 \index{head()}
 
 ## Analyse kategorialer Daten 
+\index{Kategoriale Daten}
 
 Mit Hilfe der Funktion `tally()` können absolute und relative Häufigkeiten für kategoriale Daten angegeben werden.
 
@@ -28,17 +28,17 @@ tally( ~ homeless, format = "percent",
 tally( ~ homeless, format = "proportion", 
        data = HELPrct)
 ```
-
-\index{do()}
+\index{format Option}
 
 ## Der Binomialtest
-\index{kategoriale Variablen}
+\index{Binomialtest}
 \index{Kontingenztabellen}
 Ein exaktes Konfidenzintervall für einen Anteilswert (sowie ein Test der Nullhypothese, dass der Bevölkerungsanteil gleich einem bestimmten Wert -- standardmäßig 0.5 -- ist) kann durch die Funktion `binom.test()` berechnet werden. Die Standardfunktion `binom.test()` benötigt folgendes Eingabeformat: 
 ```{r, echo=TRUE}
 binom.test(209, 209 + 244)
 ```
 
+\index{binom.test()}
 Mit Hilfe des Paketes `mosaic` kann eine Formelschreibweise verwendet werden, die die vorherige tabellarische Aufbereitung der Daten überflüssig macht. 
 
 ```{r, echo=TRUE}
@@ -62,6 +62,7 @@ result$statistic
 ```{r, echo=TRUE}
 confint(result)
 ```
+\index{confint()}
 
 ```{r, echo=TRUE}
 pval(result)
@@ -74,7 +75,6 @@ Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis ang
 ## Der Anteilswerttest 
 In ähnlicher Weise kann ein geschätzes Intervall und ein approximativer Test auf Anteilswerte über die Funktion `prop.test()` ermittelt werden. Die Anzahl der Personen je Kategorie der Variablen `homeless` wird folgendermaßen ausgezählt:
 \index{Binomialtest}
-\index{binom.test()}
 
 ```{r, echo=TRUE}
 tally(~ homeless, data = HELPrct)
@@ -86,8 +86,10 @@ Die Funktion `prop.test()` berechnet die Anteile und gibt die Ergebnisse aus.
 prop.test(~ (homeless == "homeless"), 
           correct = FALSE, data = HELPrct)
 ```
+\index{correct Option}
 
 Hier untersucht `prop.test()` die Variable `homeless` in der gleichen Art und Weise wie `tally()`. Die Funktion `prop.test()` kann ebenso wie `binom.test()` auch direkt mit numerischen Angaben umgehen:  
+\index{binom.test()}
 
 ```{r, echo=TRUE}
 prop.test(209, 209 + 244, correct = FALSE)
@@ -126,6 +128,7 @@ Zusätzlich zur Option `format` gibt es die Option `margins`, um die Randhäufig
 p <- c(1/3, 1/3, 1/3) # equivalent to rep(1/3, 3) 
 chisq.test(observed, p = p)
 ```
+\index{chisq.test()}
 
 ```{r, echo=TRUE}
 total <- sum(observed)
@@ -158,7 +161,9 @@ Es kann hilfreich sein, sich die Verteilung grafisch anzuschauen. Der grün scha
 gf_dist("chisq", df = 2, fill = ~ (x > 9.31), 
         geom = "area")
 ```
-
+\index{gf\_dist()}
+\index{fill Option}
+\index{geom Option}
 \index{margins Option}
 Alternativ kann  mit Hilfe des Paketes `mosaic` ein analoger `chisq.test()` durchgeführt werden, welcher zusätzlich weitere Angaben liefert, wie z.\ B. die beobachteten und erwarteten Häufigkeiten.
 
@@ -174,9 +179,6 @@ xchisq.test(observed, p = p)
 Objekte, die sich im Arbeitsspeicher von \textsf{R} befinden, sind unter dem Reiter \textsc{Environment} in \textsf{RStudio} aufgelistet. Diese Liste kann bereinigt werden, indem die nicht mehr benötigten Objekte mit `rm()` gelöscht werden.
 :::
 
-\index{chisq.test()}
-\index{correct Option}
-\index{gf\_dist()}
 \index{pchisq()}
 
 ```{r, echo=TRUE}

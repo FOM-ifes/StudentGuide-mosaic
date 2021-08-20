@@ -17,6 +17,10 @@ exp(coef(logitmod))
 
 exp(confint(logitmod))
 ```
+\index{family Option}
+\index{exp()}
+\index{coef()}
+\index{confint()}
 
 Wir können zwei Modelle vergleichen (für Tests mit mehreren Freiheitsgraden). Beispielsweise könnte uns der Zusammenhang von Obdachlosenstatus und dem Alter je Drogenkonsumgruppe interessieren.
 
@@ -33,6 +37,8 @@ exp(coef(mymodsubage))
 anova(mymodage, mymodsubage, test = "Chisq")
 ```
 
+\index{anova()}
+
 Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin konsumierenden Gruppen signifikant seltener obdachlos sind als die Personen, die der Alkohol konsumierenden Gruppe zugehörig sind.
 (Ein ähnliches Ergebnis zeigt sich, wenn nur der Obdachlosenstatus und die Substanz betrachtet werden).
 
@@ -40,9 +46,7 @@ Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin kons
 tally(~ homeless | substance, format = "percent", 
       margins = TRUE, data = HELPrct)
 ```
-
-\index{exp()}
-\index{family Option}
+\index{format Option}
 \index{glm()}
 \index{Logistische Regression}
 \index{msummary()}

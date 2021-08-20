@@ -1,5 +1,6 @@
 # Zwei kategoriale Variablen
 ## Kreuztabellen {#kreuztab}
+\index{Kreuztabellen}
 
 Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Obdachlosenstatus (obdachlos in einer / mehr als einer Nacht in den letzten sechs Monaten oder nicht obdachlos) und das Geschlecht. 
 
@@ -14,6 +15,7 @@ Wir können auch Spaltenprozente erzeugen:
 tally(~ sex | homeless, margins = TRUE, 
       format = "percent", data = HELPrct)
 ```
+\index{format Option}
 
 Die Odds Ratios (Chancenverhältnisse) können direkt aus der Tabelle berechnet werden:
 
@@ -30,6 +32,7 @@ oddsRatio(tally(~ (homeless == "housed") + sex,
 ```
 
 Die Funktion `CrossTable()` im Paket `gmodels` kann ebenfalls eine Kreuztabelle erzeugen.
+\index{CrossTable()}
 
 ```{r, echo=TRUE}
 library(gmodels)
@@ -55,8 +58,9 @@ mosaicplot(sex ~ homeless, data = HELPrct)
 ```{r, echo=TRUE}
 # farbiges Beispiel 
 mosaicplot(substance ~ homeless, data = HELPrct,
-           color=c("LightBlue", "LightCoral")) 
+           color = c("LightBlue", "LightCoral")) 
 ```
+\index{color Option}
 
 ## Tabellen erstellen
 
@@ -71,6 +75,7 @@ HELPtable <- rbind(
 )
 tally(~ homeless + sex, data = HELPtable)
 ```
+\index{do()}
 
 ## Chi-Quadrat-Test
 
@@ -80,8 +85,8 @@ chisq.test(tally(~ homeless + sex,
                     data = HELPrct), 
                     correct = FALSE)
 ```
-
-\index{Kreuztabellen}
+\index{chisq.test()}
+\index{correct Option}
 \index{library()}
 \index{oddsRatio()}
 Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir einen so starken Zusammenhang finden, wenn der Obdachlosenstatus und das Geschlecht in der Population unabhängig voneinander wären. 
@@ -98,7 +103,9 @@ xchisq.test(tally(~ homeless + sex,
 Wir beobachten, dass es weniger obdachlose Frauen und mehr obdachlose Männer als erwartet gibt. 
 
 ## Exakter Test nach Fisher
+\index{Exakter Test nach Fisher}
 Es kann auch ein exakter Test berechnet werden. Für 2x2-Kontingenztafeln ist dies unkompliziert. Optionen, um die Größe des Problems bei größeren Tabellen zu beschränken, existieren (siehe `?fisher.test()`).
+\index{fisher.test()}
 
 ```{r}
 fisher.test(tally(~ homeless + sex, margins = FALSE, 
@@ -109,6 +116,4 @@ fisher.test(tally(~ homeless + sex, margins = FALSE,
 Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt \@ref(kreuztab). Die Funktion `fisher.test()` verwendet einen anderen Schätzer (und anderes Intervall, basierend auf dem Likelihood).
 :::
 
-\index{Exakter Test nach Fisher}
-\index{fisher.test()}
 \index{margins Option}
