@@ -5,6 +5,7 @@ Umfangreiche Unerstützung für Überlebensanalysen (Zeitspanne bis zum Eintrete
 
 ## Kaplan-Meier-Kurve
 
+\index{Kaplan-Meier-Kurve}
 ```{r}
 library(survival)
 library(broom)
@@ -18,13 +19,14 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
         xlab  = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")
 ```
 
+\index{linetype Option}
 Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
-\index{library()}
 \index{margins Option}
+\index{gf\_step()}
 
 ## Cox-proportionales-Hazard-Modell 
-\index{Cox-proportionales-Hazard-Modell }
+\index{Cox-proportionales-Hazard-Modell}
 
 ```{r}
 library(survival)
@@ -34,8 +36,3 @@ summary(coxph(Surv(dayslink, linkstatus) ~ age + substance,
 \index{coxph()}
 
 Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an die Grundversorgung.
-
-
-\index{gf\_step()}
-\index{Kaplan-Meier-Kurve}
-\index{linetype Option}

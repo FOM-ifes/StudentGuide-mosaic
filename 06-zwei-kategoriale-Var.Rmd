@@ -32,6 +32,8 @@ oddsRatio(tally(~ (homeless == "housed") + sex,
 ```
 
 Die Funktion `CrossTable()` im Paket `gmodels` kann ebenfalls eine Kreuztabelle erzeugen.
+\index{oddsRatio()}
+\index{margins Option}
 \index{CrossTable()}
 
 ```{r, echo=TRUE}
@@ -87,8 +89,7 @@ chisq.test(tally(~ homeless + sex,
 ```
 \index{chisq.test()}
 \index{correct Option}
-\index{library()}
-\index{oddsRatio()}
+
 Hier wurde ein statistisch signifikanter Zusammenhang gefunden: Es ist unwahrscheinlich, dass wir einen so starken Zusammenhang finden, wenn der Obdachlosenstatus und das Geschlecht in der Population unabhängig voneinander wären. 
 
 Wenn Sie signifikante Zusammenhänge finden, ist es wichtig, dass Sie diese im Kontext des konkreten Problems richtig interpretieren können. Die Funktion `xchisq.test()` liefert weitere Informationen (beobachtete und erwartete Häufigkeiten, $\chi^2$-Anteil und Residuen), die hierzu hilfreich sein können.

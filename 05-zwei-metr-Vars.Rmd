@@ -7,12 +7,16 @@ Wir empfehlen, jede Analyse durch eine grafische Darstellung der Daten zu beginn
 Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter zu erkennen. Sie wird hinzugefügt, indem zwei Punkte und ein LOWESS-Filter definiert werden.
 :::
 
+\index{LOWESS}
+\index{Linearität}
+
 ```{r}
 Female <- filter(HELPrct, female == 1)
 gf_point(cesd ~ mcs, data = Female, shape = 1) %>%
   gf_smooth(se = FALSE, size = 2)
 ```
 \index{filter()}
+\index{gf\_smooth()}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Wenn man mit der Ausdrucksweise des statistischen Modellierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R* [@TeachingR] entsprechende Hilfe. 
@@ -26,7 +30,8 @@ gf_text(Murder ~ Assault,
   label = ~ rownames(USArrests), 
   data = USArrests)
 ```
-
+\index{gf\_text()}
+\index{label Option}
 
 ## Korrelationen
 Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet werden.
@@ -46,9 +51,10 @@ Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z.\
 cor(cesd ~ mcs, method = "spearman", data = Female)
 ```
 
-\index{LOWESS}
+\index{Pearson Korrelation}
 
 ## Paarweise Plots
+\index{Paarweise Plots}
 Ein paarweiser Plot (Scatterplot Matrix) kann für jedes Paar eines Variablensets erstellt werden.
 
 :::{.hinweis data-latex="{hinweis}"}
@@ -61,10 +67,10 @@ ggpairs(smallHELP)
 ```
 
 \index{gf\_point()}
-\index{label Option}
-\index{Pearson Korrelation}
+\index{ggpairs()}
 
 ## Einfache lineare Regression
+\index{Lineare Regression}
 
 :::{.note data-latex="{note}"}
 Normalerweise führen wir die einfache lineare Regression als deskriptive Methode zu einem sehr frühen Zeitpunkt einer Lehrveranstaltung ein.
@@ -80,6 +86,7 @@ cesdmodel <- lm(cesd ~ mcs, data = Female)
 coef(cesdmodel)
 ```
 \index{coef()}
+\index{lm()}
 
 :::{.note data-latex="{note}"}
 Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobjekte zu finden. Hier wird der Output von `lm()` als `cesdmodel` gespeichert.
@@ -87,10 +94,6 @@ Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden
 :::
 
 Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
-
-\index{Linearität}
-\index{gf\_text()}
-
 
 ```{r}
 options(show.signif.stars = FALSE)
@@ -108,6 +111,8 @@ rsquared(cesdmodel)
 
 class(cesdmodel)
 ```
+\index{options()}
+\index{msummary()}
 \index{confint()}
 \index{class()}
 
@@ -130,19 +135,17 @@ gf_histogram(~ residuals(cesdmodel), density = TRUE)
 gf_qq(~ resid(cesdmodel))
 ```
 
-\index{alpha Option}
 ```{r}
 gf_point(resid(cesdmodel) ~ fitted(cesdmodel), 
          alpha = 0.5, cex = 0.3, pch = 20) %>%
   gf_smooth(se = FALSE) %>%
   gf_hline(yintercept = 0)
 ```
+\index{gf\_qq()}
 \index{cex Option}
+\index{pch Option}
 \index{gf\_hline()}
-
-\index{ggpairs()}
-\index{Lineare Regression}
-\index{Paarweise Plots}
+\index{alpha Option}
 
 Mit der Funktion `mplot()` kann eine Reihe nützlicher Plots erzeugt werden. Mit der Option `which = 1` werden geschätzte Werte und Residuen gegenübergestellt:
 
@@ -156,6 +159,7 @@ Mit `which = 2` kann ein Quantil-Quantil-Diagramm der Normalverteilung erzeugt w
 mplot(cesdmodel, which = 2)
 ```
 
+\index{mplot()}
 Mit `which = 3` kann ein Scale-Location-Plot erstellt werden:
 
 ```{r}
@@ -169,13 +173,8 @@ Das Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer wird bei `wh
 mplot(cesdmodel, which = 4)
 ```
 
-\index{library()}
-\index{lm()}
-\index{options()}
-\index{pch Option}
-
 Den Residuen vs. Leverage-Plot, zur Aufdeckung von möglichen einflussreichen Beobachtungen, erhält man mit `which = 5`:
-
+\index{Leverage}
 ```{r}
 mplot(cesdmodel, which = 5)
 ```
@@ -196,9 +195,7 @@ gf_point(cesd ~ mcs, data = HELPrct) %>%
 \index{gf\_lm()}
 \index{fill Option}
 \index{gf\_qq()}
-\index{gf\_smooth()}
-\index{mplot()}
-\index{msummary()}
+\index{interval Option}
 
 :::{.aufgabe data-latex="{aufgabe}"}
 Mit Hilfe des Datensatzes `HELPrct` soll eine einfache lineare Regression geschätzt werden, die den Zusammenhang zwischen der am Tag getrunkenen Menge und dem MCS (mental component score) beschreibt. 
@@ -208,7 +205,4 @@ Dieses Model kann mit Hilfe des Modells `i1 ~ mcs` spezifiziert werden.
 Interpretieren Sie die Verteilung der Residuen.
 :::
 
-\index{gf\_point()}
-\index{interval Option}
-\index{Leverage}
 \index{Vorhersageintervalle}

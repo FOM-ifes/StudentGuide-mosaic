@@ -12,11 +12,11 @@ integrate(dnorm, -Inf, 0) # P(Z < 0)
 ```
 
 Eine vergleichbare Ausgabe gibt es für die F-Verteilung.
-
+\index{qnorm()}
 ```{r}
 xpf(3, df1 = 4, df2 = 20)
 ```
-
+\index{integrate()}
 Die folgende Tabelle zeigt die Basisnamen für die Verteilungen, die in \textsf{R} zur Verfügung stehen. Die Vorsilbe `d` erzeugt die Dichtefunktion für die jeweilige Verteilung, `p` die kumulierte Dichte- bzw. Verteilungsfunktion, mit `q` erhalten Sie die Quantile und `r` erzeugt Zufallsziehungen. Um beispielsweise die Dichtefunktion der Exponentialverteilung zu finden, nutzen Sie das Kommando `dexp()`. Die Funktion `qDIST()` ist die inverse Funktion zu `pDIST()` (für einen Basisnamen `DIST`).
 
 ```{r, echo=FALSE}
@@ -71,6 +71,7 @@ gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7),
 \index{fill Option}
 \index{cut()}
 \index{geom Option}
+\index{pch Option}
 \index{gf\_labs()}
 
 Die Funktion `gf_fun()` kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
@@ -83,9 +84,10 @@ x <- rexp(1000, rate = 2)
 gf_dhistogram(~ x, binwidth = 0.2, center = 0.1) %>%
   gf_fun(f(x) ~ x, color = "red", size = 2, xlim = c(0, 3))
 ```
+
+\index{makeFun()}
 \index{exp()}
 \index{gf\_dhistogram()}
 \index{binwidth Option}
 \index{center Option}
 \index{color Option}
-\index{pch Option}

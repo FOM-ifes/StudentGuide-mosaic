@@ -14,6 +14,8 @@ Der Befehl `favstats()` liefert weitere statistische Kennzahlen pro Gruppe.
 ```{r}
 favstats(cesd ~ sex, data = HELPrct)
 ```
+
+\index{mean()}
 \index{favstats()}
 
 Boxplots sind besonders hilfreiche grafische Darstellungen, um Verteilungen zu vergleichen.
@@ -29,11 +31,13 @@ gf_boxplot(cesd ~ sex, data = HELPrct) %>%
 ```
 
 Bei nur kleiner Stichprobengröße gibt es keine Notwendigkeit, diese über Boxplots darzustellen, da der Befehl `gf_point()` ebenfalls kategoriale Prädiktoren darstellen kann. Auch 10--20 Beobachtungen pro Gruppe sind mittels Streudiagramm gut darzustellen. Beobachtungen, die einen gleichen Wert aufweisen, können über die Anpassung des Transparenzlevels (Argument `alpha`) sichtbar gemacht werden.
+\index{gf\_refine()}
 
 :::{.hinweis data-latex="{hinweis}"}
 Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. In dem Glauben, einen großen Erfolg errungen zu haben, fragte er naiv, wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
 :::
 
+\index{gf\_point()}
 \index{alpha Option}
 
 ```{r}
@@ -60,6 +64,7 @@ t.test(cesd ~ sex, var.equal = TRUE, data = HELPrct)
 
 Die Gruppen können ebenso mit dem Befehl `lm()` (ebenfalls unter der Annahme gleicher Varianzen) verglichen werden. Der \textsf{mosaic} Befehl  `msummary()` gibt eine etwas schlankere Ausgabe im Vergleich zur klassischen Ausgabe des Befehls `summary()` aus.
 
+\index{lm()}
 ```{r}
 msummary(lm(cesd ~ sex, data = HELPrct))
 ```
@@ -68,7 +73,7 @@ msummary(lm(cesd ~ sex, data = HELPrct))
 Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wohingegen `t.test()` im Wesentlichen eine nicht weiter anpassungsfähige Sackgasse ist. `lm()` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch *Start Modeling in R* [@ModelingR] für weitere Details.
 :::
 
-\index{mean()}
+\index{msummary()}
 
 ## Nichtparametrische Zweistichprobentests
 Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-Rang-Summe) gezogen.
@@ -77,10 +82,8 @@ Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-
 wilcox.test(cesd ~ sex, data = HELPrct)
 ```
 
-\index{gf\_refine()}
-\index{gf\_point()}
-
 ## Permutationstest
+\index{Permutationstest}
 Hier erweitern wir die in Abschnitt \@ref(bootstrap) eingeführten Methoden, um einen zweiseitigen Test einzusetzen, der das Alter zu Beginn getrennt nach Geschlecht vergleicht. Hierzu berechnen wir zunächst die beobachtete Differenz der Mittelwerte:
 
 ```{r}
@@ -119,9 +122,14 @@ gf_histogram(~ diffmean, n = 40, xlim = c(-6, 6),
                data = rtest.stats) %>% 
   gf_vline(xintercept = ~ test.stat, color = "red", lwd = 3)
 ```
+
+\index{mutate()}
 \index{gf\_histogram()}
 \index{fill Option}
+\index{pch Option}
 \index{color Option}
+\index{gf\_vline()}
+\index{head()}
 
 Mit der vorliegenden Permutation erhalten wir keine ausreichenden Belege, um der Nullhypothese, dass Männer und Frauen das gleiche Durchschnittsalter in der Population haben, zu widersprechen.
 
@@ -156,8 +164,6 @@ anova(modsubstance)
 ```
 
 \index{anova()}
-\index{mutate()}
-\index{Permutationstest}
 
 Im vorliegenden Fall sind die Ergebnisse identisch, da es nur einen Prädiktor mit 2 Freiheitsgraden (`df`) gibt.
 
@@ -167,16 +173,14 @@ Der Befehl `anova()` kann auch zum formalen Vergleich zweier (verschachtelter) M
 anova(modintercept, modsubstance)
 ```
 
-\index{lm()}
-\index{head()}
-\index{msummary()}
-\index{pch Option}
+\index{Modellvergleich}
 
 ## Tukeys Post-hoc-Test
 \index{aov}
-\index{gf\_vline()}
-\index{Modellvergleich}
+\index{Tukeys Post-hoc-Test}
 Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines ANOVA-Modells verwendet werden können. Einer davon ist Tukey's Honest Significant Differences (HSD). Weitere Optionen sind innerhalb des Paketes `multcomp` aufgeführt.
+
+\index{Multiple Vergleiche}
 
 ```{r}
 favstats(cesd ~ substance, data = HELPrct)
@@ -193,13 +197,9 @@ HELPHSD
 mplot(HELPHSD)
 ```
 \index{factor()}
+\index{labels Option}
+\index{levels Option}
 
 Auch hier zeigt sich, dass die Kokainkonsumgruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.
 
-
-\index{Tukeys Post-hoc-Test}
-\index{labels Option}
-\index{levels Option}
 \index{mplot()}
-\index{Multiple Vergleiche}
-\index{Multivariate Beziehungen}

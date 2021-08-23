@@ -1,5 +1,4 @@
 # Eine kategoriale Variable
-\index{head()}
 
 ## Analyse kategorialer Daten 
 \index{Kategoriale Daten}
@@ -29,6 +28,7 @@ tally( ~ homeless, format = "proportion",
        data = HELPrct)
 ```
 \index{format Option}
+\index{margins Option}
 
 ## Der Binomialtest
 \index{Binomialtest}
@@ -62,6 +62,7 @@ result$statistic
 ```{r, echo=TRUE}
 confint(result)
 ```
+\index{names()}
 \index{confint()}
 
 ```{r, echo=TRUE}
@@ -71,6 +72,9 @@ pval(result)
 ::: {.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die meisten Objekte in R haben eine Art Druckfunktion. Wenn wir ein Ergebnis angezeigt bekommen, stammt die Ausgabe in der Konsole  aus dieser Druckfunktion `print(result)`. Durch den expliziten Aufruf von `print(result)` können oft viele zusätzliche Informationen ausgegeben werden. In einigen Situationen, wie z.\ B. bei Grafiken, bleibt das Objekt unsichtbar, so dass nichts gedruckt wird. Hier werden die zusätzlichen Informationen üblicherweise nicht benötigt. Falls doch, können sie aber abgerufen werden.
 :::
+
+\index{pval()}
+\index{print()}
 
 ## Der Anteilswerttest 
 In ähnlicher Weise kann ein geschätzes Intervall und ein approximativer Test auf Anteilswerte über die Funktion `prop.test()` ermittelt werden. Die Anzahl der Personen je Kategorie der Variablen `homeless` wird folgendermaßen ausgezählt:
@@ -87,6 +91,7 @@ prop.test(~ (homeless == "homeless"),
           correct = FALSE, data = HELPrct)
 ```
 \index{correct Option}
+\index{prop.test()}
 
 Hier untersucht `prop.test()` die Variable `homeless` in der gleichen Art und Weise wie `tally()`. Die Funktion `prop.test()` kann ebenso wie `binom.test()` auch direkt mit numerischen Angaben umgehen:  
 \index{binom.test()}
@@ -102,7 +107,6 @@ Wir schreiben `homeless == "homeless"`, um eindeutig festzulegen, welchen Anteil
 :::
 
 \index{names()}
-\index{print()}
 
 ## Anpassungstests
 
@@ -155,6 +159,7 @@ chisq
 Die Funktion `pchisq()` berechnet die Wahrscheinlichkeit, dass eine $\chi^2$-verteilte Zufallsvariable mit `df()` Freiheitsgraden kleiner oder gleich einem gegebenen Wert ist. Hier wird die Gegenwahrscheinlichkeit berechnet, um den Bereich zu finden, der rechts des beobachteten $\chi^2$-Wertes liegt.
 :::
 
+\index{pchisq()}
 Es kann hilfreich sein, sich die Verteilung grafisch anzuschauen. Der grün schattierte Bereich zeigt den Bereich rechts vom beobachteten Wert. 
 
 ```{r, echo=TRUE}
@@ -164,7 +169,6 @@ gf_dist("chisq", df = 2, fill = ~ (x > 9.31),
 \index{gf\_dist()}
 \index{fill Option}
 \index{geom Option}
-\index{margins Option}
 Alternativ kann  mit Hilfe des Paketes `mosaic` ein analoger `chisq.test()` durchgeführt werden, welcher zusätzlich weitere Angaben liefert, wie z.\ B. die beobachteten und erwarteten Häufigkeiten.
 
 ::: {.hinweis data-latex="{hinweis}"}

@@ -1,6 +1,7 @@
 # Kategoriale Antwortvariable, metrischer Prädiktor
 
 ## Logistische Regression
+\index{Logistische Regression}
 Die logistische Regression ist mit dem Befehl `glm()` durchführbar. Dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich der logistischen Regression.
 
 :::{.hinweis data-latex="{hinweis}"}
@@ -18,9 +19,11 @@ exp(coef(logitmod))
 exp(confint(logitmod))
 ```
 \index{family Option}
+\index{msummary()}
 \index{exp()}
 \index{coef()}
 \index{confint()}
+\index{glm()}
 
 Wir können zwei Modelle vergleichen (für Tests mit mehreren Freiheitsgraden). Beispielsweise könnte uns der Zusammenhang von Obdachlosenstatus und dem Alter je Drogenkonsumgruppe interessieren.
 
@@ -47,6 +50,4 @@ tally(~ homeless | substance, format = "percent",
       margins = TRUE, data = HELPrct)
 ```
 \index{format Option}
-\index{glm()}
-\index{Logistische Regression}
-\index{msummary()}
+\index{margins Option}

@@ -65,6 +65,7 @@ head(irisSmall)
 :::{.hinweis data-latex="{hinweis}"}
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
+\index{head()}
 
 Der \textsc{CPS85}-Datensatz enthält Daten aus einer Bevölkerungserhebung (aus dem Jahr 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
 \index{CPS85 Datensatz}
@@ -91,7 +92,7 @@ Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Vari
 ```{r}
 names(CPS85)
 ```
-
+\index{names()}
 
 ```{r}
 CPS1 <- select(CPS85, select = -matches("workforce.years"))
@@ -147,9 +148,9 @@ names(faithful)
 library(mosaic)
 gf_point(time.til.next ~ duration, alpha = 0.5, data = faithful)
 ```
-\index{gf\_point()}
 
 Wenn eine Variable, die einen Datensatz enthält, modifiziert oder verwendet wird, um ein anderes Objekt zu speichern, können die Originaldaten aus dem entsprechenden Paket mittels `data()` wiederhergestellt werden. 
+\index{gf\_point()}
 
 ```{r}
 data(faithful)
@@ -266,6 +267,7 @@ stateTraffic
 ```
 \index{inner\_join}
 \index{head()}
+\index{paste()}
 
 ## Neue Variablen hinzufügen
 
@@ -288,7 +290,8 @@ HELPrct <- mutate(HELPrct,
 
 gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 ```
-\index{gf\_boxplot}
+\index{gf\_boxplot}}
+\index{include.lowest Option}
 
 Es bietet sich an, die Labels besser zu bezeichnen.
 
@@ -305,7 +308,8 @@ HELPrct <- mutate(HELPrct,
 
 gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 ```
-
+\index{ntiles()}
+\index{labels Option}
 Die `derivedFactor()` Funktion ist noch allgemeiner und kann auch zu diesem Zweck verwendet werden.
 
 ```{r}
@@ -316,13 +320,9 @@ HELPrct <- mutate(HELPrct,
                     high = cesd > 40))
 ```
 
-\index{mutate()}
 
 ### Faktoren neu ordnen
 \index{Dataframes!Neu ordnen}
-\index{HELPrct Datensatz}
-\index{labels Option}
-\index{paste()}
 
 Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
 
@@ -334,6 +334,7 @@ Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihen
  coef(lm(cesd ~ substance, data = HELPrct))
 ```
 \index{coef()}
+\index{lm()}
 
 ```{r}
 HELPrct <- mutate(HELPrct, subnew = relevel(substance, ref="heroin"))
@@ -341,16 +342,16 @@ coef(lm(cesd ~ subnew, data=HELPrct))
 ```
 
 \index{Neue Variablen hinzufügen}
-\index{include.lowest}
 
 ## Gruppenstatistiken
 
+\index{Gruppenstatistiken}
 Es kann oft sinnvoll sein, zusammenfassende Statistiken nach Gruppen zu berechnen und diese in ein Dataframe einzufügen. Die Funktion `group_by()` im Paket `dplyr` erleichtert diesen Prozess. Hier zeigen wir, wie man eine Variable hinzufügt, die das mittlere Alter der Probanden je Drogenmittel enthält.
 
 ```{r}
 favstats(age ~ substance, data = HELPrct)
 ```
-
+\index{group\_by()}
 ```{r}
 ageGroup <- HELPrct %>%
   group_by(substance) %>%
@@ -358,7 +359,7 @@ ageGroup <- HELPrct %>%
 
 ageGroup
 ```
-
+\index{mean()}
 ```{r}
  nrow(ageGroup)
 ```
@@ -376,12 +377,14 @@ favstats(agebygroup ~ substance, data = HELPmerged)
 ```{r}
 nrow(HELPmerged)
 ```
-
+\index{nrow()}
 \index{Faktoren neu ordnen}
-\index{mutate()}
-\index{ntiles()}
+\index{left\_join()}
 
 ## Umgang mit fehlenden Werten {#missings}
+
+\index{Fehlende Werte}
+\index{Umgang mit fehlenden Werten}
 
 Fehlende Werte entstehen in fast allen Untersuchungen der realen Welt. \textsf{R} verwendet das `NA`-Zeichen als Indikator für fehlende Werte. Der `HELPmiss`-Datensatz innerhalb des Paketes `mosaicData` umfasst alle $n = 470$ Probanden, die zu Studienbeginn eingeschrieben sind (einschließlich der $n = 17$ Probanden mit einigen fehlenden Werten, die nicht in `HELPrct` enthalten waren).
 
@@ -390,6 +393,7 @@ smaller <- select(HELPmiss, cesd, drugrisk, indtot, mcs, pcs, substance)
 
 dim(smaller)
 ```
+\index{HELPmiss Datensatz}
 \index{dim()}
 
 ```{r}
@@ -413,6 +417,8 @@ ncol(nomiss)
 favstats(~ mcs, data = nomiss)
 ```
 
+\index{is.na()}
+\index{ncol()}
 Alternativ könnten wir den gleichen Datenbestand mit Hilfe von logischen Bedingungen erzeugen:
 
 ```{r}
@@ -421,14 +427,5 @@ nomiss <- filter(smaller,
 dim(nomiss)
 ```
 
-\index{nrow()}
-\index{lm()}
-\index{Gruppenstatistiken}
-\index{group\_by()}
-\index{HELPmiss Datensatz}
-\index{Fehlende Werte}
-\index{is.na()}
-\index{left\_join()}
 \index{NA Zeichenkette}
 \index{na.omit()}
-\index{ncol()}

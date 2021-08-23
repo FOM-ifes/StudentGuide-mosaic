@@ -22,6 +22,9 @@ install.packages("mosaic")        # Beachten Sie die Anführungszeichen
 \textsf{RStudio} bietet u.&#8239;a. auch einen Reiter zur Paketinstallation im Panel rechts unten an. 
 :::
 
+\index{install\_packages()}
+\index{Paketinstallation}
+
 Das `#` Zeichen stellt einen Kommentar in R dar und kommentiert den restlichen Text bis zum Ende der Zeile aus. 
 
 Nachdem das Paket einmalig installiert wurde, kann es zur Verwendung der enthaltenen Funktionen über folgenden Befehl geladen werden:
@@ -31,10 +34,14 @@ library(mosaic)
 ```
 
 \textsc{RMarkdown} bietet eine einfache Markup-Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es, Analysen reproduzierbar zu machen und Kopierfehler zu vermeiden.
+\index{library()}
+\index{Pakete laden}
 
 ::: {.infobox data-latex="{infobox}"}
-Das \textsc{knitr/LATEX} System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsc{LaTeX} im selben Dokument zu verknüpfen. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. \textsc{RMarkdown} ist jedoch deutlich einfacher zu erlernen und eignet sich auch für eine professionelle Arbeitsweise.
+Das \textsc{knitr/LATEX}-System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsc{LaTeX} im selben Dokument zu verknüpfen. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. \textsc{RMarkdown} ist jedoch deutlich einfacher zu erlernen und eignet sich auch für eine professionelle Arbeitsweise.
 :::
+
+\index{\textsc{knitr}}
 
 ::: {.hinweis data-latex="{hinweise}"}
 Um \textsc{Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket `markdown` installiert sein.
@@ -42,11 +49,4 @@ Um \textsc{Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket
 
 Üblicherweise führen wir \textsc{RMarkdown} sehr früh in den Kursen ein und forden die Studierenden auf, dies für Seminar- und Hausarbeiten zu nutzen [@baumer2014r].
 
-
-\index{install.packages()}
-\index{Paketinstallation}
-\index{knitr}
-\index{library()}
-\index{Pakete laden}
 \index{markdown}
-\index{mosaic Paket}
