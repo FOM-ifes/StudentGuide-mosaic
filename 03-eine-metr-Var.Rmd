@@ -33,6 +33,7 @@ mean(HELPrct$cesd)
 ```
 
 Eine ähnliche Funktionalität gibt es auch für andere zusammenfassende Statistiken:  
+\index{with()}
 
 ```{r}
 sd(~ cesd, data=HELPrct)
@@ -45,6 +46,8 @@ median(~ cesd, data=HELPrct)
 ```
 Nach dem gleichen Muster lassen sich auch Quantile der Verteilung berechnen:  
 
+\index{sd()}
+\index{var()}
 \index{median()}
 Standardmäßig stellt die Funktion `quantile()` die Quartile dar, aber ihr kann auch ein Vektor der gewünschten Quantile übergeben werden:  
 
@@ -91,11 +94,13 @@ tally( ~ sex, data = HELPrct)
 
 tally( ~ sex, format = "percent", data = HELPrct)
 ```
+\index{tally()}
 \index{format Option}
 
 Es ist einfach, die Analyse nur auf die weiblichen Probanden zu beschränken. Wenn wir viele Analysen mit einer Teilgruppe unserer Daten durchführen wollen, ist es am einfachsten, einen neuen Datensatz zu erzeugen, der nur die Fälle enthält, die uns interessieren. Die Funktion `filter()` im Paket `dplyr` kann genutzt werden, um einen solchen Datensatz zu erzeugen, der nur die Frauen oder nur die Männer enthält (s. auch Kapitel \@ref(subdaten)). Nachdem dieser erzeugt ist, wird die Funktion `stem()` genutzt, um ein Stamm-Blatt-Diagramm (*stem and leaf plot*) zu erzeugen.  
 \index{dplyr Paket}
 \index{filter()}
+\index{stem()}
 
 ```{r, eval=FALSE}
 Female <- filter(HELPrct, sex == 'female')
@@ -212,6 +217,8 @@ gf_dens(~ cesd, data = Female) %>%
 \index{gf\_refine()}
 \index{gf\_vline()}
 \index{label Option}
+\index{xintercept Option}
+\index{xlim()}
 
 
 ## Häufigkeitspolygone
@@ -231,8 +238,9 @@ Die Funktion `xpnorm()` erzeugt die Wahrscheinlichkeit, dass eine Zufallsvariabl
 ```{r}
 xpnorm(1.96, mean = 0, sd = 1)
 ```
+\index{xpnorm()}
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
 :::
 
@@ -251,6 +259,8 @@ confint(t.test( ~ cesd, data = Female))
 
 Aber es ist genauso zielführend, es mit der **Bootstrap-Methode** zu berechnen. Die Statistik, die wir resampeln wollen, ist der Mittelwert.
 \index{Bootstrap-Methode}
+\index{Resampling}
+\index{t.test()}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Mehr Details und Beispiele finden sich in der Vignette zum Resampling im Paket `mosaic`.
@@ -266,15 +276,15 @@ Ein erstes Resampeln führt zu diesem Ergebnis
 mean( ~ cesd, data = resample(Female))
 ```
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Hier resampeln wir durch Ersetzen des Original-Datensatzes, indem wir einen Pseudo-Zufalls-Datensatz mit der gleichen Anzahl von Zeilen erzeugen.
 :::
 
-:::{.note data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvoll, die Berechnung einmal selbst durchzuführen, um zu sehen, dass Sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
 :::
 
-\index{confint}
+\index{resample()}
 Eine weitere Durchführung wird zu einem anderen Ergebnis führen:
 
 ```{r}

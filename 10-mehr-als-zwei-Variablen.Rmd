@@ -27,6 +27,7 @@ summary(aov(cesd ~ substance * sex, data=HELPrct))
 \index{labels Option}
 \index{levels Option}
 \index{median()}
+\index{summary()}
 
 Es deutet wenig auf eine Interaktion hin, obwohl signifikante Haupteffekte für die Variablen `Substanzgruppen` und `sex` bestehen.
 
@@ -102,8 +103,12 @@ gf_point(cesd ~ mcs, color = ~ sex,
 \index{gf\_fun()}
 \index{gf\_point()}
 \index{linetype Option}
+\index{size Option}
+\index{xlim Option}
+\index{ylab Option}
 
 ### Koeffizientendarstellung
+\index{Regression!Diagnostik}
 
 Manchmal ist es nützlich eine Darstellung der Koeffizienten eines multiplen Regressionsmodells (zusammen mit den entsprechenden Konfidenzintervallen) zu erstellen:
 
@@ -116,6 +121,8 @@ mplot(lmnointeract, rows = -1, which = 7)
 Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, bei denen das 95%-Konfidenzinterval nicht den Wert Null der Nullhypothese beinhaltet.
 :::
 
+\index{which Option}
+
 :::{.achtung data-latex="{achtung}"}
 Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
 :::
@@ -123,10 +130,11 @@ Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlende
 \index{mplot()}
 
 ### Residuenanalyse
+\index{Residuenanalyse}
 
 Es ist recht einfach die Residuen des Modells auszuwerten. Wir beginnen damit, die angepassten Werte und die Residuen den Daten hinzuzufügen.
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Die Funktion `mplot()` kann ebenfalls zur Erstellung dieser Grafiken verwendet werden.
 :::
 
@@ -149,6 +157,7 @@ gf_dhistogram(~ residuals, data= HELPrct) %>%
 \index{dnorm Attribut}
 Wir können den Teil der Beobachtungen mit extrem hohen Residuen bestimmen.
 \index{abs()}
+\index{resid()}
 
 ```{r, tidy=FALSE}
 filter(HELPrct, abs(residuals)>25)
@@ -163,6 +172,8 @@ gf_point(residuals ~ mcs, cex = .3, xlab = "Mentalitätskomponentenwert",
   gf_smooth(se = FALSE) %>%
   gf_hline(yintercept = 0)
 ```
+\index{xlab Option}
+\index{title Option}
 \index{cex Option}
 \index{gf\_hline}
 \index{gf\_smooth()}

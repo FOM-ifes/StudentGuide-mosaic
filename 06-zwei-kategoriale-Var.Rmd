@@ -1,6 +1,7 @@
 # Zwei kategoriale Variablen
 ## Kreuztabellen {#kreuztab}
 \index{Kreuztabellen}
+\index{Tabellierungen}
 
 Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt werden. Hier erstellen wir die Kontingenztabelle für den Obdachlosenstatus (obdachlos in einer / mehr als einer Nacht in den letzten sechs Monaten oder nicht obdachlos) und das Geschlecht. 
 
@@ -15,6 +16,7 @@ Wir können auch Spaltenprozente erzeugen:
 tally(~ sex | homeless, margins = TRUE, 
       format = "percent", data = HELPrct)
 ```
+\index{tally()}
 \index{format Option}
 
 Die Odds Ratios (Chancenverhältnisse) können direkt aus der Tabelle berechnet werden:
@@ -45,8 +47,8 @@ with(HELPrct, CrossTable(homeless, sex,
 
 ```
 
-
-Grafische Zusammenfassungen von Kreuztabellen können ebenfalls sehr nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen, dass Männer in der Gruppe der Obdachlosen überrepräsentiert sind (die Breite der Fläche ist für Obdachlose größer als für Nicht-Obdachlose).
+\index{with()}
+Grafische Zusammenfassungen von Kreuztabellen können ebenfalls sehr nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen (an der Höhe der Flächen), dass der Frauenanteil unter den Obdachlosen vergleichsweise geringer ist als bei den Nicht-Obdachlosen. Insgesamt sind in der Stichprobe und je Gruppe mehr männliche Teilnehmer enthalten, was an der Breite der Flächen zu erkennen ist.
 
 :::{.achtung data-latex="{achtung}"}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
@@ -64,6 +66,7 @@ mosaicplot(substance ~ homeless, data = HELPrct,
 ```
 \index{color Option}
 
+
 ## Tabellen erstellen
 
 Tabellen können auch aus dem Datensatz selbst erstellt werden. Dazu wird die Funktion `do()` verwendet.
@@ -71,13 +74,15 @@ Tabellen können auch aus dem Datensatz selbst erstellt werden. Dazu wird die Fu
 ```{r, echo=TRUE}
 HELPtable <- rbind(
   do(40)  * data.frame(sex = "female", homeless = "homeless"),
-  do(169) * data.frame(sex = "male", homeless = "homeless"),
+  do(169) * data.frame(sex = "male",   homeless = "homeless"),
   do(67)  * data.frame(sex = "female", homeless = "housed"),
-  do(177) * data.frame(sex = "male", homeless = "housed")
+  do(177) * data.frame(sex = "male",   homeless = "housed")
 )
 tally(~ homeless + sex, data = HELPtable)
 ```
 \index{do()}
+\index{rbind()}
+
 
 ## Chi-Quadrat-Test
 
@@ -102,6 +107,7 @@ xchisq.test(tally(~ homeless + sex,
 ```
 
 Wir beobachten, dass es weniger obdachlose Frauen und mehr obdachlose Männer als erwartet gibt. 
+\index{xchisq.test()}
 
 ## Exakter Test nach Fisher
 \index{Exakter Test nach Fisher}

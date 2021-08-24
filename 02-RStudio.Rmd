@@ -2,7 +2,7 @@
 
 \textsf{RStudio} ist eine integrierte Entwicklungsumgebung (*integrated development environment* - IDE) für \textsf{R}, die eine alternative Schnittstelle zu \textsf{R} bietet und mehrere Vorteile gegenüber den Standard-R-Schnittstellen hat:
 
-::: {.hinweis data-latex="{hinweis}"}
+::: {.note data-latex="{note}"}
 Es gibt eine Reihe von Einführungsvideos unter [https://nhorton.people.amherst.edu/rstudio](https://nhorton.people.amherst.edu/rstudio).
 :::
 
@@ -20,7 +20,7 @@ Die Verwendung von \textsf{RStudio} in einem Browser ist wie Facebook für Stati
 - \textsf{RStudio} ist ein Tool, das die Erstellung reproduzierbarer Forschung unterstützt. \textsf{RStudio} vereinfacht es, Text, statistische Analysen (\textsf{R} Code und \textsf{R} Output) sowie Abbildungen in ein und demselben Dokument zu erstellen. Das \textsc{RMarkdown}-System bietet eine einfache \textsc{Markup}-Sprache und fügt die Ergebnisse in HTML zusammen. Das \textsc{knitr/LaTeX}-System versetzt Nutzerinnen und Nutzer in die Lage, auch \textsf{R} und \textsc{LaTeX} in dasselbe Dokument zu integrieren. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden. 
 
 
-::: {.hinweis data-latex="{hinweis}"}
+::: {.note data-latex="{note}"}
 Um \textsc{Markdown} oder \textsc{knitr/LaTeX} zu verwenden, muss das Paket `knitr` auf dem System installiert sein.
 :::
 
@@ -32,7 +32,7 @@ Obwohl man sicherlich \textsf{R} ohne \textsf{RStudio} nutzen kann, vereinfacht 
 
 Wir verwenden in erster Linie eine Online-Version von \textsf{RStudio}. \textsf{RStudio} ist eine innovative und leistungsfähige Schnittstelle zu \textsf{R}, die in einem Webbrowser oder auf Ihrem lokalen Rechner läuft. Die Ausführung im Browser hat den Vorteil, dass Sie nichts installieren oder konfigurieren müssen. Melden Sie sich einfach an und schon können Sieloslegen. Außerdem \glqq merkt\grqq  \textsf{RStudio} sich, was Sie machen und Sie können da weitermachen, wo Sie aufgehört haben, jedesmal wenn Sie sich anmelden (auch auf einem anderen Rechner). Das ist \glqq\textsf{R} in the cloud\grqq{} und funktioniert ähnlich wie GoogleDocs oder Facebook für \textsf{R}.
 
-::: {.hinweis data-latex=""}
+::: {.note data-latex="note"}
 \textsf{R} kann von [http://cran.r-project.org/](http://cran.r-project.org/) heruntergeladen und lokal installiert werden. Das Herunterladen und die Installation sind i. \ A. unkompliziert für Mac-, PC-, oder Linux-Systeme. \textsf{RStudio} ist über [http://www.rstudio.org/](http://www.rstudio.org/) verfügbar.
 :::
 
@@ -123,6 +123,9 @@ Manchmal kann es nützlich sein zu prüfen, welche Versionen des Paketes `mosaic
 ```{r}
 sessionInfo()
 ```
+
+\index{sessionInfo()}
+\index{RStudio.Version()}
 
 ## Arbeiten mit Dateien
 

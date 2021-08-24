@@ -18,6 +18,7 @@ qbinom(.95, size = 25, prob = 0.5)
 ```
 
 \index{pbinom()}
+\index{size Option}
 Wenn wir entscheiden die Nullhypothese zu verwerfen, sobald die Anzahl der positiven Werte 17 oder größer ist, sehen wir, dass wir ein $\alpha$-Niveau von $0.054$ erreichen (Wert von `pbinom()` bei 16), der nahe am nominellen Wert der Fragestellung liegt.
 Wir berechnen die Power des Vorzeichentests wie folgt: Die Wahrscheinlichkeit, dass $Xi > 0$, vorausgesetzt dass, $H_A$ zutrifft, ist gegeben durch:
 
@@ -32,6 +33,7 @@ xpnorm(0, mean = 0.3, sd = 1, lower.tail = FALSE)
 ```
 
 Die Power unter der Alternativhypothese ist gleich der Wahrscheinlichkeit, 17 oder mehr positive Werte zu ziehen, gegeben $p = 0,6179$:
+\index{xpnorm()}
 
 ```{r}
 1 - pbinom(16, size = 25, prob = 0.6179)
@@ -63,6 +65,7 @@ crit
 
 Daher verwerfen wir die Nullhypothese für beobachtete Mittelwerte größer als $0.322$.
 Um die Power dieses einseitigen Tests zu berechnen, bestimmen wir die Wahrscheinlichkeit unter der Annahme der Alternativhypothese, rechts von dieser Obergrenze zu sein.
+\index{xqnorm()}
 
 ```{r}
 power <- 1 - pnorm(crit, mean = 0.3, sd = stderr)

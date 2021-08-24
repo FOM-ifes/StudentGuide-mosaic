@@ -9,6 +9,8 @@ Mit Hilfe der Funktion `tally()` können absolute und relative Häufigkeiten fü
 Im Begleitbuch *Start Teaching with R* [@TeachingR] wird die Formelschreibweise erklärt, die hier ebenfalls verwendet wird. Siehe ebenfalls dort zum Thema statistische Modellierung.
 :::
 
+\index{Tabellierungen}
+
 ```{r, echo=TRUE}
 tally( ~ homeless, data = HELPrct)
 ```
@@ -27,6 +29,7 @@ tally( ~ homeless, format = "percent",
 tally( ~ homeless, format = "proportion", 
        data = HELPrct)
 ```
+\index{tally()}
 \index{format Option}
 \index{margins Option}
 
@@ -144,6 +147,7 @@ expected <- total*p
 expected
 ```
 
+\index{sum()}
 Wir können die $\chi^2$-Statistik auch manuell als Funktion der beobachteten und erwarteten Häufigkeiten unter Unabhängigkeit berechnen:
 
 ```{r, echo=TRUE}
@@ -171,7 +175,7 @@ gf_dist("chisq", df = 2, fill = ~ (x > 9.31),
 \index{geom Option}
 Alternativ kann  mit Hilfe des Paketes `mosaic` ein analoger `chisq.test()` durchgeführt werden, welcher zusätzlich weitere Angaben liefert, wie z.\ B. die beobachteten und erwarteten Häufigkeiten.
 
-::: {.hinweis data-latex="{hinweis}"}
+::: {.note data-latex="{note}"}
 `x` in `xchisq.test()` steht für eXtra.
 :::
 
@@ -183,6 +187,7 @@ xchisq.test(observed, p = p)
 Objekte, die sich im Arbeitsspeicher von \textsf{R} befinden, sind unter dem Reiter \textsc{Environment} in \textsf{RStudio} aufgelistet. Diese Liste kann bereinigt werden, indem die nicht mehr benötigten Objekte mit `rm()` gelöscht werden.
 :::
 
+\index{xchisq.test()}
 \index{pchisq()}
 
 ```{r, echo=TRUE}

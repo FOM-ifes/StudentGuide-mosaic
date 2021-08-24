@@ -16,12 +16,17 @@ fit <- broom::tidy(fit)
 
 gf_step(fit, estimate ~ time, linetype = ~ strata,
         title = "Produkt-Limit Überlebensschätzer (Zeitraum bis Anbindung)",
-        xlab  = "Zeit (in Tagen)", ylab = "P(nicht angebunden)")
+        xlab  = "Zeit (in Tagen)", ylab = "P (nicht angebunden)")
 ```
 
-\index{linetype Option}
 Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
+\index{xlab Option}
+\index{ylab Option}
+\index{title Option}
+\index{survfit()}
+\index{Surv()}
+\index{linetype Option}
 \index{margins Option}
 \index{gf\_step()}
 
@@ -34,5 +39,6 @@ summary(coxph(Surv(dayslink, linkstatus) ~ age + substance,
               data = HELPrct))
 ```
 \index{coxph()}
+\index{summary()}
 
 Weder Alter noch Substanzgruppe hatten einen signifikanten Einfluss auf eine Anbindung an die Grundversorgung.

@@ -21,7 +21,7 @@ favstats(cesd ~ sex, data = HELPrct)
 Boxplots sind besonders hilfreiche grafische Darstellungen, um Verteilungen zu vergleichen.
 Mit dem Befehl `gf_boxplot()` können die Boxplots für die CESD-Scores getrennt nach Geschlecht angezeigt werden. Sowohl aus den numerischen als auch aus den grafischen Zusammenfassungen geht hervor, dass Frauen in der Regel etwas höhere CESD-Werte haben als Männer.
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Obwohl wir normalerweise die erklärenden Variablen entlang der horizontalen Achse darstellen, so ist die umgedrehte  Darstellung für diese Art von Grafiken in einigen Fällen vorzuziehen.
 :::
 
@@ -33,8 +33,8 @@ gf_boxplot(cesd ~ sex, data = HELPrct) %>%
 Bei nur kleiner Stichprobengröße gibt es keine Notwendigkeit, diese über Boxplots darzustellen, da der Befehl `gf_point()` ebenfalls kategoriale Prädiktoren darstellen kann. Auch 10--20 Beobachtungen pro Gruppe sind mittels Streudiagramm gut darzustellen. Beobachtungen, die einen gleichen Wert aufweisen, können über die Anpassung des Transparenzlevels (Argument `alpha`) sichtbar gemacht werden.
 \index{gf\_refine()}
 
-:::{.hinweis data-latex="{hinweis}"}
-Einer von uns sah mal einen Biologen stolz mehrere Boxplots nebeneinander präsentieren. In dem Glauben, einen großen Erfolg errungen zu haben, fragte er naiv, wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
+:::{.note data-latex="{note}"}
+In einem Vortrag präsentierte mal ein Biologen stolz mehrere Boxplots nebeneinander. Das Publikum war beeindruckt von den Ergebnissen und jemand fragte naiv nach, wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
 :::
 
 \index{gf\_point()}
@@ -62,14 +62,17 @@ Wir können den Test unter der Annahme von gleichen Varianzen wiederholen:
 t.test(cesd ~ sex, var.equal = TRUE, data = HELPrct)
 ```
 
+\index{t.test()}
+\index{var.equal Option}
 Die Gruppen können ebenso mit dem Befehl `lm()` (ebenfalls unter der Annahme gleicher Varianzen) verglichen werden. Der \textsf{mosaic} Befehl  `msummary()` gibt eine etwas schlankere Ausgabe im Vergleich zur klassischen Ausgabe des Befehls `summary()` aus.
 
 \index{lm()}
+\index{summary()}
 ```{r}
 msummary(lm(cesd ~ sex, data = HELPrct))
 ```
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Der Befehl `lm()` ist Teil eines sehr viel flexibleren Modellierungsansatzes, wohingegen `t.test()` im Wesentlichen eine nicht weiter anpassungsfähige Sackgasse ist. `lm()` verwendet die Annahme gleicher Varianzen. Siehe hierzu auch das Begleitbuch *Start Modeling in R* [@ModelingR] für weitere Details.
 :::
 
@@ -82,8 +85,12 @@ Die gleiche Schlussfolgerung wird mit einem nicht-parametrischen Test (Wilcoxon-
 wilcox.test(cesd ~ sex, data = HELPrct)
 ```
 
+\index{wilcox.test()}
+
+
 ## Permutationstest
 \index{Permutationstest}
+\index{Resampling}
 Hier erweitern wir die in Abschnitt \@ref(bootstrap) eingeführten Methoden, um einen zweiseitigen Test einzusetzen, der das Alter zu Beginn getrennt nach Geschlecht vergleicht. Hierzu berechnen wir zunächst die beobachtete Differenz der Mittelwerte:
 
 ```{r}
@@ -104,6 +111,7 @@ do(1) * diffmean(age ~ shuffle(sex), data = HELPrct)
 do(3) * diffmean(age ~ shuffle(sex), data = HELPrct)
 ```
 \index{do()}
+\index{shuffle()}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Weitere Details und Beispiele finden Sie in der im Paket `mosaic` enthaltenen `vignette("Resampling")`.
@@ -129,7 +137,9 @@ gf_histogram(~ diffmean, n = 40, xlim = c(-6, 6),
 \index{pch Option}
 \index{color Option}
 \index{gf\_vline()}
+\index{xlim Option}
 \index{head()}
+\index{xintercept Option}
 
 Mit der vorliegenden Permutation erhalten wir keine ausreichenden Belege, um der Nullhypothese, dass Männer und Frauen das gleiche Durchschnittsalter in der Population haben, zu widersprechen.
 
@@ -181,6 +191,7 @@ anova(modintercept, modsubstance)
 Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines ANOVA-Modells verwendet werden können. Einer davon ist Tukey's Honest Significant Differences (HSD). Weitere Optionen sind innerhalb des Paketes `multcomp` aufgeführt.
 
 \index{Multiple Vergleiche}
+\index{Tukey's Honest Significant Differences (HSD)}
 
 ```{r}
 favstats(cesd ~ substance, data = HELPrct)
@@ -199,6 +210,7 @@ mplot(HELPHSD)
 \index{factor()}
 \index{labels Option}
 \index{levels Option}
+\index{TukeyHSD()}
 
 Auch hier zeigt sich, dass die Kokainkonsumgruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.
 

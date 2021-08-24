@@ -1,4 +1,5 @@
 # Wahrscheinlichkeitverteilungen und Zufallsvariablen {#WkeitZuf}
+\index{Zufallsvariablen}
 
 \textsf{R} kann Werte für zahlreiche Verteilungsfunktionen berechnen. Es ist leicht, aus diesen Verteilungsfunktionen Zufallsdaten zu generieren, die dann für Simulationen und explorative Untersuchungen genutzt werden können.
 
@@ -12,6 +13,7 @@ integrate(dnorm, -Inf, 0) # P(Z < 0)
 ```
 
 Eine vergleichbare Ausgabe gibt es für die F-Verteilung.
+\index{xpnorm()}
 \index{qnorm()}
 ```{r}
 xpf(3, df1 = 4, df2 = 20)
@@ -48,6 +50,7 @@ gf_dist('exp', kind = 'histogram', xlab = "x")
 ```
 
 So wird der Parameter `rate` für die Skalierung der Verteilung standardmäßig auf 1 gesetzt und ist damit gleichbedeutend zu folgendem Befehl:
+\index{xlab Option}
 
 ```{r, eval = FALSE}
 gf_dist('exp', rate = 1, kind = 'histogram', xlab = "x")
@@ -59,6 +62,8 @@ gf_dist('binom', size = 25, prob = 0.25, xlim = c(-1, 26))
 
 \index{dnorm Option}
 \index{integrate()}
+\index{size Option}
+\index{xlim Option}
 
 Mehrere Verteilungen können in einer Grafik angezeigt werden:
 
@@ -87,6 +92,7 @@ gf_dhistogram(~ x, binwidth = 0.2, center = 0.1) %>%
 
 \index{makeFun()}
 \index{exp()}
+\index{rexp()}
 \index{gf\_dhistogram()}
 \index{binwidth Option}
 \index{center Option}

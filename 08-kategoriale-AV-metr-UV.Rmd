@@ -4,7 +4,7 @@
 \index{Logistische Regression}
 Die logistische Regression ist mit dem Befehl `glm()` durchführbar. Dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich der logistischen Regression.
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit`-Link ist bereits die Voreinstellung für die Binomialverteilung, so dass wir dies hier nicht angeben müssen. Die ausführlichere Angabe wäre `family=binomial(link=logit)`.
 :::
 
@@ -41,6 +41,7 @@ anova(mymodage, mymodsubage, test = "Chisq")
 ```
 
 \index{anova()}
+\index{test Option}
 
 Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin konsumierenden Gruppen signifikant seltener obdachlos sind als die Personen, die der Alkohol konsumierenden Gruppe zugehörig sind.
 (Ein ähnliches Ergebnis zeigt sich, wenn nur der Obdachlosenstatus und die Substanz betrachtet werden).
@@ -49,5 +50,6 @@ Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin kons
 tally(~ homeless | substance, format = "percent", 
       margins = TRUE, data = HELPrct)
 ```
+\index{tally()}
 \index{format Option}
 \index{margins Option}

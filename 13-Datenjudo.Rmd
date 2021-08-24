@@ -1,7 +1,10 @@
 # Datenmanagement {#datenmanagement}
-\index{Datenjudo}
+\index{Datenmanagement}
 
 Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierenden) ermöglicht \glqq mit Daten zu arbeiten\grqq{} oder wie Diane Lambert von Google sagte \glqq mit Daten zu denken\grqq{}. Wir neigen dazu, die Datenverwaltung zu Beginn eines einführenden Statistikkurses auf ein Minimum zu beschränken und die Themen, wo nötig, schrittweise einzuführen. In Kursen, in denen substantielle und umfangreiche Projekte durchgeführt werden, wird ein größerer Fokus auf das Datenmanagement benötigt. In diesem Kapitel werden einige wichtige Möglichkeiten des Datenmanagements beschrieben.
+
+\index{Mit Daten denken}
+
 
 ## Überprüfung von Dataframes
 \index{Dataframes!Überprüfen}
@@ -10,11 +13,15 @@ Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierend
 Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Abschnitt über die Datenverwaltung, einschließlich der Verwendung der Funktion `read.file()` zum Laden von Daten in \textsf{R} und \textsf{RStudio}. 
 :::
 
+\index{read.file()}
+
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern das Arbeiten mit Daten. Hadley Wickham -- Autor der Pakete -- gibt an, dass mittels sechs der in diesen Paketen implementierten Schlüsselwörter (oder Verben) eine große Anzahl von Aufgaben erfüllt werden kann: Filtern (`filter` -- Zeilen beibehalten, die die angegebenen Kriterien erfüllen), Auswählen (`select` -- Spalten nach Namen auswählen), Anordnen (`arrange` -- Zeilen neu ordnen), Mutieren (`mutate` -- neue Variablen hinzufügen), Zusammenfassen (`summarise` -- Variablen auf zusammenfassende Statistiken reduzieren) und Gruppieren (`group by` - Gruppen zusammenfassen). Siehe [https://nhorton.people.amherst.edu/precursors/](https://nhorton.people.amherst.edu/precursors/) für weitere Details und Ressourcen.
 :::
 \index{dplyr Paket}
+\index{tidyr Paket}
 \index{Dataframes!Auswählen}
+\index{summarise()}
 
 Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in \textsf{R}) hilfreich sein.
 \index{Dataframe}
@@ -45,6 +52,7 @@ irisSmall <- select(iris, Species, Sepal.Length)
 irisSmall <- mutate(irisSmall, Length = cut(Sepal.Length, breaks = 4:8))
 
 ```
+\index{select()}
 \index{breaks Option}
 
 Mehrere Befehle können mit dem `%>%` (\textsc{Pipe}-) Operator miteinander verknüpft werden: 
@@ -62,7 +70,7 @@ Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die e
 head(irisSmall)
 ```
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
 \index{head()}
@@ -82,6 +90,8 @@ Tatsächlich wurde dies für alle bis auf einen Fall getan, um die bereits in de
 ```{r}
 tally(~ (exper - workforce.years), data = CPS85)
 ```
+
+\index{tally()}
 
 
 ## Variablen löschen
@@ -104,9 +114,10 @@ Beliebig viele Variablen können gelöscht oder auf ähnliche Weise beibehalten 
 ```{r}
 CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 ```
+\index{select Option}
 
-
-## Variablen umbenennen  
+## Variablen umbenennen
+\index{Variablen umbenennen}
 
 Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` aus dem Paket `dplyr` geändert werden.
 
@@ -114,6 +125,7 @@ Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rena
 names(CPS85)
 ```
 \index{names()}
+\index{rename()}
 
 ```{r}
 CPSnew <- rename(CPS85, workforce = workforce.years)
@@ -128,6 +140,7 @@ Der `faithful`-Datensatz (im Paket `datasets`, welches immer verfügbar ist) hat
 names(faithful)
 ```
 \index{faithful Datensatz}
+\index{row.names()}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Es ist ratsam, vom ersten Tag an Praktiken für die Auswahl von Variablennamen festzulegen.
@@ -163,6 +176,7 @@ head(faithful, 3)
 
 ## Erstellen von Teilmengen spezifischer Beobachtungen {#subdaten}
 \index{Teilmengen erstellen}
+\index{Dataframes!Teilmengen erstellen}
 
 Wir können auch `filter()` verwenden, um die Größe eines Dataframes zu reduzieren, indem nur bestimmte Zeilen ausgewählt werden.
 \index{filter()}
@@ -228,6 +242,7 @@ tally(~t2d + genotype, data = fusion1m)
 
 
 ## Extrahieren und Zusammenfassen von Informationen
+\index{Dataframes!Umformen}
 
 Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu ändern. Es wurde für die Konvertierung zwischen langen und breiten Darstellungen von Zeitreihendaten entwickelt und seine Argumente sind in diesem Sinne benannt.
 
@@ -268,6 +283,8 @@ stateTraffic
 \index{inner\_join}
 \index{head()}
 \index{paste()}
+\index{spread()}
+
 
 ## Neue Variablen hinzufügen
 
@@ -295,7 +312,7 @@ gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 
 Es bietet sich an, die Labels besser zu bezeichnen.
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Die Funktion `ntiles()` kann verwendet werden, um die Erstellung von Gruppen auf diese Weise zu automatisieren.
 :::
 
@@ -323,6 +340,7 @@ HELPrct <- mutate(HELPrct,
 
 ### Faktoren neu ordnen
 \index{Dataframes!Neu ordnen}
+\index{Faktoren neu ordnen}
 
 Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihenfolge als Referenzgruppe für die Modellierung. Dies kann mit der `relevel()` Funktion überschrieben werden (siehe auch `reorder()`).
 
@@ -335,6 +353,7 @@ Standardmäßig verwendet \textsf{R} die erste Ebene in lexikographischer Reihen
 ```
 \index{coef()}
 \index{lm()}
+\index{relevel()}
 
 ```{r}
 HELPrct <- mutate(HELPrct, subnew = relevel(substance, ref="heroin"))
@@ -401,6 +420,7 @@ summary(smaller)
 ```
 
 Von den 470 Probanden in den 6 Variablen des Dataframes haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
+\index{summary()}
 
 ```{r}
 favstats(~ mcs, data = smaller)
@@ -419,6 +439,8 @@ favstats(~ mcs, data = nomiss)
 
 \index{is.na()}
 \index{ncol()}
+\index{with()}
+\index{sum()}
 Alternativ könnten wir den gleichen Datenbestand mit Hilfe von logischen Bedingungen erzeugen:
 
 ```{r}

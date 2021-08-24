@@ -128,7 +128,7 @@ pre code {
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .note:after {
-  content: "\f292";
+  content: "\f0a4";
   font-family: FontAwesome;
   left:10px;
   position:absolute;

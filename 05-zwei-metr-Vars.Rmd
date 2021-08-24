@@ -1,5 +1,6 @@
 # Zwei metrische Variablen {#zweiMetrVar}
 ## Scatterplots
+\index{Scatterplots}
 
 Wir empfehlen, jede Analyse durch eine grafische Darstellung der Daten zu beginnen. Hier ergänzen wir ein Streudiagramm des CESD (ein Maß für depressive Beschwerden, höhere Werte deuten auf mehr Beschwerden hin) und des MCS (mental component score des SF-36, wobei höhere Werte auf eine bessere Funktion hinweisen) für weibliche Probanden mit einer LOWESS-Linie (locally weighted scatterplot smoother). Die Datenpunkte werden als Kreise dargestellt und die LOWESS-Linie mit einer etwas dickeren Linie dargestellt.
 
@@ -17,6 +18,8 @@ gf_point(cesd ~ mcs, data = Female, shape = 1) %>%
 ```
 \index{filter()}
 \index{gf\_smooth()}
+\index{size Option}
+\index{shape Option}
 
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Wenn man mit der Ausdrucksweise des statistischen Modellierens nicht vertraut ist, findet man im Begleitbuch *Start Modeling with R* [@TeachingR] entsprechende Hilfe. 
@@ -32,6 +35,7 @@ gf_text(Murder ~ Assault,
 ```
 \index{gf\_text()}
 \index{label Option}
+\index{rownames()}
 
 ## Korrelationen
 Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet werden.
@@ -43,6 +47,7 @@ cor(cesd ~ mcs, data = Female)
 smallHELP <- select(Female, cesd, mcs, pcs)
 cor(smallHELP)
 ```
+\index{select()}
 \index{cor()}
 
 Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z.\ B. Spearman) können mit der Option `method` gewählt werden.
@@ -52,14 +57,18 @@ cor(cesd ~ mcs, method = "spearman", data = Female)
 ```
 
 \index{Pearson Korrelation}
+\index{Spearman Korrelation}
+
 
 ## Paarweise Plots
 \index{Paarweise Plots}
 Ein paarweiser Plot (Scatterplot Matrix) kann für jedes Paar eines Variablensets erstellt werden.
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Das Paket `GGally` unterstützt komplexere Formen von paarweisen Plots.
 :::
+
+\index{Scatterplot Matrix}
 
 ```{r}
 library(GGally)
@@ -71,6 +80,7 @@ ggpairs(smallHELP)
 
 ## Einfache lineare Regression
 \index{Lineare Regression}
+\index{Regression}
 
 :::{.note data-latex="{note}"}
 Normalerweise führen wir die einfache lineare Regression als deskriptive Methode zu einem sehr frühen Zeitpunkt einer Lehrveranstaltung ein.
@@ -115,14 +125,19 @@ class(cesdmodel)
 \index{msummary()}
 \index{confint()}
 \index{class()}
+\index{rsquared()}
+\index{summary()}
 
 Die Ausgabe von `lm()` ist ein lineares Modell.
 Ähnlich wie bei `coef()` kann eine Reihe von Operationen auf dieses Objekt zugreifen.  
 Die Funktion `residuals()` gibt den Residuenvektor aus.
 
-:::{.hinweis data-latex="{hinweis}"}
+:::{.note data-latex="{note}"}
 Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden. Eine andere wichtige Funktion ist `fitted()`, die einen Vektor aus Vorhersagewerten erzeugt.
 :::
+
+\index{residuals()}
+\index{resid()}
 \index{fitted()}
 
 ```{r}
@@ -165,6 +180,9 @@ Mit `which = 3` kann ein Scale-Location-Plot erstellt werden:
 ```{r}
 mplot(cesdmodel, which = 3)
 ```
+
+\index{which Option}
+\index{Scale-Location-Plot}
 
 Das Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer wird bei `which = 4` ausgegeben:
 \index{Cook's Abstandsmaß}
