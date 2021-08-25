@@ -62,7 +62,8 @@ Wir hoffen, dass die deutschsprachige Version des Student's Guide to R unseren S
 
 Prof. Dr. Bianca Krol \newline
 
-Dekanin | Schlüsselkompetenzen & Methoden \newline
+Dekanin | Schlüsselkompetenzen & \newline Methoden 
+
 Direktorin | ifes Institut für Empirie & Statistik 
 :::
 
