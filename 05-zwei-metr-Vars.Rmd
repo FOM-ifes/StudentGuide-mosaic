@@ -10,6 +10,7 @@ Die LOWESS Linie kann dabei helfen, die Linearität eines Zusammenhangs leichter
 
 \index{LOWESS}
 \index{Linearität}
+\index{gf\_point()}
 
 ```{r}
 Female <- filter(HELPrct, female == 1)
@@ -75,7 +76,6 @@ library(GGally)
 ggpairs(smallHELP)
 ```
 
-\index{gf\_point()}
 \index{ggpairs()}
 
 ## Einfache lineare Regression
@@ -139,12 +139,12 @@ Die Funktion `residuals()` kann verkürzt auch als `resid()` geschrieben werden.
 \index{residuals()}
 \index{resid()}
 \index{fitted()}
+\index{density Option}
+\index{gf\_histogram()}
 
 ```{r}
 gf_histogram(~ residuals(cesdmodel), density = TRUE)
 ```
-\index{gf\_histogram()}
-\index{density Option}
 
 ```{r}
 gf_qq(~ resid(cesdmodel))
@@ -204,16 +204,15 @@ mplot(cesdmodel, which = 6)
 ```
 
 Vorhersageintervalle können mit Hilfe der Option `interval` in die Funktion `gf_lm()` eingefügt werden.
+\index{fill Option}
+\index{gf\_lm()}
+\index{interval Option}
 
 ```{r}
 gf_point(cesd ~ mcs, data = HELPrct) %>%
   gf_lm(interval = "confidence", fill = "red") %>%
   gf_lm(interval = "prediction", fill = "navy")
 ```
-\index{gf\_lm()}
-\index{fill Option}
-\index{gf\_qq()}
-\index{interval Option}
 
 :::{.aufgabe data-latex="{aufgabe}"}
 Mit Hilfe des Datensatzes `HELPrct` soll eine einfache lineare Regression geschätzt werden, die den Zusammenhang zwischen der am Tag getrunkenen Menge und dem MCS (mental component score) beschreibt. 

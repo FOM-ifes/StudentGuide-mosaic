@@ -22,9 +22,10 @@ Beachten Sie, dass die Funktion `mean()` im Paket `mosaic` eine Formel-Schnittst
 Wenn Sie mit der Notation der Formeln noch nicht vertraut sind, bietet das Begleitbuch *Start Teaching with R* [@TeachingR] eine detaillierte Einführung. *Start Modeling with R* [@ModelingR], ein anderes Begleitbuch, vertieft die Beziehung zwischen dem Modellierungsprozess und der Notation der Formeln.
 :::
 
-Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wann immer möglich werden wir die `mosaic`-Syntax verwenden, ):
+Dieselbe Ausgabe könnte auch durch die folgenden Befehle erzeugt werden (aber wann immer möglich werden wir die `mosaic`-Syntax verwenden):
 
 \index{\textit{Modeling with R}}
+\index{HELPrct Datensatz}
 
 ```{r}
 with(HELPrct, mean(cesd))
@@ -78,6 +79,8 @@ Die Funktion `histogram()` wird genutzt, um ein Histogramm zu erzeugen. Hier nut
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5.9)
 ```
 \index{gf\_histogram()}
+\index{binwidth Option}
+\index{center Option}
 
 Wir können die Optionen `binwidth` und `center` nutzen, um die Lage der Säulen zu steuern:
 
@@ -85,8 +88,6 @@ Wir können die Optionen `binwidth` und `center` nutzen, um die Lage der Säulen
 gf_histogram(~ cesd, data = HELPrct, binwidth = 5, center = 2.5)
 ```
 
-\index{center Option}
-\index{binwidth Option}
 Im Datensatz `HELPrct` ist etwa ein Viertel der Probanden weiblich.
 
 ```{r}
@@ -175,16 +176,14 @@ gf_dhistogram(~ cesd, binwidth = 2, data = Female)
 ```
 
 Die Funktion `dotplot()` wird genutzt, um einen *dotplot* für eine kleinere Teilgruppe zu erzeugen (obdachlose Frauen). Wir zeigen auch, wie die Beschriftung der x-Achse geändert werden kann:
+\index{gf\_dotplot()}
+\index{gf\_labs()}
 
 ```{r}
 gf_dotplot(~ cesd, binwidth = 3,
              data = filter(HELPrct, sex == "female", homeless == "homeless")) %>%
     gf_labs(x = "CESD score")
 ```
-\index{gf\_dotplot()}
-\index{gf\_labs()}
-
-\index{HELPrct Datensatz}
 
 
 ## Dichtekurven
@@ -203,7 +202,11 @@ Hier versehen wir einen Dichteplot mit einigen zusätzlichen Inhalten, um zu zei
 
 \index{plotFun()}
 \index{annotate()}
-
+\index{geom Option}
+\index{gf\_dens()}
+\index{gf\_refine()}
+\index{gf\_vline()}
+\index{label Option}
 ```{r, fig.keep='last'}
 gf_dens(~ cesd, data = Female) %>% 
     gf_refine(annotate(geom = "text", x = 10, y = .025, 
@@ -212,11 +215,6 @@ gf_dens(~ cesd, data = Female) %>%
     gf_vline(xintercept = 60) + 
     xlim(0, 80)
 ```
-\index{gf\_dens}
-\index{geom Option}
-\index{gf\_refine()}
-\index{gf\_vline()}
-\index{label Option}
 \index{xintercept Option}
 \index{xlim()}
 
@@ -244,7 +242,6 @@ xpnorm(1.96, mean = 0, sd = 1)
 x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
 :::
 
-\index{gf\_dens()}
 \index{plotFUN()}
 
 ## Inferenz einer einzelnen Stichprobe {#bootstrap}

@@ -25,13 +25,13 @@ Mit dem Befehl `gf_boxplot()` können die Boxplots für die CESD-Scores getrennt
 Obwohl wir normalerweise die erklärenden Variablen entlang der horizontalen Achse darstellen, so ist die umgedrehte  Darstellung für diese Art von Grafiken in einigen Fällen vorzuziehen.
 :::
 
+\index{gf\_refine()}
 ```{r}
 gf_boxplot(cesd ~ sex, data = HELPrct) %>% 
   gf_refine(coord_flip())
 ```
 
 Bei nur kleiner Stichprobengröße gibt es keine Notwendigkeit, diese über Boxplots darzustellen, da der Befehl `gf_point()` ebenfalls kategoriale Prädiktoren darstellen kann. Auch 10--20 Beobachtungen pro Gruppe sind mittels Streudiagramm gut darzustellen. Beobachtungen, die einen gleichen Wert aufweisen, können über die Anpassung des Transparenzlevels (Argument `alpha`) sichtbar gemacht werden.
-\index{gf\_refine()}
 
 :::{.note data-latex="{note}"}
 In einem Vortrag präsentierte mal ein Biologen stolz mehrere Boxplots nebeneinander. Das Publikum war beeindruckt von den Ergebnissen und jemand fragte naiv nach, wie viele Beobachtungen in jeder Gruppe enthalten seien. \glqq Vier\grqq{}, antwortete der Biologe.
@@ -99,7 +99,7 @@ mean(age ~ sex, data = HELPrct)
 test.stat <- diffmean(age ~ sex, data = HELPrct)
 test.stat
 ```
-\index{diffmean}
+\index{diffmean()}
 
 Wir können nun die gleiche Statistik erneut berechnen, nachdem wir die Gruppenbezeichnungen zufällig gemischt (permutiert) haben:
 
@@ -117,6 +117,7 @@ do(3) * diffmean(age ~ shuffle(sex), data = HELPrct)
 Weitere Details und Beispiele finden Sie in der im Paket `mosaic` enthaltenen `vignette("Resampling")`.
 :::
 
+\index{head()}
 ```{r}
 rtest.stats <- do(500) * diffmean(age ~ shuffle(sex), data = HELPrct)
 rtest.stats <- mutate(rtest.stats, diffmeantest = 
@@ -138,7 +139,6 @@ gf_histogram(~ diffmean, n = 40, xlim = c(-6, 6),
 \index{color Option}
 \index{gf\_vline()}
 \index{xlim Option}
-\index{head()}
 \index{xintercept Option}
 
 Mit der vorliegenden Permutation erhalten wir keine ausreichenden Belege, um der Nullhypothese, dass Männer und Frauen das gleiche Durchschnittsalter in der Population haben, zu widersprechen.
@@ -186,12 +186,15 @@ anova(modintercept, modsubstance)
 \index{Modellvergleich}
 
 ## Tukeys Post-hoc-Test
-\index{aov}
 \index{Tukeys Post-hoc-Test}
 Es gibt eine Vielzahl weiterer Vergleichsverfahren, die nach der Anpassung eines ANOVA-Modells verwendet werden können. Einer davon ist Tukey's Honest Significant Differences (HSD). Weitere Optionen sind innerhalb des Paketes `multcomp` aufgeführt.
 
 \index{Multiple Vergleiche}
 \index{Tukey's Honest Significant Differences (HSD)}
+\index{factor()}
+\index{labels Option}
+\index{levels Option}
+
 
 ```{r}
 favstats(cesd ~ substance, data = HELPrct)
@@ -207,9 +210,7 @@ HELPHSD
 
 mplot(HELPHSD)
 ```
-\index{factor()}
-\index{labels Option}
-\index{levels Option}
+
 \index{TukeyHSD()}
 
 Auch hier zeigt sich, dass die Kokainkonsumgruppe deutlich niedrigere CESD-Werte aufweist als eine der beiden anderen Gruppen.

@@ -18,6 +18,8 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
         title = "Produkt-Limit Überlebensschätzer (Zeitraum bis Anbindung)",
         xlab  = "Zeit (in Tagen)", ylab = "P (nicht angebunden)")
 ```
+\index{gf\_step()}
+\index{linetype Option}
 
 Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
@@ -26,9 +28,7 @@ Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundhei
 \index{title Option}
 \index{survfit()}
 \index{Surv()}
-\index{linetype Option}
-\index{margins Option}
-\index{gf\_step()}
+
 
 ## Cox-proportionales-Hazard-Modell 
 \index{Cox-proportionales-Hazard-Modell}

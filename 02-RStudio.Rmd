@@ -32,7 +32,7 @@ Obwohl man sicherlich \textsf{R} ohne \textsf{RStudio} nutzen kann, vereinfacht 
 
 Wir verwenden in erster Linie eine Online-Version von \textsf{RStudio}. \textsf{RStudio} ist eine innovative und leistungsfähige Schnittstelle zu \textsf{R}, die in einem Webbrowser oder auf Ihrem lokalen Rechner läuft. Die Ausführung im Browser hat den Vorteil, dass Sie nichts installieren oder konfigurieren müssen. Melden Sie sich einfach an und schon können Sieloslegen. Außerdem \glqq merkt\grqq  \textsf{RStudio} sich, was Sie machen und Sie können da weitermachen, wo Sie aufgehört haben, jedesmal wenn Sie sich anmelden (auch auf einem anderen Rechner). Das ist \glqq\textsf{R} in the cloud\grqq{} und funktioniert ähnlich wie GoogleDocs oder Facebook für \textsf{R}.
 
-::: {.note data-latex="note"}
+::: {.note data-latex="{note}"}
 \textsf{R} kann von [http://cran.r-project.org/](http://cran.r-project.org/) heruntergeladen und lokal installiert werden. Das Herunterladen und die Installation sind i. \ A. unkompliziert für Mac-, PC-, oder Linux-Systeme. \textsf{RStudio} ist über [http://www.rstudio.org/](http://www.rstudio.org/) verfügbar.
 :::
 
@@ -92,6 +92,7 @@ Es ist wahrscheinlich am besten, sich für eine der beiden Zuweisungsmöglichkei
 :::
 
 Sobald Variablen definiert sind, können sie in anderen Operationen und Funktionen verwendet werden.
+\index{log()}
 ```{r}
 0.5 * product               # die Hälfte von product
 
@@ -128,8 +129,6 @@ sessionInfo()
 \index{RStudio.Version()}
 
 ## Arbeiten mit Dateien
-
-\index{log}
 
 ### Das Arbeiten mit dem R Skript
 Eine Alternative ist es, \textsf{R}-Befehle in einer Datei zu speichern. \textsf{RStudio} bietet einen integrierten Editor, um diese Dateien zu bearbeiten, und unterstützt die Ausführung eines Teils oder aller Befehle aus diesen Dateien.
@@ -196,6 +195,7 @@ Der \textsc{Environment}-Reiter zeigt die Objekte, die für die \textsc{Console}
 
 ### Grafiken (Plots)
 Grafiken, die in der Konsole erzeugt werden, werden im \textsc{Plots}-Reiter angezeigt. Zum Beispiel zeigen die folgenden Befehle die tägliche Anzahl an Geburten in den Vereinigten Staaten für das Jahr 1978 an:
+\index{gf\_point()}
 
 ```{r}
 library(mosaic)
@@ -204,9 +204,6 @@ gf_point(births ~ day_of_year, data = Births78)
 
 Innerhalb des \textsc{Plots}-Reiters haben Sie Zugriff auf vorherige Grafiken und Sie können diese, nach interaktiver Größenanpassung, in verschiedene Formate exportieren.
 
-\index{gf\_point()}
 
 ### Pakete (Packages)
 Ein großer Teil der \textsf{R}-Funktionalitäten befindet sich in Paketen, die meistens über eine zentrale Anlaufstelle namens CRAN (Comprehensive \textsf{R} Archive Network) verfügbar sind. Der \textsc{Packages}- Reiter vereinfacht die Installation und das Laden der Pakete. Hier können Sie auch nach Paketen suchen, die seit der Installation ein Update erhalten haben. 
-
-\index{gf\_point()}

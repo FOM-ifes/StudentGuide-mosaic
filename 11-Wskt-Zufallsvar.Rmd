@@ -11,6 +11,7 @@ qnorm(.975, mean = 0, sd = 1)
 
 integrate(dnorm, -Inf, 0) # P(Z < 0)
 ```
+\index{integrate()}
 
 Eine vergleichbare Ausgabe gibt es für die F-Verteilung.
 \index{xpnorm()}
@@ -18,9 +19,10 @@ Eine vergleichbare Ausgabe gibt es für die F-Verteilung.
 ```{r}
 xpf(3, df1 = 4, df2 = 20)
 ```
-\index{integrate()}
-Die folgende Tabelle zeigt die Basisnamen für die Verteilungen, die in \textsf{R} zur Verfügung stehen. Die Vorsilbe `d` erzeugt die Dichtefunktion für die jeweilige Verteilung, `p` die kumulierte Dichte- bzw. Verteilungsfunktion, mit `q` erhalten Sie die Quantile und `r` erzeugt Zufallsziehungen. Um beispielsweise die Dichtefunktion der Exponentialverteilung zu finden, nutzen Sie das Kommando `dexp()`. Die Funktion `qDIST()` ist die inverse Funktion zu `pDIST()` (für einen Basisnamen `DIST`).
 
+Die folgende Tabelle zeigt die Basisnamen für die Verteilungen, die in \textsf{R} zur Verfügung stehen. Die Vorsilbe `d` erzeugt die Dichtefunktion für die jeweilige Verteilung, `p` die kumulierte Dichte- bzw. Verteilungsfunktion, mit `q` erhalten Sie die Quantile und `r` erzeugt Zufallsziehungen. Um beispielsweise die Dichtefunktion der Exponentialverteilung zu finden, nutzen Sie das Kommando `dexp()`. Die Funktion `qDIST()` ist die inverse Funktion zu `pDIST()` (für einen Basisnamen `DIST`).
+\index{Dichtefunktionen}
+\index{Verteilungsfunktionen}
 ```{r, echo=FALSE}
 Verteilung <- c("Beta", "Binomial", "Cauchy", "Chi-Quadrat", "Exponential", "F", "Gamma", "Geometrische", "Hypergeometrische", "Logistische", "Lognormal", "Negative Binomial", "Normal", "Poisson", "Students t", "Gleich", "Weibull")
  
@@ -60,12 +62,14 @@ gf_dist('exp', rate = 1, kind = 'histogram', xlab = "x")
 gf_dist('binom', size = 25, prob = 0.25, xlim = c(-1, 26))
 ```
 
-\index{dnorm Option}
-\index{integrate()}
 \index{size Option}
 \index{xlim Option}
 
 Mehrere Verteilungen können in einer Grafik angezeigt werden:
+\index{cut()}
+\index{fill Option}
+\index{geom Option}
+\index{gf\_labs()}
 
 ```{r}
 gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7), 
@@ -73,11 +77,7 @@ gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7),
   gf_dist("binom", size = 50, prob = .3, col = "black", pch = 16) %>%
   gf_labs(fill = "Intervals")
 ```
-\index{fill Option}
-\index{cut()}
-\index{geom Option}
 \index{pch Option}
-\index{gf\_labs()}
 
 Die Funktion `gf_fun()` kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
 \index{gf\_fun()}

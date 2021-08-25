@@ -9,6 +9,7 @@ Kreuztabellen können für zwei (oder mehr) kategoriale Variablen aufgestellt we
 tally(~ homeless + sex, margins = FALSE, 
       data = HELPrct)
 ```
+\index{margins Option}
 
 Wir können auch Spaltenprozente erzeugen:
 
@@ -122,5 +123,3 @@ fisher.test(tally(~ homeless + sex, margins = FALSE,
 :::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Beachten Sie die Unterschiede in der Schätzung des Odd Ratios im Vergleich zu Abschnitt \@ref(kreuztab). Die Funktion `fisher.test()` verwendet einen anderen Schätzer (und anderes Intervall, basierend auf dem Likelihood).
 :::
-
-\index{margins Option}

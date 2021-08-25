@@ -24,12 +24,12 @@ Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanag
 \index{summarise()}
 
 Die Funktion `inspect()` kann bei der Beschreibung der Variablen in einem Dataframe (der Name für einen Datensatz in \textsf{R}) hilfreich sein.
-\index{Dataframe}
-\index{inspect()}
+\index{Dataframes}
 
 ```{r}
 inspect(iris)
 ```
+\index{inspect()}
 
 Der `iris`-Datensatz enthält eine kategoriale und vier quantitative Variablen.
 \index{iris Datensatz}
@@ -62,7 +62,6 @@ irisSmall <- iris %>%
   select(Species, Sepal.Length) %>%
   mutate(Length = cut(Sepal.Length, breaks = 4:8))
 ```
-\index{cut()}
 
 Beachten Sie, dass bei dieser Verwendung das erste Argument von `select()` die erste Variable ist (da sie die Daten von der vorherigen \textsc{Pipe} erbt).
 
@@ -73,7 +72,9 @@ head(irisSmall)
 :::{.note data-latex="{note}"}
 `cut()` ist eine Funktion, die verwendet werden kann, um aussagekräftigere Namen für die Gruppen zu definieren.
 :::
+
 \index{head()}
+\index{cut()}
 
 Der \textsc{CPS85}-Datensatz enthält Daten aus einer Bevölkerungserhebung (aus dem Jahr 1985). Zwei der Variablen in diesem Dataframe sind Alter (`age`) und Bildung (`educ`). Wir können die Anzahl der Jahre schätzen, die ein Arbeitnehmer im Erwerbsleben tätig ist, wenn wir davon ausgehen, dass er seit dem Abschluss seiner Ausbildung im Erwerbsleben tätig ist und dass sein Alter bei Abschluss der Ausbildung um 6 Jahre höher ist als die Anzahl der erreichten Ausbildungsjahre. Wir können dies als neue Variable in den Dataframe mit `mutate()` hinzufügen. 
 \index{CPS85 Datensatz}
@@ -196,7 +197,6 @@ gf_point( time.til.next ~ duration, data = faithfulLong)
 
 Dataframes können mit der Funktion `arrange()` sortiert werden.
 
-\index{arrange()}
 ```{r}
 head(faithful, 3)
 
@@ -207,6 +207,8 @@ head(sorted, 3)
 :::{.achtung data-latex="{achtung}"}
 Es ist normalerweise besser, neue Datensätze zu erstellen, als das Original zu modifizieren.
 :::
+
+\index{arrange()}
 
 
 ## Zusammenfügen von Dataframes
@@ -221,7 +223,6 @@ fusion1 <- arrange(FUSION1, id)
 head(fusion1, 3)
 ```
 
-\index{arrange()}
 
 ```{r}
 data(pheno)
@@ -233,6 +234,7 @@ library(tidyr)
 fusion1m <- inner_join(fusion1, Pheno, by='id')
 head(fusion1m, 3)
 ```
+\index{inner\_join()}
 
 Jetzt sind wir bereit, mit der Analyse zu beginnen.
 
@@ -260,7 +262,7 @@ Traffic
 
 Wir können dies so umformen, dass jede Zeile eine Messung für einen einzelnen Staat in einem Jahr enthält.
 \index{data()}
-\index{library()}
+\index{head()}
 
 ```{r}
 longTraffic <- Traffic %>% 
@@ -280,8 +282,6 @@ stateTraffic <- longTraffic %>%
 
 stateTraffic
 ```
-\index{inner\_join}
-\index{head()}
 \index{paste()}
 \index{spread()}
 
@@ -307,7 +307,7 @@ HELPrct <- mutate(HELPrct,
 
 gf_boxplot(cesd ~ cesdcut, data = HELPrct)
 ```
-\index{gf\_boxplot}}
+\index{gf\_boxplot()}
 \index{include.lowest Option}
 
 Es bietet sich an, die Labels besser zu bezeichnen.
@@ -397,7 +397,6 @@ favstats(agebygroup ~ substance, data = HELPmerged)
 nrow(HELPmerged)
 ```
 \index{nrow()}
-\index{Faktoren neu ordnen}
 \index{left\_join()}
 
 ## Umgang mit fehlenden Werten {#missings}
@@ -421,6 +420,7 @@ summary(smaller)
 
 Von den 470 Probanden in den 6 Variablen des Dataframes haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
 \index{summary()}
+\index{is.na()}
 
 ```{r}
 favstats(~ mcs, data = smaller)
@@ -437,7 +437,6 @@ ncol(nomiss)
 favstats(~ mcs, data = nomiss)
 ```
 
-\index{is.na()}
 \index{ncol()}
 \index{with()}
 \index{sum()}
