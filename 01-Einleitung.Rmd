@@ -1,12 +1,13 @@
 # Einleitung
 
-Dieses Buch beinhaltet einen Überblick über die Befehle und Funktionen, die zur Datenanalyse im im Rahmen von Statistik-Modulen für Einsteiger und Fortgeschrittene benötigt werden. Ziel ist es, eine Ergänzung zu den Büchern *Start Teaching with R* [@TeachingR] und *Start Modeling with R* [@ModelingR] zur Verfügung zu stellen.
+Dieses Buch beinhaltet einen Überblick über die Befehle und Funktionen, die zur Datenanalyse im Rahmen von Statistik-Modulen für Einsteiger und Fortgeschrittene benötigt werden. Ziel ist es, eine Ergänzung zu den Büchern *Start Teaching with R* [@TeachingR] und *Start Modeling with R* [@ModelingR] zur Verfügung zu stellen.
 
 \index{\textit{Start Teaching with R}}
 \index{\textit{Start Modeling with R}}
 \index{\textit{Teaching with R}}
 
 In den meisten der hier verwendeten Beispiele werden Daten der HELP-Studie (Health Evaluation and Linkage to Primary Care) verwendet: Ein randomisiertes klinisches Experiment mit einer neuen Vorgehensweise, um Risikopatienten mit Leistungsanbietern der medizinischen Grundversorgung zusammenzubringen. Ausführlichere Informationen zu dem Datensatz sind in Kapitel \@ref(HELPstudie) enthalten.
+\index{HELP-Studie}
 
 Die Themenauswahl und -reihenfolge ist von Lehrbuch zu Lehrbuch und auch von Kurs zu Kurs im statistischen Bereich z. T. sehr unterschiedlich gestaltet. In diesem Buch orientiert sich die Gliederung an der Art der Daten, die analysiert werden sollen. Damit soll das Nachschlagen und Auffinden benötigter Informationen vereinfacht werden. Gewisse Fähigkeiten im Bereich des Datenmanagements sind für Studierende essentiell [@ChanceInClass]. Für die wichtigsten Kernbegriffe findet sich hierzu eine Einführung in Kapitel \@ref(datenmanagement).
 

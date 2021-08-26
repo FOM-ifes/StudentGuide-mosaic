@@ -9,6 +9,8 @@ Wir können ein zwei- (oder mehr-) faktorielles ANOVA-Modell, mit oder ohne Inte
 \index{gf\_boxplot()}
 \index{labels Option}
 \index{levels Option}
+\index{median()}
+\index{mutate()}
 
 ```{r}
 HELPrct <- mutate(HELPrct, 
@@ -25,9 +27,7 @@ summary(aov(cesd ~ substance + sex, data=HELPrct))
 
 summary(aov(cesd ~ substance * sex, data=HELPrct))
 ```
-\index{mutate()}
 \index{aov()}
-\index{median()}
 \index{summary()}
 
 Es deutet wenig auf eine Interaktion hin, obwohl signifikante Haupteffekte für die Variablen `Substanzgruppen` und `sex` bestehen.
@@ -47,7 +47,7 @@ plotModel(mod)
 \index{Multiple Regression}
 Die multiple Regression ist eine logische Erweiterung der vorangegangenen Befehle, bei der zusätzliche Prädiktoren hinzugefügt werden. Damit können die Studierenden versuchen, multivariate Beziehungen zu analysieren.
 
-:::{.note data-latex="{note}"}
+:::{.infobox data-latex="{infobox}"}
 Wir neigen dazu, multiple lineare Regression zeitig als eine rein deskriptive Methode in unseren Kursen einzuführen, und dann immer wieder zu ihr zurückzukehren. Die Beweggründe werden ausführlich im Begleitmaterial *Start Modeling with R* [@ModelingR] beschrieben
 :::
 
@@ -61,6 +61,7 @@ msummary(lmnointeract)
 
 Wir können ebenso ein Modell erstellen, das eine Interaktion zwischen `MCS` und `sex` einschließt.
 
+\index{msummary()}
 ```{r}
 lminteract <- lm(cesd ~ mcs + age + sex + mcs:sex, data= HELPrct)
 
@@ -73,7 +74,6 @@ anova(lmnointeract, lminteract)
 
 Es deutet wenig auf einen Interaktionseffekt hin, so dass wir diesen aus dem Modell entfernen können.
 
-\index{msummary()}
 \index{anova()}
 
 ### Visualisierung der Regressionsergebnisse {#VisReg}
@@ -81,16 +81,19 @@ Es deutet wenig auf einen Interaktionseffekt hin, so dass wir diesen aus dem Mod
 
 Die Funktionen `makeFun()` und `plotFun()`aus dem Paket `mosaic` können zur Darstellung vorhergesagter Werte des Regressionsmodells verwendet werden. In diesem Beispiel können wir die vorhergesagten CESD-Werte für einen MCS-Wertebereich (mental component score) ausgeben, die eine hypothetisch 36-jährige  männliche und weibliche Person in einem Modell mit parallelen Steigungen (keine Interaktion) haben könnte.
 
+\index{plotFUN()}
+
 ```{r}
 lmfunction <- makeFun(lmnointeract)
 ```
 
 \index{makeFun()}
-\index{plotFun()}
 Wir können nun die vorhergesagten Werte -- getrennt für männliche und weibliche Probanden -- über den  MCS-Wertebereich (mental component score), zusammen mit den beobachteten Werten aller 36-Jährigen darstellen.
 \index{color Option}
 \index{filter()}
 \index{gf\_point()}
+\index{xlim Option}
+\index{ylab Option}
 
 ```{r}
 gf_point(cesd ~ mcs, color = ~ sex,
@@ -105,15 +108,14 @@ gf_point(cesd ~ mcs, color = ~ sex,
 \index{gf\_fun()}
 \index{linetype Option}
 \index{size Option}
-\index{xlim Option}
-\index{ylab Option}
 
 ### Koeffizientendarstellung
 \index{Regression!Diagnostik}
 
 Manchmal ist es nützlich eine Darstellung der Koeffizienten eines multiplen Regressionsmodells (zusammen mit den entsprechenden Konfidenzintervallen) zu erstellen:
 
-
+\index{mplot()}
+\index{which Option}
 ```{r}
 mplot(lmnointeract, rows = -1, which = 7)
 ```
@@ -122,13 +124,10 @@ mplot(lmnointeract, rows = -1, which = 7)
 Dunklere bzw. hier die blauen Punkte weisen auf Regressionskoeffizienten hin, bei denen das 95%-Konfidenzinterval nicht den Wert Null der Nullhypothese beinhaltet.
 :::
 
-\index{which Option}
-
 :::{.achtung data-latex="{achtung}"}
 Vorsicht bei der Generierung eines Regressionsmodells bei Vorliegen von fehlenden Werten (siehe Abschnitt \@ref(missings))
 :::
 
-\index{mplot()}
 
 ### Residuenanalyse
 \index{Residuenanalyse}
@@ -138,8 +137,9 @@ Es ist recht einfach die Residuen des Modells auszuwerten. Wir beginnen damit, d
 :::{.note data-latex="{note}"}
 Die Funktion `mplot()` kann ebenfalls zur Erstellung dieser Grafiken verwendet werden.
 :::
+\index{mplot()}
 
-:::{.note data-latex="{note}"}
+:::{.hinweis data-latex="{hinweis}"}
 Hier fügen wir zwei neue Variablen zu einem bestehenden Datensatz hinzu. Es ist häufig eine gute Programmierpraxis, dem daraus resultierenden Datensatz einen neuen Namen zu geben. Für dieses Dokument behalten wir den Namen allerdings der Einfachheit halber bei.
 :::
 
@@ -148,6 +148,7 @@ Hier fügen wir zwei neue Variablen zu einem bestehenden Datensatz hinzu. Es ist
 \index{fitted()}
 \index{gf\_dhistogram()}
 \index{gf\_fitdistr()}
+\index{resid()}
 
 ```{r}
 HELPrct <- mutate(HELPrct, 
@@ -160,7 +161,6 @@ gf_dhistogram(~ residuals, data= HELPrct) %>%
 
 Wir können den Teil der Beobachtungen mit extrem hohen Residuen bestimmen.
 \index{abs()}
-\index{resid()}
 
 ```{r, tidy=FALSE}
 filter(HELPrct, abs(residuals)>25)

@@ -70,6 +70,8 @@ Mehrere Verteilungen können in einer Grafik angezeigt werden:
 \index{fill Option}
 \index{geom Option}
 \index{gf\_labs()}
+\index{pch Option}
+\index{sqrt()}
 
 ```{r}
 gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7), 
@@ -77,7 +79,6 @@ gf_dist("norm", mean = 50 * .3, sd = sqrt(50 * .3 * .7),
   gf_dist("binom", size = 50, prob = .3, col = "black", pch = 16) %>%
   gf_labs(fill = "Intervals")
 ```
-\index{pch Option}
 
 Die Funktion `gf_fun()` kann genutzt werden, um eine beliebige Funktion darzustellen (hier im Beispiel eine exponentielle Zufallsvariable).
 \index{gf\_fun()}

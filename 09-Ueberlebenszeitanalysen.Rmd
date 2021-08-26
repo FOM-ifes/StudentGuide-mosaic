@@ -6,6 +6,11 @@ Umfangreiche Unerstützung für Überlebensanalysen (Zeitspanne bis zum Eintrete
 ## Kaplan-Meier-Kurve
 
 \index{Kaplan-Meier-Kurve}
+\index{survfit()}
+\index{title Option}
+\index{xlab Option}
+\index{ylab Option}
+
 ```{r}
 library(survival)
 library(broom)
@@ -23,10 +28,6 @@ gf_step(fit, estimate ~ time, linetype = ~ strata,
 
 Wir sehen, dass die Probanden der Behandlungsgruppe (Einschätzung des Gesundheitszustand und Anbindung an Grundversorgung) eine signifikant höhere Wahrscheinlichkeit hatten, sich an die Grundversorgung anzubinden (eine geringere Wahrscheinlichkeit zu "überleben"), als die Kontrollgruppe (übliche Versorgung).
 
-\index{xlab Option}
-\index{ylab Option}
-\index{title Option}
-\index{survfit()}
 \index{Surv()}
 
 

@@ -51,7 +51,7 @@ with(HELPrct, CrossTable(homeless, sex,
 \index{with()}
 Grafische Zusammenfassungen von Kreuztabellen können ebenfalls sehr nützlich sein. Mosaikplots sind ein Beispiel. Wir sehen (an der Höhe der Flächen), dass der Frauenanteil unter den Obdachlosen vergleichsweise geringer ist als bei den Nicht-Obdachlosen. Insgesamt sind in der Stichprobe und je Gruppe mehr männliche Teilnehmer enthalten, was an der Breite der Flächen zu erkennen ist.
 
-:::{.achtung data-latex="{achtung}"}
+:::{.hinweis data-latex="{hinweis}"}
 Die Fachwelt ist immer noch unentschlossen in Bezug auf den Nutzen von Mosaikplots, aufgrund von
 ihrem geringen data-to-ink-ratio (Daten-Tinten-Verhältnis). Wir haben sie als hilfreich empfunden, um Kontingenztabellen besser zu verstehen [@tufte2001].
 :::

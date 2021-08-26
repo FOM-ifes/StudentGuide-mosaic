@@ -47,9 +47,12 @@ median(~ cesd, data=HELPrct)
 ```
 Nach dem gleichen Muster lassen sich auch Quantile der Verteilung berechnen:  
 
+\index{Quantile}
 \index{sd()}
 \index{var()}
 \index{median()}
+\index{quantile()}
+
 Standardmäßig stellt die Funktion `quantile()` die Quartile dar, aber ihr kann auch ein Vektor der gewünschten Quantile übergeben werden:  
 
 ```{r}
@@ -62,8 +65,6 @@ with(HELPrct, quantile(cesd, c(.025, .975)))
 Nicht alle Befehle wurden schon für die Nutzung des Formel-Interfaces überarbeitet. Für diese Funktionen muss für den Zugriff auf Variablen innerhalb eines Datensatzes `with()` oder das \$-Zeichen genutzt werden.
 :::
 
-\index{quantile()}
-\index{Quantile}
 
 Schließlich stellt die Funktion `favstats()` (für favorite stats) im Paket `mosaic` eine prägnante Zusammenfassung einiger nützlicher Kennzahlen dar: 
 
@@ -197,16 +198,18 @@ Dichteplots sind ebenfalls abhängig von diversen Optionen. Wenn Ihr Dichteplot 
 Die Funktion `plotFun()` kann für Anmerkungen an Plots genutzt werden (s. Kapitel \@ref(VisReg)).
 :::
 
+\index{plotFUN()}
 
 Hier versehen wir einen Dichteplot mit einigen zusätzlichen Inhalten, um zu zeigen, wie eine Grafik für didaktische Ziele aufgebaut wird. Wir fügen Text hinzu, legen eine Normalverteilung darüber und ergänzen eine vertikale Linie. Eine Vielzahl von Linienarten, -farben und -stärken stehen zur Auswahl.
 
-\index{plotFun()}
 \index{annotate()}
 \index{geom Option}
 \index{gf\_dens()}
 \index{gf\_refine()}
 \index{gf\_vline()}
 \index{label Option}
+\index{xintercept Option}
+\index{xlim()}
 ```{r, fig.keep='last'}
 gf_dens(~ cesd, data = Female) %>% 
     gf_refine(annotate(geom = "text", x = 10, y = .025, 
@@ -215,8 +218,6 @@ gf_dens(~ cesd, data = Female) %>%
     gf_vline(xintercept = 60) + 
     xlim(0, 80)
 ```
-\index{xintercept Option}
-\index{xlim()}
 
 
 ## Häufigkeitspolygone
@@ -238,11 +239,10 @@ xpnorm(1.96, mean = 0, sd = 1)
 ```
 \index{xpnorm()}
 
-:::{.note data-latex="{note}"}
+:::{.infobox data-latex="{infobox}"}
 x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
 :::
 
-\index{plotFUN()}
 
 ## Inferenz einer einzelnen Stichprobe {#bootstrap}
 Das 95%-Konfidenzintervall für den Mittelwert des CESD-Wertes der Frauen wird bei der Durchführung eines t-Tests mit ausgegeben:
@@ -273,11 +273,9 @@ Ein erstes Resampeln führt zu diesem Ergebnis
 mean( ~ cesd, data = resample(Female))
 ```
 
-:::{.note data-latex="{note}"}
+:::{.hinweis data-latex="{hinweis}"}
 Hier resampeln wir durch Ersetzen des Original-Datensatzes, indem wir einen Pseudo-Zufalls-Datensatz mit der gleichen Anzahl von Zeilen erzeugen.
-:::
 
-:::{.note data-latex="{note}"}
 Auch wenn eine einzige Stichprobe von geringem Nutzen ist, so ist es doch sinnvoll, die Berechnung einmal selbst durchzuführen, um zu sehen, dass Sie (normalerweise!) ein anderes Ergebnis erhalten als ohne Resampling.
 :::
 

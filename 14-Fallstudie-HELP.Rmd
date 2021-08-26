@@ -1,6 +1,7 @@
 # Fallstudie Gesundheitsevalution (HELP-Studie) {#HELPstudie}
 
 \index{Fallstudie Gesundheitsevalution (HELP - Studie)}
+\index{HELP-Studie}
 
 Viele Beispiele in diesem Buch greifen auf Daten der \textsc{HELP}-Studie (Health Evaluation and Linkage to Primary Care) zurück. Bei dieser Studie handelt es sich um eine randomisierte klinische Studie mit Patienten, aus einer stationären Drogenentzugsanstalt. Patienten ohne laufende allgemeinmedizinische Versorgung wurden randomisiert entweder in einer Gruppe, in der sie eine multidisziplinäre Untersuchung und eine kurze Motivationsintervention erhielten, oder einer Gruppe mit Standardbehandlung zugeteilt. Ziel war diese Patienten an die medizinische Grundversorgung anzubinden.^[Die \textsc{HELP}-Studie wurde finanziert durch das *National Institute on Alcohol Abuse and Alcoholism* (R01-AA10870, Samet PI) sowie das *National Institute on Drug Abuse* (R01-DA10019, Samet PI).] Die Ergebnisse der Studie wurden zusammen mit einer Reihe von zusätzlichen Analysen veröffentlicht [@samet2003; @liebschutz2002; @kertesz2003].
 

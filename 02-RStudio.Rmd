@@ -20,7 +20,7 @@ Die Verwendung von \textsf{RStudio} in einem Browser ist wie Facebook für Stati
 - \textsf{RStudio} ist ein Tool, das die Erstellung reproduzierbarer Forschung unterstützt. \textsf{RStudio} vereinfacht es, Text, statistische Analysen (\textsf{R} Code und \textsf{R} Output) sowie Abbildungen in ein und demselben Dokument zu erstellen. Das \textsc{RMarkdown}-System bietet eine einfache \textsc{Markup}-Sprache und fügt die Ergebnisse in HTML zusammen. Das \textsc{knitr/LaTeX}-System versetzt Nutzerinnen und Nutzer in die Lage, auch \textsf{R} und \textsc{LaTeX} in dasselbe Dokument zu integrieren. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden. 
 
 
-::: {.note data-latex="{note}"}
+::: {.achtung data-latex="{achtung}"}
 Um \textsc{Markdown} oder \textsc{knitr/LaTeX} zu verwenden, muss das Paket `knitr` auf dem System installiert sein.
 :::
 
@@ -40,7 +40,7 @@ Wir verwenden in erster Linie eine Online-Version von \textsf{RStudio}. \textsf{
 ## Mit einem RStudio Server verbinden
 \textsf{RStudio}-Server wurden an Hochschulen eingerichtet, um einen cloud-basierten Service zu bieten. 
 
-::: {.note data-latex="{note}"}
+::: {.hinweis data-latex="{hinweis}"}
 \textsf{RStudio}-Server wurden schon an vielen Institutionen installiert. Nähere Informationen zu (gebührenfreien) akademischen Lizenzen für \textsf{RStudio} Server Pro und Installationsanweisungen sind über [http://www.rstudio.com/resources/faqs](http://www.rstudio.com/resources/faqs) unter dem \textsc{Academic} Reiter verfügbar.
 Der \textsf{RStudio}-Server funktioniert mit dem Internet Explorer allerdings nicht sehr zuverlässig.
 :::
@@ -66,6 +66,7 @@ Sie können feststellen, dass \textsf{RStudio} seine Arbeitsumgebung in vier Ber
 Befehle, die in der \textsc{Console} eingegeben werden, werden direkt von \textsf{R} ausgeführt. Auch hier ist die Ausführung einfacher Berechnungen ein guter Start, um sich mit der Konsole vertraut zu machen. Das meiste funktioniert analog zum einfachen Taschenrechner. 
 
 Geben Sie folgende Befehle in der \textsc{Console} ein:
+\index{sqrt()}
 ```{r}
 5 + 3
 
@@ -86,7 +87,7 @@ product <- 15.3 * 23.4      # <- kann verwendet werden statt =
 product  
 ```
 
-::: {.note data-latex="{note}"}
+::: {.hinweis data-latex="{hinweis}"}
 Es ist wahrscheinlich am besten, sich für eine der beiden Zuweisungsmöglichkeiten zu entscheiden, statt zwischen beiden zu wechseln. Wir bevorzugen den Pfeiloperator, weil er visuell darstellt, was in einer Zuweisung passiert und weil er einer Verwechslung mit dem mathematischen Gleichheitszeichen vorbeugt. So wird `=` verwendet, um Werte für Funktionsargumente bereitzustellen, und `==` wird benötigt, um Werte auf Gleichheit zu testen.
 :::
 
@@ -114,8 +115,8 @@ product <- 15.3 * 23.4; product    # speichere das Ergebnis und zeige es an
 
 
 ### Information zur Version
-
-\index{sqrt}
+\index{RStudio.Version()}
+\index{sessionInfo()}
 
 Manchmal kann es nützlich sein zu prüfen, welche Versionen des Paketes `mosaic`, von \textsf{R} sowie
 \textsf{RStudio} Sie verwenden. Die Eingabe von `sessionInfo()` zeigt Informationen über die Version von \textsf{R} und die geladenen Pakete an, während  `RStudio.Version()` die Version von \textsf{RStudio} ausgibt.
@@ -124,8 +125,6 @@ Manchmal kann es nützlich sein zu prüfen, welche Versionen des Paketes `mosaic
 sessionInfo()
 ```
 
-\index{sessionInfo()}
-\index{RStudio.Version()}
 
 ## Arbeiten mit Dateien
 

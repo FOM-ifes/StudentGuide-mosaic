@@ -128,12 +128,12 @@ pre code {
   background: #fcfcfc 5px center/3em no-repeat;
 }
 .note:after {
-  content: "\f0a4";
+  content: "\f085";
   font-family: FontAwesome;
   left:10px;
   position:absolute;
   top:.5px;
-  font-size: 15px;
+  font-size: 25px;
   color: #00998a;
 }
 

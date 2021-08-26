@@ -48,7 +48,7 @@ alpha
 ```
 
 Zunächst bestimmen wir den Ablehnungsbereich:
-
+\index{sqrt()}
 ```{r}
 n <- 25
 sigma <- 1 # given

@@ -41,6 +41,7 @@ gf_text(Murder ~ Assault,
 ## Korrelationen
 Korrelationen können für Variablenpaare und für Variablenmatrizen berechnet werden.
 \index{Korrelationen}
+\index{select()}
 
 ```{r}
 cor(cesd ~ mcs, data = Female)
@@ -48,7 +49,6 @@ cor(cesd ~ mcs, data = Female)
 smallHELP <- select(Female, cesd, mcs, pcs)
 cor(smallHELP)
 ```
-\index{select()}
 \index{cor()}
 
 Der Korrelationskoeffizient von Pearson ist voreingestellt. Andere Methoden (z.\ B. Spearman) können mit der Option `method` gewählt werden.
@@ -82,7 +82,7 @@ ggpairs(smallHELP)
 \index{Lineare Regression}
 \index{Regression}
 
-:::{.note data-latex="{note}"}
+:::{.infobox data-latex="{infobox}"}
 Normalerweise führen wir die einfache lineare Regression als deskriptive Methode zu einem sehr frühen Zeitpunkt einer Lehrveranstaltung ein.
 :::
 
@@ -98,13 +98,15 @@ coef(cesdmodel)
 \index{coef()}
 \index{lm()}
 
-:::{.note data-latex="{note}"}
+:::{.hinweis data-latex="{hinweis}"}
 Es ist wichtig, möglichst eindeutige Bezeichnungen für die einzelnen Modellobjekte zu finden. Hier wird der Output von `lm()` als `cesdmodel` gespeichert.
 Damit wird darauf hingewiesen, dass das Regressionsmodell depressive Beschwerden beschreibt.
 :::
 
 Um den Output übersichtlicher zu gestalten, schalten wir die Option, die Signifikanzen mit Sternchen zu markieren, ab.
 
+\index{msummary()}
+\index{options()}
 ```{r}
 options(show.signif.stars = FALSE)
 
@@ -121,8 +123,7 @@ rsquared(cesdmodel)
 
 class(cesdmodel)
 ```
-\index{options()}
-\index{msummary()}
+
 \index{confint()}
 \index{class()}
 \index{rsquared()}
@@ -175,6 +176,7 @@ mplot(cesdmodel, which = 2)
 ```
 
 \index{mplot()}
+\index{Scale-Location-Plot}
 Mit `which = 3` kann ein Scale-Location-Plot erstellt werden:
 
 ```{r}
@@ -182,7 +184,6 @@ mplot(cesdmodel, which = 3)
 ```
 
 \index{which Option}
-\index{Scale-Location-Plot}
 
 Das Cook's Abstandsmaß in Abhängigkeit von der Beobachtungsnummer wird bei `which = 4` ausgegeben:
 \index{Cook's Abstandsmaß}
@@ -207,6 +208,7 @@ Vorhersageintervalle können mit Hilfe der Option `interval` in die Funktion `gf
 \index{fill Option}
 \index{gf\_lm()}
 \index{interval Option}
+\index{Vorhersageintervalle}
 
 ```{r}
 gf_point(cesd ~ mcs, data = HELPrct) %>%
@@ -221,5 +223,3 @@ Dieses Model kann mit Hilfe des Modells `i1 ~ mcs` spezifiziert werden.
 
 Interpretieren Sie die Verteilung der Residuen.
 :::
-
-\index{Vorhersageintervalle}

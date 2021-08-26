@@ -9,13 +9,13 @@ Datenmanagement ist eine Schlüsselkompetenz, die es Studierenden (und Dozierend
 ## Überprüfung von Dataframes
 \index{Dataframes!Überprüfen}
 
-:::{.note data-latex="{note}"}
+:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
 Das Buch *Start Teaching with R* [@ModelingR] enthält einen umfangreichen Abschnitt über die Datenverwaltung, einschließlich der Verwendung der Funktion `read.file()` zum Laden von Daten in \textsf{R} und \textsf{RStudio}. 
 :::
 
 \index{read.file()}
 
-:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
+:::{.note data-latex="{note}"}
 Die Pakete `dplyr` und `tidyr` bieten einen eleganten Ansatz für das Datenmanagement und erleichtern das Arbeiten mit Daten. Hadley Wickham -- Autor der Pakete -- gibt an, dass mittels sechs der in diesen Paketen implementierten Schlüsselwörter (oder Verben) eine große Anzahl von Aufgaben erfüllt werden kann: Filtern (`filter` -- Zeilen beibehalten, die die angegebenen Kriterien erfüllen), Auswählen (`select` -- Spalten nach Namen auswählen), Anordnen (`arrange` -- Zeilen neu ordnen), Mutieren (`mutate` -- neue Variablen hinzufügen), Zusammenfassen (`summarise` -- Variablen auf zusammenfassende Statistiken reduzieren) und Gruppieren (`group by` - Gruppen zusammenfassen). Siehe [https://nhorton.people.amherst.edu/precursors/](https://nhorton.people.amherst.edu/precursors/) für weitere Details und Ressourcen.
 :::
 \index{dplyr Paket}
@@ -37,7 +37,7 @@ Der `iris`-Datensatz enthält eine kategoriale und vier quantitative Variablen.
 ## Hinzufügen neuer Variablen zu einem Dataframe
 
 \index{\textsc{Pipe} Operator \small{\%<\%}}
-\index{Variablen hinzufügen}
+\index{Variablen!hinzufügen}
 
 Wir können zusätzliche Variablen zu einem bestehenden Dataframe mit `mutate()` hinzufügen. Aber zuerst erstellen wir eine kleinere Version des `iris`-Datensatzes.
 \index{mutate()}
@@ -96,7 +96,7 @@ tally(~ (exper - workforce.years), data = CPS85)
 
 
 ## Variablen löschen
-\index{Variablen löschen}
+\index{Variablen!löschen}
 
 Da wir die Variable `exper` bereits haben, gibt es keinen Grund unsere neue Variable zu behalten. Eliminieren wir diese also wieder. Beachten Sie die geschickte Verwendung des Minuszeichens.
 
@@ -118,14 +118,13 @@ CPS1 <- select(CPS85, select = -matches("workforce.years|exper"))
 \index{select Option}
 
 ## Variablen umbenennen
-\index{Variablen umbenennen}
+\index{Variablen!umbenennen}
 
 Die Spaltennamen (Variablen) für einen Dataframe können mit der Funktion `rename()` aus dem Paket `dplyr` geändert werden.
 
 ```{r}
 names(CPS85)
 ```
-\index{names()}
 \index{rename()}
 
 ```{r}
@@ -134,6 +133,7 @@ names(CPSnew)
 ```
 
 Die Zeilennamen eines Dataframes können durch einfache Zuweisung mittels `row.names()` geändert werden.
+\index{row.names()}
 
 Der `faithful`-Datensatz (im Paket `datasets`, welches immer verfügbar ist) hat sehr unglückliche Namen.
 
@@ -141,9 +141,8 @@ Der `faithful`-Datensatz (im Paket `datasets`, welches immer verfügbar ist) hat
 names(faithful)
 ```
 \index{faithful Datensatz}
-\index{row.names()}
 
-:::{.tiefereinsteigen data-latex="{tiefereinsteigen}"}
+:::{.hinweis data-latex="{hinweis}"}
 Es ist ratsam, vom ersten Tag an Praktiken für die Auswahl von Variablennamen festzulegen.
 :::
 
@@ -250,6 +249,8 @@ Das Paket `tidyr` bietet eine flexible Möglichkeit, die Anordnung der Daten zu 
 
 Eine häufige Situation ist es, von einer breiten Form in eine lange Form zu konvertieren, um die Perspektive darüber, was eine Beobachtungseinheit ist, zu änder. Zum Beispiel ist im `traffic`-Dataframe jede Zeile ein Jahr, und es werden Daten für mehrere Staaten bereitgestellt.
 
+\index{Vignette}
+
 :::{.note data-latex="{note}"}
 Die Vignetten, die in den Paketen `tidyr` und `dplyr` enthalten sind, bieten eine Reihe nützlicher Beispiele für gängige Datenmanipulationen.
 :::
@@ -274,6 +275,8 @@ head(longTraffic)
 
 Wir können auch in die andere Richtung umformen, diesmal mit allen Daten für einen bestimmten Staat in einer Zeile im Dataframe.
 
+\index{paste()}
+\index{spread()}
 ```{r}
 stateTraffic <- longTraffic %>% 
   select(year, deathRate, state) %>%
@@ -282,14 +285,13 @@ stateTraffic <- longTraffic %>%
 
 stateTraffic
 ```
-\index{paste()}
-\index{spread()}
 
 
 ## Neue Variablen hinzufügen
+\index{Neue Variablen hinzufügen}
 
 Eine Reihe von Funktionen erleichtern die Erstellung oder Neukodierung von Variablen.
-\index{Variablen bearbeiten}
+\index{Variablen!bearbeiten}
 
 ### Kategoriale aus einer quantitativen Variable erstellen
 
@@ -360,7 +362,6 @@ HELPrct <- mutate(HELPrct, subnew = relevel(substance, ref="heroin"))
 coef(lm(cesd ~ subnew, data=HELPrct))
 ```
 
-\index{Neue Variablen hinzufügen}
 
 ## Gruppenstatistiken
 
@@ -403,6 +404,7 @@ nrow(HELPmerged)
 
 \index{Fehlende Werte}
 \index{Umgang mit fehlenden Werten}
+\index{NA Zeichenkette}
 
 Fehlende Werte entstehen in fast allen Untersuchungen der realen Welt. \textsf{R} verwendet das `NA`-Zeichen als Indikator für fehlende Werte. Der `HELPmiss`-Datensatz innerhalb des Paketes `mosaicData` umfasst alle $n = 470$ Probanden, die zu Studienbeginn eingeschrieben sind (einschließlich der $n = 17$ Probanden mit einigen fehlenden Werten, die nicht in `HELPrct` enthalten waren).
 
@@ -421,6 +423,8 @@ summary(smaller)
 Von den 470 Probanden in den 6 Variablen des Dataframes haben nur die Variablen `drugrisk`, `indtot`, `mcs`, und `pcs` fehlende Werte.
 \index{summary()}
 \index{is.na()}
+\index{sum()}
+\index{with()}
 
 ```{r}
 favstats(~ mcs, data = smaller)
@@ -438,8 +442,6 @@ favstats(~ mcs, data = nomiss)
 ```
 
 \index{ncol()}
-\index{with()}
-\index{sum()}
 Alternativ könnten wir den gleichen Datenbestand mit Hilfe von logischen Bedingungen erzeugen:
 
 ```{r}
@@ -448,5 +450,4 @@ nomiss <- filter(smaller,
 dim(nomiss)
 ```
 
-\index{NA Zeichenkette}
 \index{na.omit()}

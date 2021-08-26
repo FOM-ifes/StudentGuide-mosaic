@@ -5,8 +5,10 @@
 Die logistische Regression ist mit dem Befehl `glm()` durchführbar. Dieser unterstützt eine Vielzahl von Linkfunktionen und Verteilungsformen für generalisierte lineare Modelle, einschließlich der logistischen Regression.
 
 :::{.note data-latex="{note}"}
-Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit`-Link ist bereits die Voreinstellung für die Binomialverteilung, so dass wir dies hier nicht angeben müssen. Die ausführlichere Angabe wäre `family=binomial(link=logit)`.
+Der Befehl `glm()` beinhaltet das Argument `family`, mit dem eine Option `link` angegeben werden kann.  Der `logit`-Link ist bereits die Voreinstellung für die Binomialverteilung, so dass wir dies hier nicht angeben müssen. Die ausführlichere Angabe wäre `family = binomial(link = logit)`.
 :::
+
+\index{msummary()}
 
 ```{r}
 logitmod <- glm(homeless ~ age + female, 
@@ -19,7 +21,6 @@ exp(coef(logitmod))
 exp(confint(logitmod))
 ```
 \index{family Option}
-\index{msummary()}
 \index{exp()}
 \index{coef()}
 \index{confint()}
@@ -27,6 +28,7 @@ exp(confint(logitmod))
 
 Wir können zwei Modelle vergleichen (für Tests mit mehreren Freiheitsgraden). Beispielsweise könnte uns der Zusammenhang von Obdachlosenstatus und dem Alter je Drogenkonsumgruppe interessieren.
 \index{anova()}
+\index{test Option}
 
 ```{r}
 mymodsubage <- glm((homeless == "homeless") ~ age + substance, 
@@ -41,7 +43,6 @@ exp(coef(mymodsubage))
 anova(mymodage, mymodsubage, test = "Chisq")
 ```
 
-\index{test Option}
 
 Wir stellen fest, dass unter Einbeziehung des Alters, die Kokain und Heroin konsumierenden Gruppen signifikant seltener obdachlos sind als die Personen, die der Alkohol konsumierenden Gruppe zugehörig sind.
 (Ein ähnliches Ergebnis zeigt sich, wenn nur der Obdachlosenstatus und die Substanz betrachtet werden).
