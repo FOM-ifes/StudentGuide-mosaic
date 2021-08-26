@@ -168,7 +168,7 @@ Das Hilfemenü enthält eine \glqq Markdown Quick Reference\grqq{} und bietet ei
 Es ist wichtig zu beachten, dass im Gegensatz zu \textsf{R} Skripten, die in der Konsole ausgeführt werden und Zugriff auf die Konsolenumgebung haben, \textsc{R Markdown}- und \textsc{knitr/LaTeX}-Dateien keinen Zugriff auf die Konsolenumgebung haben. Das ist von Vorteil, weil diese Dateien damit in sich geschlossen und eigenständig lauffähig sein müssen. Diese Eigenschaft ermöglicht die Übertragbarkeit dieser Dateien und unterstützt somit gute Praktiken der reproduzierbaren Forschung. Anfänger und Anfängerinnen, insbesondere wenn sie Analyseschritte in der Konsole ausprobieren und den Code dann über \glqq Kopieren und Einfügen \grqq{} in die Datei schreiben, werden zunächst noch häufig Dateien kreieren, die nicht vollständig sind und deshalb nicht korrekt kompiliert werden.
 
 
-## Weitere Bereiche (*Panel*) und Reiter
+## Weitere Bereiche (Panel) und Reiter
 ### Verlauf (History)
   
 Wenn Befehle in der \textsc{Console} eingetragen werden, dann erscheinen Sie in im Reiter Verlauf (\textsc{History}). Dieser Verlauf kann gespeichert und geladen werden, es gibt eine Suchfunktion, um vorhergehende Befehle zu finden und einzelne Zeilen oder Abschnitte können an die Konsole geschickt werden. Mit geöffnetem \textsc{History}-Reiter können Sie zurück blättern und auf die vorangegangenen Befehle zugreifen. Das ist vor allem dann nützlich, wenn Befehle viel Output erzeugen und schnell aus dem Bildschirm verschwinden.
