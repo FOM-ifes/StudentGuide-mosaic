@@ -240,7 +240,7 @@ xpnorm(1.96, mean = 0, sd = 1)
 \index{xpnorm()}
 
 :::{.infobox data-latex="{infobox}"}
-x steht in der Funktion `xpnorm()` für eXtra (außerhalb).
+x steht in der Funktion `xpnorm()` für eXtra (erweitert).
 :::
 
 

@@ -17,7 +17,7 @@ Die Desktop- und Server-Versionen von \textsf{RStudio} sind so ähnlich, dass Si
 Die Verwendung von \textsf{RStudio} in einem Browser ist wie Facebook für Statistik. Jedes Mal, wenn Sie sich erneut anmelden, wird die vorherige Session wiederhergestellt und Sie können weitermachen, wo Sie zuletzt aufgehört haben. Sie können sich von jedem Gerät mit Internetzugriff anmelden.
 :::
 
-- \textsf{RStudio} ist ein Tool, das die Erstellung reproduzierbarer Forschung unterstützt. \textsf{RStudio} vereinfacht es, Text, statistische Analysen (\textsf{R} Code und \textsf{R} Output) sowie Abbildungen in ein und demselben Dokument zu erstellen. Das \textsc{RMarkdown}-System bietet eine einfache \textsc{Markup}-Sprache und fügt die Ergebnisse in HTML zusammen. Das \textsc{knitr/LaTeX}-System versetzt Nutzerinnen und Nutzer in die Lage, auch \textsf{R} und \textsc{LaTeX} in dasselbe Dokument zu integrieren. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden. 
+- \textsf{RStudio} ist ein Tool, das die Erstellung reproduzierbarer Forschung unterstützt. \textsf{RStudio} vereinfacht es, Text, statistische Analysen (\textsf{R} Code und \textsf{R} Output) sowie Abbildungen in ein und demselben Dokument zu erstellen. Das \textsc{R Markdown}-System bietet eine einfache \textsc{Markup}-Sprache und fügt die Ergebnisse in HTML zusammen. Das \textsc{knitr/LaTeX}-System versetzt Nutzerinnen und Nutzer in die Lage, auch \textsf{R} und \textsc{LaTeX} in dasselbe Dokument zu integrieren. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. Abhängig von der Niveaustufe des Kurses können Studierende eins dieser beiden Systeme für Hausarbeiten und Projekte verwenden. 
 
 
 ::: {.achtung data-latex="{achtung}"}
@@ -133,7 +133,7 @@ Eine Alternative ist es, \textsf{R}-Befehle in einer Datei zu speichern. \textsf
 Um eine Datei zu erstellen, gehen Sie in der Menüleiste auf \textsc{File}, dann \textsc{New File} und dann \textsc{R Script}. Es öffnet sich ein Editor-Fenster im \textsc{Source}-Panel.
 Hier kann \textsf{R} Code eingetragen werden und es stehen Schaltflächen und Menüpunkte zur Verfügung, um den gesamten Code (das sogenannte *Sourcing* der Datei), einzelne Zeilen oder einen ausgewählten Abschnitt der Datei auszuführen.
 
-### Arbeiten mit RMarkdown und knitr/LaTeX
+### Arbeiten mit R Markdown und knitr/LaTeX
 Eine dritte Alternative ist es \textsf{RStudio}s Unterstützung für reproduzierbare Forschung zu nutzen. Wenn Sie \textsc{LaTeX} schon kennen, werden Sie die Funktionialitäten des integrierten \textsc{knitr/LaTeX} erkunden wollen. Wenn Sie \textsc{LaTeX} noch nicht kennen, dann bietet das einfachere \textsc{R Markdown}-System eine gute Einführung in die Welt der reproduzierbaren Forschung. Es bietet auch eine gute Möglichkeit, Hausarbeiten und Berichte zu erstellen, die Text, \textsf{R} Code, \textsf{R} Output sowie Abbildungen enthalten. Um eine neue \textsc{R Markdown}-Datei zu erstellen, wählen Sie \textsc{File}, dann \textsc{New File}, dann \textsc{R Markdown}. Die Datei wird mit einer Kurzvorlage geöffnet, welche die \textsc{Markup}-Sprache skizziert.
 
 ```{r, echo=FALSE, fig.align='center', out.width="40%"}

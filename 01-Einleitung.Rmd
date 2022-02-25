@@ -40,21 +40,21 @@ Nachdem das Paket einmalig installiert wurde, kann es zur Verwendung der enthalt
 library(mosaic)
 ```
 
-\textsc{RMarkdown} bietet eine einfache Markup-Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es, Analysen reproduzierbar zu machen und Kopierfehler zu vermeiden.
+\textsc{R Markdown} bietet eine einfache Markup-Sprache, welche die Ergebnisse in PDF, Word oder HTML übersetzt. Das ermöglicht es, Analysen reproduzierbar zu machen und Kopierfehler zu vermeiden.
 \index{library()}
 \index{Pakete laden}
 
 ::: {.infobox data-latex="{infobox}"}
-Das \textsc{knitr/LATEX}-System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsc{LaTeX} im selben Dokument zu verknüpfen. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. \textsc{RMarkdown} ist jedoch deutlich einfacher zu erlernen und eignet sich auch für eine professionelle Arbeitsweise.
+Das \textsc{knitr/LATEX}-System erlaubt dem erfahrenen Nutzer \textsf{R} und \textsc{LaTeX} im selben Dokument zu verknüpfen. Durch das Erlernen dieses komplizierteren Systems hat man eine viel präzisere Kontrolle über das Ausgabeformat. \textsc{R Markdown} ist jedoch deutlich einfacher zu erlernen und eignet sich auch für eine professionelle Arbeitsweise.
 :::
 
 \index{\textsc{knitr}}
 
 ::: {.note data-latex="{note}"}
-Um \textsc{Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket `markdown` installiert sein.
+Um \textsc{R Markdown} oder \textsc{knitr/LATEX} nutzen zu können, muss das Paket `rmarkdown` installiert sein.
 :::
 
-Üblicherweise führen wir \textsc{RMarkdown} sehr früh in den Kursen ein und forden die Studierenden auf, dies für Seminar- und Hausarbeiten zu nutzen [@baumer2014r].
+Üblicherweise führen wir \textsc{R Markdown} sehr früh in den Kursen ein und forden die Studierenden auf, dies für Seminar- und Hausarbeiten zu nutzen [@baumer2014r].
 
 \index{markdown}
 \index{Reproduzierbare Analyse}
